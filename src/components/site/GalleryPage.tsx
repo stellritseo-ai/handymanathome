@@ -3,14 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 
-// Hero static video & images
+// Hero static video
 import heroVideo from "@/assets/hero.mp4";
-import beforeImg from "@/assets/before.jpg";
-import afterImg from "@/assets/after.jpg";
-import serviceHouseImg from "@/assets/service-house.jpg";
-import serviceDrivewayImg from "@/assets/service-driveway.jpg";
-import serviceRoofImg from "@/assets/service-roof.jpg";
-import serviceDeckImg from "@/assets/service-deck.jpg";
 
 import {
   Phone,
@@ -37,171 +31,7 @@ import {
   Grid,
 } from "lucide-react";
 
-/* ── Interactive Before & After Slider Component ───────────────────── */
-function BeforeAfterSlider({
-  title,
-  service,
-  before,
-  after,
-  beforeDesc,
-  afterDesc,
-}: {
-  title: string;
-  service: string;
-  before: string;
-  after: string;
-  beforeDesc: string;
-  afterDesc: string;
-}) {
-  const [sliderPos, setSliderPos] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
 
-  const handleMove = (clientX: number, rect: DOMRect) => {
-    const x = clientX - rect.left;
-    let percentage = (x / rect.width) * 100;
-    if (percentage < 0) percentage = 0;
-    if (percentage > 100) percentage = 100;
-    setSliderPos(percentage);
-  };
-
-  return (
-    <div className="bg-white border border-slate-200/80 rounded-3xl p-5 sm:p-7 shadow-sm hover:shadow-xl hover:border-[#0ea5e9]/40 transition-all duration-300 flex flex-col justify-between text-left group">
-      <div>
-        {/* Service Tag */}
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-[10px] font-black uppercase tracking-widest text-[#0ea5e9] bg-[#0ea5e9]/10 px-3 py-1 rounded-full border border-[#0ea5e9]/20">
-            {service}
-          </span>
-          <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider flex items-center gap-1">
-            <span>Drag Slider</span> ↔
-          </span>
-        </div>
-
-        <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-4 group-hover:text-[#0ea5e9] transition-colors">
-          {title}
-        </h3>
-
-        {/* Interactive Comparison Container */}
-        <div
-          className="relative w-full h-[260px] sm:h-[300px] rounded-2xl overflow-hidden shadow-md select-none cursor-ew-resize border border-slate-200 mb-5"
-          onMouseMove={(e) => {
-            if (isDragging) {
-              const rect = e.currentTarget.getBoundingClientRect();
-              handleMove(e.clientX, rect);
-            }
-          }}
-          onMouseDown={() => setIsDragging(true)}
-          onMouseUp={() => setIsDragging(false)}
-          onMouseLeave={() => setIsDragging(false)}
-          onTouchMove={(e) => {
-            const rect = e.currentTarget.getBoundingClientRect();
-            handleMove(e.touches[0].clientX, rect);
-          }}
-        >
-          {/* AFTER Image (Background) */}
-          <img src={after} alt={`${title} After`} className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute top-3 right-3 bg-emerald-600/90 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-md shadow-md z-10">
-            AFTER
-          </div>
-
-          {/* BEFORE Image (Clipped Overlay) */}
-          <div
-            className="absolute inset-0 overflow-hidden"
-            style={{ width: `${sliderPos}%` }}
-          >
-            <img
-              src={before}
-              alt={`${title} Before`}
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ width: "100%", minWidth: "100%" }}
-            />
-            <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-md shadow-md z-10">
-              BEFORE
-            </div>
-          </div>
-
-          {/* Divider Line & Handle */}
-          <div
-            className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_12px_rgba(0,0,0,0.5)] z-20"
-            style={{ left: `${sliderPos}%` }}
-          >
-            <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#0ea5e9] border-2 border-white shadow-xl flex items-center justify-center text-white">
-              <span className="text-xs font-black">↔</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Descriptions */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div className="bg-slate-50 border border-slate-200/80 p-3 rounded-xl">
-            <span className="font-extrabold text-slate-400 text-[10px] uppercase tracking-wider block mb-1">
-              Before Condition:
-            </span>
-            <p className="text-slate-600 font-medium leading-relaxed">{beforeDesc}</p>
-          </div>
-          <div className="bg-sky-50/50 border border-sky-100 p-3 rounded-xl border-l-2 border-l-[#0ea5e9]">
-            <span className="font-extrabold text-[#0ea5e9] text-[10px] uppercase tracking-wider block mb-1">
-              After Transformation:
-            </span>
-            <p className="text-slate-700 font-medium leading-relaxed">{afterDesc}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ── 6 Before & After Data Sets ───────────────────────────────────── */
-const beforeAfterCases = [
-  {
-    title: "Concrete & Driveway Degreasing",
-    service: "Concrete Cleaning",
-    before: beforeImg,
-    after: afterImg,
-    beforeDesc: "Years of heavy oil stains, tire marks, and ground-in red clay dirt had left this concrete driveway looking aged and stained.",
-    afterDesc: "Hot water pressure washing lifted deep-set grease, restoring original bright concrete and dramatically boosting curb appeal.",
-  },
-  {
-    title: "Algae-Free Soft Wash Roof Restoration",
-    service: "Roof Washing",
-    before: serviceRoofImg,
-    after: serviceHouseImg,
-    beforeDesc: "Dark black Gloeocapsa magma algae streaks covered shingles, absorbing excessive heat and dulling the roof structure.",
-    afterDesc: "Low-pressure soft wash chemistry safely eliminated 100% of organic growth without shingle granule loss.",
-  },
-  {
-    title: "Siding & Full Exterior Soft Wash",
-    service: "Siding Cleaning",
-    before: serviceHouseImg,
-    after: serviceDeckImg,
-    beforeDesc: "Heavy green algae, mold spores, and airborne pollen dulled the home's vinyl siding, creating an unkempt appearance.",
-    afterDesc: "A complete soft wash revived original vibrant color, sanitizing surface fibers and restoring clean curb appeal.",
-  },
-  {
-    title: "Driveway & Entrance Pavement Revival",
-    service: "Driveway Cleaning",
-    before: serviceDrivewayImg,
-    after: serviceDeckImg,
-    beforeDesc: "Tire rubber marks, oil spots, and organic mildew created dark eyesores across the entryway driveway pavement.",
-    afterDesc: "Professional surface cleaner pressure washing washed away all stains, delivering a smooth like-new entry.",
-  },
-  {
-    title: "Full Exterior Paint Refresh & Prep",
-    service: "Painting Services",
-    before: serviceHouseImg,
-    after: afterImg,
-    beforeDesc: "Chipped, sun-faded siding paint left wood trim exposed to moisture absorption, wood rot, and structural decay.",
-    afterDesc: "Thorough pressure wash prep, scraping, priming, and 2 coats of premium weather-shield exterior paint revitalized the home.",
-  },
-  {
-    title: "Commercial Facility Exterior Maintenance",
-    service: "Commercial Property",
-    before: serviceDrivewayImg,
-    after: serviceHouseImg,
-    beforeDesc: "Accumulated commercial traffic grime, oil leaks, and algae dulled the building facade and customer entrance walkway.",
-    afterDesc: "Industrial hot-water power washing restored a clean, professional, welcoming storefront image that attracts customers.",
-  },
-];
 
 /* ── Project Tables Data ──────────────────────────────────────────── */
 const residentialProjects = [
@@ -501,46 +331,7 @@ export function GalleryPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          INTERACTIVE BEFORE & AFTER SLIDERS
-      ═══════════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/80">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center max-w-3xl mx-auto mb-14"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <span className="inline-flex items-center gap-2 bg-[#0ea5e9]/10 border border-[#0ea5e9]/20 text-[#0284c7] rounded-full px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider mb-3">
-              <Camera className="w-3.5 h-3.5 text-[#0ea5e9]" />
-              Interactive Before &amp; After Comparison
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Drag the Slider to See the Transformation
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-500 font-medium leading-relaxed max-w-xl mx-auto mt-2">
-              Our hot-water pressure washing and gentle soft-wash chemistry safely remove years of built-up oil, black algae, and grime.
-            </p>
-          </motion.div>
 
-          {/* 6 Before & After Slider Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {beforeAfterCases.map((item) => (
-              <BeforeAfterSlider
-                key={item.title}
-                title={item.title}
-                service={item.service}
-                before={item.before}
-                after={item.after}
-                beforeDesc={item.beforeDesc}
-                afterDesc={item.afterDesc}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════════════════════
           DYNAMIC MEDIA GALLERY GRID (200+ Photos & Videos)

@@ -145,10 +145,10 @@ export function BeforeAfter() {
 
           {/* CTA */}
           <Link
-            to="/estimate"
+            to="/gallery"
             className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-[#1e293b] text-white text-xs font-bold uppercase tracking-widest rounded-full px-7 py-4 transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] shrink-0 self-start lg:self-auto"
           >
-            Get a Free Quote <ArrowRight className="h-4 w-4" />
+            View Full Gallery <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 

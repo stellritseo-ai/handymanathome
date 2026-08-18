@@ -2,34 +2,34 @@ import { useEffect, useState } from "react";
 import {
   Menu, X, Phone, Shield, Award, Calendar, ChevronDown,
   Home, Building2, Layers, Sparkles, Car, Paintbrush, Star, Mail, FileText, Camera,
-  Facebook, Instagram
+  Clock, Droplets, Facebook, Instagram
 } from "lucide-react";
 import logoImg from "@/assets/logo.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
+  { href: "/about", label: "About" },
   {
-    href: "/#services",
+    href: "/services",
     label: "Services",
     submenu: [
-      { href: "/residential", label: "Residential", icon: Home },
-      { href: "/commercial", label: "Commercial", icon: Building2 },
-      { href: "/concrete-cleaning", label: "Concrete Cleaning", icon: Layers },
-      { href: "/roof-washing", label: "Roof Washing", icon: Shield },
-      { href: "/siding-cleaning", label: "Siding & Exterior Cleaning", icon: Sparkles },
-      { href: "/driveway-cleaning", label: "Driveway Cleaning", icon: Car },
-      { href: "/painting-service", label: "Painting Service", icon: Paintbrush },
-      { href: "/gallery", label: "Before & After Gallery", icon: Camera },
-      { href: "/reviews", label: "Customer Reviews", icon: Star },
-      { href: "/contact", label: "Contact Us", icon: Mail },
-      { href: "/estimate", label: "Get Free Estimate", icon: FileText },
+      { href: "/services", label: "All Services Overview", icon: Droplets },
+      { href: "/services/pressure-washing", label: "Pressure Washing", icon: Droplets },
+      { href: "/services/house-washing", label: "Soft House Washing", icon: Home },
+      { href: "/services/soft-washing", label: "Soft Washing Tech", icon: Sparkles },
+      { href: "/services/roof-cleaning", label: "Roof Cleaning", icon: Shield },
+      { href: "/services/concrete-cleaning", label: "Concrete Cleaning", icon: Layers },
+      { href: "/services/driveway-cleaning", label: "Driveway Cleaning", icon: Car },
+      { href: "/services/commercial-pressure-washing", label: "Commercial Washing", icon: Building2 },
+      { href: "/services/emergency-service", label: "24/7 Emergency Service", icon: Clock },
+      { href: "/painting-service", label: "Exterior Painting", icon: Paintbrush },
     ]
   },
   { href: "/gallery", label: "Gallery" },
+  { href: "/blog", label: "Guides" },
   { href: "/reviews", label: "Reviews" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Nav() {

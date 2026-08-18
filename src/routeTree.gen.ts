@@ -22,6 +22,32 @@ import { Route as ConcreteCleaningRouteImport } from './routes/concrete-cleaning
 import { Route as CommercialRouteImport } from './routes/commercial'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as ServicesSoftWashingRouteImport } from './routes/services/soft-washing'
+import { Route as ServicesRoofCleaningRouteImport } from './routes/services/roof-cleaning'
+import { Route as ServicesPressureWashingRouteImport } from './routes/services/pressure-washing'
+import { Route as ServicesHouseWashingRouteImport } from './routes/services/house-washing'
+import { Route as ServicesEmergencyServiceRouteImport } from './routes/services/emergency-service'
+import { Route as ServicesDrivewayCleaningRouteImport } from './routes/services/driveway-cleaning'
+import { Route as ServicesConcreteCleaningRouteImport } from './routes/services/concrete-cleaning'
+import { Route as ServicesCommercialPressureWashingRouteImport } from './routes/services/commercial-pressure-washing'
+import { Route as ServiceAreasTroutmanNcRouteImport } from './routes/service-areas/troutman-nc'
+import { Route as ServiceAreasStatesvilleNcRouteImport } from './routes/service-areas/statesville-nc'
+import { Route as ServiceAreasSherrillsFordNcRouteImport } from './routes/service-areas/sherrills-ford-nc'
+import { Route as ServiceAreasMountMourneNcRouteImport } from './routes/service-areas/mount-mourne-nc'
+import { Route as ServiceAreasMooresvilleNcRouteImport } from './routes/service-areas/mooresville-nc'
+import { Route as ServiceAreasLakeNormanNcRouteImport } from './routes/service-areas/lake-norman-nc'
+import { Route as ServiceAreasHuntersvilleNcRouteImport } from './routes/service-areas/huntersville-nc'
+import { Route as ServiceAreasDenverNcRouteImport } from './routes/service-areas/denver-nc'
+import { Route as ServiceAreasDavidsonNcRouteImport } from './routes/service-areas/davidson-nc'
+import { Route as ServiceAreasCorneliusNcRouteImport } from './routes/service-areas/cornelius-nc'
+import { Route as BlogPressureWashingVsSoftWashingRouteImport } from './routes/blog/pressure-washing-vs-soft-washing'
+import { Route as BlogHowToRemoveAlgaeRoofLakeNormanRouteImport } from './routes/blog/how-to-remove-algae-roof-lake-norman'
+import { Route as BlogHowToCleanConcreteDrivewayNcClayRouteImport } from './routes/blog/how-to-clean-concrete-driveway-nc-clay'
+import { Route as BlogHowOftenToPressureWashHouseNcRouteImport } from './routes/blog/how-often-to-pressure-wash-house-nc'
+import { Route as BlogCommercialPressureWashingLakeNormanRouteImport } from './routes/blog/commercial-pressure-washing-lake-norman'
 
 const SidingCleaningRoute = SidingCleaningRouteImport.update({
   id: '/siding-cleaning',
@@ -88,6 +114,151 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
+  id: '/service-areas/',
+  path: '/service-areas/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSoftWashingRoute = ServicesSoftWashingRouteImport.update({
+  id: '/services/soft-washing',
+  path: '/services/soft-washing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoofCleaningRoute = ServicesRoofCleaningRouteImport.update({
+  id: '/services/roof-cleaning',
+  path: '/services/roof-cleaning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesPressureWashingRoute = ServicesPressureWashingRouteImport.update({
+  id: '/services/pressure-washing',
+  path: '/services/pressure-washing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesHouseWashingRoute = ServicesHouseWashingRouteImport.update({
+  id: '/services/house-washing',
+  path: '/services/house-washing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesEmergencyServiceRoute =
+  ServicesEmergencyServiceRouteImport.update({
+    id: '/services/emergency-service',
+    path: '/services/emergency-service',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesDrivewayCleaningRoute =
+  ServicesDrivewayCleaningRouteImport.update({
+    id: '/services/driveway-cleaning',
+    path: '/services/driveway-cleaning',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesConcreteCleaningRoute =
+  ServicesConcreteCleaningRouteImport.update({
+    id: '/services/concrete-cleaning',
+    path: '/services/concrete-cleaning',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesCommercialPressureWashingRoute =
+  ServicesCommercialPressureWashingRouteImport.update({
+    id: '/services/commercial-pressure-washing',
+    path: '/services/commercial-pressure-washing',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServiceAreasTroutmanNcRoute = ServiceAreasTroutmanNcRouteImport.update({
+  id: '/service-areas/troutman-nc',
+  path: '/service-areas/troutman-nc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasStatesvilleNcRoute =
+  ServiceAreasStatesvilleNcRouteImport.update({
+    id: '/service-areas/statesville-nc',
+    path: '/service-areas/statesville-nc',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServiceAreasSherrillsFordNcRoute =
+  ServiceAreasSherrillsFordNcRouteImport.update({
+    id: '/service-areas/sherrills-ford-nc',
+    path: '/service-areas/sherrills-ford-nc',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServiceAreasMountMourneNcRoute =
+  ServiceAreasMountMourneNcRouteImport.update({
+    id: '/service-areas/mount-mourne-nc',
+    path: '/service-areas/mount-mourne-nc',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServiceAreasMooresvilleNcRoute =
+  ServiceAreasMooresvilleNcRouteImport.update({
+    id: '/service-areas/mooresville-nc',
+    path: '/service-areas/mooresville-nc',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServiceAreasLakeNormanNcRoute =
+  ServiceAreasLakeNormanNcRouteImport.update({
+    id: '/service-areas/lake-norman-nc',
+    path: '/service-areas/lake-norman-nc',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServiceAreasHuntersvilleNcRoute =
+  ServiceAreasHuntersvilleNcRouteImport.update({
+    id: '/service-areas/huntersville-nc',
+    path: '/service-areas/huntersville-nc',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServiceAreasDenverNcRoute = ServiceAreasDenverNcRouteImport.update({
+  id: '/service-areas/denver-nc',
+  path: '/service-areas/denver-nc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasDavidsonNcRoute = ServiceAreasDavidsonNcRouteImport.update({
+  id: '/service-areas/davidson-nc',
+  path: '/service-areas/davidson-nc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasCorneliusNcRoute = ServiceAreasCorneliusNcRouteImport.update({
+  id: '/service-areas/cornelius-nc',
+  path: '/service-areas/cornelius-nc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogPressureWashingVsSoftWashingRoute =
+  BlogPressureWashingVsSoftWashingRouteImport.update({
+    id: '/blog/pressure-washing-vs-soft-washing',
+    path: '/blog/pressure-washing-vs-soft-washing',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogHowToRemoveAlgaeRoofLakeNormanRoute =
+  BlogHowToRemoveAlgaeRoofLakeNormanRouteImport.update({
+    id: '/blog/how-to-remove-algae-roof-lake-norman',
+    path: '/blog/how-to-remove-algae-roof-lake-norman',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogHowToCleanConcreteDrivewayNcClayRoute =
+  BlogHowToCleanConcreteDrivewayNcClayRouteImport.update({
+    id: '/blog/how-to-clean-concrete-driveway-nc-clay',
+    path: '/blog/how-to-clean-concrete-driveway-nc-clay',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogHowOftenToPressureWashHouseNcRoute =
+  BlogHowOftenToPressureWashHouseNcRouteImport.update({
+    id: '/blog/how-often-to-pressure-wash-house-nc',
+    path: '/blog/how-often-to-pressure-wash-house-nc',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogCommercialPressureWashingLakeNormanRoute =
+  BlogCommercialPressureWashingLakeNormanRouteImport.update({
+    id: '/blog/commercial-pressure-washing-lake-norman',
+    path: '/blog/commercial-pressure-washing-lake-norman',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -103,6 +274,32 @@ export interface FileRoutesByFullPath {
   '/reviews': typeof ReviewsRoute
   '/roof-washing': typeof RoofWashingRoute
   '/siding-cleaning': typeof SidingCleaningRoute
+  '/blog/commercial-pressure-washing-lake-norman': typeof BlogCommercialPressureWashingLakeNormanRoute
+  '/blog/how-often-to-pressure-wash-house-nc': typeof BlogHowOftenToPressureWashHouseNcRoute
+  '/blog/how-to-clean-concrete-driveway-nc-clay': typeof BlogHowToCleanConcreteDrivewayNcClayRoute
+  '/blog/how-to-remove-algae-roof-lake-norman': typeof BlogHowToRemoveAlgaeRoofLakeNormanRoute
+  '/blog/pressure-washing-vs-soft-washing': typeof BlogPressureWashingVsSoftWashingRoute
+  '/service-areas/cornelius-nc': typeof ServiceAreasCorneliusNcRoute
+  '/service-areas/davidson-nc': typeof ServiceAreasDavidsonNcRoute
+  '/service-areas/denver-nc': typeof ServiceAreasDenverNcRoute
+  '/service-areas/huntersville-nc': typeof ServiceAreasHuntersvilleNcRoute
+  '/service-areas/lake-norman-nc': typeof ServiceAreasLakeNormanNcRoute
+  '/service-areas/mooresville-nc': typeof ServiceAreasMooresvilleNcRoute
+  '/service-areas/mount-mourne-nc': typeof ServiceAreasMountMourneNcRoute
+  '/service-areas/sherrills-ford-nc': typeof ServiceAreasSherrillsFordNcRoute
+  '/service-areas/statesville-nc': typeof ServiceAreasStatesvilleNcRoute
+  '/service-areas/troutman-nc': typeof ServiceAreasTroutmanNcRoute
+  '/services/commercial-pressure-washing': typeof ServicesCommercialPressureWashingRoute
+  '/services/concrete-cleaning': typeof ServicesConcreteCleaningRoute
+  '/services/driveway-cleaning': typeof ServicesDrivewayCleaningRoute
+  '/services/emergency-service': typeof ServicesEmergencyServiceRoute
+  '/services/house-washing': typeof ServicesHouseWashingRoute
+  '/services/pressure-washing': typeof ServicesPressureWashingRoute
+  '/services/roof-cleaning': typeof ServicesRoofCleaningRoute
+  '/services/soft-washing': typeof ServicesSoftWashingRoute
+  '/blog/': typeof BlogIndexRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -118,6 +315,32 @@ export interface FileRoutesByTo {
   '/reviews': typeof ReviewsRoute
   '/roof-washing': typeof RoofWashingRoute
   '/siding-cleaning': typeof SidingCleaningRoute
+  '/blog/commercial-pressure-washing-lake-norman': typeof BlogCommercialPressureWashingLakeNormanRoute
+  '/blog/how-often-to-pressure-wash-house-nc': typeof BlogHowOftenToPressureWashHouseNcRoute
+  '/blog/how-to-clean-concrete-driveway-nc-clay': typeof BlogHowToCleanConcreteDrivewayNcClayRoute
+  '/blog/how-to-remove-algae-roof-lake-norman': typeof BlogHowToRemoveAlgaeRoofLakeNormanRoute
+  '/blog/pressure-washing-vs-soft-washing': typeof BlogPressureWashingVsSoftWashingRoute
+  '/service-areas/cornelius-nc': typeof ServiceAreasCorneliusNcRoute
+  '/service-areas/davidson-nc': typeof ServiceAreasDavidsonNcRoute
+  '/service-areas/denver-nc': typeof ServiceAreasDenverNcRoute
+  '/service-areas/huntersville-nc': typeof ServiceAreasHuntersvilleNcRoute
+  '/service-areas/lake-norman-nc': typeof ServiceAreasLakeNormanNcRoute
+  '/service-areas/mooresville-nc': typeof ServiceAreasMooresvilleNcRoute
+  '/service-areas/mount-mourne-nc': typeof ServiceAreasMountMourneNcRoute
+  '/service-areas/sherrills-ford-nc': typeof ServiceAreasSherrillsFordNcRoute
+  '/service-areas/statesville-nc': typeof ServiceAreasStatesvilleNcRoute
+  '/service-areas/troutman-nc': typeof ServiceAreasTroutmanNcRoute
+  '/services/commercial-pressure-washing': typeof ServicesCommercialPressureWashingRoute
+  '/services/concrete-cleaning': typeof ServicesConcreteCleaningRoute
+  '/services/driveway-cleaning': typeof ServicesDrivewayCleaningRoute
+  '/services/emergency-service': typeof ServicesEmergencyServiceRoute
+  '/services/house-washing': typeof ServicesHouseWashingRoute
+  '/services/pressure-washing': typeof ServicesPressureWashingRoute
+  '/services/roof-cleaning': typeof ServicesRoofCleaningRoute
+  '/services/soft-washing': typeof ServicesSoftWashingRoute
+  '/blog': typeof BlogIndexRoute
+  '/service-areas': typeof ServiceAreasIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -134,6 +357,32 @@ export interface FileRoutesById {
   '/reviews': typeof ReviewsRoute
   '/roof-washing': typeof RoofWashingRoute
   '/siding-cleaning': typeof SidingCleaningRoute
+  '/blog/commercial-pressure-washing-lake-norman': typeof BlogCommercialPressureWashingLakeNormanRoute
+  '/blog/how-often-to-pressure-wash-house-nc': typeof BlogHowOftenToPressureWashHouseNcRoute
+  '/blog/how-to-clean-concrete-driveway-nc-clay': typeof BlogHowToCleanConcreteDrivewayNcClayRoute
+  '/blog/how-to-remove-algae-roof-lake-norman': typeof BlogHowToRemoveAlgaeRoofLakeNormanRoute
+  '/blog/pressure-washing-vs-soft-washing': typeof BlogPressureWashingVsSoftWashingRoute
+  '/service-areas/cornelius-nc': typeof ServiceAreasCorneliusNcRoute
+  '/service-areas/davidson-nc': typeof ServiceAreasDavidsonNcRoute
+  '/service-areas/denver-nc': typeof ServiceAreasDenverNcRoute
+  '/service-areas/huntersville-nc': typeof ServiceAreasHuntersvilleNcRoute
+  '/service-areas/lake-norman-nc': typeof ServiceAreasLakeNormanNcRoute
+  '/service-areas/mooresville-nc': typeof ServiceAreasMooresvilleNcRoute
+  '/service-areas/mount-mourne-nc': typeof ServiceAreasMountMourneNcRoute
+  '/service-areas/sherrills-ford-nc': typeof ServiceAreasSherrillsFordNcRoute
+  '/service-areas/statesville-nc': typeof ServiceAreasStatesvilleNcRoute
+  '/service-areas/troutman-nc': typeof ServiceAreasTroutmanNcRoute
+  '/services/commercial-pressure-washing': typeof ServicesCommercialPressureWashingRoute
+  '/services/concrete-cleaning': typeof ServicesConcreteCleaningRoute
+  '/services/driveway-cleaning': typeof ServicesDrivewayCleaningRoute
+  '/services/emergency-service': typeof ServicesEmergencyServiceRoute
+  '/services/house-washing': typeof ServicesHouseWashingRoute
+  '/services/pressure-washing': typeof ServicesPressureWashingRoute
+  '/services/roof-cleaning': typeof ServicesRoofCleaningRoute
+  '/services/soft-washing': typeof ServicesSoftWashingRoute
+  '/blog/': typeof BlogIndexRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +400,32 @@ export interface FileRouteTypes {
     | '/reviews'
     | '/roof-washing'
     | '/siding-cleaning'
+    | '/blog/commercial-pressure-washing-lake-norman'
+    | '/blog/how-often-to-pressure-wash-house-nc'
+    | '/blog/how-to-clean-concrete-driveway-nc-clay'
+    | '/blog/how-to-remove-algae-roof-lake-norman'
+    | '/blog/pressure-washing-vs-soft-washing'
+    | '/service-areas/cornelius-nc'
+    | '/service-areas/davidson-nc'
+    | '/service-areas/denver-nc'
+    | '/service-areas/huntersville-nc'
+    | '/service-areas/lake-norman-nc'
+    | '/service-areas/mooresville-nc'
+    | '/service-areas/mount-mourne-nc'
+    | '/service-areas/sherrills-ford-nc'
+    | '/service-areas/statesville-nc'
+    | '/service-areas/troutman-nc'
+    | '/services/commercial-pressure-washing'
+    | '/services/concrete-cleaning'
+    | '/services/driveway-cleaning'
+    | '/services/emergency-service'
+    | '/services/house-washing'
+    | '/services/pressure-washing'
+    | '/services/roof-cleaning'
+    | '/services/soft-washing'
+    | '/blog/'
+    | '/service-areas/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -166,6 +441,32 @@ export interface FileRouteTypes {
     | '/reviews'
     | '/roof-washing'
     | '/siding-cleaning'
+    | '/blog/commercial-pressure-washing-lake-norman'
+    | '/blog/how-often-to-pressure-wash-house-nc'
+    | '/blog/how-to-clean-concrete-driveway-nc-clay'
+    | '/blog/how-to-remove-algae-roof-lake-norman'
+    | '/blog/pressure-washing-vs-soft-washing'
+    | '/service-areas/cornelius-nc'
+    | '/service-areas/davidson-nc'
+    | '/service-areas/denver-nc'
+    | '/service-areas/huntersville-nc'
+    | '/service-areas/lake-norman-nc'
+    | '/service-areas/mooresville-nc'
+    | '/service-areas/mount-mourne-nc'
+    | '/service-areas/sherrills-ford-nc'
+    | '/service-areas/statesville-nc'
+    | '/service-areas/troutman-nc'
+    | '/services/commercial-pressure-washing'
+    | '/services/concrete-cleaning'
+    | '/services/driveway-cleaning'
+    | '/services/emergency-service'
+    | '/services/house-washing'
+    | '/services/pressure-washing'
+    | '/services/roof-cleaning'
+    | '/services/soft-washing'
+    | '/blog'
+    | '/service-areas'
+    | '/services'
   id:
     | '__root__'
     | '/'
@@ -181,6 +482,32 @@ export interface FileRouteTypes {
     | '/reviews'
     | '/roof-washing'
     | '/siding-cleaning'
+    | '/blog/commercial-pressure-washing-lake-norman'
+    | '/blog/how-often-to-pressure-wash-house-nc'
+    | '/blog/how-to-clean-concrete-driveway-nc-clay'
+    | '/blog/how-to-remove-algae-roof-lake-norman'
+    | '/blog/pressure-washing-vs-soft-washing'
+    | '/service-areas/cornelius-nc'
+    | '/service-areas/davidson-nc'
+    | '/service-areas/denver-nc'
+    | '/service-areas/huntersville-nc'
+    | '/service-areas/lake-norman-nc'
+    | '/service-areas/mooresville-nc'
+    | '/service-areas/mount-mourne-nc'
+    | '/service-areas/sherrills-ford-nc'
+    | '/service-areas/statesville-nc'
+    | '/service-areas/troutman-nc'
+    | '/services/commercial-pressure-washing'
+    | '/services/concrete-cleaning'
+    | '/services/driveway-cleaning'
+    | '/services/emergency-service'
+    | '/services/house-washing'
+    | '/services/pressure-washing'
+    | '/services/roof-cleaning'
+    | '/services/soft-washing'
+    | '/blog/'
+    | '/service-areas/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -197,6 +524,32 @@ export interface RootRouteChildren {
   ReviewsRoute: typeof ReviewsRoute
   RoofWashingRoute: typeof RoofWashingRoute
   SidingCleaningRoute: typeof SidingCleaningRoute
+  BlogCommercialPressureWashingLakeNormanRoute: typeof BlogCommercialPressureWashingLakeNormanRoute
+  BlogHowOftenToPressureWashHouseNcRoute: typeof BlogHowOftenToPressureWashHouseNcRoute
+  BlogHowToCleanConcreteDrivewayNcClayRoute: typeof BlogHowToCleanConcreteDrivewayNcClayRoute
+  BlogHowToRemoveAlgaeRoofLakeNormanRoute: typeof BlogHowToRemoveAlgaeRoofLakeNormanRoute
+  BlogPressureWashingVsSoftWashingRoute: typeof BlogPressureWashingVsSoftWashingRoute
+  ServiceAreasCorneliusNcRoute: typeof ServiceAreasCorneliusNcRoute
+  ServiceAreasDavidsonNcRoute: typeof ServiceAreasDavidsonNcRoute
+  ServiceAreasDenverNcRoute: typeof ServiceAreasDenverNcRoute
+  ServiceAreasHuntersvilleNcRoute: typeof ServiceAreasHuntersvilleNcRoute
+  ServiceAreasLakeNormanNcRoute: typeof ServiceAreasLakeNormanNcRoute
+  ServiceAreasMooresvilleNcRoute: typeof ServiceAreasMooresvilleNcRoute
+  ServiceAreasMountMourneNcRoute: typeof ServiceAreasMountMourneNcRoute
+  ServiceAreasSherrillsFordNcRoute: typeof ServiceAreasSherrillsFordNcRoute
+  ServiceAreasStatesvilleNcRoute: typeof ServiceAreasStatesvilleNcRoute
+  ServiceAreasTroutmanNcRoute: typeof ServiceAreasTroutmanNcRoute
+  ServicesCommercialPressureWashingRoute: typeof ServicesCommercialPressureWashingRoute
+  ServicesConcreteCleaningRoute: typeof ServicesConcreteCleaningRoute
+  ServicesDrivewayCleaningRoute: typeof ServicesDrivewayCleaningRoute
+  ServicesEmergencyServiceRoute: typeof ServicesEmergencyServiceRoute
+  ServicesHouseWashingRoute: typeof ServicesHouseWashingRoute
+  ServicesPressureWashingRoute: typeof ServicesPressureWashingRoute
+  ServicesRoofCleaningRoute: typeof ServicesRoofCleaningRoute
+  ServicesSoftWashingRoute: typeof ServicesSoftWashingRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  ServiceAreasIndexRoute: typeof ServiceAreasIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -292,6 +645,188 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/': {
+      id: '/service-areas/'
+      path: '/service-areas'
+      fullPath: '/service-areas/'
+      preLoaderRoute: typeof ServiceAreasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/soft-washing': {
+      id: '/services/soft-washing'
+      path: '/services/soft-washing'
+      fullPath: '/services/soft-washing'
+      preLoaderRoute: typeof ServicesSoftWashingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/roof-cleaning': {
+      id: '/services/roof-cleaning'
+      path: '/services/roof-cleaning'
+      fullPath: '/services/roof-cleaning'
+      preLoaderRoute: typeof ServicesRoofCleaningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/pressure-washing': {
+      id: '/services/pressure-washing'
+      path: '/services/pressure-washing'
+      fullPath: '/services/pressure-washing'
+      preLoaderRoute: typeof ServicesPressureWashingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/house-washing': {
+      id: '/services/house-washing'
+      path: '/services/house-washing'
+      fullPath: '/services/house-washing'
+      preLoaderRoute: typeof ServicesHouseWashingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/emergency-service': {
+      id: '/services/emergency-service'
+      path: '/services/emergency-service'
+      fullPath: '/services/emergency-service'
+      preLoaderRoute: typeof ServicesEmergencyServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/driveway-cleaning': {
+      id: '/services/driveway-cleaning'
+      path: '/services/driveway-cleaning'
+      fullPath: '/services/driveway-cleaning'
+      preLoaderRoute: typeof ServicesDrivewayCleaningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/concrete-cleaning': {
+      id: '/services/concrete-cleaning'
+      path: '/services/concrete-cleaning'
+      fullPath: '/services/concrete-cleaning'
+      preLoaderRoute: typeof ServicesConcreteCleaningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/commercial-pressure-washing': {
+      id: '/services/commercial-pressure-washing'
+      path: '/services/commercial-pressure-washing'
+      fullPath: '/services/commercial-pressure-washing'
+      preLoaderRoute: typeof ServicesCommercialPressureWashingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/troutman-nc': {
+      id: '/service-areas/troutman-nc'
+      path: '/service-areas/troutman-nc'
+      fullPath: '/service-areas/troutman-nc'
+      preLoaderRoute: typeof ServiceAreasTroutmanNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/statesville-nc': {
+      id: '/service-areas/statesville-nc'
+      path: '/service-areas/statesville-nc'
+      fullPath: '/service-areas/statesville-nc'
+      preLoaderRoute: typeof ServiceAreasStatesvilleNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/sherrills-ford-nc': {
+      id: '/service-areas/sherrills-ford-nc'
+      path: '/service-areas/sherrills-ford-nc'
+      fullPath: '/service-areas/sherrills-ford-nc'
+      preLoaderRoute: typeof ServiceAreasSherrillsFordNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/mount-mourne-nc': {
+      id: '/service-areas/mount-mourne-nc'
+      path: '/service-areas/mount-mourne-nc'
+      fullPath: '/service-areas/mount-mourne-nc'
+      preLoaderRoute: typeof ServiceAreasMountMourneNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/mooresville-nc': {
+      id: '/service-areas/mooresville-nc'
+      path: '/service-areas/mooresville-nc'
+      fullPath: '/service-areas/mooresville-nc'
+      preLoaderRoute: typeof ServiceAreasMooresvilleNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/lake-norman-nc': {
+      id: '/service-areas/lake-norman-nc'
+      path: '/service-areas/lake-norman-nc'
+      fullPath: '/service-areas/lake-norman-nc'
+      preLoaderRoute: typeof ServiceAreasLakeNormanNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/huntersville-nc': {
+      id: '/service-areas/huntersville-nc'
+      path: '/service-areas/huntersville-nc'
+      fullPath: '/service-areas/huntersville-nc'
+      preLoaderRoute: typeof ServiceAreasHuntersvilleNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/denver-nc': {
+      id: '/service-areas/denver-nc'
+      path: '/service-areas/denver-nc'
+      fullPath: '/service-areas/denver-nc'
+      preLoaderRoute: typeof ServiceAreasDenverNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/davidson-nc': {
+      id: '/service-areas/davidson-nc'
+      path: '/service-areas/davidson-nc'
+      fullPath: '/service-areas/davidson-nc'
+      preLoaderRoute: typeof ServiceAreasDavidsonNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas/cornelius-nc': {
+      id: '/service-areas/cornelius-nc'
+      path: '/service-areas/cornelius-nc'
+      fullPath: '/service-areas/cornelius-nc'
+      preLoaderRoute: typeof ServiceAreasCorneliusNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/pressure-washing-vs-soft-washing': {
+      id: '/blog/pressure-washing-vs-soft-washing'
+      path: '/blog/pressure-washing-vs-soft-washing'
+      fullPath: '/blog/pressure-washing-vs-soft-washing'
+      preLoaderRoute: typeof BlogPressureWashingVsSoftWashingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/how-to-remove-algae-roof-lake-norman': {
+      id: '/blog/how-to-remove-algae-roof-lake-norman'
+      path: '/blog/how-to-remove-algae-roof-lake-norman'
+      fullPath: '/blog/how-to-remove-algae-roof-lake-norman'
+      preLoaderRoute: typeof BlogHowToRemoveAlgaeRoofLakeNormanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/how-to-clean-concrete-driveway-nc-clay': {
+      id: '/blog/how-to-clean-concrete-driveway-nc-clay'
+      path: '/blog/how-to-clean-concrete-driveway-nc-clay'
+      fullPath: '/blog/how-to-clean-concrete-driveway-nc-clay'
+      preLoaderRoute: typeof BlogHowToCleanConcreteDrivewayNcClayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/how-often-to-pressure-wash-house-nc': {
+      id: '/blog/how-often-to-pressure-wash-house-nc'
+      path: '/blog/how-often-to-pressure-wash-house-nc'
+      fullPath: '/blog/how-often-to-pressure-wash-house-nc'
+      preLoaderRoute: typeof BlogHowOftenToPressureWashHouseNcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/commercial-pressure-washing-lake-norman': {
+      id: '/blog/commercial-pressure-washing-lake-norman'
+      path: '/blog/commercial-pressure-washing-lake-norman'
+      fullPath: '/blog/commercial-pressure-washing-lake-norman'
+      preLoaderRoute: typeof BlogCommercialPressureWashingLakeNormanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -309,6 +844,37 @@ const rootRouteChildren: RootRouteChildren = {
   ReviewsRoute: ReviewsRoute,
   RoofWashingRoute: RoofWashingRoute,
   SidingCleaningRoute: SidingCleaningRoute,
+  BlogCommercialPressureWashingLakeNormanRoute:
+    BlogCommercialPressureWashingLakeNormanRoute,
+  BlogHowOftenToPressureWashHouseNcRoute:
+    BlogHowOftenToPressureWashHouseNcRoute,
+  BlogHowToCleanConcreteDrivewayNcClayRoute:
+    BlogHowToCleanConcreteDrivewayNcClayRoute,
+  BlogHowToRemoveAlgaeRoofLakeNormanRoute:
+    BlogHowToRemoveAlgaeRoofLakeNormanRoute,
+  BlogPressureWashingVsSoftWashingRoute: BlogPressureWashingVsSoftWashingRoute,
+  ServiceAreasCorneliusNcRoute: ServiceAreasCorneliusNcRoute,
+  ServiceAreasDavidsonNcRoute: ServiceAreasDavidsonNcRoute,
+  ServiceAreasDenverNcRoute: ServiceAreasDenverNcRoute,
+  ServiceAreasHuntersvilleNcRoute: ServiceAreasHuntersvilleNcRoute,
+  ServiceAreasLakeNormanNcRoute: ServiceAreasLakeNormanNcRoute,
+  ServiceAreasMooresvilleNcRoute: ServiceAreasMooresvilleNcRoute,
+  ServiceAreasMountMourneNcRoute: ServiceAreasMountMourneNcRoute,
+  ServiceAreasSherrillsFordNcRoute: ServiceAreasSherrillsFordNcRoute,
+  ServiceAreasStatesvilleNcRoute: ServiceAreasStatesvilleNcRoute,
+  ServiceAreasTroutmanNcRoute: ServiceAreasTroutmanNcRoute,
+  ServicesCommercialPressureWashingRoute:
+    ServicesCommercialPressureWashingRoute,
+  ServicesConcreteCleaningRoute: ServicesConcreteCleaningRoute,
+  ServicesDrivewayCleaningRoute: ServicesDrivewayCleaningRoute,
+  ServicesEmergencyServiceRoute: ServicesEmergencyServiceRoute,
+  ServicesHouseWashingRoute: ServicesHouseWashingRoute,
+  ServicesPressureWashingRoute: ServicesPressureWashingRoute,
+  ServicesRoofCleaningRoute: ServicesRoofCleaningRoute,
+  ServicesSoftWashingRoute: ServicesSoftWashingRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  ServiceAreasIndexRoute: ServiceAreasIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,26 +1,23 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Shield } from "lucide-react";
+import { MapPin, Shield, ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 const areasData = [
-  { name: "Mooresville, NC", x: "55%", y: "45%", primary: true },
-  { name: "Cornelius, NC", x: "58%", y: "58%" },
-  { name: "Davidson, NC", x: "60%", y: "65%" },
-  { name: "Huntersville, NC", x: "62%", y: "72%" },
-  { name: "Denver, NC", x: "38%", y: "52%" },
-  { name: "Maiden, NC", x: "24%", y: "42%" },
-  { name: "Hickory, NC", x: "15%", y: "30%" },
-  { name: "Statesville, NC", x: "50%", y: "20%" },
-  { name: "Lincolnton, NC", x: "18%", y: "62%" },
-  { name: "Newton, NC", x: "20%", y: "38%" },
-  { name: "Conover, NC", x: "18%", y: "32%" },
-  { name: "Charlotte, NC", x: "65%", y: "82%" },
-  { name: "Gastonia, NC", x: "25%", y: "80%" },
-  { name: "Lake Norman, NC", x: "48%", y: "50%" },
-  { name: "Iredell County", x: "52%", y: "25%" },
-  { name: "Catawba County", x: "18%", y: "35%" },
-  { name: "Lincoln County", x: "22%", y: "58%" },
-  { name: "Mecklenburg County", x: "64%", y: "78%" },
+  { name: "Mooresville, NC", x: "55%", y: "45%", primary: true, href: "/service-areas/mooresville-nc" },
+  { name: "Cornelius, NC", x: "58%", y: "58%", href: "/service-areas/cornelius-nc" },
+  { name: "Davidson, NC", x: "60%", y: "65%", href: "/service-areas/davidson-nc" },
+  { name: "Huntersville, NC", x: "62%", y: "72%", href: "/service-areas/huntersville-nc" },
+  { name: "Troutman, NC", x: "53%", y: "30%", href: "/service-areas/troutman-nc" },
+  { name: "Statesville, NC", x: "50%", y: "20%", href: "/service-areas/statesville-nc" },
+  { name: "Denver, NC", x: "38%", y: "52%", href: "/service-areas/denver-nc" },
+  { name: "Sherrills Ford, NC", x: "42%", y: "38%", href: "/service-areas/sherrills-ford-nc" },
+  { name: "Mount Mourne, NC", x: "56%", y: "52%", href: "/service-areas/mount-mourne-nc" },
+  { name: "Lake Norman, NC", x: "48%", y: "50%", href: "/service-areas/lake-norman-nc" },
+  { name: "Iredell County", x: "52%", y: "25%", href: "/service-areas" },
+  { name: "Mecklenburg County", x: "64%", y: "78%", href: "/service-areas" },
+  { name: "Catawba County", x: "18%", y: "35%", href: "/service-areas" },
+  { name: "Lincoln County", x: "22%", y: "58%", href: "/service-areas" },
 ];
 
 const TinyDropletIcon = () => (
@@ -46,10 +43,10 @@ export function ServiceArea() {
               className="text-[#0F172A] leading-tight tracking-tight capitalize text-[29px] lg:text-[40px]"
               style={{ fontWeight: 800, marginBottom: "10px" }}
             >
-              Proudly Serving <span className="text-[#0ea5e9]">Mooresville</span> & Surrounding Areas
+              Proudly Serving <span className="text-[#0ea5e9]">Mooresville</span> &amp; Surrounding Areas
             </h2>
             <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed max-w-lg mb-8">
-              We provide professional residential &amp; commercial pressure washing, soft roof cleaning, house washing, driveway cleaning &amp; exterior painting across Mooresville, Maiden, Hickory, Statesville, Lincolnton, Newton, Conover, Denver, Huntersville, Cornelius, Davidson, Charlotte, Gastonia, Lake Norman, and Iredell, Catawba, Lincoln &amp; Mecklenburg Counties, NC.
+              We provide professional residential &amp; commercial pressure washing, soft roof cleaning, house washing, driveway cleaning &amp; exterior painting across Mooresville, Lake Norman, Cornelius, Davidson, Huntersville, Troutman, Statesville, Denver, Sherrills Ford, Mount Mourne, and surrounding counties in NC.
             </p>
 
             {/* Premium Capsule Chips */}
@@ -57,20 +54,20 @@ export function ServiceArea() {
               {areasData.map((a) => {
                 const isActive = hoveredArea === a.name;
                 return (
-                  <motion.div
+                  <Link
                     key={a.name}
+                    to={a.href}
                     onMouseEnter={() => setHoveredArea(a.name)}
                     onMouseLeave={() => setHoveredArea(null)}
-                    whileHover={{ scale: 1.03, y: -1 }}
-                    className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider rounded-xl py-2.5 px-4 transition-all duration-300 shadow-sm cursor-pointer border ${isActive
+                    className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider rounded-xl py-2.5 px-4 transition-all duration-300 shadow-sm border ${isActive
                         ? "bg-[#0ea5e9]/10 border-[#0ea5e9]/45 text-[#0ea5e9] scale-[1.03] -translate-y-0.5 shadow-md shadow-[#0ea5e9]/5"
                         : "text-slate-600 bg-slate-50 border-slate-100 hover:bg-[#0ea5e9]/5 hover:border-[#0ea5e9]/25 hover:text-[#0ea5e9]"
                       }`}
                   >
                     <MapPin className={`h-3.5 w-3.5 shrink-0 transition-colors duration-300 ${isActive ? "text-[#0ea5e9]" : "text-[#0ea5e9]/75"
                       }`} />
-                    {a.name}
-                  </motion.div>
+                    <span>{a.name}</span>
+                  </Link>
                 );
               })}
             </div>
@@ -78,7 +75,7 @@ export function ServiceArea() {
             {/* Subtext info */}
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 select-none">
               <Shield className="h-4 w-4 text-emerald-500" />
-              <span>We hold full public liability worker insurance coverage for NC.</span>
+              <span>We hold full $2,000,000 public liability insurance coverage for NC.</span>
             </div>
           </div>
 

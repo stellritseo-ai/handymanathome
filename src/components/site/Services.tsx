@@ -93,10 +93,10 @@ export function Services() {
               {/* Brand Blue CTA Button */}
               <div className="mt-7">
                 <Link
-                  to="#"
+                  to="/services"
                   className="inline-flex items-center gap-2.5 bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] hover:from-[#0ea5e9] hover:to-[#0369a1] text-white rounded-full px-7 py-3 text-[14px] font-bold shadow-[0_4px_14px_rgba(14,165,233,0.3)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
                 >
-                  View More of Our Work
+                  Explore All Services
                 </Link>
               </div>
             </div>
@@ -104,55 +104,58 @@ export function Services() {
 
           {/* Top 3 Service Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-            {topItems.map((s, idx) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: idx * 0.15, ease: "easeOut" }}
-                className="group relative rounded-[10px] overflow-hidden shadow-md bg-neutral-950 h-[220px] sm:h-[280px] lg:h-[340px] xl:h-[380px] border border-neutral-900/5 cursor-pointer transform-gpu"
-              >
-                {/* Background image */}
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out transform-gpu"
-                  style={{ willChange: "transform" }}
-                  loading="lazy"
-                />
+            {topItems.map((s, idx) => {
+              const serviceHref = s.title === "Residential" ? "/services/house-washing" : s.title === "Commercial" ? "/services/commercial-pressure-washing" : s.title === "Concrete Cleaning" ? "/services/concrete-cleaning" : "/services";
+              return (
+                <motion.div
+                  key={s.title}
+                  initial={{ opacity: 0, y: 35 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, delay: idx * 0.15, ease: "easeOut" }}
+                  className="group relative rounded-[10px] overflow-hidden shadow-md bg-neutral-950 h-[220px] sm:h-[280px] lg:h-[340px] xl:h-[380px] border border-neutral-900/5 cursor-pointer transform-gpu"
+                >
+                  {/* Background image */}
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out transform-gpu"
+                    style={{ willChange: "transform" }}
+                    loading="lazy"
+                  />
 
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:from-black/95 group-hover:via-black/90 group-hover:to-black/85 transition-all duration-500" />
+                  {/* Dark gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:from-black/95 group-hover:via-black/90 group-hover:to-black/85 transition-all duration-500" />
 
-                {/* Card Content */}
-                <div className="absolute inset-0 p-5 flex flex-col justify-end z-10 h-full text-center">
-                  <div className="flex flex-col gap-1 transition-all duration-500 group-hover:-translate-y-2">
-                    <h3 className="text-[15px] sm:text-base font-bold text-white leading-tight uppercase">
-                      {s.title}
-                    </h3>
+                  {/* Card Content */}
+                  <div className="absolute inset-0 p-5 flex flex-col justify-end z-10 h-full text-center">
+                    <div className="flex flex-col gap-1 transition-all duration-500 group-hover:-translate-y-2">
+                      <h3 className="text-[15px] sm:text-base font-bold text-white leading-tight uppercase">
+                        {s.title}
+                      </h3>
 
-                    {/* Hover detail drawer with Brand Blue styling */}
-                    <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-[160px] group-hover:opacity-100 transition-all duration-500 ease-out space-y-2 text-center flex flex-col items-center">
-                      <p className="text-[12px] text-white/85 leading-snug mt-1.5 line-clamp-3 max-w-[95%]">
-                        {s.desc}
-                      </p>
+                      {/* Hover detail drawer with Brand Blue styling */}
+                      <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-[160px] group-hover:opacity-100 transition-all duration-500 ease-out space-y-2 text-center flex flex-col items-center">
+                        <p className="text-[12px] text-white/85 leading-snug mt-1.5 line-clamp-3 max-w-[95%]">
+                          {s.desc}
+                        </p>
 
-                      <div className="pt-2">
-                        <Link
-                          to="#"
-                          className="relative inline-flex items-center gap-1 text-[#0ea5e9] hover:text-[#3b82f6] font-bold text-[10px] uppercase tracking-widest pb-0.5 transition-colors duration-300"
-                        >
-                          <span>View More</span>
-                          <ArrowRight className="w-3 h-3" />
-                          <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#0ea5e9] hover:bg-[#3b82f6] transition-colors duration-300" />
-                        </Link>
+                        <div className="pt-2">
+                          <Link
+                            to={serviceHref}
+                            className="relative inline-flex items-center gap-1 text-[#0ea5e9] hover:text-[#3b82f6] font-bold text-[10px] uppercase tracking-widest pb-0.5 transition-colors duration-300"
+                          >
+                            <span>View More</span>
+                            <ArrowRight className="w-3 h-3" />
+                            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#0ea5e9] hover:bg-[#3b82f6] transition-colors duration-300" />
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -210,7 +213,7 @@ export function Services() {
 
                           <div className="pt-2">
                             <Link
-                              to={s.title === "Residential" ? "/residential" : s.title === "Commercial" ? "/commercial" : s.title === "Concrete Cleaning" ? "/concrete-cleaning" : s.title === "Roof Washing" ? "/roof-washing" : s.title.includes("Siding") ? "/siding-cleaning" : s.title.includes("Driveway") ? "/driveway-cleaning" : s.title.includes("Painting") ? "/painting-service" : "#"}
+                              to={s.title === "Residential" ? "/services/house-washing" : s.title === "Commercial" ? "/services/commercial-pressure-washing" : s.title === "Concrete Cleaning" ? "/services/concrete-cleaning" : s.title === "Roof Washing" ? "/services/roof-cleaning" : s.title.includes("Siding") ? "/services/house-washing" : s.title.includes("Driveway") ? "/services/driveway-cleaning" : s.title.includes("Painting") ? "/painting-service" : "/services"}
                               className="relative inline-flex items-center gap-1 text-[#0ea5e9] hover:text-[#3b82f6] font-bold text-[10px] uppercase tracking-widest pb-0.5 transition-colors duration-300"
                             >
                               <span>View More</span>

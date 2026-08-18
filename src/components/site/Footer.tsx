@@ -31,6 +31,7 @@ const socials = [
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
+  { label: "Exterior Cleaning Guides", href: "/blog" },
   { label: "Before & After Gallery", href: "/gallery" },
   { label: "Client Reviews", href: "/reviews" },
   { label: "Free Estimate", href: "/estimate" },
@@ -38,13 +39,29 @@ const quickLinks = [
 ];
 
 const servicesLinks = [
-  { label: "Residential Wash", href: "/residential" },
-  { label: "Commercial Cleaning", href: "/commercial" },
-  { label: "Roof Washing", href: "/roof-washing" },
-  { label: "Siding & Exterior Wash", href: "/siding-cleaning" },
-  { label: "Concrete Cleaning", href: "/concrete-cleaning" },
-  { label: "Driveway Cleaning", href: "/driveway-cleaning" },
-  { label: "Exterior Painting", href: "/painting-service" },
+  { label: "All Services Overview", href: "/services" },
+  { label: "Pressure Washing", href: "/services/pressure-washing" },
+  { label: "Soft House Washing", href: "/services/house-washing" },
+  { label: "Soft Washing Tech", href: "/services/soft-washing" },
+  { label: "Roof Cleaning", href: "/services/roof-cleaning" },
+  { label: "Concrete Cleaning", href: "/services/concrete-cleaning" },
+  { label: "Driveway Cleaning", href: "/services/driveway-cleaning" },
+  { label: "Commercial Washing", href: "/services/commercial-pressure-washing" },
+  { label: "24/7 Emergency Service", href: "/services/emergency-service" },
+];
+
+const serviceAreaLinks = [
+  { label: "All Service Areas", href: "/service-areas" },
+  { label: "Mooresville, NC", href: "/service-areas/mooresville-nc" },
+  { label: "Lake Norman, NC", href: "/service-areas/lake-norman-nc" },
+  { label: "Cornelius, NC", href: "/service-areas/cornelius-nc" },
+  { label: "Davidson, NC", href: "/service-areas/davidson-nc" },
+  { label: "Huntersville, NC", href: "/service-areas/huntersville-nc" },
+  { label: "Troutman, NC", href: "/service-areas/troutman-nc" },
+  { label: "Statesville, NC", href: "/service-areas/statesville-nc" },
+  { label: "Denver, NC", href: "/service-areas/denver-nc" },
+  { label: "Sherrills Ford, NC", href: "/service-areas/sherrills-ford-nc" },
+  { label: "Mount Mourne, NC", href: "/service-areas/mount-mourne-nc" },
 ];
 
 export function Footer() {
@@ -58,10 +75,10 @@ export function Footer() {
       <div className="absolute -bottom-40 right-10 w-[350px] h-[350px] bg-[#0284c7]/5 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
 
       <div className="relative mx-auto w-[90%] max-w-7xl py-20 lg:py-24 z-10 text-left">
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
 
-          {/* Logo & Description */}
-          <div className="col-span-2 lg:col-span-4">
+          {/* Logo & Description (4 cols) */}
+          <div className="col-span-2 lg:col-span-3">
             <div className="flex items-center">
               <img
                 src={logoImg}
@@ -70,12 +87,12 @@ export function Footer() {
               />
             </div>
 
-            <p className="mt-6 text-sm text-slate-400 leading-relaxed max-w-sm font-semibold">
-              Premium exterior cleaning and pressure washing for residential and commercial properties in North Carolina. Fully licensed, insured, and obsessed with quality.
+            <p className="mt-6 text-xs sm:text-sm text-slate-400 leading-relaxed font-semibold">
+              Premium exterior cleaning, hot-water pressure washing, and gentle soft washing across Mooresville, Lake Norman, and surrounding North Carolina communities. Licensed, insured, and owner-operated.
             </p>
 
             {/* Socials row */}
-            <div className="mt-8 flex gap-3 select-none">
+            <div className="mt-6 flex gap-3 select-none">
               {socials.map(({ icon: Icon, href, label }, i) => (
                 <motion.a
                   key={i}
@@ -91,47 +108,41 @@ export function Footer() {
             </div>
 
             {/* Trust Badges */}
-            <div className="mt-8 flex flex-wrap gap-2 select-none">
-              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+            <div className="mt-6 flex flex-wrap gap-2 select-none">
+              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 15+ Years Experience
               </div>
-              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Licensed &amp; Insured
-              </div>
-              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Mooresville, NC &amp; Surrounds
+                $2M Liability Insured
               </div>
             </div>
           </div>
 
-          {/* Quick Links Column */}
-          <Col title="Quick Links" items={quickLinks} />
+          {/* Services Column (3 cols) */}
+          <Col title="Our Services" items={servicesLinks} colSpan="col-span-1 lg:col-span-3" />
 
-          {/* Services Column */}
-          <Col title="Our Services" items={servicesLinks} />
+          {/* Service Areas Column (3 cols) */}
+          <Col title="Service Areas" items={serviceAreaLinks} colSpan="col-span-1 lg:col-span-3" />
 
-          {/* Contact & Hours Column (4-span grid layout subsplit) */}
-          <div className="col-span-2 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-6">
-
-            {/* Contact Details */}
+          {/* Quick Links & Contact Info (3 cols) */}
+          <div className="col-span-2 lg:col-span-3 flex flex-col gap-6">
             <div>
-              <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-6">
-                Contact Us
+              <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-4">
+                Company &amp; Contact
               </div>
-              <ul className="space-y-4.5 text-sm">
+              <ul className="space-y-3.5 text-xs sm:text-sm">
                 <li>
                   <a
                     href="tel:+17045169509"
                     className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9]/10 group-hover:border-[#0ea5e9]/30 transition-all shrink-0">
-                      <Phone className="h-4 w-4 group-hover:rotate-12 transition-transform" />
+                    <div className="h-8 w-8 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9]/10 group-hover:border-[#0ea5e9]/30 transition-all shrink-0">
+                      <Phone className="h-3.5 w-3.5 group-hover:rotate-12 transition-transform" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Phone</span>
+                      <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Direct Line</span>
                       <span className="font-semibold text-white tracking-tight mt-0.5">(704) 516-9509</span>
                     </div>
                   </a>
@@ -141,11 +152,11 @@ export function Footer() {
                     href="mailto:motivate71@yahoo.com"
                     className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9]/10 group-hover:border-[#0ea5e9]/30 transition-all shrink-0">
-                      <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                    <div className="h-8 w-8 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9]/10 group-hover:border-[#0ea5e9]/30 transition-all shrink-0">
+                      <Mail className="h-3.5 w-3.5 group-hover:scale-110 transition-transform" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Email</span>
+                      <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Email</span>
                       <span className="font-semibold text-white tracking-tight mt-0.5 text-wrap break-all">motivate71@yahoo.com</span>
                     </div>
                   </a>
@@ -157,14 +168,13 @@ export function Footer() {
                     rel="noopener noreferrer"
                     className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9]/10 group-hover:border-[#0ea5e9]/30 transition-all shrink-0">
-                      <MapPin className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
+                    <div className="h-8 w-8 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9]/10 group-hover:border-[#0ea5e9]/30 transition-all shrink-0">
+                      <MapPin className="h-3.5 w-3.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Office</span>
+                      <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Office</span>
                       <span className="font-semibold text-white tracking-tight mt-0.5 leading-snug">
-                        107 Kase Ct<br />
-                        Mooresville, NC
+                        107 Kase Ct, Mooresville, NC 28115
                       </span>
                     </div>
                   </a>
@@ -172,29 +182,21 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Hours Info */}
-            <div>
-              <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-6">
-                Service Hours
-              </div>
-              <div className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-5">
-                <span className="text-[#0ea5e9] font-black uppercase tracking-wider block mb-3 text-[10px] flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0ea5e9] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0ea5e9]"></span>
-                  </span>
-                  Emergency Line Active
+            {/* Emergency Hotline Box */}
+            <div className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-4">
+              <span className="text-[#0ea5e9] font-black uppercase tracking-wider block mb-2 text-[10px] flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0ea5e9] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0ea5e9]"></span>
                 </span>
-                <p className="text-xs text-slate-400 leading-relaxed font-semibold">
-                  We are available 24/7 for emergency dispatches across Lake Norman &amp; Mooresville.<br /><br />
-                  <span className="text-white block font-bold mb-1">Standard Office:</span>
-                  Mon–Sat: 8am–8pm<br />
-                  Sun: Closed
-                </p>
-              </div>
+                24/7 Emergency Dispatch Active
+              </span>
+              <p className="text-[11px] text-slate-400 leading-relaxed font-semibold">
+                Available around the clock for commercial spills, graffiti, and urgent exterior cleanups.
+              </p>
             </div>
-
           </div>
+
         </div>
 
         {/* Bottom Copy/Trademark Row with Back to Top trigger */}
@@ -225,20 +227,28 @@ export function Footer() {
   );
 }
 
-function Col({ title, items }: { title: string; items: { label: string; href: string }[] }) {
+function Col({
+  title,
+  items,
+  colSpan = "col-span-1 lg:col-span-3",
+}: {
+  title: string;
+  items: { label: string; href: string }[];
+  colSpan?: string;
+}) {
   return (
-    <div className="col-span-1 lg:col-span-2">
-      <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-6">
+    <div className={colSpan}>
+      <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-5">
         {title}
       </div>
-      <ul className="space-y-4">
+      <ul className="space-y-3">
         {items.map(({ label, href }) => (
           <li key={label}>
             <motion.a
               whileHover={{ x: 4, color: "#0ea5e9" }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               href={href}
-              className="text-sm text-slate-400 hover:text-white transition-colors block font-semibold"
+              className="text-xs sm:text-sm text-slate-400 hover:text-white transition-colors block font-semibold"
             >
               {label}
             </motion.a>

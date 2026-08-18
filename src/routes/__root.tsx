@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { MobileFloatingCTA } from "@/components/site/MobileFloatingCTA";
 
 function NotFoundComponent() {
   return (
@@ -81,9 +82,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Top-rated pressure washing, soft roof cleaning, house washing, concrete degreasing & exterior painting in Mooresville, NC & 40-mile radius. Call David Hudson: (704) 516-9509.",
+          "Professional pressure washing, soft washing, roof cleaning, house washing, concrete degreasing & 24/7 emergency exterior cleaning in Mooresville & Lake Norman NC. Call David Hudson: (704) 516-9509.",
       },
-      { name: "keywords", content: "Pressure Washing NC, Pressure Washing Mooresville NC, House Washing Near Me, Roof Cleaning Lake Norman, Soft Washing, Driveway Cleaning, Steam On Wheels" },
+      { name: "keywords", content: "Pressure Washing Mooresville NC, Pressure Washing Lake Norman NC, Power Washing Mooresville NC, Soft Washing Mooresville NC, House Washing Lake Norman, Roof Cleaning Mooresville NC, Concrete Cleaning Mooresville NC, Commercial Pressure Washing Mooresville NC, 24/7 Emergency Pressure Washing, Steam On Wheels NC" },
       { name: "author", content: "Steam On Wheels LLC" },
       { name: "geo.region", content: "US-NC" },
       { name: "geo.placename", content: "Mooresville" },
@@ -94,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Licensed & Insured exterior cleaning specialists. 15+ years experience. 100% 5-star customer reviews. Free estimates 24/7.",
+          "Licensed & Insured exterior cleaning specialists. 15+ years experience. 100% 5-star customer reviews. 24/7 emergency service available.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -122,7 +123,7 @@ const jsonLdSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
       "@id": "https://steamonwheelsnc.com/#business",
       "name": "Steam On Wheels",
       "legalName": "Steam On Wheels LLC",
@@ -151,14 +152,28 @@ const jsonLdSchema = {
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           "opens": "08:00",
           "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday"],
+          "description": "24/7 Emergency Dispatch Available"
         }
       ],
       "areaServed": [
-        "Mooresville, NC", "Cornelius, NC", "Davidson, NC", "Huntersville, NC",
-        "Statesville, NC", "Troutman, NC", "Denver, NC", "Sherrills Ford, NC",
-        "Mount Mourne, NC", "Hickory, NC", "Lincolnton, NC", "Maiden, NC",
-        "Newton, NC", "Conover, NC", "Charlotte, NC", "Gastonia, NC",
-        "Lake Norman", "Iredell County", "Mecklenburg County", "Catawba County", "Lincoln County"
+        { "@type": "City", "name": "Mooresville", "sameAs": "https://en.wikipedia.org/wiki/Mooresville,_North_Carolina" },
+        { "@type": "City", "name": "Cornelius", "sameAs": "https://en.wikipedia.org/wiki/Cornelius,_North_Carolina" },
+        { "@type": "City", "name": "Davidson", "sameAs": "https://en.wikipedia.org/wiki/Davidson,_North_Carolina" },
+        { "@type": "City", "name": "Huntersville", "sameAs": "https://en.wikipedia.org/wiki/Huntersville,_North_Carolina" },
+        { "@type": "City", "name": "Statesville", "sameAs": "https://en.wikipedia.org/wiki/Statesville,_North_Carolina" },
+        { "@type": "City", "name": "Troutman", "sameAs": "https://en.wikipedia.org/wiki/Troutman,_North_Carolina" },
+        { "@type": "City", "name": "Denver", "sameAs": "https://en.wikipedia.org/wiki/Denver,_North_Carolina" },
+        { "@type": "City", "name": "Sherrills Ford" },
+        { "@type": "Place", "name": "Mount Mourne" },
+        { "@type": "Place", "name": "Lake Norman" },
+        { "@type": "AdministrativeArea", "name": "Iredell County" },
+        { "@type": "AdministrativeArea", "name": "Mecklenburg County" },
+        { "@type": "AdministrativeArea", "name": "Catawba County" },
+        { "@type": "AdministrativeArea", "name": "Lincoln County" }
       ],
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -171,12 +186,14 @@ const jsonLdSchema = {
         "@type": "OfferCatalog",
         "name": "Pressure Washing & Exterior Cleaning Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Pressure Washing & House Washing" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soft Wash Roof Cleaning & Algae Removal" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Concrete & Driveway Degreasing" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Building Washing & Parking Lot Power Washing" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Siding & Vinyl Soft Washing" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exterior Painting & Deck Staining Prep" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pressure Washing Mooresville NC", "url": "https://steamonwheelsnc.com/services/pressure-washing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "House Washing Mooresville NC", "url": "https://steamonwheelsnc.com/services/house-washing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soft Washing Mooresville NC", "url": "https://steamonwheelsnc.com/services/soft-washing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Roof Cleaning Mooresville NC", "url": "https://steamonwheelsnc.com/services/roof-cleaning" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Concrete Cleaning Mooresville NC", "url": "https://steamonwheelsnc.com/services/concrete-cleaning" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Driveway Cleaning Mooresville NC", "url": "https://steamonwheelsnc.com/services/driveway-cleaning" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Pressure Washing Mooresville NC", "url": "https://steamonwheelsnc.com/services/commercial-pressure-washing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "24/7 Emergency Pressure Washing Mooresville NC", "url": "https://steamonwheelsnc.com/services/emergency-service" } }
         ]
       },
       "founder": {
@@ -226,6 +243,8 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <MobileFloatingCTA />
     </QueryClientProvider>
   );
 }
+

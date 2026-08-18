@@ -2,108 +2,239 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Home Page -->
+  <!-- Core Pages -->
   <url>
     <loc>https://steamonwheelsnc.com/</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- About Us -->
   <url>
     <loc>https://steamonwheelsnc.com/about</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Service: Residential -->
   <url>
-    <loc>https://steamonwheelsnc.com/residential</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://steamonwheelsnc.com/contact</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
-  <!-- Service: Commercial -->
-  <url>
-    <loc>https://steamonwheelsnc.com/commercial</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Service: Concrete Cleaning -->
-  <url>
-    <loc>https://steamonwheelsnc.com/concrete-cleaning</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Service: Roof Washing -->
-  <url>
-    <loc>https://steamonwheelsnc.com/roof-washing</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Service: Siding Cleaning -->
-  <url>
-    <loc>https://steamonwheelsnc.com/siding-cleaning</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Service: Driveway Cleaning -->
-  <url>
-    <loc>https://steamonwheelsnc.com/driveway-cleaning</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Service: Exterior Painting -->
-  <url>
-    <loc>https://steamonwheelsnc.com/painting-service</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Customer Reviews -->
-  <url>
-    <loc>https://steamonwheelsnc.com/reviews</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Free Estimate -->
   <url>
     <loc>https://steamonwheelsnc.com/estimate</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
-  <!-- Contact Us -->
   <url>
-    <loc>https://steamonwheelsnc.com/contact</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://steamonwheelsnc.com/reviews</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/gallery</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- Before & After Gallery -->
   <url>
-    <loc>https://steamonwheelsnc.com/gallery</loc>
-    <lastmod>2026-07-23</lastmod>
+    <loc>https://steamonwheelsnc.com/painting-service</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Services Hub & Dedicated Service Pages -->
+  <url>
+    <loc>https://steamonwheelsnc.com/services</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/services/pressure-washing</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/services/house-washing</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/services/soft-washing</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/services/roof-cleaning</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/services/concrete-cleaning</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/services/driveway-cleaning</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/services/commercial-pressure-washing</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/services/emergency-service</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Service Areas Hub & Dedicated City Landing Pages -->
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/mooresville-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/lake-norman-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/troutman-nc</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/statesville-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/cornelius-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/davidson-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/huntersville-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/denver-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/sherrills-ford-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/service-areas/mount-mourne-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Blog / Guides Hub & Articles -->
+  <url>
+    <loc>https://steamonwheelsnc.com/blog</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/blog/how-often-to-pressure-wash-house-nc</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/blog/pressure-washing-vs-soft-washing</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/blog/how-to-remove-algae-roof-lake-norman</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/blog/how-to-clean-concrete-driveway-nc-clay</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://steamonwheelsnc.com/blog/commercial-pressure-washing-lake-norman</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

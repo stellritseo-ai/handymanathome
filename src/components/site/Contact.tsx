@@ -5,10 +5,10 @@ import {
   Mail,
   MapPin,
   Clock,
-  ArrowRight,
+  Send,
   CheckCircle2,
   ShieldCheck,
-  Send,
+  ChevronDown,
 } from "lucide-react";
 
 export function Contact() {
@@ -18,7 +18,8 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
     try {
@@ -30,7 +31,7 @@ export function Contact() {
         },
         body: JSON.stringify({
           ...data,
-          _subject: `New Free Estimate Request from ${data.name || 'Website Visitor'}`,
+          _subject: `New Free Estimate Request from ${data.name || "Website Visitor"}`,
           _template: "table",
         }),
       });
@@ -44,115 +45,143 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-[80px] bg-white border-b border-slate-100 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none" />
-      
+    <section
+      id="contact"
+      style={{ paddingTop: "60px", paddingBottom: "60px" }}
+      className="relative py-[60px] bg-gradient-to-b from-white via-[#F8FAFC] to-white border-b border-slate-200/70 overflow-hidden"
+    >
+      {/* Ambient background glows */}
+      <div className="pointer-events-none absolute -top-24 left-1/4 w-[500px] h-[500px] bg-[#0000b9]/[0.035] rounded-full blur-[140px] -z-10" />
+      <div className="pointer-events-none absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-sky-400/[0.04] rounded-full blur-[130px] -z-10" />
+
       <div className="mx-auto w-[90%] max-w-7xl relative z-10">
         
-        {/* Header / CTA */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 bg-[#0000b9]/10 border border-[#0000b9]/25 text-[#0000b9] rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0000b9] animate-pulse" />
+          {/* Eyebrow Badge */}
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-[#0000b9]/20 text-[#0000b9] px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest mb-4 shadow-2xs select-none">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0000b9] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0000b9]" />
+            </span>
             <span>Free Estimate &amp; Consultation</span>
           </div>
 
           {/* Headline */}
-          <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold text-[#090e24] leading-tight tracking-tight mb-4">
-            Ready to Transform Your Space?
+          <h2
+            className="text-[26px] xs:text-[30px] sm:text-[38px] -mt-[6px] font-extrabold text-neutral-900 leading-tight tracking-tight mb-3"
+          >
+            Ready to Transform{" "}
+            <span className="bg-gradient-to-r from-[#0000b9] via-[#0d1fd6] to-[#2563eb] bg-clip-text text-transparent">
+              Your Space?
+            </span>
           </h2>
 
-          {/* Text */}
-          <p className="text-sm sm:text-base md:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto mb-6">
-            Contact us today for a FREE, no-obligation estimate. We're happy to discuss your project and provide a transparent quote.
+          {/* Subtitle */}
+          <p
+            className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto mb-2 sm:-mb-6"
+          >
+            Contact us today for a 100% free, no-obligation estimate.
+            <br className="hidden sm:inline" />{" "}
+            We provide upfront fixed pricing, guaranteed craftsmanship, and rapid response across the Dallas–Fort Worth metroplex.
           </p>
-
-          {/* Call Us Button */}
-          <div className="flex justify-center">
-            <a
-              href="tel:2148141444"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#0000b9] hover:bg-[#1526d4] text-white px-8 py-4 rounded-full font-extrabold text-sm uppercase tracking-wider shadow-glow hover:scale-105 active:scale-95 transition-all duration-300"
-            >
-              <Phone className="h-4 w-4" />
-              <span>Call Us! (214) 814-1444</span>
-            </a>
-          </div>
         </div>
 
+        {/* 2-Column Content Grid */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           
-          {/* Left: Contact Info Card */}
+          {/* ── Left Column: Contact Info Card (5 cols) ── */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 150, damping: 20 }}
-            className="lg:col-span-5 relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#090e24] via-[#0d1740] to-[#0000b9] text-white p-8 lg:p-10 shadow-xl flex flex-col justify-between"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:col-span-5 relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#090e24] via-[#0b1338] to-[#0000b9] text-white p-5 xs:p-7 sm:p-9 shadow-[0_20px_50px_rgba(9,14,36,0.2)] flex flex-col justify-between"
           >
-            <div className="absolute inset-0 bg-grid opacity-10 mix-blend-overlay pointer-events-none" />
-            <div className="absolute -bottom-28 -right-28 h-80 w-80 rounded-full bg-[#0000b9]/40 blur-3xl pointer-events-none" />
+            {/* Ambient Interior Glow */}
+            <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-sky-400/15 blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-[#0000b9]/30 blur-3xl pointer-events-none" />
 
-            <div className="relative text-left">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest mb-6">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Handyman At Home HQ
-              </span>
-              <h3 className="text-2xl font-black uppercase tracking-wider text-white">
-                Contact Details
+            <div className="relative z-10 text-left">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 px-3.5 py-1 text-[10px] font-black uppercase tracking-widest text-sky-300 mb-6">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Handyman At Home HQ</span>
+              </div>
+
+              <h3 className="text-2xl sm:text-[26px] font-extrabold text-white tracking-tight leading-tight">
+                Direct Contact &amp; Dispatch
               </h3>
-              <p className="mt-2 text-sm text-slate-300 font-normal leading-relaxed">
-                Reach our team directly for inquiries, on-site walkthroughs, or urgent emergency repairs.
+              <p className="mt-2 text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
+                Reach our local team for fast project scheduling, on-site walkthroughs, or urgent 24/7 emergency dispatch.
               </p>
 
-              <ul className="mt-8 space-y-6">
+              {/* Info Items List */}
+              <ul className="mt-7 space-y-5">
                 <Item
                   icon={Phone}
-                  label="Direct Lines"
-                  value="(214) 814-1444 / (214) 814-1490"
+                  label="Direct Dispatch Numbers"
+                  value="(214) 814-1444"
+                  subValue="(214) 814-1490 (Secondary)"
                   href="tel:+12148141444"
                   isCall
                 />
                 <Item
                   icon={Mail}
-                  label="Email Address"
+                  label="Official Email"
                   value="handymanathome@gmail.com"
                   href="mailto:handymanathome@gmail.com"
                 />
                 <Item
                   icon={MapPin}
-                  label="Office Location"
-                  value="1730 Newlin Dr, DFW, TX 75125, United States"
+                  label="Headquarters &amp; Yard"
+                  value="1730 Newlin Dr, DFW, TX 75125"
+                  subValue="Serving all DFW communities within 40 miles"
                 />
                 <Item
                   icon={Clock}
                   label="Operating Hours"
-                  value="7am to 9pm Mon-Fri | 24/7 Emergency Services"
+                  value="7:00 AM – 9:00 PM Mon–Fri"
+                  subValue="24/7 Rapid Emergency Response on Call"
                 />
               </ul>
             </div>
 
-            <div className="relative mt-8 pt-6 border-t border-white/15 flex items-center gap-3 text-left">
-              <ShieldCheck className="h-5 w-5 text-sky-400 shrink-0" />
-              <span className="text-[11px] uppercase font-bold tracking-wider text-slate-200">
-                Licensed &amp; Insured General Contractor &bull; DFW, TX
-              </span>
+            {/* Bottom Guarantee Banner */}
+            <div className="relative z-10 mt-8 pt-5 border-t border-white/15 flex items-center gap-3 text-left">
+              <div className="h-8 w-8 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center shrink-0">
+                <ShieldCheck className="h-4 w-4 text-emerald-400" />
+              </div>
+              <div>
+                <p className="text-[11px] font-extrabold text-white uppercase tracking-wider">
+                  Licensed &amp; Insured in Texas
+                </p>
+                <p className="text-[10.5px] text-slate-300 font-medium">
+                  Comprehensive public liability &amp; property protection
+                </p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right: Estimate Form */}
+          {/* ── Right Column: Estimate Form (7 cols) ── */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 150, damping: 20 }}
-            className="lg:col-span-7 bg-white border border-slate-200/90 rounded-3xl p-8 lg:p-10 shadow-sm hover:shadow-md transition-shadow duration-300 relative flex flex-col justify-center"
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            className="lg:col-span-7 bg-white border border-slate-200/90 rounded-[28px] p-5 xs:p-7 sm:p-9 shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative flex flex-col justify-center text-left"
           >
-            <div className="mb-6 text-left">
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#090e24] tracking-tight">
-                Free Estimate
-              </h3>
+            <div className="mb-6">
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="text-2xl sm:text-[26px] font-extrabold text-neutral-900 tracking-tight">
+                  Request a Free Quote
+                </h3>
+                <span className="text-[10px] font-black uppercase tracking-wider text-[#0000b9] bg-blue-50 border border-[#0000b9]/15 px-2.5 py-1 rounded-full">
+                  Fast Response
+                </span>
+              </div>
               <p className="text-xs sm:text-sm text-slate-500 font-normal mt-1">
-                Fill out the quick form below and our estimator will get back to you promptly.
+                Tell us about your project. We'll review your details and get back to you promptly with honest pricing.
               </p>
             </div>
 
@@ -162,90 +191,120 @@ export function Contact() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="grid place-items-center text-center py-12"
+                  className="grid place-items-center text-center py-10"
                 >
                   <div className="grid place-items-center h-16 w-16 rounded-full bg-emerald-100 text-emerald-600 mb-4 shadow-sm">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h4 className="text-2xl font-black text-[#090e24] uppercase tracking-wider">
-                    Thank You!
+                  <h4 className="text-2xl font-extrabold text-neutral-900 tracking-tight">
+                    Thank You! Request Received
                   </h4>
                   <p className="mt-2 text-sm text-slate-600 font-medium max-w-sm">
-                    Your estimate request has been submitted. A Handyman At Home representative will contact you shortly.
+                    A Handyman At Home estimator will contact you within 15 minutes to review your project and schedule your consultation.
                   </p>
+                  <button
+                    type="button"
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#0000b9] hover:bg-[#000099] text-white text-xs font-bold px-6 py-3 shadow-md transition-all cursor-pointer"
+                  >
+                    <Phone className="h-3.5 w-3.5" />
+                    <span>Need Immediate Help? Call (214) 814-1444</span>
+                  </button>
                 </motion.div>
               ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="space-y-4 text-left"
-                >
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
-                    {/* Name */}
+                    {/* Full Name */}
                     <Field
-                      label="Name"
+                      label="Your Name *"
                       name="name"
-                      placeholder="Your Full Name"
-                      required
-                    />
-
-                    {/* Email */}
-                    <Field
-                      label="Email"
-                      name="email"
-                      type="email"
-                      placeholder="name@example.com"
+                      placeholder="e.g. John Miller"
                       required
                     />
 
                     {/* Phone */}
                     <Field
-                      label="Phone"
+                      label="Phone Number *"
                       name="phone"
                       type="tel"
                       placeholder="(214) 814-1444"
                       required
                     />
 
-                    {/* Address */}
+                    {/* Email */}
                     <Field
-                      label="Address"
-                      name="address"
-                      placeholder="Street, City, TX (e.g. Dallas, TX)"
+                      label="Email Address *"
+                      name="email"
+                      type="email"
+                      placeholder="name@example.com"
                       required
                     />
 
-                    {/* Message */}
+                    {/* Project Address / City */}
+                    <Field
+                      label="Project Location (City / ZIP) *"
+                      name="address"
+                      placeholder="e.g. Dallas, TX 75201"
+                      required
+                    />
+
+                    {/* Service Needed Selector */}
                     <div className="sm:col-span-2">
-                      <Label>Message</Label>
+                      <Label>Primary Service Needed *</Label>
+                      <div className="relative mt-1.5">
+                        <select
+                          name="service"
+                          required
+                          defaultValue=""
+                          className="w-full appearance-none rounded-xl border border-slate-200/90 bg-slate-50/70 px-4 py-3 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-4 focus:ring-[#0000b9]/10 focus:border-[#0000b9] focus:bg-white transition-all cursor-pointer"
+                        >
+                          <option value="" disabled>Select a core service...</option>
+                          <option value="Kitchen Remodeling">Kitchen Remodeling &amp; Cabinetry</option>
+                          <option value="Bathroom Remodeling">Bathroom Remodeling &amp; Tile</option>
+                          <option value="Painting">Interior &amp; Exterior Painting</option>
+                          <option value="Roofing">Roofing Repair &amp; Replacement</option>
+                          <option value="Plumbing">Plumbing Fixtures &amp; Pipe Repairs</option>
+                          <option value="Deck & Siding">Deck, Siding &amp; Wood Rot</option>
+                          <option value="General Handyman">General Handyman &amp; Home Repairs</option>
+                          <option value="24/7 Emergency">24/7 Emergency Dispatch</option>
+                        </select>
+                        <ChevronDown className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                      </div>
+                    </div>
+
+                    {/* Project Details */}
+                    <div className="sm:col-span-2">
+                      <Label>Project Scope &amp; Details</Label>
                       <textarea
                         name="message"
-                        rows={4}
-                        placeholder="Tell us about your remodeling, repair, painting, or handyman needs..."
-                        required
-                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-3 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-4 focus:ring-[#0000b9]/10 focus:border-[#0000b9] focus:bg-white transition-all duration-300 resize-none"
+                        rows={3}
+                        placeholder="Tell us what you'd like done (approx size, timeline, specific issues)..."
+                        className="mt-1.5 w-full rounded-xl border border-slate-200/90 bg-slate-50/70 px-4 py-3 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-4 focus:ring-[#0000b9]/10 focus:border-[#0000b9] focus:bg-white transition-all resize-none"
                       />
                     </div>
                   </div>
 
-                  {/* Send Button */}
+                  {/* Submit Button */}
                   <motion.button
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     disabled={loading}
                     type="submit"
-                    className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-[#0000b9] hover:bg-[#1526d4] px-6 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-glow hover:brightness-110 cursor-pointer transition-all duration-300 disabled:opacity-50 mt-2"
+                    className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#0000b9] via-[#0d1fd6] to-[#0000b9] hover:from-[#000099] hover:to-[#0c1bb8] px-6 py-4 text-sm font-extrabold uppercase tracking-wider text-white shadow-[0_4px_16px_rgba(0,0,185,0.32)] hover:shadow-[0_6px_22px_rgba(0,0,185,0.45)] cursor-pointer transition-all duration-200 disabled:opacity-50 mt-2"
                   >
                     <Send className="h-4 w-4" />
-                    <span>{loading ? "Sending..." : "Send"}</span>
+                    <span>{loading ? "Submitting Request..." : "Request My Free Estimate"}</span>
                   </motion.button>
 
-                  <p className="text-center text-[11px] text-slate-400 font-medium pt-1">
-                    Transparent, honest pricing • No obligations • Privacy respected
-                  </p>
+                  <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 pt-2 text-[11px] text-slate-400 font-medium">
+                    <span>✓ 100% Free Upfront Quotes</span>
+                    <span>✓ Zero Obligation</span>
+                    <span>✓ Privacy Strictly Respected</span>
+                  </div>
                 </form>
               )}
             </AnimatePresence>
           </motion.div>
+
         </div>
       </div>
     </section>
@@ -256,58 +315,62 @@ function Item({
   icon: Icon,
   label,
   value,
+  subValue,
   href,
   isCall,
 }: {
   icon: any;
   label: string;
   value: string;
+  subValue?: string;
   href?: string;
   isCall?: boolean;
 }) {
-  const inner = (
-    <div className="flex items-start gap-4">
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        className={`grid place-items-center h-10 w-10 rounded-xl text-white shrink-0 transition-all duration-300 ${
-          isCall 
-            ? "bg-[#0000b9] shadow-md" 
-            : "bg-white/10 border border-white/15 hover:bg-white/20"
+  const content = (
+    <div className="flex items-start gap-3.5 group/item">
+      <div
+        className={`h-9 w-9 rounded-xl flex items-center justify-center text-white shrink-0 transition-transform duration-200 group-hover/item:scale-105 ${
+          isCall
+            ? "bg-[#0000b9] border border-blue-400/30 shadow-md shadow-[#0000b9]/40"
+            : "bg-white/10 border border-white/15"
         }`}
       >
-        <Icon className="h-5 w-5" />
-      </motion.div>
-      <div className="text-left">
-        <div className="text-[9px] uppercase tracking-wider text-slate-300 font-bold">
+        <Icon className={`h-4 w-4 ${isCall ? "text-white" : "text-sky-300"}`} />
+      </div>
+      <div className="text-left min-w-0">
+        <span className="text-[10px] uppercase tracking-wider text-slate-300 font-bold block">
           {label}
-        </div>
-        <div
-          className={`font-display font-bold leading-tight ${isCall ? "text-base sm:text-lg text-white" : "text-xs sm:text-sm text-slate-100"}`}
+        </span>
+        <span
+          className={`font-bold leading-tight block truncate ${
+            isCall ? "text-base sm:text-lg text-white" : "text-xs sm:text-sm text-slate-100"
+          }`}
         >
           {value}
-        </div>
+        </span>
+        {subValue && (
+          <span className="text-[10.5px] text-slate-400 font-normal block mt-0.5">
+            {subValue}
+          </span>
+        )}
       </div>
     </div>
   );
+
   return href ? (
     <li>
-      <motion.a
-        whileHover={{ x: 4 }}
-        transition={{ type: "spring", stiffness: 350, damping: 20 }}
-        href={href}
-        className="block hover:opacity-95 transition-opacity"
-      >
-        {inner}
-      </motion.a>
+      <a href={href} className="block hover:opacity-95 transition-opacity">
+        {content}
+      </a>
     </li>
   ) : (
-    <li>{inner}</li>
+    <li>{content}</li>
   );
 }
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600">
+    <label className="block text-[11px] font-black uppercase tracking-wider text-slate-700">
       {children}
     </label>
   );
@@ -319,17 +382,16 @@ function Field({
   type = "text",
   placeholder,
   required,
-  className = "",
 }: any) {
   return (
-    <div className={className}>
+    <div>
       <Label>{label}</Label>
       <input
         name={name}
         type={type}
         required={required}
         placeholder={placeholder}
-        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-3 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-4 focus:ring-[#0000b9]/10 focus:border-[#0000b9] focus:bg-white transition-all duration-300"
+        className="mt-1.5 w-full rounded-xl border border-slate-200/90 bg-slate-50/70 px-4 py-3 text-xs sm:text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#0000b9]/10 focus:border-[#0000b9] focus:bg-white transition-all duration-200"
       />
     </div>
   );

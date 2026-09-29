@@ -3,7 +3,7 @@ import painting from "@/assets/svc-painting.png";
 import roof from "@/assets/svc-roof.png";
 import landscaping from "@/assets/svc-landscaping.png";
 import commercial from "@/assets/svc-commercial.png";
-import { ArrowRight, Wrench } from "lucide-react";
+import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -17,38 +17,50 @@ const services = [
     title: "Kitchen & Bathroom Remodel",
     desc: "At Handyman At Home, we transform your most essential rooms into beautiful, functional spaces designed for your lifestyle. From custom cabinetry and tile work to full floor-to-ceiling upgrades, we bring your vision to life.",
     image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
-    href: "#contact"
+    href: "#contact",
   },
   {
     title: "Painting (Interior & Exterior)",
     desc: "Refresh and protect your property with our expert painting services. We deliver a flawless, durable finish that enhances your curb appeal and breathes new vibrant life into every interior room.",
     image: painting,
-    href: "#contact"
+    href: "#contact",
   },
   {
     title: "Roofing Repairs & Installation",
     desc: "Secure your home from the top down with our reliable roofing solutions. We provide expert repairs to fix leaks and storm damage, along with comprehensive new installations that protect your investment.",
     image: roof,
-    href: "#contact"
+    href: "#contact",
   },
   {
     title: "Plumbing Services",
     desc: "From minor drips to major pipe installations, we offer comprehensive plumbing services to keep your water flowing smoothly. Faucets, toilets, drains, and pipe replacements handled by seasoned pros.",
     image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
-    href: "#contact"
+    href: "#contact",
   },
   {
     title: "Landscaping & Outdoor Work",
     desc: "Enhance your property’s exterior with our professional landscaping and outdoor services. We create and maintain beautiful yards, patios, fences, decks, and outdoor living spaces.",
     image: landscaping,
-    href: "#contact"
-  }
+    href: "#contact",
+  },
+  {
+    title: "Commercial Property Maintenance",
+    desc: "Dependable facility maintenance, office buildouts, and commercial repairs tailored for Dallas–Fort Worth businesses, property managers, and retail spaces.",
+    image: commercial,
+    href: "#contact",
+  },
+  {
+    title: "Drywall, Framing & Carpentry",
+    desc: "Precision carpentry, custom trim, crown molding, wall framing, and seamless drywall repairs to keep your home structurally sound and looking brand new.",
+    image: residential,
+    href: "#contact",
+  },
 ] as const;
 
 export function Services() {
   // First 3 items for the top row grid
   const topItems = services.slice(0, 3);
-  // Duplicate for smooth seamless loop
+  // Duplicate for smooth seamless loop in carousel
   const slideItems = [
     ...services,
     ...services,
@@ -72,25 +84,58 @@ export function Services() {
           >
             <div className="pr-2 mb-6 lg:mb-0">
               {/* Tag: Services We Offer */}
-              <span className="inline-flex items-center gap-1.5 bg-[#0000b9]/10 border border-[#0000b9]/25 text-[#0000b9] rounded-full px-5 py-1.5 text-[11px] font-extrabold uppercase tracking-wider mb-5">
-                <Wrench className="w-3.5 h-3.5" />
-                Services We Offer
-              </span>
-              <h2 className="text-[26px] sm:text-[32px] lg:text-[38px] leading-tight font-extrabold text-neutral-900 tracking-tight">
-                Comprehensive Services for Your Home or Business
+              <div className="inline-flex items-center gap-2 bg-[#0000b9]/10 border border-[#0000b9]/25 text-[#0000b9] rounded-full px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-wider mb-4 shadow-2xs">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0000b9] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0000b9]" />
+                </span>
+                <span>Services We Offer</span>
+              </div>
+
+              <h2
+                className="text-[26px] xs:text-[30px] sm:text-[35px] -mt-[5px] mb-2 sm:-mb-[15px] leading-tight font-extrabold text-neutral-900 tracking-tight"
+              >
+                Comprehensive Services for Your{" "}
+                <span className="text-[#0000b9]">Home or Business</span>
               </h2>
-              <p className="mt-5 text-neutral-600 text-sm md:text-base leading-relaxed font-normal">
-                We are your one-stop solution for a wide range of repair, maintenance, and improvement needs. As a full-service general contractor, we handle it all.
+
+              <p className="mt-4 text-neutral-600 text-sm md:text-base leading-relaxed font-normal">
+                We are your one-stop solution for a wide range of repair, maintenance, and improvement needs across Dallas–Fort Worth. As a full-service licensed general contractor, we handle every detail with master craftsmanship.
               </p>
-              {/* Brand Blue CTA Button */}
-              <div className="mt-7">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2.5 bg-[#0000b9] hover:bg-[#1526d4] text-white rounded-full px-7 py-3 text-[14px] font-bold shadow-glow hover:scale-[1.03] active:scale-[0.97] transition-all duration-300"
+
+              {/* Trust Value Points */}
+              <div className="mt-5 space-y-2 text-xs sm:text-[13px] font-semibold text-neutral-700">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Licensed &amp; Insured General Contractor</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Free, Transparent Same-Day Estimates</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Residential &amp; Commercial DFW Coverage</span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2.5 bg-[#0000b9] hover:bg-[#1526d4] text-white rounded-full px-7 py-3 text-[14px] font-bold shadow-glow hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 cursor-pointer"
                 >
                   <span>Request A Free Quote</span>
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </button>
+
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 hover:border-[#0000b9] bg-white hover:bg-[#0000b9]/5 text-slate-800 hover:text-[#0000b9] font-bold text-[13.5px] px-5 py-3 transition-all duration-200 cursor-pointer"
+                >
+                  <Phone className="w-4 h-4 text-[#0000b9]" />
+                  <span>(214) 814-1444</span>
+                </button>
               </div>
             </div>
           </motion.div>
@@ -104,7 +149,7 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, delay: idx * 0.15, ease: "easeOut" }}
-                className="group relative rounded-[12px] overflow-hidden shadow-md bg-neutral-950 h-[240px] sm:h-[290px] lg:h-[350px] xl:h-[390px] border border-neutral-900/5 cursor-pointer transform-gpu"
+                className="group relative rounded-[14px] overflow-hidden shadow-md bg-neutral-950 h-[240px] sm:h-[290px] lg:h-[350px] xl:h-[390px] border border-neutral-900/10 cursor-pointer transform-gpu"
               >
                 {/* Background image */}
                 <img
@@ -116,7 +161,7 @@ export function Services() {
                 />
 
                 {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:from-black/95 group-hover:via-black/90 group-hover:to-black/85 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent group-hover:from-black/95 group-hover:via-black/90 group-hover:to-black/85 transition-all duration-500" />
 
                 {/* Card Content */}
                 <div className="absolute inset-0 p-5 flex flex-col justify-end z-10 h-full text-center">
@@ -132,14 +177,14 @@ export function Services() {
                       </p>
 
                       <div className="pt-2">
-                        <a
-                          href="#contact"
-                          className="relative inline-flex items-center gap-1 text-[#60a5fa] hover:text-white font-bold text-[11px] uppercase tracking-widest pb-0.5 transition-colors duration-300"
+                        <button
+                          type="button"
+                          className="relative inline-flex items-center gap-1 text-[#60a5fa] hover:text-white font-bold text-[11px] uppercase tracking-widest pb-0.5 transition-colors duration-300 cursor-pointer"
                         >
                           <span>Get Estimate</span>
                           <ArrowRight className="w-3 h-3" />
                           <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#60a5fa] hover:bg-white transition-colors duration-300" />
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -149,7 +194,7 @@ export function Services() {
           </div>
         </div>
 
-        {/* Second Row Grid: Slider / Carousel with all 5 services */}
+        {/* Second Row Grid: Slider / Carousel with all services */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -157,6 +202,10 @@ export function Services() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="mt-8 relative px-2 md:px-0"
         >
+          {/* Edge gradient fade masks */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-16 z-20 bg-gradient-to-r from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-16 z-20 bg-gradient-to-l from-white to-transparent" />
+
           <Carousel
             plugins={[
               AutoScroll({
@@ -175,7 +224,7 @@ export function Services() {
             <CarouselContent className="-ml-5 transform-gpu" style={{ willChange: "transform" }}>
               {slideItems.map((s, idx) => (
                 <CarouselItem key={`${s.title}-${idx}`} className="pl-5 basis-full xs:basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                  <div className="group relative rounded-[12px] overflow-hidden shadow-md bg-neutral-950 h-[220px] sm:h-[260px] lg:h-[320px] border border-neutral-900/5 cursor-pointer transform-gpu">
+                  <div className="group relative rounded-[14px] overflow-hidden shadow-md bg-neutral-950 h-[220px] sm:h-[260px] lg:h-[320px] border border-neutral-900/10 cursor-pointer transform-gpu">
                     {/* Background image */}
                     <img
                       src={s.image}
@@ -186,7 +235,7 @@ export function Services() {
                     />
 
                     {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:from-black/95 group-hover:via-black/90 group-hover:to-black/85 transition-all duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent group-hover:from-black/95 group-hover:via-black/90 group-hover:to-black/85 transition-all duration-500" />
 
                     {/* Card Content */}
                     <div className="absolute inset-0 p-5 flex flex-col justify-end z-10 h-full text-center">
@@ -202,14 +251,14 @@ export function Services() {
                           </p>
 
                           <div className="pt-2">
-                            <a
-                              href="#contact"
-                              className="relative inline-flex items-center gap-1 text-[#60a5fa] hover:text-white font-bold text-[10px] uppercase tracking-widest pb-0.5 transition-colors duration-300"
+                            <button
+                              type="button"
+                              className="relative inline-flex items-center gap-1 text-[#60a5fa] hover:text-white font-bold text-[10px] uppercase tracking-widest pb-0.5 transition-colors duration-300 cursor-pointer"
                             >
                               <span>Learn More</span>
                               <ArrowRight className="w-3 h-3" />
                               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#60a5fa] hover:bg-white transition-colors duration-300" />
-                            </a>
+                            </button>
                           </div>
                         </div>
                       </div>

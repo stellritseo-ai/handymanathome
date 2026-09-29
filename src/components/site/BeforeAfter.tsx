@@ -1,383 +1,222 @@
 import { useState, useEffect, useCallback } from "react";
-import { MapPin, Phone, Mail, Home, Wrench, Paintbrush, Shield, X, ZoomIn } from "lucide-react";
-import p1 from "@/assets/steam/gallery1.jpg";
-import p2 from "@/assets/steam/gallery2.jpg";
-import p3 from "@/assets/steam/gallery3.jpg";
-import p4 from "@/assets/steam/gallery4.jpg";
-import p5 from "@/assets/steam/gallery5.jpg";
-import p6 from "@/assets/steam/gallery6.jpg";
-import p7 from "@/assets/steam/gallery8.jpg";
-import p8 from "@/assets/steam/gallery14.jpg";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { X, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 
-const allProjects = [
-  {
-    img: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=800&q=80",
-    title: "Roofing Repair & Shingle Restoration",
-    cat: "Roofing",
-    loc: "Dallas, TX",
-    year: "2024",
-    tag: "Roofing",
-    featured: true,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80",
-    title: "Full Interior & Exterior Painting",
-    cat: "Painting",
-    loc: "Fort Worth, TX",
-    year: "2024",
-    tag: "Painting",
-    featured: false,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80",
-    title: "Luxury Bathroom Remodel & Tile",
-    cat: "Remodeling",
-    loc: "Arlington, TX",
-    year: "2024",
-    tag: "Bathroom",
-    featured: false,
-  },
-  {
-    img: p6,
-    title: "Custom Outdoor Deck & Living Space",
-    cat: "Outdoor",
-    loc: "Plano, TX",
-    year: "2024",
-    tag: "Deck & Patio",
-    featured: true,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
-    title: "Custom Kitchen Cabinetry & Countertops",
-    cat: "Remodeling",
-    loc: "Dallas, TX",
-    year: "2024",
-    tag: "Kitchen",
-    featured: false,
-  },
-  {
-    img: p3,
-    title: "Exterior Siding & Trim Replacement",
-    cat: "Remodeling",
-    loc: "Garland, TX",
-    year: "2023",
-    tag: "Remodel",
-    featured: false,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
-    title: "Plumbing Fixtures & Pipe Line Renewal",
-    cat: "Plumbing",
-    loc: "Irving, TX",
-    year: "2024",
-    tag: "Plumbing",
-    featured: false,
-  },
-  {
-    img: p1,
-    title: "Full Residential Home Renovation",
-    cat: "Remodeling",
-    loc: "Fort Worth, TX",
-    year: "2024",
-    tag: "General Contracting",
-    featured: false,
-  },
-];
+// Dynamically extract all images from assets/gallery
+const galleryModules = import.meta.glob<{ default: string }>(
+  "../../assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
+  { eager: true }
+);
 
-const cats = ["All", "Remodeling", "Painting", "Roofing", "Outdoor"] as const;
+const galleryImages: string[] = Object.values(galleryModules).map(
+  (mod) => mod.default
+);
 
 export function BeforeAfter() {
-  const [active, setActive] = useState<(typeof cats)[number]>("All");
-  const items = active === "All" ? allProjects : allProjects.filter((p) => p.cat === active || (active === "Outdoor" && p.tag.includes("Deck")));
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(10);
 
-  // Lightbox state
-  const [lightbox, setLightbox] = useState<null | (typeof allProjects)[number]>(null);
-
-  const openLightbox = useCallback((p: (typeof allProjects)[number]) => {
-    setLightbox(p);
+  const openLightbox = useCallback((index: number) => {
+    setSelectedIndex(index);
     document.body.style.overflow = "hidden";
   }, []);
 
   const closeLightbox = useCallback(() => {
-    setLightbox(null);
+    setSelectedIndex(null);
     document.body.style.overflow = "";
   }, []);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") closeLightbox(); };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [closeLightbox]);
+  const prevImage = useCallback(() => {
+    setSelectedIndex((prev) =>
+      prev !== null
+        ? prev === 0
+          ? galleryImages.length - 1
+          : prev - 1
+        : null
+    );
+  }, []);
 
-  useEffect(() => () => { document.body.style.overflow = ""; }, []);
+  const nextImage = useCallback(() => {
+    setSelectedIndex((prev) =>
+      prev !== null
+        ? prev === galleryImages.length - 1
+          ? 0
+          : prev + 1
+        : null
+    );
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextImage();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex, closeLightbox, prevImage, nextImage]);
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  const displayedImages = galleryImages.slice(0, visibleCount);
+  const hasMore = visibleCount < galleryImages.length;
+
+  const handleToggleShowMore = () => {
+    if (hasMore) {
+      // Reveal all images or next batch
+      setVisibleCount(galleryImages.length);
+    } else {
+      // Collapse back to 2 rows of 5
+      setVisibleCount(10);
+    }
+  };
 
   return (
-    <section id="projects" className="bg-[#F8FAFC] py-[70px] overflow-hidden border-b border-slate-100">
+    <section
+      id="projects"
+      style={{ paddingTop: "60px", paddingBottom: "60px" }}
+      className="bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC] py-[60px] overflow-hidden border-b border-slate-200/70"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {/* ── About/Contact Strip ──────────────────────────── */}
-        <div className="bg-gradient-to-br from-[#090e24] via-[#0b1338] to-[#0000b9] rounded-3xl p-6 sm:p-10 text-white shadow-xl mb-14 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#0000b9]/30 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Contact Info (Left side overlay / card) */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="lg:col-span-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 sm:p-6 shadow-lg text-left"
-            >
-              <div className="inline-flex items-center gap-2 bg-[#0000b9] text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Handyman At Home Direct Line
-              </div>
-
-              {/* Services List in bold */}
-              <div className="mb-4 pb-3 border-b border-white/15">
-                <span className="text-[10px] uppercase font-extrabold text-sky-300 tracking-wider block mb-1">
-                  Core Specializations
-                </span>
-                <span className="text-xs sm:text-sm font-black tracking-wide text-white">
-                  REMODELING • PAINTING • ROOFING
-                </span>
-              </div>
-
-              <div className="space-y-3.5 text-xs sm:text-sm">
-                {/* Phone */}
-                <a
-                  href="tel:2148141444"
-                  className="flex items-start gap-3 text-white hover:text-sky-300 transition-colors"
-                >
-                  <div className="h-8 w-8 rounded-lg bg-white/15 flex items-center justify-center shrink-0">
-                    <Phone className="h-4 w-4 text-sky-400" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-300 block">Phone Numbers</span>
-                    <span className="font-extrabold text-white text-sm">
-                      (214) 814-1444 <span className="text-sky-300 font-medium text-xs">(Primary)</span>
-                    </span>
-                    <span className="block text-slate-300 text-xs">
-                      (214) 814-1490 <span className="text-slate-400 text-[11px]">(Secondary)</span>
-                    </span>
-                  </div>
-                </a>
-
-                {/* Email */}
-                <a
-                  href="mailto:handymanathome@gmail.com"
-                  className="flex items-start gap-3 text-white hover:text-sky-300 transition-colors"
-                >
-                  <div className="h-8 w-8 rounded-lg bg-white/15 flex items-center justify-center shrink-0">
-                    <Mail className="h-4 w-4 text-sky-400" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-300 block">Email Address</span>
-                    <span className="font-semibold text-white break-all text-xs sm:text-sm">
-                      handymanathome@gmail.com
-                    </span>
-                  </div>
-                </a>
-
-                {/* Address */}
-                <div className="flex items-start gap-3 text-white">
-                  <div className="h-8 w-8 rounded-lg bg-white/15 flex items-center justify-center shrink-0">
-                    <MapPin className="h-4 w-4 text-sky-400" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-300 block">Address</span>
-                    <span className="font-semibold text-white text-xs leading-snug">
-                      1730 Newlin Dr, DFW, TX 75125, United States
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Headline and Text (Right Column) */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="lg:col-span-7 text-left"
-            >
-              <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-sky-300 mb-3 shadow-sm">
-                <Wrench className="w-3.5 h-3.5" />
-                <span>Our Craftsmanship In Action</span>
-              </div>
-
-              <h2 className="text-white tracking-tight leading-tight text-[26px] sm:text-[34px] lg:text-[40px] font-extrabold mb-4">
-                See the Handyman At Home Difference
-              </h2>
-
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-normal mb-6">
-                A picture is worth a thousand words. See for yourself the transformation and craftsmanship we deliver for our customers in DFW and beyond.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 bg-[#0000b9] hover:bg-[#1526d4] text-white text-xs font-bold uppercase tracking-wider rounded-full px-6 py-3.5 shadow-glow transition-all hover:scale-105 active:scale-95"
-                >
-                  Schedule Your Project
-                </a>
-                <a
-                  href="tel:2148141444"
-                  className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white text-xs font-bold uppercase tracking-wider rounded-full px-6 py-3.5 border border-white/20 transition-all hover:scale-105 active:scale-95"
-                >
-                  <Phone className="h-3.5 w-3.5" />
-                  <span>Call: (214) 814-1444</span>
-                </a>
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-
-        {/* ── Gallery Section: Filter Tabs ─────────────────────────────── */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-          <div>
-            <span className="text-[11px] font-bold text-[#0000b9] uppercase tracking-wider block mb-1">
-              Project Portfolio
-            </span>
-            <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight text-left">
+        {/* ── Section Header ─────────────────────────────── */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          <div className="text-left">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-[#0000b9]/20 text-[#0000b9] px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest mb-3 shadow-2xs select-none">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0000b9] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0000b9]" />
+              </span>
+              <span>Project Portfolio</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-neutral-900 tracking-tight leading-tight">
               Featured Remodeling &amp; Repair Work
-            </h3>
+            </h2>
+            <p className="text-sm text-slate-600 font-normal mt-1.5 max-w-xl">
+              Authentic project photos of residential and commercial repairs, remodeling, painting, and construction across Dallas–Fort Worth.
+            </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {cats.map((c) => (
-              <button
-                key={c}
-                onClick={() => setActive(c)}
-                className={cn(
-                  "inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition-all duration-200 border cursor-pointer",
-                  active === c
-                    ? "bg-[#0000b9] text-white border-transparent shadow-glow"
-                    : "bg-white text-slate-700 border-slate-200 hover:border-[#0000b9] hover:text-[#0000b9] shadow-sm"
-                )}
-              >
-                {c}
-              </button>
-            ))}
+          <div className="flex items-center gap-2 self-start sm:self-end">
+            <span className="text-xs font-bold text-slate-500 bg-white border border-slate-200/80 px-3.5 py-1.5 rounded-full shadow-2xs">
+              {galleryImages.length} Completed Projects
+            </span>
           </div>
         </div>
 
-        {/* ── Gallery Grid (8 images showing roofing, painting, bathroom, deck, kitchen, etc.) ───────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {items.slice(0, 8).map((p, idx) => (
+        {/* ── 5 Images Per Row, Exactly 2 Rows (10 Images), Border Radius 10px ── */}
+        <div className="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-3 sm:gap-3.5">
+          {displayedImages.map((imgSrc, idx) => (
             <article
-              key={`${p.title}-${idx}`}
-              onClick={() => openLightbox(p)}
-              className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in text-left flex flex-col"
+              key={idx}
+              onClick={() => openLightbox(idx)}
+              style={{ borderRadius: "10px" }}
+              className="group relative overflow-hidden rounded-[10px] bg-slate-900 border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(0,0,185,0.12)] hover:border-[#0000b9]/40 transition-all duration-300 cursor-pointer aspect-[4/3] flex items-center justify-center select-none"
             >
-              {/* Image Container */}
-              <div className="overflow-hidden h-[240px] relative bg-slate-900">
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                  loading={idx < 4 ? "eager" : "lazy"}
-                />
+              <img
+                src={imgSrc}
+                alt={`Handyman At Home Project ${idx + 1}`}
+                style={{ borderRadius: "10px" }}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                loading={idx < 5 ? "eager" : "lazy"}
+              />
 
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
-
-                {/* Top badges */}
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                  <span className="inline-flex items-center bg-white/20 backdrop-blur-md border border-white/25 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-                    {p.tag}
-                  </span>
-                  <span className="bg-[#0000b9] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-sm">
-                    {p.year}
-                  </span>
-                </div>
-
-                {/* Bottom Overlay Info */}
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <span className="inline-flex items-center bg-[#0000b9] text-white text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-1.5">
-                    {p.cat}
-                  </span>
-
-                  <h4 className="font-extrabold text-white text-sm leading-snug line-clamp-2">
-                    {p.title}
-                  </h4>
-
-                  <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/15">
-                    <div className="flex items-center gap-1.5 text-white/80 text-[11px] font-medium">
-                      <MapPin className="h-3 w-3 text-sky-400 shrink-0" />
-                      {p.loc}
-                    </div>
-                    <div className="flex items-center justify-center w-7 h-7 rounded-full bg-white/15 border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <ZoomIn className="h-3.5 w-3.5" />
-                    </div>
-                  </div>
+              {/* Pure visual hover effect with zoom icon — NO text overlays */}
+              <div className="absolute inset-0 bg-slate-950/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="h-10 w-10 rounded-full bg-white/95 backdrop-blur-md text-[#0000b9] shadow-xl flex items-center justify-center scale-90 group-hover:scale-100 transition-transform duration-300">
+                  <ZoomIn className="h-4.5 w-4.5" />
                 </div>
               </div>
             </article>
           ))}
         </div>
 
+        {/* ── Show More Button at Bottom ─────────────────── */}
+        <div className="mt-8 sm:mt-10 flex justify-center">
+          <button
+            type="button"
+            id="gallery-show-more-btn"
+            onClick={handleToggleShowMore}
+            className="inline-flex items-center gap-2.5 px-8 py-3 rounded-full text-sm font-bold text-white bg-[#0000b9] hover:bg-[#00008e] shadow-[0_4px_14px_rgba(0,0,185,0.22)] hover:shadow-[0_6px_20px_rgba(0,0,185,0.32)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+          >
+            <span>{hasMore ? "Show More" : "Show Less"}</span>
+            {hasMore ? (
+              <ChevronDown className="h-4 w-4 stroke-[2.5]" />
+            ) : (
+              <ChevronUp className="h-4 w-4 stroke-[2.5]" />
+            )}
+          </button>
+        </div>
+
       </div>
 
-      {/* ── Lightbox Modal ──────────────────────────────── */}
-      {lightbox && (
+      {/* ── High-Performance Lightbox Modal with Slider Controls ──────────────────── */}
+      {selectedIndex !== null && (
         <div
           className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-8"
           onClick={closeLightbox}
         >
-          <div className="absolute inset-0 bg-black/85 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/90 backdrop-blur-md" />
 
+          {/* Close Button */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 sm:top-5 right-4 sm:right-5 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer hover:scale-105"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          {/* Prev Arrow */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}
+            className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-[#0000b9] backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer hover:scale-110 shadow-xl"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+          </button>
+
+          {/* Next Arrow */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}
+            className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-[#0000b9] backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer hover:scale-110 shadow-xl"
+            aria-label="Next image"
+          >
+            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+          </button>
+
+          {/* Main Modal Image Box */}
           <div
-            className="relative z-10 w-full max-w-4xl max-h-[90vh] flex flex-col rounded-3xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.5)] bg-slate-950 animate-zoom-in"
+            className="relative z-20 max-w-5xl max-h-[85vh] w-full flex flex-col items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={closeLightbox}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition cursor-pointer"
-              aria-label="Close"
-            >
-              <X className="h-5 w-5" />
-            </button>
-
-            <div className="relative flex-1 overflow-hidden bg-black flex items-center justify-center">
+            <div className="relative rounded-2xl overflow-hidden bg-black/40 shadow-[0_30px_70px_rgba(0,0,0,0.6)] flex items-center justify-center">
               <img
-                src={lightbox.img}
-                alt={lightbox.title}
-                className="w-full h-full object-contain max-h-[70vh]"
+                src={galleryImages[selectedIndex]}
+                alt={`Handyman At Home Project ${selectedIndex + 1}`}
+                className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl select-none"
               />
             </div>
 
-            <div className="bg-white px-6 py-4 flex items-center justify-between gap-4 shrink-0 text-left">
-              <div className="flex items-center gap-3 min-w-0">
-                <span className="bg-[#0000b9] text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shrink-0">
-                  {lightbox.cat}
-                </span>
-                <div className="min-w-0">
-                  <p className="font-extrabold text-slate-900 text-sm sm:text-base leading-tight truncate">{lightbox.title}</p>
-                  <p className="flex items-center gap-1 text-xs text-slate-500 mt-0.5">
-                    <MapPin className="h-3.5 w-3.5 text-[#0000b9] shrink-0" />
-                    {lightbox.loc}
-                  </p>
-                </div>
-              </div>
-              <span className="text-xs font-bold text-slate-400 shrink-0">{lightbox.year}</span>
+            {/* Bottom Image Counter */}
+            <div className="mt-4 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white text-xs font-semibold">
+              {selectedIndex + 1} of {galleryImages.length}
             </div>
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes zoom-in {
-          from { opacity: 0; transform: scale(0.9); }
-          to   { opacity: 1; transform: scale(1); }
-        }
-        .animate-zoom-in {
-          animation: zoom-in 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-      `}</style>
     </section>
   );
 }

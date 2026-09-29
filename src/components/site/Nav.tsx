@@ -80,7 +80,7 @@ const navLinks = [
   { href: "/#about", label: "About Us" },
   { href: "/#services", label: "Services", isServices: true },
   { href: "/#projects", label: "Our Works" },
-  { href: "/#why-choose-us", label: "Why Choose Us" },
+  // { href: "/#why-choose-us", label: "Why Choose Us" },
   { href: "/#reviews", label: "Reviews" },
   { href: "/#contact", label: "Contact Us" },
 ];
@@ -143,15 +143,13 @@ export function Nav() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-in-out ${
-          scrolled ? "shadow-[0_10px_30px_-10px_rgba(9,14,36,0.12),0_1px_3px_rgba(9,14,36,0.05)]" : ""
-        }`}
+        className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${scrolled ? "shadow-[0_10px_30px_-10px_rgba(9,14,36,0.12),0_1px_3px_rgba(9,14,36,0.05)]" : ""
+          }`}
       >
         {/* Top Utility Bar (Collapses smoothly on scroll for compact clean view) */}
         <div
-          className={`bg-[#070b1a] text-slate-300 border-b border-white/10 transition-all duration-300 overflow-hidden ${
-            scrolled ? "max-h-0 opacity-0 py-0 border-transparent" : "max-h-14 opacity-100 py-2 sm:py-2.5"
-          }`}
+          className={`bg-[#070b1a] text-slate-300 border-b border-white/10 transition-all duration-300 overflow-hidden ${scrolled ? "max-h-0 opacity-0 py-0 border-transparent" : "max-h-28 opacity-100 py-2 sm:py-2.5"
+            }`}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 text-[11px] sm:text-[11.5px]">
             {/* Left: Email & Service Area */}
@@ -230,9 +228,8 @@ export function Nav() {
                 <button
                   type="button"
                   onClick={() => setLang("EN")}
-                  className={`px-2 py-0.5 rounded-full transition-all cursor-pointer ${
-                    lang === "EN" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-300 hover:text-white"
-                  }`}
+                  className={`px-2 py-0.5 rounded-full transition-all cursor-pointer ${lang === "EN" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-300 hover:text-white"
+                    }`}
                   aria-label="Switch to English"
                 >
                   EN
@@ -240,9 +237,8 @@ export function Nav() {
                 <button
                   type="button"
                   onClick={() => setLang("ES")}
-                  className={`px-2 py-0.5 rounded-full transition-all cursor-pointer ${
-                    lang === "ES" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-300 hover:text-white"
-                  }`}
+                  className={`px-2 py-0.5 rounded-full transition-all cursor-pointer ${lang === "ES" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-300 hover:text-white"
+                    }`}
                   aria-label="Switch to Spanish"
                 >
                   ES
@@ -254,11 +250,10 @@ export function Nav() {
 
         {/* Main Navigation Bar */}
         <div
-          className={`w-full transition-all duration-300 ${
-            scrolled
-              ? "py-2.5 bg-white/95 backdrop-blur-xl border-b border-slate-200/80"
-              : "py-3.5 sm:py-4 bg-white/95 backdrop-blur-lg border-b border-slate-200/60"
-          }`}
+          className={`w-full bg-white transition-all duration-300 border-b border-slate-200/90 ${scrolled
+            ? "py-1.5 sm:py-2 shadow-xs"
+            : "py-2 sm:py-2.5"
+            }`}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center justify-between gap-4">
@@ -271,9 +266,10 @@ export function Nav() {
                 <img
                   src={logoImg}
                   alt="HANDYMAN AT HOME - General Contractor & Handyman Services in Dallas Fort Worth"
-                  className={`w-auto object-contain transition-all duration-300 ${
-                    scrolled ? "h-9 sm:h-10" : "h-10 sm:h-12"
-                  }`}
+                  className={`w-auto object-contain transition-all duration-300 ${scrolled
+                    ? "h-11 sm:h-12 md:h-[52px]"
+                    : "h-14 sm:h-16 md:h-[68px]"
+                    }`}
                 />
               </a>
 
@@ -290,19 +286,17 @@ export function Nav() {
                       >
                         <a
                           href={item.href}
-                          className={`group/link inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[13.5px] font-semibold transition-all duration-200 cursor-pointer ${
-                            servicesDropdownOpen
-                              ? "text-[#0000b9] bg-[#0000b9]/8"
-                              : "text-slate-700 hover:text-[#0000b9] hover:bg-slate-100/80"
-                          }`}
+                          className={`group/link inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[15.5px] font-bold transition-all duration-200 cursor-pointer ${servicesDropdownOpen
+                            ? "text-[#0000b9] bg-[#0000b9]/8"
+                            : "text-slate-800 hover:text-[#0000b9] hover:bg-slate-100/80"
+                            }`}
                           aria-expanded={servicesDropdownOpen}
                           aria-haspopup="true"
                         >
                           <span>{item.label}</span>
                           <ChevronDown
-                            className={`h-3.5 w-3.5 text-slate-400 group-hover/link:text-[#0000b9] transition-transform duration-200 ${
-                              servicesDropdownOpen ? "rotate-180 text-[#0000b9]" : ""
-                            }`}
+                            className={`h-4 w-4 text-slate-400 group-hover/link:text-[#0000b9] transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180 text-[#0000b9]" : ""
+                              }`}
                           />
                         </a>
 
@@ -374,14 +368,14 @@ export function Nav() {
                                       Need emergency repair? 24/7 Rapid Dispatch in DFW
                                     </span>
                                   </div>
-                                  <a
-                                    href="/#services"
+                                  <button
+                                    type="button"
                                     onClick={() => setServicesDropdownOpen(false)}
-                                    className="font-bold text-[#0000b9] hover:text-[#1024d4] flex items-center gap-1 text-[11.5px] transition-colors"
+                                    className="font-bold text-[#0000b9] hover:text-[#1024d4] flex items-center gap-1 text-[11.5px] transition-colors cursor-pointer"
                                   >
                                     <span>Explore All</span>
                                     <ArrowRight className="h-3 w-3" />
-                                  </a>
+                                  </button>
                                 </div>
                               </div>
                             </motion.div>
@@ -395,7 +389,7 @@ export function Nav() {
                     <li key={item.label}>
                       <a
                         href={item.href}
-                        className="inline-flex items-center px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-slate-700 hover:text-[#0000b9] hover:bg-slate-100/80 transition-all duration-200"
+                        className="inline-flex items-center px-3.5 py-2 rounded-full text-[15.5px] font-bold text-slate-800 hover:text-[#0000b9] hover:bg-slate-100/80 transition-all duration-200"
                       >
                         {item.label}
                       </a>
@@ -407,17 +401,17 @@ export function Nav() {
               {/* Header Right Action CTAs (Desktop) */}
               <div className="hidden lg:flex items-center gap-2.5 shrink-0">
                 {/* Free Estimate Outlined Pill */}
-                <a
-                  href="/#contact"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-300 hover:border-[#0000b9] bg-white hover:bg-[#0000b9]/5 px-4.5 py-2 text-[12.5px] font-bold text-slate-800 hover:text-[#0000b9] transition-all duration-200 shadow-2xs hover:shadow-xs active:scale-95"
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-300 hover:border-[#0000b9] bg-white hover:bg-[#0000b9]/5 px-4.5 py-2 text-[12.5px] font-bold text-slate-800 hover:text-[#0000b9] transition-all duration-200 shadow-2xs hover:shadow-xs active:scale-95 cursor-pointer"
                 >
                   <span>Free Estimate</span>
-                </a>
+                </button>
 
                 {/* Call Now Button with Live Beacon */}
-                <a
-                  href="tel:2148141444"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#0000b9] via-[#0d1fd6] to-[#0000b9] hover:from-[#000099] hover:to-[#0c1bb8] px-4.5 py-2 text-[12.5px] font-extrabold text-white shadow-[0_4px_16px_rgba(0,0,185,0.32)] hover:shadow-[0_6px_22px_rgba(0,0,185,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                <button
+                  type="button"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#0000b9] via-[#0d1fd6] to-[#0000b9] hover:from-[#000099] hover:to-[#0c1bb8] px-4.5 py-2 text-[12.5px] font-extrabold text-white shadow-[0_4px_16px_rgba(0,0,185,0.32)] hover:shadow-[0_6px_22px_rgba(0,0,185,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
                   aria-label="Call Handyman At Home at (214) 814-1444"
                 >
                   <span className="relative flex h-2 w-2">
@@ -426,22 +420,22 @@ export function Nav() {
                   </span>
                   <Phone className="h-3.5 w-3.5 fill-current transition-transform duration-200 group-hover:rotate-12" />
                   <span className="tracking-tight">(214) 814-1444</span>
-                </a>
+                </button>
               </div>
 
               {/* Mobile Menu Toggle Button */}
               <div className="flex items-center gap-2 lg:hidden">
-                <a
-                  href="tel:2148141444"
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#0000b9] text-white shadow-[0_2px_10px_rgba(0,0,185,0.3)] active:scale-95 transition-all"
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#0000b9] text-white shadow-[0_2px_10px_rgba(0,0,185,0.3)] active:scale-95 transition-all cursor-pointer"
                   aria-label="Call Now"
                 >
                   <Phone className="h-4 w-4 fill-current" />
-                </a>
+                </button>
 
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 text-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0000b9]"
+                  className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 text-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0000b9] cursor-pointer"
                   onClick={() => setOpen(true)}
                   aria-label="Open mobile menu"
                   aria-expanded={open}
@@ -481,12 +475,12 @@ export function Nav() {
               aria-label="Site Navigation"
             >
               {/* Drawer Header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 bg-white">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-slate-100 bg-white">
                 <a href="/" onClick={() => setOpen(false)} className="flex items-center">
                   <img
                     src={logoImg}
                     alt="HANDYMAN AT HOME"
-                    className="h-8.5 w-auto object-contain"
+                    className="h-12 w-auto object-contain"
                   />
                 </a>
                 <button
@@ -511,13 +505,13 @@ export function Nav() {
                   </span>
                   <span className="text-[10.5px] font-semibold text-slate-500">DFW Metro</span>
                 </div>
-                <a
-                  href="tel:2148141444"
-                  className="flex items-center justify-center gap-2.5 w-full rounded-xl bg-[#0000b9] hover:bg-[#1024d4] py-2.5 text-center font-bold text-white text-xs shadow-md transition-all active:scale-[0.98]"
+                <button
+                  type="button"
+                  className="flex items-center justify-center gap-2.5 w-full rounded-xl bg-[#0000b9] hover:bg-[#1024d4] py-2.5 text-center font-bold text-white text-xs shadow-md transition-all active:scale-[0.98] cursor-pointer"
                 >
                   <Phone className="h-3.5 w-3.5 fill-current" />
                   <span>Call Now: (214) 814-1444</span>
-                </a>
+                </button>
               </div>
 
               {/* Scrollable Navigation Links */}
@@ -528,7 +522,7 @@ export function Nav() {
                     <a
                       href="/#about"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[15px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
+                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
                     >
                       <span>About Us</span>
                       <ArrowRight className="h-4 w-4 text-slate-400" />
@@ -540,14 +534,13 @@ export function Nav() {
                     <button
                       type="button"
                       onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                      className="flex items-center justify-between w-full py-3 px-3 rounded-xl font-bold text-[15px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all cursor-pointer"
+                      className="flex items-center justify-between w-full py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all cursor-pointer"
                       aria-expanded={mobileServicesOpen}
                     >
                       <span>Services</span>
                       <ChevronDown
-                        className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${
-                          mobileServicesOpen ? "rotate-180 text-[#0000b9]" : ""
-                        }`}
+                        className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180 text-[#0000b9]" : ""
+                          }`}
                       />
                     </button>
 
@@ -568,7 +561,7 @@ export function Nav() {
                                   <a
                                     href={service.href}
                                     onClick={() => setOpen(false)}
-                                    className="flex items-center gap-3 py-2 px-2.5 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-[#0000b9] hover:bg-white transition-all"
+                                    className="flex items-center gap-3 py-2 px-2.5 rounded-lg text-[13.5px] font-semibold text-slate-700 hover:text-[#0000b9] hover:bg-white transition-all"
                                   >
                                     <div
                                       className={`h-7 w-7 rounded-md ${service.color} flex items-center justify-center shrink-0`}
@@ -591,7 +584,7 @@ export function Nav() {
                     <a
                       href="/#projects"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[15px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
+                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
                     >
                       <span>Our Works</span>
                       <ArrowRight className="h-4 w-4 text-slate-400" />
@@ -599,11 +592,11 @@ export function Nav() {
                   </li>
 
                   {/* Why Choose Us */}
-                  <li>
+                  <li className="pt-1">
                     <a
                       href="/#why-choose-us"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[15px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
+                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
                     >
                       <span>Why Choose Us</span>
                       <ArrowRight className="h-4 w-4 text-slate-400" />
@@ -611,11 +604,11 @@ export function Nav() {
                   </li>
 
                   {/* Reviews */}
-                  <li>
+                  <li className="pt-1">
                     <a
                       href="/#reviews"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[15px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
+                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
                     >
                       <span>Reviews</span>
                       <ArrowRight className="h-4 w-4 text-slate-400" />
@@ -623,11 +616,11 @@ export function Nav() {
                   </li>
 
                   {/* Contact Us */}
-                  <li>
+                  <li className="pt-1">
                     <a
                       href="/#contact"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[15px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
+                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
                     >
                       <span>Contact Us</span>
                       <ArrowRight className="h-4 w-4 text-slate-400" />
@@ -654,13 +647,13 @@ export function Nav() {
 
               {/* Drawer Bottom Actions & Footer */}
               <div className="p-5 border-t border-slate-100 bg-slate-50/80 space-y-3">
-                <a
-                  href="/#contact"
+                <button
+                  type="button"
                   onClick={() => setOpen(false)}
                   className="block w-full rounded-xl border border-slate-300 bg-white hover:border-[#0000b9] hover:bg-[#0000b9]/5 py-3 text-center font-bold text-slate-800 hover:text-[#0000b9] transition-all text-sm shadow-2xs cursor-pointer"
                 >
                   Request A Free Estimate
-                </a>
+                </button>
 
                 {/* Social & Language Row */}
                 <div className="flex items-center justify-between pt-1">
@@ -689,18 +682,16 @@ export function Nav() {
                     <button
                       type="button"
                       onClick={() => setLang("EN")}
-                      className={`px-2.5 py-1 rounded-full transition-all ${
-                        lang === "EN" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-600"
-                      }`}
+                      className={`px-2.5 py-1 rounded-full transition-all ${lang === "EN" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-600"
+                        }`}
                     >
                       English
                     </button>
                     <button
                       type="button"
                       onClick={() => setLang("ES")}
-                      className={`px-2.5 py-1 rounded-full transition-all ${
-                        lang === "ES" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-600"
-                      }`}
+                      className={`px-2.5 py-1 rounded-full transition-all ${lang === "ES" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-600"
+                        }`}
                     >
                       Español
                     </button>

@@ -1,39 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/site/Hero";
-import { Services } from "@/components/site/Services";
+import { Partners } from "@/components/site/Partners";
 import { About } from "@/components/site/About";
+import { CtaBanner } from "@/components/site/CtaBanner";
+import { Services } from "@/components/site/Services";
+import { Process } from "@/components/site/Process";
 import { WhyChooseUs } from "@/components/site/WhyChooseUs";
 import { BeforeAfter } from "@/components/site/BeforeAfter";
-import { Process } from "@/components/site/Process";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ServiceArea } from "@/components/site/ServiceArea";
 import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
-// import { Puppies } from "@/components/site/Puppies";
-import { Partners } from "@/components/site/Partners";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pressure Washing Mooresville NC & Lake Norman | Steam On Wheels" },
+      { title: "Quality General Contractor & Handyman Services in Dallas, Fort Worth, TX | Handyman At Home" },
       {
         name: "description",
         content:
-          "Professional pressure washing, soft roof washing, house washing & concrete cleaning in Mooresville, Hickory, Statesville & Lake Norman NC. 15+ years experience, licensed & insured. Call (704) 516-9509.",
+          "Reliable Repairs, Expert Remodeling, and 24/7 Emergency Service in Dallas, Fort Worth, TX. Over 24 years of experience, licensed & insured. Call (214) 814-1444.",
       },
-      { name: "keywords", content: "Pressure Washing Mooresville NC, Pressure Washing NC, House Washing Lake Norman, Soft Wash Roof Cleaning Huntersville NC, Driveway Cleaning Cornelius NC, Commercial Power Washing Hickory NC, Pressure Washing Statesville NC, Concrete Degreasing Denver NC, Exterior Painting Charlotte NC, Pressure Washing Near Me, Pressure Washer Catawba County, Pressure Washing Iredell County, Steam On Wheels" },
-      { property: "og:title", content: "Pressure Washing Mooresville NC & Lake Norman | Steam On Wheels" },
+      {
+        name: "keywords",
+        content:
+          "General Contractor DFW, Handyman Dallas TX, Handyman Fort Worth, Bathroom Remodel Near Me, Roofing Company DFW, Kitchen Remodelers DFW, Painting Services DFW, Emergency Number DFW, Handyman At Home",
+      },
+      { property: "og:title", content: "Quality General Contractor & Handyman Services in Dallas, Fort Worth, TX | Handyman At Home" },
       {
         property: "og:description",
         content:
-          "Showroom-grade exterior cleaning for residential & commercial properties in NC. 40-mile service radius. 100% 5-star reviews.",
+          "For over two decades, Handyman At Home has been the trusted name for homeowners and businesses in Dallas, Fort Worth, TX, and beyond. Since 2001.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://steamonwheelsnc.com/" },
+      { property: "og:url", content: "https://handymanathometx.com/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://steamonwheelsnc.com/" }],
+    links: [{ rel: "canonical", href: "https://handymanathometx.com/" }],
   }),
   component: Index,
 });
@@ -45,8 +49,8 @@ function Index() {
         <Hero />
         <Partners />
         <About />
+        <CtaBanner />
         <Services />
-        {/* <Puppies /> */}
         <Process />
         <WhyChooseUs />
         <BeforeAfter />

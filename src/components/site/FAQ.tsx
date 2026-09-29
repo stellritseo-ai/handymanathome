@@ -1,46 +1,45 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import svcPressureWash from "@/assets/svc-pressure-wash.png";
 
-const faqVariants = {
+const faqVariants: any = {
   hidden: { opacity: 0, y: 12 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.4, delay: i * 0.08, ease: "easeOut" },
   }),
 };
 
-const answerVariants = {
+const answerVariants: any = {
   collapsed: { height: 0, opacity: 0 },
   expanded: {
     height: "auto",
     opacity: 1,
-    transition: { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.35, ease: "easeInOut" },
   },
 };
 
 const faqs = [
   {
-    q: "What areas do you serve?",
-    a: "We proudly serve the Lake Norman region and surrounding areas in North Carolina, including Mooresville, Cornelius, Huntersville, Denver, Hickory, Statesville, Lincolnton, and more. If you're within 50 miles of Mooresville, we've got you covered!"
+    q: "What services does Handyman At Home provide?",
+    a: "We are a full-service general contractor handling Kitchen & Bathroom Remodeling, Interior & Exterior Painting, Roofing Repairs & Installation, Plumbing Services, Landscaping & Outdoor Work, and a comprehensive range of handyman repairs for both residential and commercial properties."
+  },
+  {
+    q: "What areas in DFW do you serve?",
+    a: "We proudly serve homeowners and businesses across Dallas, Fort Worth, TX, and surrounding communities including Watauga, Ennis, Lancaster, DeSoto, Cedar Hill, Duncanville, Red Oak, Arlington, Grand Prairie, Irving, and anywhere within a 40-mile radius."
   },
   {
     q: "Are you licensed and insured?",
-    a: "Yes, absolutely! Steam On Wheels is fully licensed and carries comprehensive public liability insurance coverage for North Carolina to protect your property and ensure complete peace of mind during every project."
+    a: "Yes, absolutely! Handyman At Home is fully licensed as a general contractor and carries comprehensive liability insurance coverage across Texas to protect your home or business during every project."
   },
   {
-    q: "How do I get a quote, and is it really free?",
-    a: "Getting a quote is 100% free and easy! You can call us, text us, or fill out our online Free Estimate form. We will assess your property's exterior cleaning needs and provide a detailed, no-obligation estimate with transparent pricing."
+    q: "How do I get an estimate, and is it really free?",
+    a: "Getting an estimate is 100% free with no obligation! You can call us directly at (214) 814-1444 or (214) 814-1490, or fill out our online Free Estimate form. We will discuss your project and provide a transparent, upfront quote."
   },
   {
-    q: "What is your availability? Do you offer emergency services?",
-    a: "We offer flexible scheduling Monday through Saturday to accommodate your routine. For commercial properties or urgent needs, we also provide emergency and after-hours/overnight pressure washing services to minimize disruption to your business."
-  },
-  {
-    q: "What sets Steam On Wheels apart from other cleaning services?",
-    a: "Three key things: Experience, Values, and Personal Service. With over 15 years in the business, owner David Hudson brings unmatched expertise. As a Christian-owned company, we operate with integrity, honesty, and respect for your property. Finally, you work directly with the owner, ensuring meticulous quality control and a commitment to your 100% satisfaction on every job, whether residential or commercial."
+    q: "Do you offer 24/7 emergency repair services?",
+    a: "Yes! If you have a plumbing leak, emergency roof damage, or broken lock in the middle of the night or on weekends, our emergency team is on call 24/7 to provide rapid, reliable repairs."
   }
 ];
 
@@ -50,7 +49,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="py-[100px] bg-[#fafbfc] border-b border-slate-100 overflow-hidden"
+      className="py-[80px] bg-[#fafbfc] border-b border-slate-100 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -63,30 +62,27 @@ export function FAQ() {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             className="w-full text-left flex flex-col items-start"
           >
-            {/* Eyebrow Badge with Pulse */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0ea5e9]/20 bg-[#0ea5e9]/5 text-[#0ea5e9] text-[10px] md:text-[11px] font-black uppercase tracking-widest mb-6 shadow-sm select-none">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0ea5e9] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0ea5e9]"></span>
-              </span>
-              <span>FAQ</span>
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0000b9]/20 bg-[#0000b9]/5 text-[#0000b9] text-[11px] font-black uppercase tracking-widest mb-4 shadow-sm select-none">
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>Got Questions?</span>
             </div>
 
             {/* Heading */}
-            <h2 className="leading-[1.2] text-neutral-900 tracking-tight font-extrabold text-[28px] sm:text-[36px] lg:text-[42px] capitalize mb-[12px]">
-              Frequently Asked <span className="text-[#0ea5e9]">Questions</span>
+            <h2 className="leading-[1.2] text-neutral-900 tracking-tight font-extrabold text-[28px] sm:text-[36px] lg:text-[42px] mb-4">
+              Frequently Asked <span className="text-[#0000b9]">Questions</span>
             </h2>
 
             {/* Description */}
-            <p className="text-[14px] text-neutral-600 leading-[1.7] max-w-[560px] mb-7 font-medium">
-              Have questions about our exterior cleaning services? We’ve answered the most common ones below. If you don’t see your question here, give owner David a call—he’s happy to help guide you.
+            <p className="text-[15px] text-neutral-600 leading-[1.7] max-w-[560px] mb-7 font-normal">
+              Have questions about our contractor and handyman services? We’ve answered the most common questions below. If you need immediate assistance or a custom quote, call our DFW dispatch directly at <strong className="text-slate-900">(214) 814-1444</strong>.
             </p>
 
-            {/* Image */}
-            <div className="w-full aspect-[16/7] rounded-xl overflow-hidden border border-neutral-200/60 shadow-[0_2px_12px_rgba(0,0,0,0.06)] group">
+            {/* High-quality Project Showcase Image */}
+            <div className="w-full aspect-[16/8] rounded-2xl overflow-hidden border border-neutral-200/80 shadow-md group">
               <img
-                src={svcPressureWash}
-                alt="Pressure washing service"
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
+                alt="Handyman At Home Team"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 loading="lazy"
               />
@@ -99,9 +95,9 @@ export function FAQ() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="bg-[#f5f4f1] rounded-2xl p-5 lg:p-7 border border-[#e8e6e0] shadow-[0_4px_24px_rgba(0,0,0,0.03)] animate-fade-in"
+            className="bg-white rounded-2xl p-6 lg:p-8 border border-slate-200/80 shadow-sm"
           >
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-3">
               {faqs.map((faq, index) => {
                 const isOpen = openIndex === index;
                 return (
@@ -112,25 +108,28 @@ export function FAQ() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className={`w-full rounded-xl overflow-hidden transition-shadow duration-300 ${isOpen
-                      ? "border border-[#e2dfd8] shadow-[0_2px_10px_rgba(0,0,0,0.05)]"
-                      : "border border-[#ebebeb] bg-white shadow-[0_1px_4px_rgba(0,0,0,0.03)] hover:border-neutral-300/70 hover:shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
-                      }`}
+                    className={`w-full rounded-xl overflow-hidden transition-all duration-300 ${
+                      isOpen
+                        ? "border border-[#0000b9]/40 shadow-sm"
+                        : "border border-slate-200/70 bg-slate-50/50 hover:border-[#0000b9]/30"
+                    }`}
                   >
                     <button
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className={`w-full text-left flex items-center justify-between px-5 py-[18px] transition-all duration-300 cursor-pointer select-none ${isOpen
-                        ? "bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] text-white font-extrabold"
-                        : "bg-white text-neutral-900 font-semibold hover:text-[#0284c7] active:bg-neutral-50"
-                        }`}
+                      className={`w-full text-left flex items-center justify-between px-5 py-[16px] transition-all duration-300 cursor-pointer select-none ${
+                        isOpen
+                          ? "bg-[#0000b9] text-white font-extrabold"
+                          : "bg-white text-neutral-900 font-semibold hover:text-[#0000b9]"
+                      }`}
                       aria-expanded={isOpen}
                     >
-                      <span className={`text-[13.5px] sm:text-[14.5px] leading-snug pr-4 ${isOpen ? "text-white" : "text-neutral-800"}`}>
+                      <span className={`text-[14px] leading-snug pr-4 ${isOpen ? "text-white" : "text-neutral-800"}`}>
                         Q: {faq.q}
                       </span>
                       <ChevronDown
-                        className={`w-[17px] h-[17px] shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-white" : "text-neutral-400"
-                          }`}
+                        className={`w-[18px] h-[18px] shrink-0 transition-transform duration-300 ${
+                          isOpen ? "rotate-180 text-white" : "text-neutral-400"
+                        }`}
                       />
                     </button>
 
@@ -144,10 +143,9 @@ export function FAQ() {
                           exit="collapsed"
                           className="overflow-hidden bg-white"
                         >
-                          {/* Thin separator between question header and answer */}
-                          <div className="h-px bg-[#f0ede6] mx-5" />
+                          <div className="h-px bg-slate-100 mx-5" />
                           <div className="px-5 py-4">
-                            <p className="text-[13px] text-neutral-700 leading-[1.75] font-medium">
+                            <p className="text-[13.5px] text-slate-600 leading-[1.7] font-normal">
                               {faq.a}
                             </p>
                           </div>

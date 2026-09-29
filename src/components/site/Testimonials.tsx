@@ -12,89 +12,42 @@ interface Review {
 
 const reviews: Review[] = [
   {
-    name: "Sarah Mitchell",
-    role: "Homeowner · Mooresville",
-    text: "Absolutely incredible. Our 15-year-old driveway and brick siding look brand new. Punctual, professional, and very respectful of our garden.",
-    initials: "SM",
+    name: "koles smith",
+    role: "Verified Homeowner · DFW, TX",
+    text: "I can't thank this company enough! Their team was prompt, professional, and the technician was knowledgeable and respectful. He fixed the leak efficiently.",
+    initials: "KS",
     rating: 5,
-    avatarColor: "#0ea5e9",
+    avatarColor: "#0000b9",
   },
   {
-    name: "James O'Connor",
-    role: "Property Manager",
-    text: "We manage 40+ properties in the Lake Norman region and Steam On Wheels is the only pressure washing crew we trust. Consistent 5-star results every time.",
-    initials: "JO",
+    name: "Eva Martin",
+    role: "Verified Customer · Dallas, TX",
+    text: "Such a pleasant experience! The painters were punctual, tidy, and very skilled. The new colors make my house feel bright and inviting. L...",
+    initials: "EM",
     rating: 5,
-    avatarColor: "#0284c7",
+    avatarColor: "#1526d4",
   },
   {
-    name: "Priya Desai",
-    role: "Homeowner · Cornelius",
-    text: "From quote to final walkthrough — flawless. Eco-friendly cleaning products meant our plants were totally safe, and our deck looks stunning.",
-    initials: "PD",
+    name: "Edmundo Torquemada",
+    role: "Property Owner · Fort Worth, TX",
+    text: "We hired Handyman at Home for several exterior jobs. In every project the team was very professional, fast, and...",
+    initials: "ET",
     rating: 5,
-    avatarColor: "#4f46e5",
+    avatarColor: "#090e24",
   },
   {
-    name: "Michael Chen",
-    role: "Restaurant Owner",
-    text: "They cleaned our outdoor seating area and kitchen exterior grease traps overnight. Customers complimented the cleanliness. Worth every penny.",
-    initials: "MC",
+    name: "Cecile S",
+    role: "Verified Homeowner · DFW, TX",
+    text: "I highly recommend Handyman At Home again. I needed a kitchen faucet replaced. Julian came the same day! He was on time, professional, and...",
+    initials: "CS",
     rating: 5,
-    avatarColor: "#0f766e",
+    avatarColor: "#2563eb",
   },
-  {
-    name: "Rebecca Lawrence",
-    role: "Homeowner · Huntersville",
-    text: "Best house project decision we made all year. The before/after on our roof cedar shingles was shocking. Highly recommend their soft wash!",
-    initials: "RL",
-    rating: 5,
-    avatarColor: "#7c3aed",
-  },
-  {
-    name: "David Patel",
-    role: "Homeowner · Denver, NC",
-    text: "Professional crew that treats your house like their own. Punctual, answered all my questions, and cleaned up everything before leaving.",
-    initials: "DP",
-    rating: 5,
-    avatarColor: "#BE185D",
-  },
-  {
-    name: "Amanda K.",
-    role: "Homeowner · Statesville",
-    text: "Very responsive customer service. They fit me in within 48 hours and did an amazing job cleaning rust stains off our concrete patio.",
-    initials: "AK",
-    rating: 5,
-    avatarColor: "#1e3a8a",
-  },
-  {
-    name: "Robert T.",
-    role: "Business Owner",
-    text: "Excellent commercial storefront cleaning. Removed all dirt, bubblegum, and graffiti. Our entryway looks extremely welcoming now.",
-    initials: "RT",
-    rating: 5,
-    avatarColor: "#B45309",
-  },
-  {
-    name: "Jessica Lopez",
-    role: "Homeowner · Medford",
-    text: "Super happy with the gutter and roof washing service! They cleaned all debris and left our gutters flushing perfectly. Great rates too.",
-    initials: "JL",
-    rating: 5,
-    avatarColor: "#059669",
-  },
-  {
-    name: "Thomas D.",
-    role: "Property Owner · Lake Norman",
-    text: "We hired them for a full estate wash: roof, siding, fence, and driveway. Exceptional thoroughness and absolute professional grade machinery.",
-    initials: "TD",
-    rating: 5,
-    avatarColor: "#312e81",
-  }
 ];
 
-const row1 = reviews.slice(0, 5);
-const row2 = reviews.slice(5, 10);
+// Replicate reviews for marquee scrolling
+const row1 = [...reviews, ...reviews];
+const row2 = [...reviews, ...reviews];
 
 function StarRating({ count }: { count: number }) {
   return (
@@ -102,7 +55,7 @@ function StarRating({ count }: { count: number }) {
       {Array.from({ length: count }).map((_, i) => (
         <Star
           key={i}
-          className="w-3.5 h-3.5 fill-[#FBBF24] text-[#FBBF24]"
+          className="w-4 h-4 fill-[#FBBF24] text-[#FBBF24]"
         />
       ))}
     </div>
@@ -111,7 +64,7 @@ function StarRating({ count }: { count: number }) {
 
 function TestimonialCard({ review }: { review: Review }) {
   return (
-    <div className="relative flex-shrink-0 w-[340px] sm:w-[380px] mx-3 bg-white border border-slate-200 shadow-[0_2px_20px_rgba(0,0,0,0.06)] rounded-2xl p-6 flex flex-col gap-4 group hover:shadow-[0_6px_30px_rgba(0,0,0,0.10)] hover:border-slate-300 transition-all duration-300">
+    <div className="relative flex-shrink-0 w-[320px] sm:w-[380px] mx-3 bg-white border border-slate-200/90 shadow-[0_2px_20px_rgba(0,0,0,0.06)] rounded-2xl p-6 flex flex-col gap-4 group hover:shadow-[0_8px_30px_rgba(0,0,185,0.12)] hover:border-[#0000b9]/40 transition-all duration-300">
       {/* Top Section: Stars & Google/Verified badges */}
       <div className="flex items-center justify-between">
         <StarRating count={review.rating} />
@@ -135,23 +88,23 @@ function TestimonialCard({ review }: { review: Review }) {
       </div>
 
       {/* Text */}
-      <p className="text-slate-600 text-sm leading-relaxed font-medium flex-1">
+      <p className="text-slate-700 text-sm leading-relaxed font-medium flex-1 text-left">
         "{review.text}"
       </p>
 
       {/* Author */}
       <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
         <div
-          className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+          className="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-black flex-shrink-0 shadow-sm"
           style={{ backgroundColor: review.avatarColor }}
         >
           {review.initials}
         </div>
-        <div>
-          <p className="text-slate-900 font-semibold text-sm leading-tight">
+        <div className="text-left">
+          <p className="text-slate-900 font-bold text-sm leading-tight capitalize">
             {review.name}
           </p>
-          <p className="text-slate-400 text-xs mt-0.5">{review.role}</p>
+          <p className="text-slate-500 text-xs mt-0.5">{review.role}</p>
         </div>
       </div>
     </div>
@@ -202,30 +155,27 @@ export function Testimonials() {
   return (
     <section
       id="reviews"
-      className="relative py-[100px] bg-[#F8FAFC] overflow-hidden"
+      className="relative py-[80px] bg-[#F8FAFC] overflow-hidden border-b border-slate-100"
     >
       {/* Background glow accents */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-sky-200/40 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-indigo-200/30 blur-[100px]" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-blue-100/50 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-indigo-100/40 blur-[100px]" />
 
       {/* Section Header */}
-      <div className="mx-auto w-[90%] max-w-7xl text-center mb-16 relative z-10">
-        <div className="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-500 uppercase tracking-widest mb-5 shadow-sm">
+      <div className="mx-auto w-[90%] max-w-7xl text-center mb-14 relative z-10">
+        {/* Tag: Testimonials */}
+        <div className="inline-flex items-center gap-2 bg-white border border-[#0000b9]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#0000b9] uppercase tracking-widest mb-4 shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
-          Client Reviews
+          Testimonials
         </div>
 
-        <h2 className="text-[32px] md:text-[40px] font-extrabold text-slate-900 tracking-tight leading-tight capitalize -mt-[5px] mb-[10px]">
-          Trusted by{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] to-[#0284c7]">
-            Thousands
-          </span>{" "}
-          of customers
+        {/* Headline */}
+        <h2 className="text-[30px] md:text-[40px] font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+          What Our Customers Say
         </h2>
 
-        <p className="mx-auto max-w-xl text-slate-500 text-sm sm:text-base leading-relaxed -mb-[35px] font-medium">
-          Real experiences from real clients across Mooresville, Cornelius &amp; the Lake Norman region. See
-          why homeowners and businesses choose us every time.
+        <p className="mx-auto max-w-xl text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+          Real feedback from homeowners and businesses across Dallas, Fort Worth, and neighboring communities.
         </p>
       </div>
 
@@ -235,15 +185,16 @@ export function Testimonials() {
         <MarqueeRow items={row2} direction="right" />
       </div>
 
-      {/* View All Reviews Button */}
-      <div className="relative z-10 mt-12 text-center">
-        <a
-          href="/reviews"
-          className="inline-flex items-center gap-2 rounded-full bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 text-xs font-extrabold uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
-        >
-          <span>Read 15 Customer Reviews</span>
-          <span className="text-[#0ea5e9]">→</span>
-        </a>
+      {/* Footer Note */}
+      <div className="relative z-10 mt-10 text-center">
+        <div className="inline-flex items-center gap-2.5 bg-white border border-slate-200/90 rounded-full px-6 py-2.5 shadow-sm text-xs sm:text-sm font-semibold text-slate-700">
+          <div className="flex gap-0.5 text-amber-400">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-4 h-4 fill-[#FBBF24] text-[#FBBF24]" />
+            ))}
+          </div>
+          <span>Google rating score: <strong>5.0 of 5</strong>, based on 9 reviews</span>
+        </div>
       </div>
 
       {/* CSS Animations */}
@@ -257,11 +208,11 @@ export function Testimonials() {
           100% { transform: translateX(0); }
         }
         .marquee-track-left {
-          animation: marquee-left 30s linear infinite;
+          animation: marquee-left 28s linear infinite;
           width: max-content;
         }
         .marquee-track-right {
-          animation: marquee-right 30s linear infinite;
+          animation: marquee-right 28s linear infinite;
           width: max-content;
         }
         .marquee-track-left:hover,

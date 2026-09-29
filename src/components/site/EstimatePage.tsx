@@ -154,7 +154,7 @@ export function EstimatePage() {
           ...formData,
           services: formData.services.join(", "),
           surfaces: formData.surfaces.join(", "),
-          _subject: `Free Estimate Request from ${formData.name || 'Website Visitor'}`,
+          _subject: `Free Estimate Request from ${(formData as any).fullName || (formData as any).name || 'Website Visitor'}`,
           _template: "table",
         }),
       });

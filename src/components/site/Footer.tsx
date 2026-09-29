@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
+import logoImg from "@/assets/logo.png";
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
   ArrowRight,
+  Shield,
+  Award
 } from "lucide-react";
-import logoImg from "@/assets/logo.png";
 
-// Inline SVG Social Icons for maximum reliability
+// Inline SVG Social Icons
 const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -24,237 +26,213 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const socials = [
-  { icon: FacebookIcon, href: "#", label: "Facebook" },
-  { icon: InstagramIcon, href: "#", label: "Instagram" },
+  { icon: FacebookIcon, href: "https://www.facebook.com", label: "Facebook" },
+  { icon: InstagramIcon, href: "https://www.instagram.com", label: "Instagram" },
 ];
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Exterior Cleaning Guides", href: "/blog" },
-  { label: "Before & After Gallery", href: "/gallery" },
-  { label: "Client Reviews", href: "/reviews" },
-  { label: "Free Estimate", href: "/estimate" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "About Us", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Our Works", href: "#projects" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Contact Us", href: "#contact" },
 ];
 
-const servicesLinks = [
-  { label: "All Services Overview", href: "/services" },
-  { label: "Pressure Washing", href: "/services/pressure-washing" },
-  { label: "Soft House Washing", href: "/services/house-washing" },
-  { label: "Soft Washing Tech", href: "/services/soft-washing" },
-  { label: "Roof Cleaning", href: "/services/roof-cleaning" },
-  { label: "Concrete Cleaning", href: "/services/concrete-cleaning" },
-  { label: "Driveway Cleaning", href: "/services/driveway-cleaning" },
-  { label: "Commercial Washing", href: "/services/commercial-pressure-washing" },
-  { label: "24/7 Emergency Service", href: "/services/emergency-service" },
+const ourServices = [
+  { label: "Kitchen & Bathroom", href: "#services" },
+  { label: "Painting (Interior & Exterior)", href: "#services" },
+  { label: "Roofing Repairs & Installation", href: "#services" },
+  { label: "Plumbing Services", href: "#services" },
+  { label: "Landscaping & Outdoor Work", href: "#services" },
 ];
 
-const serviceAreaLinks = [
-  { label: "All Service Areas", href: "/service-areas" },
-  { label: "Mooresville, NC", href: "/service-areas/mooresville-nc" },
-  { label: "Lake Norman, NC", href: "/service-areas/lake-norman-nc" },
-  { label: "Cornelius, NC", href: "/service-areas/cornelius-nc" },
-  { label: "Davidson, NC", href: "/service-areas/davidson-nc" },
-  { label: "Huntersville, NC", href: "/service-areas/huntersville-nc" },
-  { label: "Troutman, NC", href: "/service-areas/troutman-nc" },
-  { label: "Statesville, NC", href: "/service-areas/statesville-nc" },
-  { label: "Denver, NC", href: "/service-areas/denver-nc" },
-  { label: "Sherrills Ford, NC", href: "/service-areas/sherrills-ford-nc" },
-  { label: "Mount Mourne, NC", href: "/service-areas/mount-mourne-nc" },
+const areasWeServe = [
+  { label: "Watauga", href: "#contact" },
+  { label: "Ennis, TX", href: "#contact" },
+  { label: "Lancaster, TX", href: "#contact" },
+  { label: "DeSoto, TX", href: "#contact" },
+  { label: "Cedar Hill, TX", href: "#contact" },
+  { label: "Duncanville, TX", href: "#contact" },
+  { label: "Red Oak, TX", href: "#contact" },
+];
+
+const bottomBarKeywords = [
+  "General Contract DFW",
+  "Bathroom Remodel Near Me",
+  "Emergency Number DFW",
+  "Roofing Company DFW",
+  "Kitchen Remodelers DFW",
+  "Furniture Assembly Service",
+  "Interior Painting Services",
+  "Handyman DFW TX",
 ];
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#050b1a] text-white overflow-hidden border-t border-slate-900">
+    <footer className="relative bg-[#070b1a] text-white overflow-hidden border-t border-slate-900">
       {/* Background patterns */}
       <div className="absolute inset-0 bg-grid opacity-[0.02] pointer-events-none" />
 
       {/* Decorative Blur Blobs */}
-      <div className="absolute -top-40 left-1/4 w-[400px] h-[400px] bg-[#0ea5e9]/10 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
-      <div className="absolute -bottom-40 right-10 w-[350px] h-[350px] bg-[#0284c7]/5 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
+      <div className="absolute -top-40 left-1/4 w-[400px] h-[400px] bg-[#0000b9]/15 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
+      <div className="absolute -bottom-40 right-10 w-[350px] h-[350px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
 
-      <div className="relative mx-auto w-[90%] max-w-7xl py-20 lg:py-24 z-10 text-left">
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+      <div className="relative mx-auto w-[90%] max-w-7xl pt-16 pb-12 z-10 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
 
           {/* Logo & Description (4 cols) */}
-          <div className="col-span-2 lg:col-span-3">
-            <div className="flex items-center">
+          <div className="lg:col-span-4">
+            <a href="/" className="inline-flex items-center bg-white px-3.5 py-2.5 rounded-xl shadow-md transition-transform hover:scale-[1.02]">
               <img
                 src={logoImg}
-                alt="Steam On Wheels Logo"
-                className="h-20 w-auto object-contain"
+                alt="HANDYMAN AT HOME - General Contractor & Handyman Services"
+                className="h-10 sm:h-11 w-auto object-contain"
               />
-            </div>
+            </a>
 
-            <p className="mt-6 text-xs sm:text-sm text-slate-400 leading-relaxed font-semibold">
-              Premium exterior cleaning, hot-water pressure washing, and gentle soft washing across Mooresville, Lake Norman, and surrounding North Carolina communities. Licensed, insured, and owner-operated.
+            <p className="mt-5 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+              For over two decades, Handyman At Home has been the trusted name for homeowners and businesses in DFW, TX, and beyond. Since 2001, our commitment has been simple: to provide high-quality, reliable, and affordable handyman and contracting services.
             </p>
 
             {/* Socials row */}
-            <div className="mt-6 flex gap-3 select-none">
+            <div className="mt-5 flex gap-3 select-none">
               {socials.map(({ icon: Icon, href, label }, i) => (
                 <motion.a
                   key={i}
-                  whileHover={{ y: -4, scale: 1.05, backgroundColor: "rgba(14, 165, 233, 0.15)", borderColor: "rgba(14, 165, 233, 0.3)" }}
+                  whileHover={{ y: -3, scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
-                  className="grid place-items-center h-10 w-10 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-white transition-colors shadow-sm"
+                  className="grid place-items-center h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-[#0000b9] hover:border-[#0000b9] transition-all shadow-sm"
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-4 w-4" />
                 </motion.a>
               ))}
             </div>
 
             {/* Trust Badges */}
-            <div className="mt-6 flex flex-wrap gap-2 select-none">
-              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                15+ Years Experience
+            <div className="mt-5 flex flex-wrap gap-2 select-none">
+              <div className="flex items-center gap-2 bg-slate-900/70 border border-slate-800 rounded-xl px-3 py-1.5 text-[10px] font-bold text-slate-300 uppercase tracking-widest">
+                <Award className="h-3.5 w-3.5 text-amber-400" />
+                Over 24 Yrs Experience
               </div>
-              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                $2M Liability Insured
+              <div className="flex items-center gap-2 bg-slate-900/70 border border-slate-800 rounded-xl px-3 py-1.5 text-[10px] font-bold text-slate-300 uppercase tracking-widest">
+                <Shield className="h-3.5 w-3.5 text-emerald-400" />
+                Licensed &amp; Insured
               </div>
             </div>
           </div>
 
-          {/* Services Column (3 cols) */}
-          <Col title="Our Services" items={servicesLinks} colSpan="col-span-1 lg:col-span-3" />
+          {/* Quick Links Column (2 cols) */}
+          <div className="lg:col-span-2">
+            <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-4">
+              Quick Link
+            </div>
+            <ul className="space-y-2.5">
+              {quickLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="text-xs sm:text-sm text-slate-300 hover:text-white hover:underline transition-colors block font-medium"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Service Areas Column (3 cols) */}
-          <Col title="Service Areas" items={serviceAreaLinks} colSpan="col-span-1 lg:col-span-3" />
+          {/* Our Services Column (3 cols) */}
+          <div className="lg:col-span-3">
+            <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-4">
+              Our Services
+            </div>
+            <ul className="space-y-2.5">
+              {ourServices.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="text-xs sm:text-sm text-slate-300 hover:text-white hover:underline transition-colors block font-medium"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Quick Links & Contact Info (3 cols) */}
-          <div className="col-span-2 lg:col-span-3 flex flex-col gap-6">
-            <div>
-              <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-4">
-                Company &amp; Contact
-              </div>
-              <ul className="space-y-3.5 text-xs sm:text-sm">
-                <li>
-                  <a
-                    href="tel:+17045169509"
-                    className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
-                  >
-                    <div className="h-8 w-8 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9]/10 group-hover:border-[#0ea5e9]/30 transition-all shrink-0">
-                      <Phone className="h-3.5 w-3.5 group-hover:rotate-12 transition-transform" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Direct Line</span>
-                      <span className="font-semibold text-white tracking-tight mt-0.5">(704) 516-9509</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:motivate71@yahoo.com"
-                    className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
-                  >
-                    <div className="h-8 w-8 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9]/10 group-hover:border-[#0ea5e9]/30 transition-all shrink-0">
-                      <Mail className="h-3.5 w-3.5 group-hover:scale-110 transition-transform" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Email</span>
-                      <span className="font-semibold text-white tracking-tight mt-0.5 text-wrap break-all">motivate71@yahoo.com</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://maps.google.com/?q=107+Kase+Ct,+Mooresville,+NC"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
-                  >
-                    <div className="h-8 w-8 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9]/10 group-hover:border-[#0ea5e9]/30 transition-all shrink-0">
-                      <MapPin className="h-3.5 w-3.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Office</span>
-                      <span className="font-semibold text-white tracking-tight mt-0.5 leading-snug">
-                        107 Kase Ct, Mooresville, NC 28115
-                      </span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
+          {/* Areas We Serve Column (3 cols) */}
+          <div className="lg:col-span-3">
+            <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-4">
+              Areas We Serve
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {areasWeServe.map(({ label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  className="text-xs text-slate-300 hover:text-white transition-colors block font-medium bg-slate-900/60 hover:bg-[#0000b9]/40 border border-slate-800/80 px-2.5 py-1.5 rounded-lg"
+                >
+                  {label}
+                </a>
+              ))}
             </div>
 
-            {/* Emergency Hotline Box */}
-            <div className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-4">
-              <span className="text-[#0ea5e9] font-black uppercase tracking-wider block mb-2 text-[10px] flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0ea5e9] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0ea5e9]"></span>
-                </span>
-                24/7 Emergency Dispatch Active
-              </span>
-              <p className="text-[11px] text-slate-400 leading-relaxed font-semibold">
-                Available around the clock for commercial spills, graffiti, and urgent exterior cleanups.
-              </p>
+            {/* Direct Contact info box */}
+            <div className="mt-5 p-3.5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-2">
+              <a href="tel:2148141444" className="flex items-center gap-2 text-white hover:text-sky-300 text-xs font-bold">
+                <Phone className="h-3.5 w-3.5 text-[#3b5bfd]" />
+                <span>(214) 814-1444</span>
+              </a>
+              <a href="mailto:handymanathome@gmail.com" className="flex items-center gap-2 text-slate-300 hover:text-white text-[11px] font-medium break-all">
+                <Mail className="h-3.5 w-3.5 text-[#3b5bfd]" />
+                <span>handymanathome@gmail.com</span>
+              </a>
+              <div className="flex items-start gap-2 text-slate-400 text-[11px]">
+                <MapPin className="h-3.5 w-3.5 text-[#3b5bfd] shrink-0 mt-0.5" />
+                <span>1730 Newlin Dr, DFW, TX 75125</span>
+              </div>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Copy/Trademark Row with Back to Top trigger */}
-        <div className="mt-16 pt-8 border-t border-slate-900 flex flex-wrap items-center justify-between gap-6 mb-[-60px]">
-          <p className="text-xs text-slate-500 font-semibold">
-            © {new Date().getFullYear()} Steam On Wheels. All rights reserved. Design By StellR IT LLC
+        {/* ── Bottom Bar Keywords ──────────────────────────── */}
+        <div className="mt-12 pt-6 border-t border-slate-800/80">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-center">
+            {bottomBarKeywords.map((keyword, index) => (
+              <span
+                key={keyword}
+                className="text-[11px] text-slate-400 hover:text-white transition-colors bg-slate-900/50 px-2.5 py-1 rounded-md border border-slate-800/60 font-medium"
+              >
+                {keyword}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Copyright & Back to Top */}
+        <div className="mt-8 pt-6 border-t border-slate-900 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400 font-normal">
+          <p>
+            Copyright © 2025 Handyman At Home | All Rights Reserved. Design By{" "}
+            <a href="https://stellrit.com" target="_blank" rel="noopener noreferrer" className="text-white hover:underline font-semibold">
+              StellR IT
+            </a>
           </p>
 
-          <div className="flex items-center gap-6">
-            <p className="text-xs text-slate-500 font-semibold hidden sm:block">
-              Licensed, Bonded &amp; Insured
-            </p>
-
-            <motion.button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-xs text-slate-400 hover:text-white transition-colors font-bold flex items-center gap-2 cursor-pointer select-none"
-            >
-              <span>Back to Top</span>
-              <ArrowRight className="h-4 w-4 -rotate-90 text-[#0ea5e9]" />
-            </motion.button>
-          </div>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="text-xs text-slate-400 hover:text-white transition-colors font-bold flex items-center gap-1.5 cursor-pointer"
+          >
+            <span>Back to Top</span>
+            <ArrowRight className="h-3.5 w-3.5 -rotate-90 text-[#3b5bfd]" />
+          </button>
         </div>
 
       </div>
     </footer>
-  );
-}
-
-function Col({
-  title,
-  items,
-  colSpan = "col-span-1 lg:col-span-3",
-}: {
-  title: string;
-  items: { label: string; href: string }[];
-  colSpan?: string;
-}) {
-  return (
-    <div className={colSpan}>
-      <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-5">
-        {title}
-      </div>
-      <ul className="space-y-3">
-        {items.map(({ label, href }) => (
-          <li key={label}>
-            <motion.a
-              whileHover={{ x: 4, color: "#0ea5e9" }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              href={href}
-              className="text-xs sm:text-sm text-slate-400 hover:text-white transition-colors block font-semibold"
-            >
-              {label}
-            </motion.a>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }

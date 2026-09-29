@@ -1,4 +1,4 @@
-import { Phone, FileText, ShieldAlert } from "lucide-react";
+import { Phone, FileText } from "lucide-react";
 
 export function MobileFloatingCTA() {
   return (
@@ -8,21 +8,21 @@ export function MobileFloatingCTA() {
     >
       <div className="flex items-center gap-2 max-w-lg mx-auto">
         <a
-          href="tel:7045169509"
+          href="tel:2148141444"
           className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-slate-900 border border-slate-700 py-3 px-3 text-center text-xs font-bold text-white shadow-sm active:scale-[0.98] transition-all"
-          aria-label="Call Steam On Wheels 24/7"
+          aria-label="Call Handyman At Home 24/7"
         >
-          <Phone className="h-4 w-4 text-sky-400 shrink-0" />
-          <span className="truncate">Call (704) 516-9509</span>
+          <Phone className="h-4 w-4 text-[#60a5fa] shrink-0" />
+          <span className="truncate">Call (214) 814-1444</span>
         </a>
 
         <a
-          href="/estimate"
-          className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 py-3 px-3 text-center text-xs font-bold text-white shadow-glow active:scale-[0.98] transition-all"
-          aria-label="Request a Free Exterior Cleaning Estimate"
+          href="#contact"
+          className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[#0000b9] hover:bg-[#1526d4] py-3 px-3 text-center text-xs font-bold text-white shadow-glow active:scale-[0.98] transition-all"
+          aria-label="Request a Free Estimate"
         >
           <FileText className="h-4 w-4 shrink-0" />
-          <span className="truncate">Free Estimate</span>
+          <span className="truncate">Get A Quote</span>
         </a>
       </div>
     </aside>

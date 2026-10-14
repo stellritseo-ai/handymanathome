@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouterState } from "@tanstack/react-router";
+import { SOCIAL_LINKS } from "@/lib/socialLinks";
 
 interface ServiceItem {
   href: string;
@@ -203,33 +204,46 @@ export function Nav() {
               <div className="hidden lg:flex items-center gap-1.5">
                 <span className="text-slate-400 text-[10.5px] font-medium mr-1">Follow Us:</span>
                 <a
-                  href="https://www.facebook.com"
+                  href={SOCIAL_LINKS.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-6 w-6 rounded-full bg-white/5 hover:bg-[#1877F2] text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200"
                   aria-label="Handyman At Home on Facebook"
+                  title="Facebook"
                 >
                   <Facebook className="h-3.5 w-3.5" />
                 </a>
                 <a
-                  href="https://www.instagram.com"
+                  href={SOCIAL_LINKS.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-6 w-6 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-[#E1306C] hover:to-purple-600 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200"
                   aria-label="Handyman At Home on Instagram"
+                  title="Instagram"
                 >
                   <Instagram className="h-3.5 w-3.5" />
                 </a>
                 <a
-                  href="https://g.page"
+                  href={SOCIAL_LINKS.yelp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-6 w-6 rounded-full bg-white/5 hover:bg-[#4285F4] text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200"
-                  aria-label="Handyman At Home on Google Reviews"
+                  className="h-6 w-6 rounded-full bg-white/5 hover:bg-[#d32323] text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200"
+                  aria-label="Handyman At Home on Yelp"
+                  title="Yelp"
                 >
                   <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114-3.54 0-6.423-2.883-6.423-6.423 0-3.54 2.883-6.423 6.423-6.423 1.547 0 2.96.549 4.07 1.547l3.052-3.052C19.296 2.453 15.932 1 12.24 1 6.033 1 12.24s5.033 11.24 11.24 11.24c6.478 0 10.793-4.537 10.793-11 0-.746-.067-1.467-.19-2.195H12.24z" />
+                    <path d="M12.44 1.54c-.6-.08-1.19.26-1.39.81l-1.8 4.93c-.15.42.02.89.4 1.11l4.42 2.55c.44.25 1 .08 1.23-.37l2.15-4.22c.28-.55.08-1.22-.44-1.53l-4.57-3.28zm-2.92 9.17-5.06-1.54c-.58-.17-1.19.12-1.44.68l-1.33 3.03c-.24.55-.07 1.2.4 1.54l4.29 3.06c.4.29.96.22 1.28-.16l3.35-4.04c.36-.43.25-1.07-.19-1.37l-1.3-.87zm3.05 3.32-3.14 4.19c-.33.44-.27 1.05.13 1.43l2.25 2.15c.42.4 1.07.45 1.54.12l4.89-3.41c.45-.31.57-.92.28-1.38l-2.73-4.32c-.28-.45-.88-.6-1.34-.33l-1.88 1.55zm2.74-2.88 5.25.95c.59.11 1.15-.22 1.35-.78l.85-2.4c.2-.56-.05-1.18-.58-1.47l-4.88-2.67c-.45-.25-1.02-.12-1.31.3l-2.6 3.73c-.3.43-.22 1.02.2 1.3l1.72 1.04zm-.55 1.76 4.3 3.23c.48.36 1.14.3 1.56-.15l1.8-1.9c.41-.44.42-1.11.02-1.56l-3.8-4.26c-.34-.38-.93-.45-1.36-.16l-3.9 2.64c-.45.3-.57.9-.27 1.35l1.65 2.85z" />
                   </svg>
+                </a>
+                <a
+                  href={SOCIAL_LINKS.bbb}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-6 px-1.5 rounded-full bg-white/5 hover:bg-[#005a9c] text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 text-[9px] font-black tracking-tight"
+                  aria-label="Handyman At Home on BBB"
+                  title="BBB A+ Accredited"
+                >
+                  BBB
                 </a>
               </div>
 
@@ -731,22 +745,46 @@ export function Nav() {
                 <div className="flex items-center justify-between pt-1">
                   <div className="flex items-center gap-2">
                     <a
-                      href="https://www.facebook.com"
+                      href={SOCIAL_LINKS.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="h-8 w-8 rounded-full bg-slate-200/80 hover:bg-[#1877F2] text-slate-600 hover:text-white flex items-center justify-center transition-colors"
                       aria-label="Facebook"
+                      title="Facebook"
                     >
                       <Facebook className="h-4 w-4" />
                     </a>
                     <a
-                      href="https://www.instagram.com"
+                      href={SOCIAL_LINKS.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="h-8 w-8 rounded-full bg-slate-200/80 hover:bg-[#E1306C] text-slate-600 hover:text-white flex items-center justify-center transition-colors"
                       aria-label="Instagram"
+                      title="Instagram"
                     >
                       <Instagram className="h-4 w-4" />
+                    </a>
+                    <a
+                      href={SOCIAL_LINKS.yelp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="h-8 w-8 rounded-full bg-slate-200/80 hover:bg-[#d32323] text-slate-600 hover:text-white flex items-center justify-center transition-colors"
+                      aria-label="Yelp"
+                      title="Yelp"
+                    >
+                      <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.44 1.54c-.6-.08-1.19.26-1.39.81l-1.8 4.93c-.15.42.02.89.4 1.11l4.42 2.55c.44.25 1 .08 1.23-.37l2.15-4.22c.28-.55.08-1.22-.44-1.53l-4.57-3.28zm-2.92 9.17-5.06-1.54c-.58-.17-1.19.12-1.44.68l-1.33 3.03c-.24.55-.07 1.2.4 1.54l4.29 3.06c.4.29.96.22 1.28-.16l3.35-4.04c.36-.43.25-1.07-.19-1.37l-1.3-.87zm3.05 3.32-3.14 4.19c-.33.44-.27 1.05.13 1.43l2.25 2.15c.42.4 1.07.45 1.54.12l4.89-3.41c.45-.31.57-.92.28-1.38l-2.73-4.32c-.28-.45-.88-.6-1.34-.33l-1.88 1.55zm2.74-2.88 5.25.95c.59.11 1.15-.22 1.35-.78l.85-2.4c.2-.56-.05-1.18-.58-1.47l-4.88-2.67c-.45-.25-1.02-.12-1.31.3l-2.6 3.73c-.3.43-.22 1.02.2 1.3l1.72 1.04zm-.55 1.76 4.3 3.23c.48.36 1.14.3 1.56-.15l1.8-1.9c.41-.44.42-1.11.02-1.56l-3.8-4.26c-.34-.38-.93-.45-1.36-.16l-3.9 2.64c-.45.3-.57.9-.27 1.35l1.65 2.85z" />
+                      </svg>
+                    </a>
+                    <a
+                      href={SOCIAL_LINKS.bbb}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="h-8 px-2 rounded-full bg-slate-200/80 hover:bg-[#005a9c] text-slate-700 hover:text-white flex items-center justify-center transition-colors text-[10px] font-black"
+                      aria-label="BBB"
+                      title="BBB A+ Accredited"
+                    >
+                      BBB
                     </a>
                   </div>
 

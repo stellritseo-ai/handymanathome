@@ -2,6 +2,7 @@ import { Phone, Mail, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import backVideo from "@/assets/back.mp4";
 import bbbLogo from "@/assets/bbb.svg";
+import { SOCIAL_LINKS } from "@/lib/socialLinks";
 
 export function CtaBanner() {
   return (
@@ -35,14 +36,18 @@ export function CtaBanner() {
           <div className="lg:col-span-7 text-center lg:text-left">
             
             {/* BBB A+ Accredited Business Badge */}
-            <motion.div
+            <motion.a
+              href={SOCIAL_LINKS.bbb}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-2 pr-3.5 sm:pr-4 shadow-lg mb-6 group hover:bg-white/15 transition-all max-w-full text-left"
+              className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-2 pr-3.5 sm:pr-4 shadow-lg mb-6 group hover:bg-white/20 transition-all max-w-full text-left cursor-pointer"
+              title="View Handyman At Home BBB Accredited Profile"
             >
-              <div className="bg-white rounded-xl px-2.5 py-1.5 flex items-center justify-center shadow-xs shrink-0">
+              <div className="bg-white rounded-xl px-2.5 py-1.5 flex items-center justify-center shadow-xs shrink-0 group-hover:scale-105 transition-transform">
                 <img
                   src={bbbLogo}
                   alt="BBB Accredited Business"
@@ -62,7 +67,7 @@ export function CtaBanner() {
                   Verified Highest Standards of Trust &amp; Integrity
                 </p>
               </div>
-            </motion.div>
+            </motion.a>
 
             {/* Headline */}
             <h2

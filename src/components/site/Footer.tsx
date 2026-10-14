@@ -11,6 +11,8 @@ import {
   Award,
 } from "lucide-react";
 
+import { SOCIAL_LINKS } from "@/lib/socialLinks";
+
 // Inline SVG Social Icons
 const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -26,6 +28,12 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const YelpIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" {...props}>
+    <path d="M12.44 1.54c-.6-.08-1.19.26-1.39.81l-1.8 4.93c-.15.42.02.89.4 1.11l4.42 2.55c.44.25 1 .08 1.23-.37l2.15-4.22c.28-.55.08-1.22-.44-1.53l-4.57-3.28zm-2.92 9.17-5.06-1.54c-.58-.17-1.19.12-1.44.68l-1.33 3.03c-.24.55-.07 1.2.4 1.54l4.29 3.06c.4.29.96.22 1.28-.16l3.35-4.04c.36-.43.25-1.07-.19-1.37l-1.3-.87zm3.05 3.32-3.14 4.19c-.33.44-.27 1.05.13 1.43l2.25 2.15c.42.4 1.07.45 1.54.12l4.89-3.41c.45-.31.57-.92.28-1.38l-2.73-4.32c-.28-.45-.88-.6-1.34-.33l-1.88 1.55zm2.74-2.88 5.25.95c.59.11 1.15-.22 1.35-.78l.85-2.4c.2-.56-.05-1.18-.58-1.47l-4.88-2.67c-.45-.25-1.02-.12-1.31.3l-2.6 3.73c-.3.43-.22 1.02.2 1.3l1.72 1.04zm-.55 1.76 4.3 3.23c.48.36 1.14.3 1.56-.15l1.8-1.9c.41-.44.42-1.11.02-1.56l-3.8-4.26c-.34-.38-.93-.45-1.36-.16l-3.9 2.64c-.45.3-.57.9-.27 1.35l1.65 2.85z" />
+  </svg>
+);
+
 const GoogleIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" {...props}>
     <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
@@ -33,9 +41,10 @@ const GoogleIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const socials = [
-  { icon: FacebookIcon, href: "https://www.facebook.com", label: "Facebook" },
-  { icon: InstagramIcon, href: "https://www.instagram.com", label: "Instagram" },
-  { icon: GoogleIcon, href: "https://www.google.com/maps", label: "Google Business" },
+  { icon: FacebookIcon, href: SOCIAL_LINKS.facebook, label: "Facebook" },
+  { icon: InstagramIcon, href: SOCIAL_LINKS.instagram, label: "Instagram" },
+  { icon: YelpIcon, href: SOCIAL_LINKS.yelp, label: "Yelp" },
+  { icon: GoogleIcon, href: "https://maps.google.com/?q=1730+Newlin+Dr,+DFW,+TX+75125", label: "Google Business" },
 ];
 
 const quickLinks = [
@@ -114,15 +123,17 @@ export function Footer() {
 
             {/* Socials row */}
             <div className="mt-5 flex gap-2.5 select-none">
-              {socials.map(({ icon: Icon, label }, i) => (
-                <button
+              {socials.map(({ icon: Icon, href, label }, i) => (
+                <a
                   key={i}
-                  type="button"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="grid place-items-center h-9 w-9 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white hover:bg-[#0000b9] hover:border-[#0000b9] transition-all shadow-sm cursor-pointer"
                 >
                   <Icon className="h-4 w-4" />
-                </button>
+                </a>
               ))}
             </div>
 
@@ -138,10 +149,16 @@ export function Footer() {
                 <span>Licensed &amp; Insured</span>
               </div>
 
-              <div className="inline-flex items-center gap-2 bg-white/95 border border-white/20 rounded-xl px-2.5 py-1 text-[10px] font-bold text-slate-900 shadow-sm">
+              <a
+                href={SOCIAL_LINKS.bbb}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View Handyman At Home BBB Accredited Profile"
+                className="inline-flex items-center gap-2 bg-white/95 hover:bg-white border border-white/20 rounded-xl px-2.5 py-1 text-[10px] font-bold text-slate-900 shadow-sm transition-all hover:scale-105"
+              >
                 <img src={bbbLogo} alt="BBB A+ Accredited" className="h-4 w-auto" />
                 <span>A+ Accredited</span>
-              </div>
+              </a>
             </div>
           </div>
 

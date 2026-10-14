@@ -20,6 +20,7 @@ import {
   Layers,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { SOCIAL_LINKS } from "@/lib/socialLinks";
 
 // SVG Google Icon
 function GoogleIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -556,16 +557,36 @@ export function ReviewsPageContent() {
               </div>
             </div>
 
-            <a
-              href="https://g.page"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 hover:border-[#0000b9] bg-white hover:bg-blue-50/50 text-[#0000b9] font-bold text-xs sm:text-sm px-6 py-3 transition-colors shrink-0"
-            >
-              <GoogleIcon className="w-4 h-4" />
-              <span>Leave a Google Review</span>
-              <ExternalLink className="h-3.5 w-3.5" />
-            </a>
+            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+              <a
+                href="https://g.page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 hover:border-[#0000b9] bg-white hover:bg-blue-50/50 text-[#0000b9] font-bold text-xs sm:text-sm px-4 py-2.5 transition-colors"
+              >
+                <GoogleIcon className="w-4 h-4" />
+                <span>Google Review</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={SOCIAL_LINKS.yelp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-red-200 hover:border-red-600 bg-white hover:bg-red-50/50 text-red-600 font-bold text-xs sm:text-sm px-4 py-2.5 transition-colors"
+              >
+                <span>Yelp Review</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={SOCIAL_LINKS.bbb}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-blue-200 hover:border-[#005a9c] bg-white hover:bg-blue-50/50 text-[#005a9c] font-bold text-xs sm:text-sm px-4 py-2.5 transition-colors"
+              >
+                <span>BBB Profile</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>

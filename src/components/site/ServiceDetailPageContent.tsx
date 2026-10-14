@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import bbbLogo from "@/assets/bbb.svg";
+import { SOCIAL_LINKS } from "@/lib/socialLinks";
 import {
   ServiceDetailConfig,
   servicesData,
@@ -510,13 +511,19 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
 
               {/* Trust Badge card */}
               <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <a
+                  href={SOCIAL_LINKS.bbb}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+                  title="View BBB Accredited Profile"
+                >
                   <img src={bbbLogo} alt="BBB Accredited" className="h-6 w-auto" />
                   <div>
                     <span className="block text-xs font-bold text-slate-900">BBB Accredited</span>
                     <span className="block text-[10.5px] text-slate-500">A+ Standards</span>
                   </div>
-                </div>
+                </a>
                 <div className="text-right">
                   <div className="flex items-center gap-0.5 text-amber-400">
                     {[...Array(5)].map((_, i) => (

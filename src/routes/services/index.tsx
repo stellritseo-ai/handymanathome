@@ -13,7 +13,6 @@ import {
   Star,
   Award,
 } from "lucide-react";
-import bbbLogo from "@/assets/bbb.svg";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({

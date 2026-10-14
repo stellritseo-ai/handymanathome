@@ -20,9 +20,12 @@ import {
   HelpCircle,
   AlertCircle,
   Truck,
+  Facebook,
+  Instagram,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import bbbLogo from "@/assets/bbb.svg";
+import { SOCIAL_LINKS } from "@/lib/socialLinks";
 
 // Service Dropdown Options specified by user
 const serviceOptions = [
@@ -365,6 +368,53 @@ export function ContactPageContent() {
                         </div>
                       </div>
                     </li>
+
+                    {/* Social Media Channels */}
+                    <li className="pt-4 border-t border-white/10">
+                      <p className="text-[11px] font-bold text-sky-300 uppercase tracking-wider mb-2">
+                        Connect With Us
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <a
+                          href={SOCIAL_LINKS.facebook}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-[#1877F2] text-xs font-semibold text-white transition-colors"
+                          title="Facebook"
+                        >
+                          <Facebook className="h-3.5 w-3.5" />
+                          <span>Facebook</span>
+                        </a>
+                        <a
+                          href={SOCIAL_LINKS.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-[#E1306C] text-xs font-semibold text-white transition-colors"
+                          title="Instagram"
+                        >
+                          <Instagram className="h-3.5 w-3.5" />
+                          <span>Instagram</span>
+                        </a>
+                        <a
+                          href={SOCIAL_LINKS.yelp}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-[#d32323] text-xs font-semibold text-white transition-colors"
+                          title="Yelp"
+                        >
+                          <span>Yelp</span>
+                        </a>
+                        <a
+                          href={SOCIAL_LINKS.bbb}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-[#005a9c] text-xs font-semibold text-white transition-colors"
+                          title="BBB Accredited"
+                        >
+                          <span>BBB</span>
+                        </a>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -593,10 +643,16 @@ export function ContactPageContent() {
 
                     {/* Trust Badges Near Form (Design Tip from user) */}
                     <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600">
-                      <div className="flex items-center gap-2">
+                      <a
+                        href={SOCIAL_LINKS.bbb}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                        title="View BBB Accredited Profile"
+                      >
                         <img src={bbbLogo} alt="BBB Accredited Business" className="h-5 w-auto" />
                         <span className="font-bold text-slate-800">BBB Accredited Business</span>
-                      </div>
+                      </a>
                       <div className="flex items-center gap-1.5 font-bold text-emerald-700">
                         <ShieldCheck className="h-4 w-4 text-emerald-600" />
                         <span>Licensed &amp; Insured in Texas</span>

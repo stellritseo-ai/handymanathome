@@ -22,6 +22,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouterState } from "@tanstack/react-router";
 
 interface ServiceItem {
   href: string;
@@ -33,42 +34,42 @@ interface ServiceItem {
 
 const servicesList: ServiceItem[] = [
   {
-    href: "/#services",
+    href: "/services/kitchen-bathroom-remodel",
     label: "Kitchen & Bathroom Remodel",
     desc: "Custom cabinetry, tilework, vanities & luxury remodels",
     icon: Home,
     color: "bg-blue-500/10 text-[#0000b9]",
   },
   {
-    href: "/#services",
+    href: "/services/painting",
     label: "Interior & Exterior Painting",
     desc: "Flawless wall finishes, drywall repair, stain & trim",
     icon: Paintbrush,
     color: "bg-amber-500/10 text-amber-600",
   },
   {
-    href: "/#services",
+    href: "/services/roofing",
     label: "Roofing Repairs & Installation",
     desc: "Leak repairs, shingle replacement & storm damage",
     icon: Shield,
     color: "bg-emerald-500/10 text-emerald-600",
   },
   {
-    href: "/#services",
+    href: "/services/plumbing",
     label: "Plumbing Services",
     desc: "Pipe fixes, leak detection, fixture swaps & heaters",
     icon: Droplets,
     color: "bg-cyan-500/10 text-cyan-600",
   },
   {
-    href: "/#services",
+    href: "/services/landscaping",
     label: "Landscaping & Outdoor Living",
     desc: "Fencing, custom decks, patio covers & grounds care",
     icon: TreePine,
     color: "bg-lime-500/10 text-emerald-700",
   },
   {
-    href: "/#services",
+    href: "/services/handyman-carpentry",
     label: "General Handyman & Carpentry",
     desc: "Doors, windows, drywall patches & hardware installs",
     icon: Wrench,
@@ -77,12 +78,12 @@ const servicesList: ServiceItem[] = [
 ];
 
 const navLinks = [
-  { href: "/#about", label: "About Us" },
-  { href: "/#services", label: "Services", isServices: true },
-  { href: "/#projects", label: "Our Works" },
+  { href: "/about", label: "About Us" },
+  { href: "/services", label: "Services", isServices: true },
+  { href: "/projects", label: "Our Works" },
   // { href: "/#why-choose-us", label: "Why Choose Us" },
-  { href: "/#reviews", label: "Reviews" },
-  { href: "/#contact", label: "Contact Us" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 export function Nav() {
@@ -92,6 +93,17 @@ export function Nav() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [lang, setLang] = useState<"EN" | "ES">("EN");
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Current route detection for active state
+  const pathname = useRouterState({
+    select: (state) => state?.location?.pathname || "/",
+  });
+  const isAboutActive = pathname === "/about" || pathname === "/about-us";
+  const isServicesActive = pathname.startsWith("/services");
+  const isProjectsActive = pathname === "/projects" || pathname === "/our-works";
+  const isReviewsActive = pathname === "/reviews" || pathname === "/client-reviews";
+  const isContactActive = pathname === "/contact" || pathname === "/contact-us";
+  const isEstimateActive = pathname === "/free-estimate" || pathname === "/estimate";
 
   // Scroll detection for compact header transformation
   useEffect(() => {
@@ -286,10 +298,11 @@ export function Nav() {
                       >
                         <a
                           href={item.href}
-                          className={`group/link inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[15.5px] font-bold transition-all duration-200 cursor-pointer ${servicesDropdownOpen
-                            ? "text-[#0000b9] bg-[#0000b9]/8"
-                            : "text-slate-800 hover:text-[#0000b9] hover:bg-slate-100/80"
-                            }`}
+                          className={`group/link inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[15.5px] font-bold transition-all duration-200 cursor-pointer ${
+                            servicesDropdownOpen || isServicesActive
+                              ? "text-[#0000b9] bg-[#0000b9]/10 shadow-2xs"
+                              : "text-slate-800 hover:text-[#0000b9] hover:bg-slate-100/80"
+                          }`}
                           aria-expanded={servicesDropdownOpen}
                           aria-haspopup="true"
                         >
@@ -368,14 +381,14 @@ export function Nav() {
                                       Need emergency repair? 24/7 Rapid Dispatch in DFW
                                     </span>
                                   </div>
-                                  <button
-                                    type="button"
+                                  <a
+                                    href="/services"
                                     onClick={() => setServicesDropdownOpen(false)}
                                     className="font-bold text-[#0000b9] hover:text-[#1024d4] flex items-center gap-1 text-[11.5px] transition-colors cursor-pointer"
                                   >
                                     <span>Explore All</span>
                                     <ArrowRight className="h-3 w-3" />
-                                  </button>
+                                  </a>
                                 </div>
                               </div>
                             </motion.div>
@@ -385,11 +398,20 @@ export function Nav() {
                     );
                   }
 
+                  const isActive =
+                    (item.href === "/about" && isAboutActive) ||
+                    (item.href === "/projects" && isProjectsActive) ||
+                    (item.href === "/reviews" && isReviewsActive) ||
+                    (item.href === "/contact" && isContactActive);
                   return (
                     <li key={item.label}>
                       <a
                         href={item.href}
-                        className="inline-flex items-center px-3.5 py-2 rounded-full text-[15.5px] font-bold text-slate-800 hover:text-[#0000b9] hover:bg-slate-100/80 transition-all duration-200"
+                        className={`inline-flex items-center px-3.5 py-2 rounded-full text-[15.5px] font-bold transition-all duration-200 ${
+                          isActive
+                            ? "text-[#0000b9] bg-[#0000b9]/10 shadow-2xs"
+                            : "text-slate-800 hover:text-[#0000b9] hover:bg-slate-100/80"
+                        }`}
                       >
                         {item.label}
                       </a>
@@ -401,16 +423,20 @@ export function Nav() {
               {/* Header Right Action CTAs (Desktop) */}
               <div className="hidden lg:flex items-center gap-2.5 shrink-0">
                 {/* Free Estimate Outlined Pill */}
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-300 hover:border-[#0000b9] bg-white hover:bg-[#0000b9]/5 px-4.5 py-2 text-[12.5px] font-bold text-slate-800 hover:text-[#0000b9] transition-all duration-200 shadow-2xs hover:shadow-xs active:scale-95 cursor-pointer"
+                <a
+                  href="/free-estimate"
+                  className={`inline-flex items-center justify-center rounded-full border px-4.5 py-2 text-[12.5px] font-bold transition-all duration-200 shadow-2xs hover:shadow-xs active:scale-95 cursor-pointer ${
+                    isEstimateActive
+                      ? "bg-[#0000b9] text-white border-[#0000b9] shadow-sm"
+                      : "border-slate-300 hover:border-[#0000b9] bg-white hover:bg-[#0000b9]/5 text-slate-800 hover:text-[#0000b9]"
+                  }`}
                 >
                   <span>Free Estimate</span>
-                </button>
+                </a>
 
                 {/* Call Now Button with Live Beacon */}
-                <button
-                  type="button"
+                <a
+                  href="tel:2148141444"
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#0000b9] via-[#0d1fd6] to-[#0000b9] hover:from-[#000099] hover:to-[#0c1bb8] px-4.5 py-2 text-[12.5px] font-extrabold text-white shadow-[0_4px_16px_rgba(0,0,185,0.32)] hover:shadow-[0_6px_22px_rgba(0,0,185,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
                   aria-label="Call Handyman At Home at (214) 814-1444"
                 >
@@ -420,18 +446,18 @@ export function Nav() {
                   </span>
                   <Phone className="h-3.5 w-3.5 fill-current transition-transform duration-200 group-hover:rotate-12" />
                   <span className="tracking-tight">(214) 814-1444</span>
-                </button>
+                </a>
               </div>
 
               {/* Mobile Menu Toggle Button */}
               <div className="flex items-center gap-2 lg:hidden">
-                <button
-                  type="button"
+                <a
+                  href="tel:2148141444"
                   className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-[#0000b9] text-white shadow-[0_2px_10px_rgba(0,0,185,0.3)] active:scale-95 transition-all cursor-pointer"
                   aria-label="Call Now"
                 >
                   <Phone className="h-4 w-4 fill-current" />
-                </button>
+                </a>
 
                 <button
                   type="button"
@@ -505,13 +531,13 @@ export function Nav() {
                   </span>
                   <span className="text-[10.5px] font-semibold text-slate-500">DFW Metro</span>
                 </div>
-                <button
-                  type="button"
+                <a
+                  href="tel:2148141444"
                   className="flex items-center justify-center gap-2.5 w-full rounded-xl bg-[#0000b9] hover:bg-[#1024d4] py-2.5 text-center font-bold text-white text-xs shadow-md transition-all active:scale-[0.98] cursor-pointer"
                 >
                   <Phone className="h-3.5 w-3.5 fill-current" />
                   <span>Call Now: (214) 814-1444</span>
-                </button>
+                </a>
               </div>
 
               {/* Scrollable Navigation Links */}
@@ -520,9 +546,13 @@ export function Nav() {
                   {/* About Us */}
                   <li>
                     <a
-                      href="/#about"
+                      href="/about"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
+                      className={`flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] transition-all ${
+                        isAboutActive
+                          ? "bg-[#0000b9]/10 text-[#0000b9]"
+                          : "text-slate-800 hover:bg-slate-50 hover:text-[#0000b9]"
+                      }`}
                     >
                       <span>About Us</span>
                       <ArrowRight className="h-4 w-4 text-slate-400" />
@@ -573,6 +603,16 @@ export function Nav() {
                                 </li>
                               );
                             })}
+                            <li className="pt-1 border-t border-slate-200/80">
+                              <a
+                                href="/services"
+                                onClick={() => setOpen(false)}
+                                className="flex items-center justify-between py-2 px-2.5 rounded-lg text-xs font-bold text-[#0000b9] hover:bg-white transition-all"
+                              >
+                                <span>View All Services Directory</span>
+                                <ArrowRight className="h-3.5 w-3.5" />
+                              </a>
+                            </li>
                           </ul>
                         </motion.div>
                       )}
@@ -582,9 +622,13 @@ export function Nav() {
                   {/* Our Works */}
                   <li className="pt-1">
                     <a
-                      href="/#projects"
+                      href="/projects"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
+                      className={`flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] transition-all ${
+                        isProjectsActive
+                          ? "bg-[#0000b9]/10 text-[#0000b9]"
+                          : "text-slate-800 hover:bg-slate-50 hover:text-[#0000b9]"
+                      }`}
                     >
                       <span>Our Works</span>
                       <ArrowRight className="h-4 w-4 text-slate-400" />
@@ -606,9 +650,13 @@ export function Nav() {
                   {/* Reviews */}
                   <li className="pt-1">
                     <a
-                      href="/#reviews"
+                      href="/reviews"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
+                      className={`flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] transition-all ${
+                        isReviewsActive
+                          ? "bg-[#0000b9]/10 text-[#0000b9]"
+                          : "text-slate-800 hover:bg-slate-50 hover:text-[#0000b9]"
+                      }`}
                     >
                       <span>Reviews</span>
                       <ArrowRight className="h-4 w-4 text-slate-400" />
@@ -618,11 +666,31 @@ export function Nav() {
                   {/* Contact Us */}
                   <li className="pt-1">
                     <a
-                      href="/#contact"
+                      href="/contact"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] text-slate-800 hover:bg-slate-50 hover:text-[#0000b9] transition-all"
+                      className={`flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] transition-all ${
+                        isContactActive
+                          ? "bg-[#0000b9]/10 text-[#0000b9]"
+                          : "text-slate-800 hover:bg-slate-50 hover:text-[#0000b9]"
+                      }`}
                     >
                       <span>Contact Us</span>
+                      <ArrowRight className="h-4 w-4 text-slate-400" />
+                    </a>
+                  </li>
+
+                  {/* Free Estimate */}
+                  <li className="pt-1">
+                    <a
+                      href="/free-estimate"
+                      onClick={() => setOpen(false)}
+                      className={`flex items-center justify-between py-3 px-3 rounded-xl font-bold text-[16.5px] transition-all ${
+                        isEstimateActive
+                          ? "bg-[#0000b9]/10 text-[#0000b9]"
+                          : "text-slate-800 hover:bg-slate-50 hover:text-[#0000b9]"
+                      }`}
+                    >
+                      <span>Free Estimate</span>
                       <ArrowRight className="h-4 w-4 text-slate-400" />
                     </a>
                   </li>
@@ -647,13 +715,17 @@ export function Nav() {
 
               {/* Drawer Bottom Actions & Footer */}
               <div className="p-5 border-t border-slate-100 bg-slate-50/80 space-y-3">
-                <button
-                  type="button"
+                <a
+                  href="/free-estimate"
                   onClick={() => setOpen(false)}
-                  className="block w-full rounded-xl border border-slate-300 bg-white hover:border-[#0000b9] hover:bg-[#0000b9]/5 py-3 text-center font-bold text-slate-800 hover:text-[#0000b9] transition-all text-sm shadow-2xs cursor-pointer"
+                  className={`block w-full rounded-xl border py-3 text-center font-bold transition-all text-sm shadow-2xs cursor-pointer ${
+                    isEstimateActive
+                      ? "bg-[#0000b9] text-white border-[#0000b9]"
+                      : "border-slate-300 bg-white hover:border-[#0000b9] hover:bg-[#0000b9]/5 text-slate-800 hover:text-[#0000b9]"
+                  }`}
                 >
                   Request A Free Estimate
-                </button>
+                </a>
 
                 {/* Social & Language Row */}
                 <div className="flex items-center justify-between pt-1">

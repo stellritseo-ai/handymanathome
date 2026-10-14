@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Star, Check } from "lucide-react";
+import { Star, Check, ArrowRight } from "lucide-react";
 
 interface Review {
   name: string;
@@ -280,6 +280,17 @@ export function Testimonials() {
           <span className="font-extrabold text-slate-900">5.0 Star Rating</span>
           <span className="text-slate-300 hidden sm:inline">•</span>
           <span className="text-slate-500 hidden sm:inline">100% Recommended in DFW</span>
+        </div>
+
+        {/* View All Dedicated Reviews Link */}
+        <div className="mt-5">
+          <a
+            href="/reviews"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-extrabold text-[#0000b9] hover:text-white bg-blue-50/90 hover:bg-[#0000b9] border border-[#0000b9]/20 transition-all duration-200 shadow-2xs hover:shadow-xs"
+          >
+            <span>Read All 15+ Verified 5-Star Reviews</span>
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
 

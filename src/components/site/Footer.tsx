@@ -40,35 +40,37 @@ const socials = [
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "#about" },
-  { label: "Our Services", href: "#services" },
-  { label: "How It Works", href: "#process" },
-  { label: "Why Choose Us", href: "#why-choose-us" },
-  { label: "Client Reviews", href: "#reviews" },
-  { label: "Service Area", href: "#service-area" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Works", href: "/projects" },
+  { label: "Our Services", href: "/#services" },
+  { label: "How It Works", href: "/#process" },
+  { label: "Why Choose Us", href: "/#why-choose-us" },
+  { label: "Client Reviews", href: "/reviews" },
+  { label: "Service Area", href: "/#service-area" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact Us", href: "/contact" },
+  { label: "Free Estimate", href: "/free-estimate" },
 ];
 
 const ourServices = [
-  { label: "Kitchen & Bath Remodeling", href: "#services" },
-  { label: "Interior & Exterior Painting", href: "#services" },
-  { label: "Roofing Repairs & Installation", href: "#services" },
-  { label: "Plumbing Fixtures & Line Repairs", href: "#services" },
-  { label: "Custom Decks & Siding Restoration", href: "#services" },
-  { label: "General Carpentry & Handyman", href: "#services" },
-  { label: "24/7 Rapid Emergency Dispatch", href: "#services" },
+  { label: "Kitchen & Bath Remodeling", href: "/services/kitchen-bathroom-remodel" },
+  { label: "Interior & Exterior Painting", href: "/services/painting" },
+  { label: "Roofing Repairs & Installation", href: "/services/roofing" },
+  { label: "Plumbing Services & Line Repairs", href: "/services/plumbing" },
+  { label: "Landscaping & Outdoor Living", href: "/services/landscaping" },
+  { label: "General Carpentry & Handyman", href: "/services/handyman-carpentry" },
+  { label: "All Services Directory", href: "/services" },
 ];
 
 const areasWeServe = [
-  { label: "Dallas, TX", href: "#service-area" },
-  { label: "Fort Worth, TX", href: "#service-area" },
-  { label: "Arlington, TX", href: "#service-area" },
-  { label: "Plano, TX", href: "#service-area" },
-  { label: "Garland, TX", href: "#service-area" },
-  { label: "Irving, TX", href: "#service-area" },
-  { label: "Frisco, TX", href: "#service-area" },
-  { label: "Grand Prairie, TX", href: "#service-area" },
+  { label: "Dallas, TX", href: "/#service-area" },
+  { label: "Fort Worth, TX", href: "/#service-area" },
+  { label: "Arlington, TX", href: "/#service-area" },
+  { label: "Plano, TX", href: "/#service-area" },
+  { label: "Garland, TX", href: "/#service-area" },
+  { label: "Irving, TX", href: "/#service-area" },
+  { label: "Frisco, TX", href: "/#service-area" },
+  { label: "Grand Prairie, TX", href: "/#service-area" },
 ];
 
 const bottomBarKeywords = [

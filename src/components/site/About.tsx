@@ -109,21 +109,28 @@ export function About() {
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-              <button
-                type="button"
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+              <a
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0000b9] hover:bg-[#0000a0] text-white font-extrabold text-sm px-8 py-3.5 shadow-lg transition-all duration-200 cursor-pointer w-full sm:w-auto"
               >
                 <span>Request Free Estimate</span>
                 <ArrowRight className="h-4 w-4" />
-              </button>
-              <button
-                type="button"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white text-slate-800 font-bold text-sm px-7 py-3.5 transition-all duration-200 cursor-pointer w-full sm:w-auto"
+              </a>
+              <a
+                href="tel:2148141444"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white text-slate-800 hover:text-[#0000b9] hover:border-[#0000b9] font-bold text-sm px-7 py-3.5 transition-all duration-200 cursor-pointer w-full sm:w-auto"
               >
                 <Phone className="h-4 w-4 text-[#0000b9]" />
                 <span>Call (214) 814-1444</span>
-              </button>
+              </a>
+              <a
+                href="/about"
+                className="inline-flex items-center justify-center gap-1 text-xs font-bold text-[#0000b9] hover:text-[#000075] hover:underline px-3 py-2 transition-colors"
+              >
+                <span>Our Full Story</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </a>
             </div>
           </div>
 

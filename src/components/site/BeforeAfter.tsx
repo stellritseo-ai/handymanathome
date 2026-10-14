@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { X, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
+import { X, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 
 // Dynamically extract all images from assets/gallery
 const galleryModules = import.meta.glob<{ default: string }>(
@@ -137,8 +137,8 @@ export function BeforeAfter() {
           ))}
         </div>
 
-        {/* ── Show More Button at Bottom ─────────────────── */}
-        <div className="mt-8 sm:mt-10 flex justify-center">
+        {/* ── Show More & Dedicated Gallery Buttons at Bottom ─────────────────── */}
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
             type="button"
             id="gallery-show-more-btn"
@@ -152,6 +152,14 @@ export function BeforeAfter() {
               <ChevronUp className="h-4 w-4 stroke-[2.5]" />
             )}
           </button>
+
+          <a
+            href="/projects"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-bold text-slate-800 hover:text-[#0000b9] bg-white border border-slate-300 hover:border-[#0000b9] shadow-xs hover:shadow-sm transition-all"
+          >
+            <span>View Dedicated Portfolio</span>
+            <ArrowRight className="h-4 w-4 text-[#0000b9]" />
+          </a>
         </div>
 
       </div>

@@ -1,418 +1,797 @@
-import svcPressureWash from "@/assets/svc-pressure-wash.png";
-import svcResidential from "@/assets/svc-residential.png";
-import svcSiding from "@/assets/svc-siding.png";
-import svcRoof from "@/assets/svc-roof.png";
-import svcConcrete from "@/assets/svc-concrete.png";
-import svcDriveway from "@/assets/svc-driveway.png";
-import svcCommercial from "@/assets/svc-commercial.png";
-import { ServiceDetailConfig } from "@/components/site/services/ServiceDetailPageTemplate";
+import craftsmanImg from "@/assets/about-craftsman.jpg";
+import paintingImg from "@/assets/svc-painting.png";
+import roofImg from "@/assets/svc-roof.png";
+import landscapingImg from "@/assets/svc-landscaping.png";
+import residentialImg from "@/assets/svc-residential.png";
+import commercialImg from "@/assets/svc-commercial.png";
+
+// Dynamic gallery image imports
+const galleryModules = import.meta.glob<{ default: string }>(
+  "@/assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
+  { eager: true }
+);
+
+export const galleryImagesList: string[] = Object.values(galleryModules).map(
+  (mod) => mod.default
+);
+
+// Resilient helper to extract authentic project images matching service context
+export function getGalleryAsset(searchPattern: string): string {
+  const normalized = searchPattern.toLowerCase();
+  const entry = Object.entries(galleryModules).find(([filePath]) =>
+    filePath.toLowerCase().includes(normalized)
+  );
+  return entry ? entry[1].default : "";
+}
+
+export interface ServiceFeature {
+  title: string;
+  desc: string;
+}
+
+export interface ServiceProcessStep {
+  step: string;
+  title: string;
+  desc: string;
+}
+
+export interface ServiceFAQ {
+  q: string;
+  a: string;
+}
+
+export interface ServiceDetailConfig {
+  id: string;
+  slug: string;
+  serviceName: string;
+  shortDesc: string;
+  h1Title: string;
+  h2Subtitle: string;
+  metaTitle: string;
+  metaDescription: string;
+  heroBadge: string;
+  heroImage: string;
+  galleryImages: string[];
+  leadParagraph: string;
+  secondaryParagraph: string;
+  keyStats: { label: string; value: string }[];
+  capabilitiesTitle: string;
+  capabilities: ServiceFeature[];
+  process: ServiceProcessStep[];
+  whyChooseUs: ServiceFeature[];
+  faqs: ServiceFAQ[];
+  galleryIndices?: number[];
+  colorScheme: {
+    accent: string;
+    badgeBg: string;
+    border: string;
+  };
+}
 
 export const servicesData: Record<string, ServiceDetailConfig> = {
-  "pressure-washing": {
-    slug: "/services/pressure-washing",
-    serviceName: "Pressure Washing",
-    h1Title: "Professional Pressure Washing in Mooresville & Lake Norman, NC",
-    metaTitle: "Pressure Washing Mooresville NC | Steam On Wheels Power Washing",
-    metaDescription: "Top-rated pressure washing services in Mooresville & Lake Norman, NC. Hot & cold power washing for residential & commercial properties. Call (704) 516-9509.",
-    heroBadge: "High-Pressure Restoration",
-    tagline: "Commercial-Grade Power Washing & Degreasing",
-    heroImage: svcPressureWash,
-    description: "Steam On Wheels provides professional high-pressure washing for durable residential flatwork, commercial facilities, industrial warehouses, and masonry across Mooresville and the greater Lake Norman region.",
-    secondaryParagraph: "Equipped with variable PSI commercial rigs capable of delivering hot-water washing up to 200°F and 4,000 PSI, we dissolve heavy motor oil, grease stains, industrial soot, and deep-set grime that conventional cold-water washers cannot touch.",
-    serviceType: "PressureWashingService",
+  "kitchen-bathroom-remodel": {
+    id: "kitchen-bathroom-remodel",
+    slug: "/services/kitchen-bathroom-remodel",
+    serviceName: "Kitchen & Bathroom Remodel",
+    shortDesc: "Custom cabinetry, tilework, vanities & luxury remodels",
+    h1Title: "Luxury Kitchen & Bathroom Remodeling in Dallas-Fort Worth",
+    h2Subtitle: "Turnkey Transformations Designed for Everyday Living and Lasting Value",
+    metaTitle: "Kitchen & Bathroom Remodeling Dallas TX | Handyman At Home",
+    metaDescription: "Premier kitchen and bath remodeling across Dallas-Fort Worth. Custom cabinetry, quartz countertops, frameless glass showers, and full renovations. Call (214) 814-1444.",
+    heroBadge: "Turnkey Interior Remodeling",
+    leadParagraph:
+      "At Handyman At Home, we understand that kitchens and bathrooms are the heart and sanctuary of your home. For over two decades, our master remodeling specialists have transformed outdated, cramped spaces into stunning, highly functional living environments tailored to each homeowner's unique taste and lifestyle.",
+    secondaryParagraph:
+      "From complete layout reconfigurations and custom cabinetry to luxury walk-in tile showers and quartz countertops, we manage every facet of your remodel under one roof—ensuring on-time delivery, transparent pricing, and master craftsmanship.",
     keyStats: [
-      { label: "Water Pressure", value: "Up to 4,000 PSI" },
-      { label: "Water Temp", value: "Up to 200°F Hot Wash" },
-      { label: "Experience", value: "15+ Years" },
-      { label: "Guarantee", value: "100% Satisfaction" }
+      { label: "DFW Experience", value: "24+ Years" },
+      { label: "Client Satisfaction", value: "99.9%" },
+      { label: "Licensing", value: "Texas Insured" },
+      { label: "Estimate", value: "100% Free" },
     ],
-    surfacesCleaned: [
-      { title: "Concrete Driveways & Patios", desc: "Deep extraction of motor oil, tire marks, red clay stains, and slippery black algae from all concrete flatwork." },
-      { title: "Commercial Dumpster Pads", desc: "High-temperature degreasing and sanitization to eliminate foul odors, bacteria, and rodent attractants." },
-      { title: "Brick, Stone & Masonry", desc: "Restores natural masonry coloring without eroding mortar joints or compromising structural integrity." },
-      { title: "Parking Lots & Garages", desc: "Extensive square footage oil spot cleaning, gum removal, and surface degreasing for commercial facilities." },
-      { title: "Sidewalks & Walkways", desc: "Rotary surface cleaning that delivers streak-free, uniform brightening for homeowner and retail sidewalks." },
-      { title: "Loading Docks & Industrial Floors", desc: "Heavy equipment tire mark removal, diesel exhaust cleaning, and safety-compliant surface restoration." }
+    capabilitiesTitle: "Comprehensive Kitchen & Bath Remodeling Capabilities",
+    capabilities: [
+      {
+        title: "Custom Cabinetry & Island Design",
+        desc: "Handcrafted soft-close cabinets, bespoke kitchen islands, pantry storage solutions, and designer hardware to maximize storage and visual elegance.",
+      },
+      {
+        title: "Quartz, Granite & Marble Countertops",
+        desc: "Precision fabrication and seamless installation of stain-resistant quartz, natural granite, and elegant marble with custom edge profiles.",
+      },
+      {
+        title: "Custom Walk-In Showers & Tilework",
+        desc: "Spa-grade floor-to-ceiling porcelain and ceramic tile, frameless glass enclosures, linear drains, built-in shampoo niches, and bench seating.",
+      },
+      {
+        title: "Luxury Vanities & Double Sinks",
+        desc: "Modern floating vanities, dual-sink master bath setups, undermount sinks, and LED anti-fog smart mirrors installed with clean precision.",
+      },
+      {
+        title: "Plumbing & Electrical Upgrades",
+        desc: "Licensed plumbing relocation, designer faucet fixtures, recessed LED pot lighting, under-cabinet lighting, and dedicated appliance circuits.",
+      },
+      {
+        title: "Waterproof Flooring & Backsplashes",
+        desc: "Durable luxury vinyl plank (LVP), large-format porcelain floor tiles, and intricate mosaic backsplashes that resist moisture and high traffic.",
+      },
     ],
-    localRelevanceTitle: "Why Mooresville Properties Require Professional Pressure Washing",
-    localRelevanceContent: [
-      "North Carolina's Piedmont region features a unique combination of high summer humidity, dense pine pollen in the spring, and heavy iron-rich red clay. Over time, moisture promotes the rapid growth of black algae (Gloeocapsa magma), moss, and slippery lichen across exterior concrete and brick surfaces.",
-      "In Lake Norman waterfront communities, frequent morning fog and moisture accelerate organic accumulation on hardscapes. Brute force washing can etch concrete or damage mortar joints; our calibrated pressure washing utilizes specialized rotary surface cleaners to ensure an even, non-destructive, showroom-grade finish.",
-      "Whether you are maintaining an HOA property in The Point, preparing a home for sale in Cornelius, or managing a commercial storefront in Mooresville, our pressure washing protects your curb appeal and preserves your investment."
+    process: [
+      {
+        step: "01",
+        title: "In-Home Consultation & Measurement",
+        desc: "We visit your property, listen to your vision, inspect existing layouts, and take precise laser measurements.",
+      },
+      {
+        step: "02",
+        title: "Material Selection & Written Estimate",
+        desc: "We guide you through cabinetry, stone, tile, and fixture selections, presenting a clear itemized quote with no surprises.",
+      },
+      {
+        step: "03",
+        title: "Clean, Professional Demolition & Build",
+        desc: "Our certified crew seals off living zones with dust protection, carries out careful demolition, and executes master trades.",
+      },
+      {
+        step: "04",
+        title: "Final Walkthrough & Satisfaction Guarantee",
+        desc: "We conduct a rigorous quality audit with you, inspecting every grout line and finish to guarantee total satisfaction.",
+      },
     ],
-    serviceProcess: [
-      { step: "01", title: "Site Inspection & Pressure Calibration", desc: "We evaluate the substrate, measure square footage, and select optimal nozzle angles and PSI settings." },
-      { step: "02", title: "Targeted Degreasing Pre-Treatment", desc: "We apply eco-safe surfactants and alkaline degreasers to break down oil, grease, and hydrocarbon bonds." },
-      { step: "03", title: "Dual-Nozzle Surface Cleaning", desc: "Using commercial rotary cleaners, we eliminate striping and blast away deep pores of dirt and mold." },
-      { step: "04", title: "Comprehensive Neutralizing Rinse", desc: "We flush away all suspended debris and inspect the entire area with the client to verify 100% perfection." }
+    whyChooseUs: [
+      {
+        title: "Turnkey Project Management",
+        desc: "One dedicated project manager oversees every trade—drywall, tile, plumbing, and electrical—eliminating contractor juggling.",
+      },
+      {
+        title: "Dust-Control & Clean Living Protection",
+        desc: "We protect your hardwood floors and use negative air filtration to keep your home clean throughout construction.",
+      },
+      {
+        title: "Fixed Upfront Pricing",
+        desc: "No hidden surcharges. Our detailed written estimate clearly specifies labor and material costs before work begins.",
+      },
+      {
+        title: "24-Year Proven Track Record",
+        desc: "Hundreds of verified 5-star remodels completed for homeowners and property managers across the DFW metroplex.",
+      },
     ],
     faqs: [
-      { q: "What is the difference between pressure washing and power washing?", a: "While pressure washing uses unheated high-pressure water, power washing incorporates heated water (up to 200°F). Steam On Wheels is equipped with hot-water commercial power washing capabilities, which is essential for emulsifying grease, motor oil, and gum from concrete." },
-      { q: "Will high-pressure washing damage my concrete?", a: "No, when performed by experienced professionals. We use calibrated surface cleaners that distribute pressure evenly at a consistent height, preventing the 'striping' and surface etching that inexperienced operators cause with wand tips." },
-      { q: "How often should concrete and flat surfaces be pressure washed in NC?", a: "Due to North Carolina humidity, pollen, and tree cover, most residential flatwork benefits from annual pressure washing, while high-traffic commercial sidewalks and dumpster pads benefit from quarterly maintenance." },
-      { q: "Are your cleaning detergents safe for plants and pets?", a: "Yes. We use biodegradable, eco-friendly detergents and thoroughly pre-wet and post-rinse surrounding turf and landscape beds to ensure complete vegetation safety." }
+      {
+        q: "How long does a typical kitchen or bathroom remodel take?",
+        a: "A standard bathroom remodel typically takes 2 to 3 weeks, while a full kitchen remodel usually ranges from 3 to 5 weeks depending on custom cabinetry lead times and layout changes.",
+      },
+      {
+        q: "Can I remain living in my home during the remodel?",
+        a: "Yes. For bathroom remodels, as long as you have another operational bathroom, you can comfortably stay. For kitchen remodels, we establish a clean temporary prep area so your family experiences minimal disruption.",
+      },
+      {
+        q: "Do you handle all necessary city building permits?",
+        a: "Absolutely. As a fully licensed and insured Texas general contractor, Handyman At Home pulls all required municipal permits across Dallas, Tarrant, Collin, Denton, and Ellis counties.",
+      },
+      {
+        q: "Do you provide a warranty on remodeling workmanship?",
+        a: "Yes! All Handyman At Home remodeling projects are backed by our comprehensive craftsmanship guarantee in addition to all manufacturer warranties on installed materials.",
+      },
+      {
+        q: "Can I choose my own fixtures, tiles, and appliances?",
+        a: "Yes. You have total flexibility to supply your own materials or leverage our trusted trade partnerships with major North Texas suppliers for wholesale pricing.",
+      },
     ],
-    relatedServices: [
-      { title: "House Washing", href: "/services/house-washing", desc: "Gentle soft-washing for vinyl siding, Hardie board, and stucco." },
-      { title: "Driveway Cleaning", href: "/services/driveway-cleaning", desc: "Specialized oil stain and red clay removal from concrete driveways." },
-      { title: "Commercial Pressure Washing", href: "/services/commercial-pressure-washing", desc: "Complete exterior maintenance for businesses and retail centers." }
-    ]
+    heroImage: getGalleryAsset("5.07.11 pm (3)"),
+    galleryImages: [
+      getGalleryAsset("5.04.53 pm (2)"),
+      getGalleryAsset("5.07.11 pm.jpeg"),
+      getGalleryAsset("5.04.53 pm (3)"),
+      getGalleryAsset("5.10.57 pm (3)"),
+      getGalleryAsset("5.04.53 pm (4)"),
+      getGalleryAsset("5.10.57 pm (1)"),
+      getGalleryAsset("o (5).jpg"),
+      getGalleryAsset("o (1).jpg"),
+    ],
+    colorScheme: {
+      accent: "#0000b9",
+      badgeBg: "bg-blue-500/10 text-[#0000b9]",
+      border: "border-blue-200",
+    },
   },
 
-  "house-washing": {
-    slug: "/services/house-washing",
-    serviceName: "House Washing",
-    h1Title: "Professional Soft Wash House Washing in Mooresville & Lake Norman, NC",
-    metaTitle: "House Washing Mooresville NC | Soft Wash Exterior Siding Cleaning",
-    metaDescription: "Gentle soft-wash house washing in Mooresville & Lake Norman NC. Safe for vinyl siding, Hardie board, brick & stucco. Eliminates mold & algae. Call (704) 516-9509.",
-    heroBadge: "Low-Pressure Siding Restoration",
-    tagline: "Gentle, Non-Destructive Exterior Siding Washing",
-    heroImage: svcResidential,
-    description: "Steam On Wheels offers premium soft wash house washing designed specifically to eliminate green algae, black mold, pollen, and spider webs from siding without damaging exterior paint or forcing water behind walls.",
-    secondaryParagraph: "Unlike high-pressure blasting which can crack vinyl, strip paint, and compromise window seals, our soft wash process utilizes proprietary biodegradable cleansers applied at garden-hose pressure to sanitize surfaces down to the root.",
-    serviceType: "HouseWashingService",
+  "painting": {
+    id: "painting",
+    slug: "/services/painting",
+    serviceName: "Interior & Exterior Painting",
+    shortDesc: "Flawless wall finishes, drywall repair, stain & trim",
+    h1Title: "Professional Interior & Exterior Painting in Dallas-Fort Worth",
+    h2Subtitle: "Flawless Finishes, Meticulous Surface Preparation, and Enduring Protection",
+    metaTitle: "Interior & Exterior Painting Dallas TX | Handyman At Home",
+    metaDescription: "Top-rated residential and commercial painting across Dallas-Fort Worth. Drywall repair, cabinet spraying, exterior weatherproofing, and trim work. Call (214) 814-1444.",
+    heroBadge: "Precision Surface Coating",
+    leadParagraph:
+      "A fresh coat of premium paint is the most transformative, cost-effective way to revitalize your residential property or commercial storefront. At Handyman At Home, we deliver showroom-grade wall finishes that withstand Texas heat, intense UV rays, and daily family life.",
+    secondaryParagraph:
+      "We believe that 80% of an exceptional paint job lies in meticulous preparation. Our crews wash, scrape, sand, patch, caulk, and prime every surface before applying top-tier Sherwin-Williams and Benjamin Moore coatings with razor-sharp cut lines.",
     keyStats: [
-      { label: "Pressure Level", value: "< 100 PSI (Safe)" },
-      { label: "Algae Eradication", value: "100% at Root" },
-      { label: "Siding Longevity", value: "Extended Lifespan" },
-      { label: "Insurance Coverage", value: "$2M Liability" }
+      { label: "Surface Prep", value: "Multi-Stage" },
+      { label: "Paint Quality", value: "Premium Grade" },
+      { label: "Cleanliness", value: "100% Protected" },
+      { label: "Warranty", value: "Full Workmanship" },
     ],
-    surfacesCleaned: [
-      { title: "Vinyl Siding", desc: "Eliminates green algae and oxidation without warping or cracking vinyl panels." },
-      { title: "Fiber Cement / Hardie Board", desc: "Safe low-pressure wash that protects paint coatings and manufacturer warranties." },
-      { title: "Painted & Natural Brick", desc: "Restores mortar brightness and removes efflorescence without surface crumbling." },
-      { title: "Stucco & Dryvit (EIFS)", desc: "Gentle chemical cleaning that prevents gouging or water penetration into porous stucco." },
-      { title: "Fascia, Soffits & Gutters", desc: "Brightens gutter faces (tiger-stripe removal) and cleans vented soffits safely." },
-      { title: "Window Frames & Sills", desc: "Rinses away insect nests, dirt tracks, and pollen residue without seal compromise." }
+    capabilitiesTitle: "Full-Spectrum Residential & Commercial Painting Services",
+    capabilities: [
+      {
+        title: "Interior Wall & Ceiling Painting",
+        desc: "Streak-free application in ultra-durable matte, eggshell, satin, or semi-gloss finishes with crisp transitions along crown molding and baseboards.",
+      },
+      {
+        title: "Exterior Siding & Stucco Coating",
+        desc: "Weather-resistant exterior masonry, vinyl, brick, and Hardie-board painting engineered to protect your structure against North Texas sun and storms.",
+      },
+      {
+        title: "Cabinet Refinishing & Factory Enamel",
+        desc: "Transform dated oak or builder-grade cabinets with smooth-as-glass spray applied industrial lacquer enamels that resist chips and grease.",
+      },
+      {
+        title: "Drywall Repair, Patching & Texturing",
+        desc: "Expert repair of holes, water leaks, settling cracks, and seamless orange peel, knockdown, or smooth Level 5 texture matching.",
+      },
+      {
+        title: "Trim, Doors, Baseboards & Wainscoting",
+        desc: "Precision brush and spray finishing for interior doors, window casings, shiplap, board-and-batten, and high-impact architectural trim.",
+      },
+      {
+        title: "Deck, Fence & Pergola Staining",
+        desc: "Deep-penetrating oil and acrylic stains that seal exterior cedar and pressure-treated pine fences against rot, graying, and water damage.",
+      },
     ],
-    localRelevanceTitle: "Why Lake Norman Homes Develop Rapid Siding Algae",
-    localRelevanceContent: [
-      "In Mooresville, Cornelius, Denver, and across Lake Norman, shaded north-facing siding walls and heavy humidity create an ideal incubator for Gloeocapsa magma algae, mildew, and airborne spores. In addition, spring brings dense yellow pine pollen that adheres to siding surfaces.",
-      "Standard pressure washing merely shears off the surface layer of algae, allowing it to regrow within months. Our soft wash system treats siding with active sanitizing solutions that penetrate microscopic pores and kill the spores completely.",
-      "Our house washing complies with all local Homeowners Association (HOA) cleanliness guidelines across communities like The Point, Morrison Plantation, Curtis Pond, and River Run."
+    process: [
+      {
+        step: "01",
+        title: "Color Consultation & Scope Review",
+        desc: "We assist with color matching, sheen selection, and provide detailed square footage pricing.",
+      },
+      {
+        step: "02",
+        title: "Extensive Masking & Surface Repair",
+        desc: "Floors, furniture, and landscaping are covered with drop cloths. Cracks are filled, sanded, and primed.",
+      },
+      {
+        step: "03",
+        title: "Precision Primer & Multi-Coat Application",
+        desc: "We apply high-adhesion primer followed by two full coats of premium paint for uniform depth and durability.",
+      },
+      {
+        step: "04",
+        title: "Detailed Inspection & Spotless Cleanup",
+        desc: "We conduct tape removal, vacuum work zones, label leftover paint for your touch-ups, and review the final result.",
+      },
     ],
-    serviceProcess: [
-      { step: "01", title: "Plant & Property Protection", desc: "We tape external electronics, cover sensitive fixtures, and saturate all adjacent plants with freshwater." },
-      { step: "02", title: "Low-Pressure Cleanser Application", desc: "We apply our custom surfactant and algaecide blend from bottom to top using low-pressure soft-wash tips." },
-      { step: "03", title: "Dwell Time & Organic Breakdown", desc: "Our solution dwells for 10-15 minutes, safely liquefying algae, mold, mildew, pollen, and spider webs." },
-      { step: "04", title: "High-Volume Low-Pressure Rinse", desc: "We thoroughly rinse all siding surfaces from top to bottom with clean, demineralized water." }
+    whyChooseUs: [
+      {
+        title: "Zero Mess Guarantee",
+        desc: "We protect all furnishings and leave your home as clean as or cleaner than we found it.",
+      },
+      {
+        title: "Premium Sherwin-Williams Coatings",
+        desc: "We never dilute paints or use contractor-grade clearance batches. Only high-solids, washable paints.",
+      },
+      {
+        title: "Master Drywall Texturists",
+        desc: "We don't just paint over damaged walls; we fix underlying blemishes for a truly flawless finish.",
+      },
+      {
+        title: "Fast Turnaround Without Cutting Corners",
+        desc: "Equipped with professional crews to complete whole-home projects efficiently and on schedule.",
+      },
     ],
     faqs: [
-      { q: "Will house washing force water behind my siding?", a: "No. High-pressure washing can blast water behind siding seams, causing hidden mold and insulation damage. Our soft washing uses low pressure equivalent to a garden hose, ensuring water flows gently downward naturally without penetrating laps." },
-      { q: "How long does a soft wash house washing last in North Carolina?", a: "Because our soft wash solution eradicates the organic root spores rather than just blowing off surface grime, the clean typically lasts 12 to 24 months—up to 4 times longer than pressure washing alone." },
-      { q: "Is soft washing safe for painted wood and delicate stucco?", a: "Yes, 100%. Soft washing was specifically engineered for delicate surfaces including historic wood siding, modern fiber cement, painted brick, and porous stucco." },
-      { q: "Do I need to be home during the house washing service?", a: "No. As long as exterior water spigots are functional, windows and doors are closed tightly, and pets are secured inside, you do not need to take time off work." }
+      {
+        q: "What brand and grade of paint do you use?",
+        a: "We primarily utilize premium coatings from Sherwin-Williams (SuperPaint, Duration, Emerald) and Benjamin Moore (Regal Select), customized to your preferred finish and washability requirements.",
+      },
+      {
+        q: "Do you repair drywall cracks and nail pops before painting?",
+        a: "Yes! Comprehensive surface preparation—including drywall patching, nail pop securing, seam taping, and texture matching—is included standard with every painting project.",
+      },
+      {
+        q: "How many coats of paint are included?",
+        a: "Every project includes two full, uniform coats over a properly prepared and spot-primed surface to guarantee rich color saturation and manufacturer warranty coverage.",
+      },
+      {
+        q: "How do you protect my furniture and floors?",
+        a: "All furniture is centered and covered with clean painter's plastic. Hardwood and tile floors are covered with heavy-duty drop cloths and rosin paper taped securely at the edges.",
+      },
     ],
-    relatedServices: [
-      { title: "Roof Cleaning", href: "/services/roof-cleaning", desc: "Soft-wash shingle cleaning to eliminate dark algae streaks." },
-      { title: "Soft Washing", href: "/services/soft-washing", desc: "Learn about the science behind low-pressure sanitization." },
-      { title: "Concrete Cleaning", href: "/services/concrete-cleaning", desc: "Brighten your driveways, patios, and sidewalks." }
-    ]
+    heroImage: paintingImg,
+    galleryImages: [
+      getGalleryAsset("5.04.52 pm (1)"),
+      getGalleryAsset("5.10.57 pm (2)"),
+      getGalleryAsset("5.04.52 pm (2)"),
+      getGalleryAsset("5.04.52 pm (3)"),
+      getGalleryAsset("5.04.52 pm (5)"),
+      getGalleryAsset("5.04.52 pm (6)"),
+      craftsmanImg,
+      paintingImg,
+    ],
+    colorScheme: {
+      accent: "#d97706",
+      badgeBg: "bg-amber-500/10 text-amber-600",
+      border: "border-amber-200",
+    },
   },
 
-  "soft-washing": {
-    slug: "/services/soft-washing",
-    serviceName: "Soft Washing",
-    h1Title: "Professional Soft Washing Services in Mooresville & Lake Norman, NC",
-    metaTitle: "Soft Washing Mooresville NC | Gentle Exterior Cleaning Specialists",
-    metaDescription: "Low-pressure soft washing in Mooresville & Lake Norman NC. Safe chemical treatment for roofs, siding, stucco & fences. 15+ yrs experience. Call (704) 516-9509.",
-    heroBadge: "Modern Low-Pressure Science",
-    tagline: "Eco-Safe Cleansers with Zero High-Pressure Damage Risk",
-    heroImage: svcSiding,
-    description: "Steam On Wheels specializes in advanced soft washing—a low-pressure sanitization method that delivers a deeper, longer-lasting clean on roofs, siding, painted surfaces, and outdoor living spaces across North Carolina.",
-    secondaryParagraph: "While high pressure can blast away paint, pit stucco, and loosen shingle granules, soft washing relies on scientifically balanced, biodegradable surfactants that dissolve organic growth at the root before being gently rinsed away.",
-    serviceType: "SoftWashingService",
+  "roofing": {
+    id: "roofing",
+    slug: "/services/roofing",
+    serviceName: "Roofing Repairs & Installation",
+    shortDesc: "Leak repairs, shingle replacement & storm damage",
+    h1Title: "Expert Roofing Repairs & Roof Installation in Dallas-Fort Worth",
+    h2Subtitle: "Protecting Your Home and Business from North Texas Storms with Certified Quality",
+    metaTitle: "Roofing Repairs & Installation Dallas TX | Handyman At Home",
+    metaDescription: "Trusted DFW roofing contractors. Emergency leak repair, storm damage restoration, shingle replacement, and full re-roofing. Call (214) 814-1444 for a free inspection.",
+    heroBadge: "Storm-Tested Roofing Protection",
+    leadParagraph:
+      "Your roof is your property's first and most critical line of defense against severe North Texas weather—from punishing hail and high-speed windstorms to torrential rain. At Handyman At Home, we provide prompt, certified roofing services that safeguard your family and structural investment.",
+    secondaryParagraph:
+      "Whether you are dealing with an active ceiling leak, missing asphalt shingles, or need a complete insurance restoration after a hailstorm, our certified roofing crews deliver honest assessments, insurance claim support, and manufacturer-certified installations.",
     keyStats: [
-      { label: "Working Pressure", value: "40 – 80 PSI" },
-      { label: "Clean Longevity", value: "Up to 4X Longer" },
-      { label: "Surface Risk", value: "Zero Damage" },
-      { label: "Chemical Safety", value: "100% Biodegradable" }
+      { label: "Emergency Response", value: "24/7 Available" },
+      { label: "Inspection", value: "100% Free" },
+      { label: "Insurance Claims", value: "Expert Assistance" },
+      { label: "Shingle Rating", value: "Class 4 Impact" },
     ],
-    surfacesCleaned: [
-      { title: "Asphalt Shingle & Metal Roofs", desc: "Safely cleans dark algae stains without dislodging protective ceramic shingle granules." },
-      { title: "Vinyl, Cedar & Hardie Siding", desc: "Eliminates mildew and chalky oxidation without forcing water behind panel seams." },
-      { title: "Wood & Composite Decks", desc: "Gently sanitizes Trex, TimberTech, and pressure-treated pine without splintering grain." },
-      { title: "Stucco, Dryvit & EIFS", desc: "Eliminates deep mold spores from porous textured walls without surface pitting." },
-      { title: "Pool Enclosures & Screen Rooms", desc: "Cleans aluminum frames and fragile screen mesh without tearing or bending." },
-      { title: "Outdoor Furniture & Awnings", desc: "Sanitizes fabric awnings, patio umbrellas, and vinyl fences safely." }
+    capabilitiesTitle: "Comprehensive DFW Roofing Solutions",
+    capabilities: [
+      {
+        title: "Emergency Roof Leak Detection & Repair",
+        desc: "Rapid diagnostic dispatch to locate flashing failures, pipe boot tears, chimney leaks, and valley damage before interior drywall is ruined.",
+      },
+      {
+        title: "Full Shingle Roof Replacement",
+        desc: "Complete tear-off, synthetic underlayment installation, ice & water shield barriers, and top-rated architectural shingle installation.",
+      },
+      {
+        title: "Hail & Storm Damage Restoration",
+        desc: "Thorough multi-point roof inspection documenting hail bruises, wind-lifted shingles, and full insurance adjuster documentation support.",
+      },
+      {
+        title: "Flashing, Drip Edge & Valley Sealing",
+        desc: "Custom metal flashing fabrication around brick chimneys, dormers, headwalls, and valleys to prevent recurring water intrusion.",
+      },
+      {
+        title: "Attic Ventilation & Ridge Vents",
+        desc: "Installation of continuous ridge vents, solar attic fans, and soffit baffles to lower summer cooling costs and extend shingle life.",
+      },
+      {
+        title: "Fascia, Soffit & Gutter Repair",
+        desc: "Restoration of rotted wood eaves, vented soffits, and seamless gutter realignment to channel water safely away from foundations.",
+      },
     ],
-    localRelevanceTitle: "The Science of Soft Washing in the Piedmont Climate",
-    localRelevanceContent: [
-      "The warm, humid climate of Lake Norman and Iredell County accelerates the growth of micro-organisms like Gloeocapsa magma (cyanobacteria), green algae, and Aspergillus niger mold on building exteriors.",
-      "High-pressure washing is purely mechanical—it blasts away visible organic growth but leaves microscopic roots intact inside porous siding and roofing materials, causing algae to return quickly.",
-      "Soft washing combines gentle water pressure (under 100 PSI) with specialized sodium hypochlorite solutions and surfactants. This sanitizes the substrate completely, neutralizing bacteria and giving homeowners results that last significantly longer."
+    process: [
+      {
+        step: "01",
+        title: "Free 21-Point Roof Inspection",
+        desc: "We inspect shingles, flashing, decking, gutters, and attic structures, documenting all findings with clear high-resolution photos.",
+      },
+      {
+        step: "02",
+        title: "Detailed Report & Transparent Quote",
+        desc: "We present repair vs. replacement options, material grades, and assist with insurance documentation if storm damage is found.",
+      },
+      {
+        step: "03",
+        title: "Efficient Installation with Ground Protection",
+        desc: "Our crews protect landscaping with tarps, strip old materials cleanly, install waterproofing layers, and nail to manufacturer specs.",
+      },
+      {
+        step: "04",
+        title: "Magnetic Nail Sweep & Final Sign-off",
+        desc: "We perform multiple magnetic sweeps around your driveway and yard to remove every nail, ensuring a spotless property.",
+      },
     ],
-    serviceProcess: [
-      { step: "01", title: "Botanical Protection & Surface Prep", desc: "We saturate all surrounding flowerbeds and landscaping with fresh water to prevent chemical absorption." },
-      { step: "02", title: "Custom Detergent Formulation", desc: "We mix a custom ratio of surfactant and eco-safe algaecide matched specifically to your surface type and contamination level." },
-      { step: "03", title: "Even Low-Pressure Application", desc: "Our dedicated soft-wash pumps spray the solution gently across roofs and siding, allowing it to penetrate deep pores." },
-      { step: "04", title: "Gentle Flush & Neutralization", desc: "After full chemical action, we rinse the exterior surfaces and apply plant nutrients to ensure healthy vegetation." }
+    whyChooseUs: [
+      {
+        title: "Class 4 Impact-Resistant Shingles",
+        desc: "We offer hail-resistant roofing options that can significantly reduce your Texas homeowner insurance premiums.",
+      },
+      {
+        title: "24/7 Rapid Emergency Tarping",
+        desc: "Immediate mobilization to dry in damaged roofs during active storm seasons and prevent catastrophic interior flooding.",
+      },
+      {
+        title: "Zero Cut Corners on Underlayment",
+        desc: "We use heavy-duty synthetic underlayment and reinforced valley flashing—never cheap 15lb felt paper.",
+      },
+      {
+        title: "Honest Upfront Assessments",
+        desc: "If a minor $300 repair will fix your leak, we will never push for an unnecessary $15,000 replacement.",
+      },
     ],
     faqs: [
-      { q: "Is soft washing the same as power washing?", a: "No. Power washing uses high pressure (up to 4,000 PSI) and heat to strip away dirt mechanically. Soft washing uses very low pressure (under 100 PSI) and specialized biodegradable detergents to chemically kill algae, mold, and bacteria at the cellular level." },
-      { q: "Will soft washing harm my landscaping, flowers, or grass?", a: "No. We implement a rigorous plant protection protocol: pre-wetting all foliage, applying neutralizers if necessary, and continuously rinsing landscaping throughout the service." },
-      { q: "Why shouldn't I pressure wash my roof?", a: "Asphalt Roofing Manufacturers Association (ARMA) guidelines explicitly warn against high-pressure roof washing because it blasts away the ceramic granules that protect shingles from UV rays, leading to roof failure and voided warranties. Soft washing is the only ARMA-approved method." },
-      { q: "How long does a typical soft wash service take?", a: "An average residential home (2,000 to 3,500 sq ft) takes approximately 2 to 4 hours to soft wash completely, depending on whether the roof, siding, and gutters are included." }
+      {
+        q: "How do I know if my roof needs a repair or a full replacement?",
+        a: "If your roof is under 15 years old and damage is isolated to a specific flashing area or few shingles, a repair is usually sufficient. If your roof is over 20 years old, has widespread granule loss, or widespread hail strikes, replacement is more cost-effective.",
+      },
+      {
+        q: "Do you help homeowners with insurance claims for storm damage?",
+        a: "Yes! We meet directly with your insurance adjuster on-site, provide itemized photographic evidence, and ensure all damaged components (including gutters, screens, and vents) are properly covered in your claim.",
+      },
+      {
+        q: "How long does a roof replacement take on an average DFW home?",
+        a: "Most residential roof replacements (up to 3,500 sq ft) are completely torn off, re-decked as needed, shingled, and cleaned up in just 1 to 2 days.",
+      },
     ],
-    relatedServices: [
-      { title: "Roof Cleaning", href: "/services/roof-cleaning", desc: "Eliminate black streaks and moss with low-pressure soft washing." },
-      { title: "House Washing", href: "/services/house-washing", desc: "Transform your home's siding, stucco, and brickwork." },
-      { title: "Pressure Washing", href: "/services/pressure-washing", desc: "Heavy-duty power washing for concrete flatwork and driveways." }
-    ]
+    heroImage: roofImg,
+    galleryImages: [
+      roofImg,
+      getGalleryAsset("5.04.52 pm (2)"),
+      getGalleryAsset("5.04.52 pm (1)"),
+      getGalleryAsset("5.04.52 pm (3)"),
+      getGalleryAsset("5.04.52 pm.jpeg"),
+      getGalleryAsset("5.04.53 pm (1)"),
+      getGalleryAsset("5.04.52 pm (6)"),
+      residentialImg,
+    ],
+    colorScheme: {
+      accent: "#059669",
+      badgeBg: "bg-emerald-500/10 text-emerald-600",
+      border: "border-emerald-200",
+    },
   },
 
-  "roof-cleaning": {
-    slug: "/services/roof-cleaning",
-    serviceName: "Roof Cleaning",
-    h1Title: "Shingle-Safe Soft Wash Roof Cleaning in Mooresville & Lake Norman, NC",
-    metaTitle: "Roof Cleaning Mooresville NC | Soft Wash Roof Washing Lake Norman",
-    metaDescription: "Safe soft-wash roof cleaning in Mooresville & Lake Norman NC. Eliminates black algae streaks, moss & lichen without shingle damage. Call (704) 516-9509.",
-    heroBadge: "ARMA-Compliant Roof Care",
-    tagline: "Eradicate Black Algae Streaks & Extend Roof Lifespan",
-    heroImage: svcRoof,
-    description: "Steam On Wheels delivers professional soft wash roof cleaning across Mooresville, Lake Norman, and surrounding North Carolina communities, restoring the appearance and thermal efficiency of your asphalt shingle or metal roof.",
-    secondaryParagraph: "Those ugly black streaks on your roof are not dirt—they are Gloeocapsa magma, an invasive cyanobacteria that feeds on the limestone filler in asphalt shingles. Our gentle soft-wash treatment kills 100% of organic growth without stripping granules.",
-    serviceType: "RoofCleaningService",
+  "plumbing": {
+    id: "plumbing",
+    slug: "/services/plumbing",
+    serviceName: "Plumbing Services",
+    shortDesc: "Pipe fixes, leak detection, fixture swaps & heaters",
+    h1Title: "Licensed Plumbing Repairs & Installations in Dallas-Fort Worth",
+    h2Subtitle: "Fast, Dependable Solutions for Residential and Commercial Plumbing Systems",
+    metaTitle: "Plumbing Services Dallas TX | Handyman At Home",
+    metaDescription: "Professional plumbing services across Dallas-Fort Worth. Leak detection, water heater repair, toilet & faucet replacement, pipe repairs, and 24/7 emergency service. Call (214) 814-1444.",
+    heroBadge: "24/7 Emergency Plumbing Ready",
+    leadParagraph:
+      "Plumbing failures demand immediate, competent attention before minor drips trigger costly structural rot and mold growth. Handyman At Home provides dependable, licensed plumbing services across the Dallas-Fort Worth metroplex.",
+    secondaryParagraph:
+      "From running toilets, dripping faucets, and clogged garbage disposals to tankless water heater installations and whole-home PEX re-piping, our plumbing specialists deliver clean, code-compliant solutions with upfront pricing.",
     keyStats: [
-      { label: "Method", value: "ARMA Approved Soft Wash" },
-      { label: "Granule Loss", value: "0% (Zero High Pressure)" },
-      { label: "Energy Efficiency", value: "Restores UV Reflectivity" },
-      { label: "Algae Kill Rate", value: "100% Spore Eradication" }
+      { label: "Dispatch Speed", value: "Same-Day / 24/7" },
+      { label: "Warranty", value: "100% Guaranteed" },
+      { label: "Pricing", value: "Upfront & Fixed" },
+      { label: "Code Compliance", value: "Texas Certified" },
     ],
-    surfacesCleaned: [
-      { title: "Architectural Asphalt Shingles", desc: "Gently removes black streaks and restores original shingle shade without dislodging granules." },
-      { title: "3-Tab Shingles", desc: "Safe low-pressure cleaning that protects older, more delicate 3-tab shingle tabs from lifting." },
-      { title: "Standing Seam Metal Roofs", desc: "Removes pollen, airborne fallout, and algae from painted metal roofing without scratching." },
-      { title: "Clay & Concrete Tile Roofs", desc: "Deep moss and lichen removal on Spanish tile roofs using specialized soft-wash nozzles." },
-      { title: "Cedar Shake Roofs", desc: "Gentle chemical neutralization of moss and fungi that causes wood rot in cedar shakes." },
-      { title: "Skylights & Solar Panels", desc: "Spot-free rinse that maximizes solar energy absorption and clears obstructed skylight views." }
+    capabilitiesTitle: "Comprehensive Plumbing Repair & Installation Services",
+    capabilities: [
+      {
+        title: "Fixture Upgrades & Faucet Replacement",
+        desc: "Kitchen sink faucets, pull-down sprayers, luxury shower valves, freestanding tub fillers, and modern vessel sink installations.",
+      },
+      {
+        title: "Water Heater Repair & Installation",
+        desc: "Fast diagnostics, element replacement, and complete installation of energy-efficient standard tank and on-demand tankless water heaters.",
+      },
+      {
+        title: "Toilet Repair, Re-Sealing & Replacement",
+        desc: "Fixing rocking toilets, replacing worn wax rings, rebuilding flush valves, and installing high-efficiency water-saving commodes.",
+      },
+      {
+        title: "Pipe Leak Detection & PEX Re-Piping",
+        desc: "Finding hidden drywall leaks, repairing pinhole copper leaks, and replacing deteriorated galvanized piping with modern flexible PEX.",
+      },
+      {
+        title: "Garbage Disposal Repair & Swaps",
+        desc: "Unjamming stuck disposal units, repairing leaky gaskets, and installing high-torque commercial-grade continuous feed disposals.",
+      },
+      {
+        title: "Drain Unclogging & Line Clears",
+        desc: "Clearing stubborn bathroom sink, tub, shower, and kitchen drain blockages to restore free-flowing drainage throughout your home.",
+      },
     ],
-    localRelevanceTitle: "The Danger of Black Algae on North Carolina Roofs",
-    localRelevanceContent: [
-      "In the Lake Norman area, heavy humidity and shaded wooded lots create ideal breeding grounds for Gloeocapsa magma. These bacteria form a dark, UV-absorbing outer shell that creates the unsightly black streaks visible from the street.",
-      "Left untreated, algae attracts moisture, allowing moss and lichen colonies to form. Moss roots anchor under shingle edges, lifting shingles during winter freezes and creating severe roof leaks.",
-      "Furthermore, black stains absorb excess solar heat, raising your attic temperature and causing your air conditioning system to work significantly harder during hot North Carolina summers. Our soft wash roof cleaning restores your roof's curb appeal and cooling efficiency."
+    process: [
+      {
+        step: "01",
+        title: "Rapid Diagnostic Assessment",
+        desc: "We test pressures, isolate the leak or mechanical failure, and pinpoint the exact source of trouble.",
+      },
+      {
+        step: "02",
+        title: "Clear, Upfront Price Quote",
+        desc: "You receive a transparent price before we touch any tool—no surprise hourly billing or hidden dispatch surcharges.",
+      },
+      {
+        step: "03",
+        title: "Code-Compliant Repair Execution",
+        desc: "We use top-grade brass fittings, high-durability valves, and commercial-grade parts for long-lasting performance.",
+      },
+      {
+        step: "04",
+        title: "Pressure Testing & Clean Jobsite",
+        desc: "We verify tight seals under working pressure, sanitize work zones, and walk you through maintenance tips.",
+      },
     ],
-    serviceProcess: [
-      { step: "01", title: "Gutter & Downspout Preparation", desc: "We inspect downspouts, divert runoff if necessary, and thoroughly hydrate all perimeter landscaping." },
-      { step: "02", title: "ARMA-Formulated Algaecide Application", desc: "Using dedicated low-pressure roof pumps, we apply a manufacturer-recommended soft-wash algaecide solution." },
-      { step: "03", title: "Targeted Moss & Lichen Treatment", desc: "The solution immediately breaks down the cellular structure of algae, turning black streaks brown and clear." },
-      { step: "04", title: "Rain-Activated Self-Cleansing", desc: "Dead algae easily rinses away, while stubborn moss root structures detach naturally during the next rain cycles." }
+    whyChooseUs: [
+      {
+        title: "24/7 Rapid Emergency Dispatch",
+        desc: "Water emergencies don't wait for business hours. Our mobile vans are on standby 24 hours a day, 7 days a week.",
+      },
+      {
+        title: "Clean Worksite Etiquette",
+        desc: "Our technicians wear shoe covers, lay protective mats, and leave your bathroom or kitchen spotless.",
+      },
+      {
+        title: "Fixed Upfront Quotes",
+        desc: "You authorize the exact price before work begins, giving you total control and financial peace of mind.",
+      },
+      {
+        title: "Quality Parts & Connections",
+        desc: "We never use cheap plastic push-fittings for permanent installs. We use heavy brass, soldered copper, and crimped PEX.",
+      },
     ],
     faqs: [
-      { q: "Why shouldn't I pressure wash my roof?", a: "High pressure will strip the protective ceramic granules off asphalt shingles, void your manufacturer warranty, and potentially force water under shingles into your roof decking. Soft washing uses zero high pressure and is the only ARMA-approved method." },
-      { q: "How long will my roof stay clean after a soft wash?", a: "Because our chemical solution eradicates the algae spores at the root level, roofs cleaned by Steam On Wheels typically stay streak-free for 3 to 5 years." },
-      { q: "Will roof cleaning help lower my energy bills?", a: "Yes. Dark algae streaks absorb solar heat like a black blanket. Cleaning your roof restores its natural reflective properties, helping keep your attic cooler and reducing summer AC load." },
-      { q: "Will the roof cleaning solution kill my plants or grass?", a: "No. We implement extensive plant hydration and rinse protocols before, during, and after the cleaning to ensure all vegetation remains safe and healthy." }
+      {
+        q: "What should I do first if I have a sudden major water pipe leak?",
+        a: "Immediately shut off your home's main water supply valve (often located in your garage, utility closet, or near the street curb meter) to halt water flow, then call our 24/7 emergency line at (214) 814-1444.",
+      },
+      {
+        q: "How do I know if my water heater needs to be replaced?",
+        a: "If your water heater is over 10-12 years old, produces rusty or discolored hot water, makes popping/rumbling noises, or has pooling water around its base, replacement is recommended before a catastrophic tank rupture.",
+      },
+      {
+        q: "Do you offer tankless water heater conversions?",
+        a: "Yes! Tankless water heaters provide endless hot water, consume up to 34% less energy, and save significant floor space in your garage or utility room.",
+      },
     ],
-    relatedServices: [
-      { title: "House Washing", href: "/services/house-washing", desc: "Clean your siding along with your roof for a complete exterior makeover." },
-      { title: "Soft Washing", href: "/services/soft-washing", desc: "Discover how low-pressure cleaning protects delicate home materials." },
-      { title: "Concrete Cleaning", href: "/services/concrete-cleaning", desc: "Remove stains from sidewalks, driveways, and patios." }
-    ]
+    heroImage: getGalleryAsset("10.30.23"),
+    galleryImages: [
+      getGalleryAsset("5.13.29 pm (1)"),
+      getGalleryAsset("5.13.29 pm.jpeg"),
+      getGalleryAsset("10.29.05"),
+      getGalleryAsset("10.30.23"),
+      getGalleryAsset("5.07.11 pm.jpeg"),
+      getGalleryAsset("5.04.53 pm (2)"),
+      getGalleryAsset("5.10.57 pm (1)"),
+      getGalleryAsset("10.29.44"),
+    ],
+    colorScheme: {
+      accent: "#0284c7",
+      badgeBg: "bg-sky-500/10 text-sky-600",
+      border: "border-sky-200",
+    },
   },
 
-  "concrete-cleaning": {
-    slug: "/services/concrete-cleaning",
-    serviceName: "Concrete Cleaning",
-    h1Title: "Professional Concrete Cleaning in Mooresville & Lake Norman, NC",
-    metaTitle: "Concrete Cleaning Mooresville NC | Patio & Sidewalk Pressure Washing",
-    metaDescription: "Professional concrete cleaning & power washing in Mooresville & Lake Norman NC. Flatwork, patios, sidewalks & pool decks. Call David Hudson: (704) 516-9509.",
-    heroBadge: "Deep Pore Flatwork Restoration",
-    tagline: "Commercial Rotary Surface Washing for Pristine Patios & Walkways",
-    heroImage: svcConcrete,
-    description: "Steam On Wheels provides industrial concrete cleaning and pressure washing services throughout Mooresville and the Lake Norman area, eliminating dark algae, slip hazards, red clay, and ground-in grime.",
-    secondaryParagraph: "Using professional-grade rotary surface cleaners and high-output commercial pressure washing equipment, we clean wide expanses of concrete uniformly without leaving the unsightly zebra stripes that standard wand cleaning produces.",
-    serviceType: "ConcreteCleaningService",
+  "landscaping": {
+    id: "landscaping",
+    slug: "/services/landscaping",
+    serviceName: "Landscaping & Outdoor Living",
+    shortDesc: "Fencing, custom decks, patio covers & grounds care",
+    h1Title: "Custom Landscaping & Outdoor Living Spaces in Dallas-Fort Worth",
+    h2Subtitle: "Extend Your Home's Living Space with Custom Decks, Cedar Fencing, and Outdoor Hardscapes",
+    metaTitle: "Landscaping & Outdoor Living Dallas TX | Handyman At Home",
+    metaDescription: "Premier outdoor living and landscaping in Dallas-Fort Worth. Custom cedar decks, privacy fencing, stone patios, pergolas, and outdoor kitchens. Call (214) 814-1444 for a free estimate.",
+    heroBadge: "Outdoor Living & Hardscapes",
+    leadParagraph:
+      "A thoughtfully designed outdoor living space expands your home's usable footprint, enhances your lifestyle, and dramatically increases curb appeal. Handyman At Home designs and constructs premier outdoor living environments across North Texas.",
+    secondaryParagraph:
+      "From custom composite and cedar decks, shade-providing pergolas, and secure privacy fencing to stone patios, retaining walls, and custom exterior carpentry, our outdoor specialists create spaces where family and friends love to gather.",
     keyStats: [
-      { label: "Equipment", value: "Commercial Rotary Cleaners" },
-      { label: "Finish Quality", value: "100% Stripe-Free" },
-      { label: "Slip Resistance", value: "Restored Safety" },
-      { label: "Stain Treatment", value: "Algae, Clay & Oil" }
+      { label: "Deck Lifespan", value: "25+ Years Composite" },
+      { label: "Fence Quality", value: "Western Red Cedar" },
+      { label: "Consultation", value: "100% Free" },
+      { label: "Custom Design", value: "Tailored to Yard" },
     ],
-    surfacesCleaned: [
-      { title: "Residential Patios & Porches", desc: "Brightens concrete, aggregate, and paver patios for family gatherings and outdoor entertaining." },
-      { title: "Sidewalks & Walkways", desc: "Removes slippery black algae and tree tannin stains, eliminating safety slip hazards." },
-      { title: "Pool Decks & Coping", desc: "Gentle degreasing and sanitization of porous pool decks to create a safe, slip-resistant perimeter." },
-      { title: "Commercial Plaza Walkways", desc: "High-volume washing for shopping centers, restaurants, and medical facility sidewalks." },
-      { title: "Retaining Walls & Steps", desc: "Cleans decorative stone and poured concrete retaining walls, removing dark water run-off stains." },
-      { title: "Carports & Garage Floors", desc: "Lifts motor oil, antifreeze residue, and tire rubber marks from interior and exterior concrete." }
+    capabilitiesTitle: "Outdoor Living & Exterior Carpentry Services",
+    capabilities: [
+      {
+        title: "Custom Cedar & Composite Decks",
+        desc: "Design and construction of ground-level and multi-tier decks using Trex composite, capped polymer, or natural Western Red Cedar.",
+      },
+      {
+        title: "Privacy Fencing & Automatic Gates",
+        desc: "Board-on-board cedar privacy fencing with top caps, trim, steel posts set deep in concrete, and secure rolling driveway gates.",
+      },
+      {
+        title: "Covered Patios & Pergolas",
+        desc: "Custom timber frame pergolas, insulated patio covers, and screened porches that provide welcome shade from the Texas sun.",
+      },
+      {
+        title: "Flagstone Patios & Walkways",
+        desc: "Natural Oklahoma flagstone, paver patios, fire pit seating areas, and decorative garden pathways built on compacted road base.",
+      },
+      {
+        title: "Retaining Walls & Soil Drainage",
+        desc: "Engineered stone and block retaining walls, French drains, and downspout extensions that prevent yard erosion and foundation water pooling.",
+      },
+      {
+        title: "Outdoor Kitchens & BBQ Islands",
+        desc: "Built-in stainless steel grill stations, stone bar counters, outdoor refrigeration, and sink plumbing for premier backyard entertaining.",
+      },
     ],
-    localRelevanceTitle: "Why North Carolina Concrete Requires Regular Deep Cleaning",
-    localRelevanceContent: [
-      "Concrete is extremely porous, acting like a giant sponge for moisture, oil, tree sap, and red clay in North Carolina. When humidity spikes during summer and autumn, micro-organisms colonize concrete pores, creating dark, slippery films.",
-      "In Lake Norman neighborhoods, shade from mature oak and pine trees keeps driveways and patios damp, accelerating the formation of black mold and green algae that pose serious slip hazards for families and guests.",
-      "Our multi-stage concrete cleaning combines pre-treatment algaecides, dual-nozzle rotary scrubbing, and high-volume flushing to extract grime deep within the concrete matrix, leaving bright, uniform surfaces."
+    process: [
+      {
+        step: "01",
+        title: "On-Site Yard Assessment",
+        desc: "We survey property boundaries, grades, sun exposure, and discuss your outdoor living goals.",
+      },
+      {
+        step: "02",
+        title: "Custom Design & Quote",
+        desc: "We provide detailed layouts, material options (composite vs. cedar), and transparent itemized pricing.",
+      },
+      {
+        step: "03",
+        title: "Structural Excavation & Build",
+        desc: "We dig post footings below frost lines, pour solid concrete foundations, and frame with rot-resistant hardware.",
+      },
+      {
+        step: "04",
+        title: "Finishing, Staining & Walkthrough",
+        desc: "We sand, seal, and clean the entire site, ensuring your new outdoor living space is move-in ready.",
+      },
     ],
-    serviceProcess: [
-      { step: "01", title: "Surface Clearing & Pre-Treatment", desc: "We blow off loose debris and apply specialized algaecides to break down organic biofilms inside concrete pores." },
-      { step: "02", title: "Rotary Surface Cleaner Scrubbing", desc: "Our 20-inch rotary surface cleaner spins balanced nozzles at 2,000 RPM, cleaning at a constant, uniform height." },
-      { step: "03", title: "Edge & Corner Wand Detailing", desc: "We hand-detail perimeter edges, steps, expansion joints, and retaining wall bases with calibrated wand tips." },
-      { step: "04", title: "Post-Treatment Brightener Application", desc: "We apply a post-wash neutralizing solution that keeps concrete bright and inhibits algae regrowth for months." }
+    whyChooseUs: [
+      {
+        title: "Heavy-Duty Texas Foundations",
+        desc: "We anchor deck footings and fence posts with thick concrete footings engineered to resist North Texas clay soil movement.",
+      },
+      {
+        title: "Western Red Cedar Standards",
+        desc: "We source premium cedar that naturally resists insects, moisture, and warping under harsh summer heat.",
+      },
+      {
+        title: "Trex & Composite Certified",
+        desc: "Low-maintenance composite decking that never needs splinter sanding, staining, or painting.",
+      },
+      {
+        title: "HOA Compliance Experience",
+        desc: "We assist with detailed drawings and height specifications to ensure fast approval from your community HOA.",
+      },
     ],
     faqs: [
-      { q: "Why do some DIY pressure washing jobs leave stripes on concrete?", a: "Striping (zebra stripes) happens when an operator holds a handheld wand tip unevenly across the concrete. Steam On Wheels uses enclosed commercial rotary surface cleaners with dual rotating nozzles that guarantee a completely uniform, streak-free finish." },
-      { q: "Can you remove dark black stains from my concrete patio?", a: "Yes. Those black stains are deep-set algae colonies embedded in concrete pores. Our pre-treatment solution breaks down the organic matter so our rotary surface cleaners can extract it completely." },
-      { q: "Is concrete pressure washing safe for pool decks?", a: "Yes. We calibrate pressure specifically for cool-deck, brushed concrete, stamped concrete, or pavers to ensure safe cleaning without surface pitting." },
-      { q: "How long before we can walk on the cleaned concrete?", a: "Concrete dries quickly in outdoor air—typically within 30 to 60 minutes after our final post-rinse." }
+      {
+        q: "What is the difference between wood and composite decking?",
+        a: "Natural cedar decking offers authentic wood warmth and lower initial cost, but requires staining every 2-3 years. Composite decking (like Trex) costs more upfront but lasts 25-30+ years with zero staining, no splinters, and superior fade resistance.",
+      },
+      {
+        q: "Do you install steel posts for wood privacy fences?",
+        a: "Yes! We strongly recommend galvanized steel posts set in concrete for Texas privacy fences because wood posts rot at ground level within 7-10 years, whereas steel posts remain plumb and strong for decades.",
+      },
+      {
+        q: "Do outdoor structures require city building permits in DFW?",
+        a: "Most decks over 30 inches above grade, patio covers attached to the home, and pergolas require municipal permits. Handyman At Home handles the entire permitting and inspection process for you.",
+      },
     ],
-    relatedServices: [
-      { title: "Driveway Cleaning", href: "/services/driveway-cleaning", desc: "Heavy-duty driveway washing and vehicle stain degreasing." },
-      { title: "Pressure Washing", href: "/services/pressure-washing", desc: "High-pressure cleaning for commercial lots, dumpster pads, and brick." },
-      { title: "House Washing", href: "/services/house-washing", desc: "Complete exterior house washing and siding restoration." }
-    ]
+    heroImage: landscapingImg,
+    galleryImages: [
+      getGalleryAsset("5.04.52 pm (4)"),
+      getGalleryAsset("5.04.52 pm.jpeg"),
+      getGalleryAsset("5.07.11 pm (2)"),
+      getGalleryAsset("5.04.53 pm (1)"),
+      getGalleryAsset("5.04.53 pm.jpeg"),
+      getGalleryAsset("10.27.05"),
+      getGalleryAsset("10.27.16"),
+      getGalleryAsset("10.27.28"),
+    ],
+    colorScheme: {
+      accent: "#15803d",
+      badgeBg: "bg-emerald-500/10 text-emerald-700",
+      border: "border-emerald-200",
+    },
   },
 
-  "driveway-cleaning": {
-    slug: "/services/driveway-cleaning",
-    serviceName: "Driveway Cleaning",
-    h1Title: "Professional Driveway Cleaning & Power Washing in Mooresville, NC",
-    metaTitle: "Driveway Cleaning Mooresville NC | Power Washing Lake Norman",
-    metaDescription: "Expert driveway cleaning in Mooresville & Lake Norman NC. Eradicate oil stains, tire marks & NC red clay. 15+ years experience. Call (704) 516-9509.",
-    heroBadge: "Driveway Curb Appeal Revival",
-    tagline: "Stain Extraction, Degreasing & Carolina Red Clay Removal",
-    heroImage: svcDriveway,
-    description: "Steam On Wheels offers specialized driveway cleaning and power washing services across Mooresville, Cornelius, Davidson, Huntersville, and the Lake Norman region, restoring dirty, stained driveways to showroom condition.",
-    secondaryParagraph: "Your driveway is the first feature visitors and neighbors see. We utilize professional hot-water washing, specialized degreasers, and rust/clay extractors to remove motor oil stains, tire rubber, and persistent North Carolina red clay.",
-    serviceType: "DrivewayCleaningService",
+  "handyman-carpentry": {
+    id: "handyman-carpentry",
+    slug: "/services/handyman-carpentry",
+    serviceName: "General Handyman & Carpentry",
+    shortDesc: "Doors, windows, drywall patches & hardware installs",
+    h1Title: "General Handyman & Precision Carpentry in Dallas-Fort Worth",
+    h2Subtitle: "No Job Is Too Big or Too Small: Expert Maintenance, Carpentry, and Home Repairs",
+    metaTitle: "Handyman & Carpentry Services Dallas TX | Handyman At Home",
+    metaDescription: "Master general contracting, carpentry, drywall repair, door & window installations, and home maintenance across Dallas-Fort Worth. Over 24 years of experience. Call (214) 814-1444.",
+    heroBadge: "Full-Service General Contracting",
+    leadParagraph:
+      "From annoying sticky doors and damaged drywall to custom architectural trim, crown molding, and commercial building repairs, Handyman At Home is your single, reliable partner for comprehensive property care.",
+    secondaryParagraph:
+      "Since 2001, we have proven that no repair is too small and no renovation is too large. Our mobile repair vans arrive fully equipped with professional tools and seasoned multi-trade craftsmen who get the job done right the first time.",
     keyStats: [
-      { label: "Stain Removal", value: "Oil, Rust & Red Clay" },
-      { label: "Driveway Types", value: "Concrete, Pavers, Asphalt" },
-      { label: "Equipment", value: "Rotary Flat Surface Cleaners" },
-      { label: "Curb Appeal", value: "Instant Transformation" }
+      { label: "DFW Service", value: "Since 2001" },
+      { label: "Craftsmanship", value: "Guaranteed" },
+      { label: "Job Scope", value: "Any Size" },
+      { label: "Contractor Status", value: "Licensed & Insured" },
     ],
-    surfacesCleaned: [
-      { title: "Poured Concrete Driveways", desc: "Deep extraction of oil stains, mold, atmospheric soot, and red clay." },
-      { title: "Interlocking Paver Driveways", desc: "Gentle cleaning that removes joint weed growth and algae without blowing out sand base." },
-      { title: "Stamped & Decorative Concrete", desc: "Low-pressure surface wash that protects decorative sealers and integral colors." },
-      { title: "Exposed Aggregate Driveways", desc: "High-volume washing that cleans around river pebbles without loosening aggregate." },
-      { title: "Asphalt Aprons & Curbs", desc: "Safe degreasing and sediment cleanup along street curbs and asphalt transitions." },
-      { title: "Driveway Approach & Culverts", desc: "Cleans street aprons, stone borders, and drainage headwalls." }
+    capabilitiesTitle: "General Handyman & Carpentry Capabilities",
+    capabilities: [
+      {
+        title: "Interior & Exterior Door Installation",
+        desc: "Replacing sagging entry doors, French doors, sliding patio doors, pocket doors, and barn doors with weather-tight seals and locks.",
+      },
+      {
+        title: "Custom Trim, Crown Molding & Baseboards",
+        desc: "Precision mitered crown molding, oversized baseboard installations, chair rails, wainscoting, and decorative accent walls.",
+      },
+      {
+        title: "Drywall Patching, Framing & Texture",
+        desc: "Framing interior partition walls, repairing water-damaged ceilings, patching doorknob holes, and matching orange peel or knockdown texture.",
+      },
+      {
+        title: "Window Repair & Replacement",
+        desc: "Drafty window replacements, glass pane repairs, rotten window sill restoration, and balance spring mechanism adjustments.",
+      },
+      {
+        title: "Cabinet & Furniture Assembly & Mounting",
+        desc: "Secure wall mounting for heavy TVs, mirrors, custom shelving units, floating desks, and prefabricated cabinetry.",
+      },
+      {
+        title: "Commercial Property & Office Repairs",
+        desc: "Door closers, ADA grab bar installations, drop ceiling tile replacements, lock replacements, and ongoing facility maintenance.",
+      },
     ],
-    localRelevanceTitle: "Combating Carolina Red Clay & Oil Stains on Driveways",
-    localRelevanceContent: [
-      "North Carolina is famous for iron-oxide rich red clay soil. During construction, landscaping, or wet weather, red clay gets tracked onto driveways where it binds chemically into the concrete pores, leaving stubborn orange-red stains that standard hose water cannot remove.",
-      "Additionally, parked vehicles deposit engine oil, transmission fluid, and brake dust that bake into driveway surfaces under the Carolina sun.",
-      "Steam On Wheels employs specialized acid and alkaline chemical spot treatments engineered specifically to dissolve red clay iron bonds and emulsify petroleum grease, followed by 4,000 PSI rotary surface cleaning for an immaculate transformation."
+    process: [
+      {
+        step: "01",
+        title: "Send Photos or Book Free Assessment",
+        desc: "Describe your punch-list of items, text photos to (214) 814-1444, or schedule an in-person walkthrough.",
+      },
+      {
+        step: "02",
+        title: "Transparent Itemized Pricing",
+        desc: "We provide an upfront quote that clearly outlines time and materials without vague open-ended estimates.",
+      },
+      {
+        step: "03",
+        title: "Precision Execution by Master Craftsmen",
+        desc: "Our uniformed technicians arrive promptly, protect your property, and methodically complete every task.",
+      },
+      {
+        step: "04",
+        title: "Final Punch-List Sign-off",
+        desc: "We review every completed repair with you to ensure total satisfaction before wrapping up.",
+      },
     ],
-    serviceProcess: [
-      { step: "01", title: "Stain Spot-Treatment", desc: "We apply concentrated industrial degreasers to oil spots and specialized iron-lifters to red clay stains." },
-      { step: "02", title: "General Bio-Detergent Application", desc: "We coat the entire driveway surface with eco-friendly algaecides to loosen embedded grime and mildew." },
-      { step: "03", title: "Rotary Surface Cleaning", desc: "Our 4,000 PSI commercial rotary surface cleaner deep cleans the flatwork in overlapping, uniform passes." },
-      { step: "04", title: "High-Volume Flush & Neutralize", desc: "We flush all dislodged dirt and clay to street drains or lawn drainage, leaving spotless concrete." }
+    whyChooseUs: [
+      {
+        title: "True Multi-Trade Craftsmen",
+        desc: "Our technicians have decades of hands-on experience across carpentry, drywall, framing, and hardware.",
+      },
+      {
+        title: "Fully Licensed & Insured Protection",
+        desc: "Unlike casual uninsured handymen, we carry full general liability and workers' compensation insurance in Texas.",
+      },
+      {
+        title: "Punctual, Courteous & Respectful",
+        desc: "We arrive on time, communicate clearly, protect your property, and treat your home with the utmost care.",
+      },
+      {
+        title: "No Job Too Small or Too Big",
+        desc: "Whether you need a single door aligned or a complete commercial office buildout, you get our 100% commitment.",
+      },
     ],
     faqs: [
-      { q: "Can you completely remove old motor oil stains from concrete?", a: "While concrete is porous and oil can soak deep if left for years, our hot-water power washing and commercial enzymatic degreasers can dramatically lighten or completely remove most oil stains, vastly improving appearance." },
-      { q: "How do you remove North Carolina red clay stains?", a: "Red clay stains are caused by iron oxide. Standard pressure washing only pushes it deeper. We apply specialized chemical reduction cleaners that break the iron bonds, allowing the red pigment to rinse away completely." },
-      { q: "Will pressure washing damage interlocking pavers?", a: "No. We calibrate the pressure and nozzle angle to clean paver tops without displacing the structural bedding sand underneath." },
-      { q: "How long does a typical 2-car driveway cleaning take?", a: "A standard 2 to 3-car residential driveway typically takes between 1.5 to 2.5 hours, including pre-treatment, rotary cleaning, and final washdown." }
+      {
+        q: "Can I bundle multiple small repairs into a single service visit?",
+        a: "Absolutely! In fact, grouping several punch-list items (such as door adjustments, drywall patches, trim repair, and caulking) into one visit is the most cost-effective way to utilize our craftsmen.",
+      },
+      {
+        q: "Do you supply the materials or should I buy them?",
+        a: "We can do either! Our vans carry common fasteners, lumber, and repair materials, or you can purchase specific fixtures, doors, or hardware and we will handle the professional installation.",
+      },
+      {
+        q: "Are your handymen licensed and background-checked?",
+        a: "Yes. Handyman At Home is fully licensed and insured in Texas. Every technician on our team is thoroughly vetted, experienced, and committed to high standards of craftsmanship.",
+      },
     ],
-    relatedServices: [
-      { title: "Concrete Cleaning", href: "/services/concrete-cleaning", desc: "Clean your sidewalks, walkways, and patios alongside your driveway." },
-      { title: "House Washing", href: "/services/house-washing", desc: "Bundle house washing and driveway cleaning for complete curb appeal." },
-      { title: "Commercial Pressure Washing", href: "/services/commercial-pressure-washing", desc: "Commercial parking lot and drive-thru cleaning services." }
-    ]
+    heroImage: craftsmanImg,
+    galleryImages: [
+      getGalleryAsset("o (6).jpg"),
+      getGalleryAsset("o (4).jpg"),
+      getGalleryAsset("5.10.57 pm (2)"),
+      getGalleryAsset("5.04.52 pm (1)"),
+      getGalleryAsset("5.04.52 pm (4)"),
+      getGalleryAsset("o (3).jpg"),
+      getGalleryAsset("10.29.57"),
+      commercialImg,
+    ],
+    colorScheme: {
+      accent: "#4338ca",
+      badgeBg: "bg-indigo-500/10 text-indigo-600",
+      border: "border-indigo-200",
+    },
   },
-
-  "commercial-pressure-washing": {
-    slug: "/services/commercial-pressure-washing",
-    serviceName: "Commercial Pressure Washing",
-    h1Title: "Commercial Pressure Washing in Mooresville & Lake Norman, NC",
-    metaTitle: "Commercial Pressure Washing Mooresville NC | Building & Storefront Cleaning",
-    metaDescription: "Professional commercial pressure washing in Mooresville & Lake Norman NC. Storefronts, warehouses, dumpster pads & parking lots. Call (704) 516-9509.",
-    heroBadge: "Commercial & Industrial Facility Care",
-    tagline: "Showcase a Pristine, Professional Image for Your Business",
-    heroImage: svcCommercial,
-    description: "Steam On Wheels provides commercial exterior pressure washing and building washing across Mooresville, Statesville, Huntersville, Hickory, and Lake Norman for businesses, property managers, and retail centers.",
-    secondaryParagraph: "We understand that clean storefronts, grease-free dumpster pads, and spotless walkways directly influence customer perception and safety compliance. We offer flexible off-hours and weekend scheduling to ensure zero disruption to your business operations.",
-    serviceType: "CommercialCleaningService",
-    keyStats: [
-      { label: "Liability Insurance", value: "$2,000,000" },
-      { label: "Scheduling", value: "24/7 / After-Hours" },
-      { label: "Capacity", value: "Hot-Water Commercial Rigs" },
-      { label: "Compliance", value: "OSHA & EPA Standards" }
-    ],
-    surfacesCleaned: [
-      { title: "Retail Storefronts & Entrances", desc: "Removes chewing gum, food spills, black shoe scuffs, and window sill grime from entranceways." },
-      { title: "Commercial Dumpster Pads", desc: "Hot-water sanitization and degreasing to prevent pest infestations, foul odors, and health code fines." },
-      { title: "Logistics Warehouses & Loading Docks", desc: "Cleans diesel exhaust soot, forklift tire marks, industrial oil, and exterior metal siding." },
-      { title: "Restaurants & Drive-Thrus", desc: "Eliminates heavy grease deposits, spilled drinks, and vehicle oil buildup along drive-thru lanes." },
-      { title: "Office Buildings & Medical Centers", desc: "Multi-story soft washing of brick, glass, aluminum composite panels, and concrete walkways." },
-      { title: "HOA Common Areas & Clubhouses", desc: "Cleans community pools, tennis courts, entry monument signs, and subdivision sidewalks." }
-    ],
-    localRelevanceTitle: "Commercial Property Maintenance Across the I-77 Corridor",
-    localRelevanceContent: [
-      "Commercial properties along I-77 in Mooresville, Huntersville, and Statesville face intense vehicle traffic, diesel particulate settling, and heavy foot traffic. Dirty sidewalks and stained facades can deter prospective customers and lower commercial property values.",
-      "Furthermore, grease and algae on commercial sidewalks create severe slip-and-fall liability hazards for retail tenants and property managers.",
-      "Steam On Wheels is fully equipped with industrial hot-water power washing trailers, high-capacity water tanks, and commercial-grade reclaim compliance capabilities. We carry $2,000,000 in general liability insurance and provide comprehensive vendor documentation."
-    ],
-    serviceProcess: [
-      { step: "01", title: "Commercial Scope Assessment", desc: "We conduct on-site walk-throughs, map water access, identify safety zones, and provide itemized commercial bids." },
-      { step: "02", title: "Flexible After-Hours Dispatch", desc: "We perform work overnight or early mornings to ensure zero impact on customer foot traffic and tenant parking." },
-      { step: "03", title: "Industrial Hot-Water Washdown", desc: "We utilize 200°F hot water and industrial detergents to dissolve grease, food stains, gum, and heavy buildup." },
-      { step: "04", title: "Quality Sign-Off & Maintenance Scheduling", desc: "We provide before/after photographic documentation and establish recurring maintenance agreements if desired." }
-    ],
-    faqs: [
-      { q: "Can you perform commercial cleaning outside of business hours?", a: "Yes. We operate 24/7 and regularly schedule commercial pressure washing during overnight hours or weekends so your customers and employees are never inconvenienced." },
-      { q: "Do you offer recurring commercial maintenance contracts?", a: "Yes. We offer flexible weekly, monthly, quarterly, and bi-annual exterior maintenance programs for shopping centers, restaurants, HOAs, and corporate facilities." },
-      { q: "Are you licensed and insured for commercial properties?", a: "Yes. Steam On Wheels is fully licensed, carrying $2,000,000 in commercial general liability insurance with complete worker coverage for North Carolina." },
-      { q: "Can you remove chewing gum from commercial sidewalks?", a: "Yes. Our high-temperature hot-water pressure washers (up to 200°F) instantly melt and vaporize chewing gum from concrete sidewalks and entryways without damaging the concrete surface." }
-    ],
-    relatedServices: [
-      { title: "24/7 Emergency Service", href: "/services/emergency-service", desc: "Rapid dispatch for commercial spills, graffiti, and urgent inspections." },
-      { title: "Pressure Washing", href: "/services/pressure-washing", desc: "Heavy-duty power washing for concrete, masonry, and parking structures." },
-      { title: "Concrete Cleaning", href: "/services/concrete-cleaning", desc: "Rotary surface washing for sidewalks, plazas, and pedestrian walkways." }
-    ]
-  },
-
-  "emergency-service": {
-    slug: "/services/emergency-service",
-    serviceName: "24/7 Emergency Service",
-    h1Title: "24/7 Emergency Pressure Washing in Mooresville & Lake Norman, NC",
-    metaTitle: "24/7 Emergency Pressure Washing Mooresville NC | Steam On Wheels",
-    metaDescription: "24/7 emergency pressure washing & exterior cleaning in Mooresville & Lake Norman NC. Urgent spill cleanup, graffiti removal & storm cleanup. Call (704) 516-9509.",
-    heroBadge: "24/7 Immediate Dispatch",
-    tagline: "Rapid Response Exterior Cleaning & Spill Containment",
-    heroImage: svcPressureWash,
-    description: "Steam On Wheels provides 24/7 emergency exterior pressure washing and cleanup services across Mooresville, Lake Norman, and surrounding North Carolina counties for critical situations that cannot wait.",
-    secondaryParagraph: "Whether your business faces an urgent commercial grease or oil spill, graffiti vandalism before opening hours, pre-inspection health code emergencies, or post-storm debris hazards, owner David Hudson is ready to dispatch immediately.",
-    serviceType: "EmergencyCleaningService",
-    keyStats: [
-      { label: "Availability", value: "24 Hours / 7 Days" },
-      { label: "Response", value: "Immediate Dispatch" },
-      { label: "Hot-Water Rigs", value: "200°F High-Output" },
-      { label: "Emergency Hotline", value: "(704) 516-9509" }
-    ],
-    surfacesCleaned: [
-      { title: "Commercial Oil & Hydraulic Fluid Spills", desc: "Rapid hot-water containment and degreasing to prevent slip hazards and environmental fines." },
-      { title: "Graffiti & Vandalism Removal", desc: "Fast chemical removal of spray paint from brick, concrete, glass, and metal before business hours." },
-      { title: "Restaurant Grease & Dumpster Overflows", desc: "Emergency hot-water sanitization for health inspection compliance and odor elimination." },
-      { title: "Post-Storm Silt & Debris Washdown", desc: "Cleans mud, silt, and tree debris from commercial parking lots, storefronts, and access driveways." },
-      { title: "Pre-Inspection Urgent Cleanups", desc: "Rapid cleaning for urgent real estate closings, municipal inspections, or corporate VIP visits." },
-      { title: "Emergency Slip-and-Fall Hazard Remediation", desc: "Quick removal of slick algae or chemical slicks from high-traffic pedestrian walkways." }
-    ],
-    localRelevanceTitle: "When You Need Immediate Pressure Washing in Lake Norman",
-    localRelevanceContent: [
-      "Property emergencies don't wait for standard business hours. An unexpected hydraulic fluid leak on a commercial parking deck, offensive graffiti on a storefront, or a major kitchen grease spill outside a restaurant requires immediate professional intervention.",
-      "Steam On Wheels maintains a dedicated emergency response unit equipped with self-contained commercial hot-water pressure washing trailers, high-temperature boilers, and eco-safe degreasers.",
-      "We serve commercial property owners, restaurant operators, industrial plant managers, and residential estates with round-the-clock emergency support across Mooresville, Cornelius, Huntersville, Statesville, and Lake Norman."
-    ],
-    serviceProcess: [
-      { step: "01", title: "Emergency Phone Call & Immediate Intake", desc: "Call owner David Hudson directly at (704) 516-9509. We assess the emergency and mobilize immediately." },
-      { step: "02", title: "Rapid On-Site Mobilization", desc: "We arrive on site with our self-contained commercial pressure washing trailer and safety perimeter equipment." },
-      { step: "03", title: "Hot-Water Extraction & Neutralization", desc: "Using 200°F hot water and specialized chemical emulsifiers, we rapidly dissolve and extract the hazard." },
-      { step: "04", title: "Site Verification & Safety Clearance", desc: "We verify the surface is 100% clean, safe, and ready for normal foot traffic or vehicle operations." }
-    ],
-    faqs: [
-      { q: "How do I request 24/7 emergency pressure washing?", a: "Call our emergency hotline directly at (704) 516-9509. We answer 24 hours a day, 7 days a week, including weekends and holidays for urgent commercial and residential situations." },
-      { q: "What qualifies as an exterior cleaning emergency?", a: "Common emergencies include commercial oil or chemical spills, graffiti vandalism, restaurant grease spills, pre-inspection deadlines, severe storm debris blockages, and hazardous slippery algae on public walkways." },
-      { q: "Can you remove fresh spray paint / graffiti completely?", a: "Yes. Our hot-water power washing and specialized graffiti-dissolving chemicals remove spray paint from brick, stone, concrete, and metal without ghosting or substrate etching." },
-      { q: "Do you have your own water supply on the truck?", a: "Yes, our mobile commercial rigs are equipped with onboard water storage tanks and commercial power generators, allowing us to operate in emergency situations even if municipal water is temporarily unavailable." }
-    ],
-    relatedServices: [
-      { title: "Commercial Pressure Washing", href: "/services/commercial-pressure-washing", desc: "Ongoing maintenance programs for retail facilities and businesses." },
-      { title: "Pressure Washing", href: "/services/pressure-washing", desc: "High-pressure hot and cold water power washing." },
-      { title: "Concrete Cleaning", href: "/services/concrete-cleaning", desc: "Deep cleaning for commercial sidewalks and parking structures." }
-    ]
-  }
 };

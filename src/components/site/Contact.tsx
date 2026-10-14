@@ -23,7 +23,7 @@ export function Contact() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      await fetch("https://formsubmit.co/ajax/handymanathome@gmail.com", {
+      await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,8 +31,7 @@ export function Contact() {
         },
         body: JSON.stringify({
           ...data,
-          _subject: `New Free Estimate Request from ${data.name || "Website Visitor"}`,
-          _template: "table",
+          source: "Homepage Contact Section",
         }),
       });
       setSubmitted(true);

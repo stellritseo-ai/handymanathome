@@ -70,22 +70,21 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
     setLoading(true);
 
     try {
-      await fetch("https://formsubmit.co/ajax/handymanathome@gmail.com", {
+      await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          "Full Name": formData.fullName,
-          "Phone Number": formData.phone,
-          "Email Address": formData.email,
-          "Project Address / City": formData.address,
-          "Service Requested": service.serviceName,
-          "Project Details": formData.details,
-          "Preferred Contact Method": formData.preferredContact,
-          _subject: `New ${service.serviceName} Free Estimate from ${formData.fullName || "Website Visitor"}`,
-          _template: "table",
+          fullName: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          address: formData.address,
+          service: service.serviceName,
+          details: formData.details,
+          preferredContact: formData.preferredContact,
+          source: `Service Page: ${service.serviceName}`,
         }),
       });
       setSubmitted(true);

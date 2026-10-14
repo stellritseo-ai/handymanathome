@@ -202,23 +202,22 @@ export function FreeEstimatePageContent() {
     setLoading(true);
 
     try {
-      await fetch("https://formsubmit.co/ajax/handymanathome@gmail.com", {
+      await fetch("/api/estimate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          "Full Name": formData.fullName,
-          "Phone Number": formData.phone,
-          "Email Address": formData.email,
-          "Project Address / City": formData.address,
-          "Service Needed": formData.service,
-          "Project Details": formData.details,
-          "Preferred Contact Method": formData.preferredContact,
-          "Preferred Time for Contact": formData.preferredTime,
-          _subject: `New Free Estimate Request from ${formData.fullName || "Website Visitor"}`,
-          _template: "table",
+          fullName: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          address: formData.address,
+          service: formData.service,
+          details: formData.details,
+          preferredContact: formData.preferredContact,
+          timeline: formData.preferredTime,
+          source: "Free Estimate Dedicated Page",
         }),
       });
       setSubmitted(true);

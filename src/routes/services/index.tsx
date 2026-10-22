@@ -58,7 +58,10 @@ function ServicesIndexPage() {
             <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8">
               <ol className="flex items-center gap-2 text-xs sm:text-sm text-slate-400">
                 <li>
-                  <a href="/" className="hover:text-white transition-colors flex items-center gap-1 font-medium">
+                  <a
+                    href="/"
+                    className="hover:text-white transition-colors flex items-center gap-1 font-medium"
+                  >
                     <MapPin className="h-3.5 w-3.5 text-[#3b5bfd]" />
                     <span>Home</span>
                   </a>
@@ -89,7 +92,9 @@ function ServicesIndexPage() {
               </h1>
 
               <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-                From luxury kitchen and bathroom remodels to roofing, plumbing, and precision carpentry, Handyman At Home is your single, trusted general contracting partner across the Dallas–Fort Worth metroplex.
+                From luxury kitchen and bathroom remodels to roofing, plumbing, and precision
+                carpentry, Handyman At Home is your single, trusted general contracting partner
+                across the Dallas–Fort Worth metroplex.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3.5">

@@ -16,7 +16,10 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Quality General Contractor & Handyman Services in Dallas, Fort Worth, TX | Handyman At Home" },
+      {
+        title:
+          "Quality General Contractor & Handyman Services in Dallas, Fort Worth, TX | Handyman At Home",
+      },
       {
         name: "description",
         content:
@@ -27,7 +30,11 @@ export const Route = createFileRoute("/")({
         content:
           "General Contractor DFW, Handyman Dallas TX, Handyman Fort Worth, Bathroom Remodel Near Me, Roofing Company DFW, Kitchen Remodelers DFW, Painting Services DFW, Emergency Number DFW, Handyman At Home",
       },
-      { property: "og:title", content: "Quality General Contractor & Handyman Services in Dallas, Fort Worth, TX | Handyman At Home" },
+      {
+        property: "og:title",
+        content:
+          "Quality General Contractor & Handyman Services in Dallas, Fort Worth, TX | Handyman At Home",
+      },
       {
         property: "og:description",
         content:

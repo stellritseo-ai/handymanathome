@@ -43,12 +43,10 @@ import commercialImg from "@/assets/svc-commercial.png";
 // Dynamically extract all authentic images from assets/gallery
 const galleryModules = import.meta.glob<{ default: string }>(
   "../../assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
-  { eager: true }
+  { eager: true },
 );
 
-const rawGalleryImages: string[] = Object.values(galleryModules).map(
-  (mod) => mod.default
-);
+const rawGalleryImages: string[] = Object.values(galleryModules).map((mod) => mod.default);
 
 type CategoryType = "all" | "remodel" | "painting" | "carpentry" | "roofing" | "commercial";
 
@@ -167,12 +165,12 @@ export function ProjectsPageContent() {
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowLeft") {
         setSelectedLightboxIndex((prev) =>
-          prev !== null ? (prev === 0 ? filteredProjects.length - 1 : prev - 1) : null
+          prev !== null ? (prev === 0 ? filteredProjects.length - 1 : prev - 1) : null,
         );
       }
       if (e.key === "ArrowRight") {
         setSelectedLightboxIndex((prev) =>
-          prev !== null ? (prev === filteredProjects.length - 1 ? 0 : prev + 1) : null
+          prev !== null ? (prev === filteredProjects.length - 1 ? 0 : prev + 1) : null,
         );
       }
     };
@@ -226,7 +224,10 @@ export function ProjectsPageContent() {
               <li className="text-slate-600">
                 <ChevronRight className="h-3.5 w-3.5" />
               </li>
-              <li className="text-white font-semibold flex items-center gap-1.5" aria-current="page">
+              <li
+                className="text-white font-semibold flex items-center gap-1.5"
+                aria-current="page"
+              >
                 <span>Our Works</span>
               </li>
             </ol>
@@ -257,7 +258,10 @@ export function ProjectsPageContent() {
 
             {/* Sub-headline & Description */}
             <p className="mt-4 text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl">
-              Explore authentic photos of our completed projects across the Dallas–Fort Worth metroplex. From luxury kitchen &amp; bathroom renovations to exterior painting, roofing restoration, custom decks, and commercial maintenance—everything is completed by our licensed, certified in-house crews.
+              Explore authentic photos of our completed projects across the Dallas–Fort Worth
+              metroplex. From luxury kitchen &amp; bathroom renovations to exterior painting,
+              roofing restoration, custom decks, and commercial maintenance—everything is completed
+              by our licensed, certified in-house crews.
             </p>
 
             {/* Trust Metrics Pill Bar */}
@@ -424,7 +428,9 @@ export function ProjectsPageContent() {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-              Every home repair and commercial remodeling project in our portfolio adheres to uncompromising standards of durability, building code compliance, and aesthetic excellence.
+              Every home repair and commercial remodeling project in our portfolio adheres to
+              uncompromising standards of durability, building code compliance, and aesthetic
+              excellence.
             </p>
           </div>
 
@@ -439,7 +445,9 @@ export function ProjectsPageContent() {
                   Substrate &amp; Structural Prep
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  We never cover up flaws. Before laying tile, hanging cabinets, or painting walls, we ensure structural subfloors, wall studs, and moisture barriers are sound and plumb.
+                  We never cover up flaws. Before laying tile, hanging cabinets, or painting walls,
+                  we ensure structural subfloors, wall studs, and moisture barriers are sound and
+                  plumb.
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-bold text-slate-700">
@@ -456,7 +464,9 @@ export function ProjectsPageContent() {
                   Texas Climate-Tested Materials
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  DFW experiences extreme summer heat, winter freezes, and severe hail storms. We specify exterior acrylics, hail-resistant shingles, and treated timbers engineered for longevity.
+                  DFW experiences extreme summer heat, winter freezes, and severe hail storms. We
+                  specify exterior acrylics, hail-resistant shingles, and treated timbers engineered
+                  for longevity.
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-bold text-slate-700">
@@ -473,7 +483,9 @@ export function ProjectsPageContent() {
                   Clean &amp; Protected Jobsites
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Your home is treated with ultimate respect. We use protective floor runners, zip-dust containment barriers, and complete daily magnetic nail sweeps on roofing and outdoor work.
+                  Your home is treated with ultimate respect. We use protective floor runners,
+                  zip-dust containment barriers, and complete daily magnetic nail sweeps on roofing
+                  and outdoor work.
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-bold text-slate-700">
@@ -486,11 +498,10 @@ export function ProjectsPageContent() {
                 <div className="h-12 w-12 rounded-2xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center font-bold mb-4">
                   <Clock className="h-6 w-6" />
                 </div>
-                <h3 className="text-base font-extrabold text-slate-900">
-                  Direct In-House Crews
-                </h3>
+                <h3 className="text-base font-extrabold text-slate-900">Direct In-House Crews</h3>
                 <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  No subcontractor runarounds. You deal with dedicated, certified craftsmen and experienced project leads from initial estimate through final punch-list approval.
+                  No subcontractor runarounds. You deal with dedicated, certified craftsmen and
+                  experienced project leads from initial estimate through final punch-list approval.
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-bold text-slate-700">
@@ -519,7 +530,8 @@ export function ProjectsPageContent() {
               </h2>
 
               <p className="mt-4 text-base text-slate-600 leading-relaxed">
-                As a premier general contractor serving North Texas since 2001, we provide full-spectrum repair and remodeling under one roof:
+                As a premier general contractor serving North Texas since 2001, we provide
+                full-spectrum repair and remodeling under one roof:
               </p>
 
               <div className="mt-6 space-y-3.5">
@@ -528,8 +540,13 @@ export function ProjectsPageContent() {
                     <Check className="h-3.5 w-3.5 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">Kitchen &amp; Bathroom Transformations</h4>
-                    <p className="text-xs text-slate-600 mt-0.5">Custom tile backsplashes, luxury vanities, frameless glass showers, and modern lighting.</p>
+                    <h4 className="text-sm font-bold text-slate-900">
+                      Kitchen &amp; Bathroom Transformations
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Custom tile backsplashes, luxury vanities, frameless glass showers, and modern
+                      lighting.
+                    </p>
                   </div>
                 </div>
 
@@ -538,8 +555,13 @@ export function ProjectsPageContent() {
                     <Check className="h-3.5 w-3.5 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">Interior &amp; Exterior Painting &amp; Drywall</h4>
-                    <p className="text-xs text-slate-600 mt-0.5">Seamless wall texture repairs, ceiling water stain remediation, and durable exterior paint.</p>
+                    <h4 className="text-sm font-bold text-slate-900">
+                      Interior &amp; Exterior Painting &amp; Drywall
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Seamless wall texture repairs, ceiling water stain remediation, and durable
+                      exterior paint.
+                    </p>
                   </div>
                 </div>
 
@@ -548,8 +570,13 @@ export function ProjectsPageContent() {
                     <Check className="h-3.5 w-3.5 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">Roofing, Plumbing &amp; Emergency Fixes</h4>
-                    <p className="text-xs text-slate-600 mt-0.5">Leak detection, pipe repairs, fixture swaps, storm damage restoration, and emergency dispatch.</p>
+                    <h4 className="text-sm font-bold text-slate-900">
+                      Roofing, Plumbing &amp; Emergency Fixes
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Leak detection, pipe repairs, fixture swaps, storm damage restoration, and
+                      emergency dispatch.
+                    </p>
                   </div>
                 </div>
 
@@ -558,8 +585,13 @@ export function ProjectsPageContent() {
                     <Check className="h-3.5 w-3.5 stroke-[2.5]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">Custom Carpentry, Decks &amp; Fencing</h4>
-                    <p className="text-xs text-slate-600 mt-0.5">Treated wood decks, cedar privacy fences, baseboards, crown molding, and door installations.</p>
+                    <h4 className="text-sm font-bold text-slate-900">
+                      Custom Carpentry, Decks &amp; Fencing
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Treated wood decks, cedar privacy fences, baseboards, crown molding, and door
+                      installations.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -658,7 +690,9 @@ export function ProjectsPageContent() {
             </h2>
 
             <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Contact us today for a <strong className="text-slate-900">FREE, no-obligation estimate</strong>. We’re happy to review photos, visit your property, and provide a clear, upfront quote.
+              Contact us today for a{" "}
+              <strong className="text-slate-900">FREE, no-obligation estimate</strong>. We’re happy
+              to review photos, visit your property, and provide a clear, upfront quote.
             </p>
           </div>
 
@@ -776,7 +810,8 @@ export function ProjectsPageContent() {
                 Get Your Free Project Estimate Today
               </h3>
               <p className="mt-3 text-sm sm:text-base text-blue-100 leading-relaxed">
-                Whether you need a quick repair or a full-scale remodel, our expert crew is ready to deliver turnkey excellence.
+                Whether you need a quick repair or a full-scale remodel, our expert crew is ready to
+                deliver turnkey excellence.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -829,7 +864,7 @@ export function ProjectsPageContent() {
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedLightboxIndex((prev) =>
-                  prev !== null ? (prev === 0 ? filteredProjects.length - 1 : prev - 1) : null
+                  prev !== null ? (prev === 0 ? filteredProjects.length - 1 : prev - 1) : null,
                 );
               }}
               className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-30 cursor-pointer"
@@ -856,7 +891,7 @@ export function ProjectsPageContent() {
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedLightboxIndex((prev) =>
-                  prev !== null ? (prev === filteredProjects.length - 1 ? 0 : prev + 1) : null
+                  prev !== null ? (prev === filteredProjects.length - 1 ? 0 : prev + 1) : null,
                 );
               }}
               className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-30 cursor-pointer"

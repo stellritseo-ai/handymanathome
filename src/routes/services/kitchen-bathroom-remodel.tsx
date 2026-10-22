@@ -19,7 +19,10 @@ export const Route = createFileRoute("/services/kitchen-bathroom-remodel")({
       { property: "og:title", content: service.h1Title },
       { property: "og:description", content: service.metaDescription },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://handymanathometx.com/services/kitchen-bathroom-remodel" },
+      {
+        property: "og:url",
+        content: "https://handymanathometx.com/services/kitchen-bathroom-remodel",
+      },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [

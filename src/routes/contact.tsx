@@ -21,8 +21,7 @@ export const Route = createFileRoute("/contact")({
       },
       {
         property: "og:title",
-        content:
-          "Contact Handyman At Home: Let's Bring Your Project to Life | Dallas-Fort Worth",
+        content: "Contact Handyman At Home: Let's Bring Your Project to Life | Dallas-Fort Worth",
       },
       {
         property: "og:description",

@@ -93,7 +93,6 @@ export function WhyChooseUs() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid gap-12 lg:grid-cols-5 lg:gap-14 items-center">
-
           {/* ── Left Content Block (60% Width) ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -112,9 +111,7 @@ export function WhyChooseUs() {
             </div>
 
             {/* Headline */}
-            <h2
-              className="text-[25px] xs:text-[28px] sm:text-[32px] -mt-[7px] mb-[5px] leading-[1.2] text-neutral-900 tracking-tight font-extrabold"
-            >
+            <h2 className="text-[25px] xs:text-[28px] sm:text-[32px] -mt-[7px] mb-[5px] leading-[1.2] text-neutral-900 tracking-tight font-extrabold">
               Why Dallas–Fort Worth Property Owners{" "}
               <span className="bg-gradient-to-r from-[#0000b9] via-[#0d1fd6] to-[#2563eb] bg-clip-text text-transparent">
                 Trust Us Every Day
@@ -126,7 +123,9 @@ export function WhyChooseUs() {
               style={{ marginBottom: "15px" }}
               className="text-slate-600 text-[15px] sm:text-base leading-relaxed mb-[15px] font-normal max-w-2xl"
             >
-              For over two decades, homeowners, commercial property managers, and businesses across Dallas, Fort Worth, and neighboring communities have relied on our licensed craftsmanship, transparent pricing, and 24/7 reliability.
+              For over two decades, homeowners, commercial property managers, and businesses across
+              Dallas, Fort Worth, and neighboring communities have relied on our licensed
+              craftsmanship, transparent pricing, and 24/7 reliability.
             </p>
 
             {/* 4 Feature Pillars Grid (2x2) */}
@@ -200,7 +199,6 @@ export function WhyChooseUs() {
 
           {/* ── Right Video Showcase Block (40% Width) ── */}
           <div className="relative w-full order-1 lg:order-2 lg:sticky lg:top-[110px] lg:self-start group/video-container lg:col-span-2">
-            
             {/* Ambient Multi-Layer Radial Glow */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-[#0000b9]/30 via-sky-400/20 to-transparent rounded-[36px] blur-3xl group-hover/video-container:opacity-50 transition-opacity duration-700 pointer-events-none -z-10" />
 
@@ -238,7 +236,9 @@ export function WhyChooseUs() {
                 >
                   <div
                     className={`absolute w-24 h-24 rounded-full bg-[#0000b9]/35 blur-md transition-all duration-300 ${
-                      isPlaying ? "scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100" : "scale-100 opacity-100"
+                      isPlaying
+                        ? "scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100"
+                        : "scale-100 opacity-100"
                     }`}
                   />
                   <div className="relative w-16 h-16 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/40 flex items-center justify-center text-white shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95">
@@ -282,9 +282,7 @@ export function WhyChooseUs() {
                 </div>
               </div>
             </motion.div>
-
           </div>
-
         </div>
       </div>
     </section>

@@ -26,11 +26,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import bbbLogo from "@/assets/bbb.svg";
 import { SOCIAL_LINKS } from "@/lib/socialLinks";
-import {
-  ServiceDetailConfig,
-  servicesData,
-  galleryImagesList,
-} from "@/lib/servicesData";
+import { ServiceDetailConfig, servicesData, galleryImagesList } from "@/lib/servicesData";
 
 interface Props {
   serviceId: string;
@@ -60,8 +56,8 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
     service.galleryImages && service.galleryImages.length > 0
       ? service.galleryImages
       : service.galleryIndices
-      ? service.galleryIndices.map((idx) => galleryImagesList[idx]).filter(Boolean)
-      : galleryImagesList.slice(0, 8);
+        ? service.galleryIndices.map((idx) => galleryImagesList[idx]).filter(Boolean)
+        : galleryImagesList.slice(0, 8);
 
   const heroImage = service.heroImage || serviceImages[0] || galleryImagesList[0];
 
@@ -149,7 +145,10 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
               <li className="text-slate-600">
                 <ChevronRight className="h-3.5 w-3.5" />
               </li>
-              <li className="text-white font-semibold truncate max-w-[200px] sm:max-w-none" aria-current="page">
+              <li
+                className="text-white font-semibold truncate max-w-[200px] sm:max-w-none"
+                aria-current="page"
+              >
                 {service.serviceName}
               </li>
             </ol>
@@ -277,7 +276,8 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-              Every detail is executed to the highest North Texas building standards with premium materials and turnkey oversight.
+              Every detail is executed to the highest North Texas building standards with premium
+              materials and turnkey oversight.
             </p>
           </div>
 
@@ -326,7 +326,8 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
               </h2>
 
               <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-                Take a look at authentic projects completed across Dallas, Fort Worth, Plano, Arlington, and surrounding neighborhoods.
+                Take a look at authentic projects completed across Dallas, Fort Worth, Plano,
+                Arlington, and surrounding neighborhoods.
               </p>
             </div>
 
@@ -383,7 +384,8 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-              We eliminate guesswork with structured communication, detailed scopes, and respectful property care from start to finish.
+              We eliminate guesswork with structured communication, detailed scopes, and respectful
+              property care from start to finish.
             </p>
           </div>
 
@@ -435,12 +437,8 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
                 <div className="h-10 w-10 rounded-xl bg-blue-50 text-[#0000b9] flex items-center justify-center mb-3">
                   <CheckCircle2 className="h-5 w-5" />
                 </div>
-                <h3 className="text-base font-extrabold text-slate-900">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-                  {item.desc}
-                </p>
+                <h3 className="text-base font-extrabold text-slate-900">{item.title}</h3>
+                <p className="mt-2 text-xs text-slate-600 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -467,7 +465,8 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
                     Get a Quote for Your {service.serviceName}
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    Have questions about pricing, material options, or start dates? Call us directly or submit your project details for a prompt reply.
+                    Have questions about pricing, material options, or start dates? Call us directly
+                    or submit your project details for a prompt reply.
                   </p>
 
                   <div className="mt-6 space-y-3.5 pt-4 border-t border-white/10 text-xs">
@@ -545,7 +544,8 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
                     Request Your Free Estimate
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 mt-1.5">
-                    Fill out the form below and one of our dedicated DFW project managers will contact you within 24 hours.
+                    Fill out the form below and one of our dedicated DFW project managers will
+                    contact you within 24 hours.
                   </p>
                 </div>
 
@@ -562,7 +562,8 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
                       Estimate Request Received!
                     </h4>
                     <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-md mx-auto">
-                      Thank you for choosing Handyman At Home. We will review your project details and reach out within 24 hours.
+                      Thank you for choosing Handyman At Home. We will review your project details
+                      and reach out within 24 hours.
                     </p>
                     <button
                       type="button"
@@ -575,7 +576,10 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                      <label htmlFor="fullName" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                      <label
+                        htmlFor="fullName"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1"
+                      >
                         Full Name <span className="text-rose-500">*</span>
                       </label>
                       <input
@@ -591,7 +595,10 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                        <label
+                          htmlFor="phone"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1"
+                        >
                           Phone Number <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -605,7 +612,10 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                        <label
+                          htmlFor="email"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1"
+                        >
                           Email Address <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -621,8 +631,14 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
                     </div>
 
                     <div>
-                      <label htmlFor="address" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                        Project Address / City <span className="text-slate-400 font-normal">(e.g., Dallas, Plano, Fort Worth)</span>
+                      <label
+                        htmlFor="address"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1"
+                      >
+                        Project Address / City{" "}
+                        <span className="text-slate-400 font-normal">
+                          (e.g., Dallas, Plano, Fort Worth)
+                        </span>
                       </label>
                       <input
                         type="text"
@@ -635,8 +651,14 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
                     </div>
 
                     <div>
-                      <label htmlFor="details" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                        Project Details <span className="text-slate-400 font-normal">(Describe the scope of work)</span>
+                      <label
+                        htmlFor="details"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1"
+                      >
+                        Project Details{" "}
+                        <span className="text-slate-400 font-normal">
+                          (Describe the scope of work)
+                        </span>
                       </label>
                       <textarea
                         id="details"
@@ -676,7 +698,11 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
                         disabled={loading}
                         className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-[#0000b9] hover:bg-[#0000d9] text-white font-extrabold text-sm shadow-md transition-all cursor-pointer disabled:opacity-70"
                       >
-                        {loading ? <span>Submitting...</span> : <span>Request My Free Estimate</span>}
+                        {loading ? (
+                          <span>Submitting...</span>
+                        ) : (
+                          <span>Request My Free Estimate</span>
+                        )}
                       </button>
                       <p className="text-[11px] text-slate-500 text-center mt-2 font-normal">
                         We respect your privacy. Your information will never be shared.
@@ -767,7 +793,8 @@ export function ServiceDetailPageContent({ serviceId }: Props) {
               </h3>
 
               <p className="mt-3 text-sm sm:text-base text-blue-100 leading-relaxed">
-                Call our team today at <strong className="text-white">(214) 814-1444</strong> or request your free estimate online.
+                Call our team today at <strong className="text-white">(214) 814-1444</strong> or
+                request your free estimate online.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

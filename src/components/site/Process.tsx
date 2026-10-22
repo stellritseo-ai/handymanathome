@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  CalendarCheck,
-  Search,
-  FileText,
-  Wrench,
-  BadgeCheck,
-} from "lucide-react";
+import { CalendarCheck, Search, FileText, Wrench, BadgeCheck } from "lucide-react";
 
 const steps = [
   {
@@ -56,14 +50,12 @@ export function Process() {
       <div className="pointer-events-none absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-sky-400/[0.03] rounded-full blur-[130px]" />
 
       <div className="mx-auto max-w-[1400px] w-full relative">
-
         {/* Background grid texture in brand color */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.015]"
           style={{
-            backgroundImage:
-              "radial-gradient(circle, #0000b9 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, #0000b9 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
@@ -112,7 +104,6 @@ export function Process() {
         `}</style>
 
         <div className="mx-auto w-[90%] max-w-7xl relative z-10">
-
           {/* ── Section Header ──────────────────────────────── */}
           <motion.div
             className="text-center max-w-3xl mx-auto mb-10 sm:mb-20"
@@ -127,19 +118,16 @@ export function Process() {
               Step by Step Process
             </span>
 
-            <h2 
-              className="text-[#1c140d] tracking-tight leading-[1.15] font-sans text-[25px] xs:text-[29px] lg:text-[36px] font-extrabold -mt-3.5 mb-2.5"
-            >
+            <h2 className="text-[#1c140d] tracking-tight leading-[1.15] font-sans text-[25px] xs:text-[29px] lg:text-[36px] font-extrabold -mt-3.5 mb-2.5">
               We Complete Every{" "}
               <span className="bg-gradient-to-r from-[#0000b9] to-[#1526d4] bg-clip-text text-transparent">
                 Step Carefully.
               </span>
             </h2>
 
-            <p 
-              className="text-sm sm:text-base text-neutral-600 max-w-xl mx-auto font-normal leading-relaxed mb-4 sm:-mb-[50px]"
-            >
-              Our proven process guarantees precision, clean jobsites, and solid results — from your first call to our final inspection walkthrough.
+            <p className="text-sm sm:text-base text-neutral-600 max-w-xl mx-auto font-normal leading-relaxed mb-4 sm:-mb-[50px]">
+              Our proven process guarantees precision, clean jobsites, and solid results — from your
+              first call to our final inspection walkthrough.
             </p>
           </motion.div>
 
@@ -153,9 +141,9 @@ export function Process() {
             >
               <defs>
                 <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%"   stopColor="#0f172a" />
-                  <stop offset="40%"  stopColor="#1e293b" />
-                  <stop offset="60%"  stopColor="#334155" />
+                  <stop offset="0%" stopColor="#0f172a" />
+                  <stop offset="40%" stopColor="#1e293b" />
+                  <stop offset="60%" stopColor="#334155" />
                   <stop offset="100%" stopColor="#0f172a" />
                 </linearGradient>
 
@@ -180,32 +168,55 @@ export function Process() {
               </defs>
 
               {/* Drop shadow */}
-              <path d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 980 310"
-                stroke="#0f172a" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" opacity="0.07" />
-              
+              <path
+                d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 980 310"
+                stroke="#0f172a"
+                strokeWidth="14"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.07"
+              />
+
               {/* Outer conduit */}
-              <path d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 980 310"
-                stroke="#1e293b" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-              
+              <path
+                d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 980 310"
+                stroke="#1e293b"
+                strokeWidth="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+
               {/* Animated blue core */}
               <motion.path
                 d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 980 310"
-                stroke="#0000b9" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"
+                stroke="#0000b9"
+                strokeWidth="6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 2.2, ease: "easeInOut" }}
               />
-              
+
               {/* Light blue flow */}
-              <path d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 980 310"
-                stroke="#93c5fd" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"
-                opacity="0.8" className="spark-flow" />
-              
+              <path
+                d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 980 310"
+                stroke="#93c5fd"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.8"
+                className="spark-flow"
+              />
+
               {/* Glossy highlight */}
               <motion.path
                 d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 980 310"
-                stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                stroke="#ffffff"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 opacity="0.75"
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
@@ -224,46 +235,141 @@ export function Process() {
                 {/* Main Van Body */}
                 <g transform="translate(18, 12)">
                   {/* Roof Ladder Rack & Silver Extension Ladder */}
-                  <line x1="22" y1="14" x2="68" y2="14" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round" />
+                  <line
+                    x1="22"
+                    y1="14"
+                    x2="68"
+                    y2="14"
+                    stroke="#94a3b8"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
                   <line x1="26" y1="11" x2="26" y2="14" stroke="#64748b" strokeWidth="1.5" />
                   <line x1="64" y1="11" x2="64" y2="14" stroke="#64748b" strokeWidth="1.5" />
-                  <line x1="20" y1="11" x2="70" y2="11" stroke="#cbd5e1" strokeWidth="2" strokeLinecap="round" />
+                  <line
+                    x1="20"
+                    y1="11"
+                    x2="70"
+                    y2="11"
+                    stroke="#cbd5e1"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
                   <line x1="30" y1="10" x2="30" y2="13" stroke="#94a3b8" strokeWidth="1" />
                   <line x1="40" y1="10" x2="40" y2="13" stroke="#94a3b8" strokeWidth="1" />
                   <line x1="50" y1="10" x2="50" y2="13" stroke="#94a3b8" strokeWidth="1" />
                   <line x1="60" y1="10" x2="60" y2="13" stroke="#94a3b8" strokeWidth="1" />
 
                   {/* Rear Van Cargo Box */}
-                  <rect x="8" y="15" width="48" height="25" rx="3" fill="#0000b9" stroke="#060c24" strokeWidth="1.5" />
-                  
+                  <rect
+                    x="8"
+                    y="15"
+                    width="48"
+                    height="25"
+                    rx="3"
+                    fill="#0000b9"
+                    stroke="#060c24"
+                    strokeWidth="1.5"
+                  />
+
                   {/* Side Accent Stripe & Panel Crease */}
                   <rect x="8" y="27" width="48" height="4" fill="#ffffff" opacity="0.9" />
                   <line x1="8" y1="36" x2="56" y2="36" stroke="#00008f" strokeWidth="1" />
-                  <line x1="32" y1="15" x2="32" y2="40" stroke="#00008f" strokeWidth="0.8" opacity="0.7" />
+                  <line
+                    x1="32"
+                    y1="15"
+                    x2="32"
+                    y2="40"
+                    stroke="#00008f"
+                    strokeWidth="0.8"
+                    opacity="0.7"
+                  />
 
                   {/* Aerodynamic Cab */}
-                  <path d="M 56 22 L 67 22 Q 74 25 78 30 L 82 35 L 82 40 L 56 40 Z" fill="#0000b9" stroke="#060c24" strokeWidth="1.5" />
-                  
+                  <path
+                    d="M 56 22 L 67 22 Q 74 25 78 30 L 82 35 L 82 40 L 56 40 Z"
+                    fill="#0000b9"
+                    stroke="#060c24"
+                    strokeWidth="1.5"
+                  />
+
                   {/* Windshield & Side Window */}
-                  <path d="M 58 24 L 66 24 Q 71 26 74 31 L 58 31 Z" fill="#bae6fd" stroke="#060c24" strokeWidth="1" />
-                  <rect x="36" y="18" width="16" height="8" rx="1.5" fill="#bae6fd" opacity="0.85" stroke="#060c24" strokeWidth="1" />
-                  
+                  <path
+                    d="M 58 24 L 66 24 Q 71 26 74 31 L 58 31 Z"
+                    fill="#bae6fd"
+                    stroke="#060c24"
+                    strokeWidth="1"
+                  />
+                  <rect
+                    x="36"
+                    y="18"
+                    width="16"
+                    height="8"
+                    rx="1.5"
+                    fill="#bae6fd"
+                    opacity="0.85"
+                    stroke="#060c24"
+                    strokeWidth="1"
+                  />
+
                   {/* Headlights & Amber Indicator */}
-                  <polygon points="82,34 85,35 85,38 82,39" fill="#fef08a" stroke="#eab308" strokeWidth="0.8" />
+                  <polygon
+                    points="82,34 85,35 85,38 82,39"
+                    fill="#fef08a"
+                    stroke="#eab308"
+                    strokeWidth="0.8"
+                  />
                   <circle cx="83.5" cy="36.5" r="1.5" fill="#ffffff" />
                   <rect x="80" y="32" width="2" height="2" fill="#f97316" rx="0.5" />
 
                   {/* Front Chrome Bumper */}
-                  <rect x="80" y="39" width="4" height="3" rx="1" fill="#e2e8f0" stroke="#475569" strokeWidth="0.8" />
+                  <rect
+                    x="80"
+                    y="39"
+                    width="4"
+                    height="3"
+                    rx="1"
+                    fill="#e2e8f0"
+                    stroke="#475569"
+                    strokeWidth="0.8"
+                  />
 
                   {/* Rear Wheels with Alloy Hubcaps */}
-                  <circle cx="23" cy="40" r="7.5" fill="#0f172a" stroke="#334155" strokeWidth="1.8" />
-                  <circle cx="23" cy="40" r="3.5" fill="#cbd5e1" stroke="#0f172a" strokeWidth="0.8" />
+                  <circle
+                    cx="23"
+                    cy="40"
+                    r="7.5"
+                    fill="#0f172a"
+                    stroke="#334155"
+                    strokeWidth="1.8"
+                  />
+                  <circle
+                    cx="23"
+                    cy="40"
+                    r="3.5"
+                    fill="#cbd5e1"
+                    stroke="#0f172a"
+                    strokeWidth="0.8"
+                  />
                   <circle cx="23" cy="40" r="1.2" fill="#0000b9" />
 
                   {/* Front Wheels with Alloy Hubcaps */}
-                  <circle cx="68" cy="40" r="7.5" fill="#0f172a" stroke="#334155" strokeWidth="1.8" />
-                  <circle cx="68" cy="40" r="3.5" fill="#cbd5e1" stroke="#0f172a" strokeWidth="0.8" />
+                  <circle
+                    cx="68"
+                    cy="40"
+                    r="7.5"
+                    fill="#0f172a"
+                    stroke="#334155"
+                    strokeWidth="1.8"
+                  />
+                  <circle
+                    cx="68"
+                    cy="40"
+                    r="3.5"
+                    fill="#cbd5e1"
+                    stroke="#0f172a"
+                    strokeWidth="0.8"
+                  />
                   <circle cx="68" cy="40" r="1.2" fill="#0000b9" />
                 </g>
               </g>
@@ -271,7 +377,14 @@ export function Process() {
               {/* ── LAST ANIMATED ICON: Ultra-Premium Animated Home Icon ── */}
               <g transform="translate(1015, 310)">
                 {/* Concentric Animated Pulse Glows */}
-                <circle cx="0" cy="0" r="42" fill="#0000b9" opacity="0.10" className="pulse-glow-large" />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="42"
+                  fill="#0000b9"
+                  opacity="0.10"
+                  className="pulse-glow-large"
+                />
                 <circle cx="0" cy="0" r="32" fill="#0000b9" opacity="0.18" className="pulse-glow" />
                 <circle cx="0" cy="0" r="24" fill="#38bdf8" opacity="0.22" className="pulse-glow" />
 
@@ -295,44 +408,123 @@ export function Process() {
                 {/* Premium Animated Home Structure */}
                 <g className="van-anim">
                   {/* Chimney */}
-                  <rect x="8" y="-23" width="5.5" height="12" fill="#0000b9" stroke="#060c24" strokeWidth="1" />
+                  <rect
+                    x="8"
+                    y="-23"
+                    width="5.5"
+                    height="12"
+                    fill="#0000b9"
+                    stroke="#060c24"
+                    strokeWidth="1"
+                  />
                   <rect x="7" y="-24" width="7.5" height="2" rx="0.5" fill="#94a3b8" />
                   {/* Subtle chimney smoke sparkle */}
-                  <circle cx="10.5" cy="-28" r="1.5" fill="#bae6fd" opacity="0.75" className="pulse-glow" />
+                  <circle
+                    cx="10.5"
+                    cy="-28"
+                    r="1.5"
+                    fill="#bae6fd"
+                    opacity="0.75"
+                    className="pulse-glow"
+                  />
 
                   {/* House Main Body / Walls */}
-                  <rect x="-18" y="-6" width="36" height="23" rx="2" fill="#ffffff" stroke="#0000b9" strokeWidth="1.8" />
+                  <rect
+                    x="-18"
+                    y="-6"
+                    width="36"
+                    height="23"
+                    rx="2"
+                    fill="#ffffff"
+                    stroke="#0000b9"
+                    strokeWidth="1.8"
+                  />
 
                   {/* Gable Roof Structure */}
-                  <polygon points="0,-22 22,-5 -22,-5" fill="#0000b9" stroke="#060c24" strokeWidth="1.6" strokeLinejoin="round" />
+                  <polygon
+                    points="0,-22 22,-5 -22,-5"
+                    fill="#0000b9"
+                    stroke="#060c24"
+                    strokeWidth="1.6"
+                    strokeLinejoin="round"
+                  />
                   {/* Inner roof fascia highlight */}
                   <polygon points="0,-20 19,-6 -19,-6" fill="#1526d4" />
 
                   {/* Attic Round Window */}
-                  <circle cx="0" cy="-12" r="3.2" fill="#fef08a" stroke="#ffffff" strokeWidth="0.8" />
+                  <circle
+                    cx="0"
+                    cy="-12"
+                    r="3.2"
+                    fill="#fef08a"
+                    stroke="#ffffff"
+                    strokeWidth="0.8"
+                  />
                   <line x1="-3.2" y1="-12" x2="3.2" y2="-12" stroke="#b45309" strokeWidth="0.5" />
                   <line x1="0" y1="-15.2" x2="0" y2="-8.8" stroke="#b45309" strokeWidth="0.5" />
 
                   {/* Front Door */}
-                  <rect x="-4.5" y="4" width="9" height="13" rx="1" fill="#0000b9" stroke="#060c24" strokeWidth="1" />
+                  <rect
+                    x="-4.5"
+                    y="4"
+                    width="9"
+                    height="13"
+                    rx="1"
+                    fill="#0000b9"
+                    stroke="#060c24"
+                    strokeWidth="1"
+                  />
                   <circle cx="2" cy="10.5" r="1" fill="#facc15" />
 
                   {/* Left Window with Warm Light */}
-                  <rect x="-14" y="2" width="6" height="6.5" rx="1" fill="#bae6fd" stroke="#0000b9" strokeWidth="0.8" />
+                  <rect
+                    x="-14"
+                    y="2"
+                    width="6"
+                    height="6.5"
+                    rx="1"
+                    fill="#bae6fd"
+                    stroke="#0000b9"
+                    strokeWidth="0.8"
+                  />
                   <line x1="-11" y1="2" x2="-11" y2="8.5" stroke="#0000b9" strokeWidth="0.5" />
                   <line x1="-14" y1="5.2" x2="-8" y2="5.2" stroke="#0000b9" strokeWidth="0.5" />
 
                   {/* Right Window with Warm Light */}
-                  <rect x="8" y="2" width="6" height="6.5" rx="1" fill="#bae6fd" stroke="#0000b9" strokeWidth="0.8" />
+                  <rect
+                    x="8"
+                    y="2"
+                    width="6"
+                    height="6.5"
+                    rx="1"
+                    fill="#bae6fd"
+                    stroke="#0000b9"
+                    strokeWidth="0.8"
+                  />
                   <line x1="11" y1="2" x2="11" y2="8.5" stroke="#0000b9" strokeWidth="0.5" />
                   <line x1="8" y1="5.2" x2="14" y2="5.2" stroke="#0000b9" strokeWidth="0.5" />
 
                   {/* Ground Threshold Step */}
-                  <rect x="-21" y="17" width="42" height="2.5" rx="1" fill="#0f172a" opacity="0.22" />
+                  <rect
+                    x="-21"
+                    y="17"
+                    width="42"
+                    height="2.5"
+                    rx="1"
+                    fill="#0f172a"
+                    opacity="0.22"
+                  />
 
                   {/* Verified Completion Checkmark Badge */}
                   <g transform="translate(14, -18)">
-                    <circle cx="0" cy="0" r="6.5" fill="#10b981" stroke="#ffffff" strokeWidth="1.5" />
+                    <circle
+                      cx="0"
+                      cy="0"
+                      r="6.5"
+                      fill="#10b981"
+                      stroke="#ffffff"
+                      strokeWidth="1.5"
+                    />
                     <path
                       d="M -3 0 L -0.8 2.2 L 3 -1.8"
                       stroke="#ffffff"
@@ -389,45 +581,53 @@ export function Process() {
                   style={{ left: pos.left, top: pos.top }}
                 >
                   {/* Circle node */}
-                  <div className={`absolute -translate-x-1/2 -translate-y-1/2 w-[78px] h-[78px] rounded-full bg-white shadow-[0_10px_32px_rgba(15,23,42,0.08)] border flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-110 ${
-                    isFirst
-                      ? "border-[#0000b9]/30 shadow-[0_10px_30px_rgba(0,0,185,0.12)] group-hover:shadow-[0_20px_40px_-6px_rgba(0,0,185,0.3)]"
-                      : isLast
-                      ? "border-emerald-500/30 shadow-[0_10px_30px_rgba(16,185,129,0.12)] group-hover:shadow-[0_20px_40px_-6px_rgba(16,185,129,0.3)]"
-                      : "border-slate-100 group-hover:shadow-[0_20px_40px_-6px_rgba(0,0,185,0.25)] group-hover:border-[#0000b9]/30"
-                  }`}>
+                  <div
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 w-[78px] h-[78px] rounded-full bg-white shadow-[0_10px_32px_rgba(15,23,42,0.08)] border flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-110 ${
+                      isFirst
+                        ? "border-[#0000b9]/30 shadow-[0_10px_30px_rgba(0,0,185,0.12)] group-hover:shadow-[0_20px_40px_-6px_rgba(0,0,185,0.3)]"
+                        : isLast
+                          ? "border-emerald-500/30 shadow-[0_10px_30px_rgba(16,185,129,0.12)] group-hover:shadow-[0_20px_40px_-6px_rgba(16,185,129,0.3)]"
+                          : "border-slate-100 group-hover:shadow-[0_20px_40px_-6px_rgba(0,0,185,0.25)] group-hover:border-[#0000b9]/30"
+                    }`}
+                  >
                     {/* Step number badge */}
-                    <div className={`absolute -top-2.5 -right-1 w-5 h-5 rounded-full flex items-center justify-center shadow-md border-2 border-white ${
-                      isLast ? "bg-emerald-600" : "bg-[#0000b9]"
-                    }`}>
+                    <div
+                      className={`absolute -top-2.5 -right-1 w-5 h-5 rounded-full flex items-center justify-center shadow-md border-2 border-white ${
+                        isLast ? "bg-emerald-600" : "bg-[#0000b9]"
+                      }`}
+                    >
                       <span className="text-white text-[9px] font-black leading-none">{i + 1}</span>
                     </div>
 
                     {/* Outer halo */}
                     <div className="absolute -inset-3 rounded-full border border-[#0000b9]/15 scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-400" />
-                    
+
                     {/* Inner ring */}
                     <div className="absolute inset-1 rounded-full border border-transparent group-hover:border-[#0000b9]/30 transition-all duration-300" />
-                    
+
                     {/* Icon */}
-                    <Icon className={`h-7 w-7 transition-colors duration-300 ${
-                      isFirst
-                        ? "text-[#0000b9]"
-                        : isLast
-                        ? "text-emerald-600"
-                        : "text-neutral-400 group-hover:text-[#0000b9]"
-                    }`} />
+                    <Icon
+                      className={`h-7 w-7 transition-colors duration-300 ${
+                        isFirst
+                          ? "text-[#0000b9]"
+                          : isLast
+                            ? "text-emerald-600"
+                            : "text-neutral-400 group-hover:text-[#0000b9]"
+                      }`}
+                    />
                   </div>
 
                   {/* Text block below node */}
                   <div className="absolute top-[48px] -translate-x-1/2 text-center w-[220px] flex flex-col items-center pt-1">
-                    <h3 className={`font-extrabold text-[15px] leading-tight mt-1 mb-1.5 transition-colors duration-300 ${
-                      isFirst
-                        ? "text-[#0000b9]"
-                        : isLast
-                        ? "text-neutral-900 group-hover:text-emerald-600"
-                        : "text-neutral-900 group-hover:text-[#0000b9]"
-                    }`}>
+                    <h3
+                      className={`font-extrabold text-[15px] leading-tight mt-1 mb-1.5 transition-colors duration-300 ${
+                        isFirst
+                          ? "text-[#0000b9]"
+                          : isLast
+                            ? "text-neutral-900 group-hover:text-emerald-600"
+                            : "text-neutral-900 group-hover:text-[#0000b9]"
+                      }`}
+                    >
                       {s.title}
                     </h3>
                     <p className="text-[11px] text-neutral-500 leading-relaxed font-medium px-1">
@@ -464,49 +664,54 @@ export function Process() {
                   className="relative flex items-start gap-4 group text-left"
                 >
                   {/* Circle node - width 48px, centered on the conduit */}
-                  <div className={`relative shrink-0 w-12 h-12 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.07)] border flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-105 ${
-                    isFirst
-                      ? "border-[#0000b9]/30"
-                      : isLast
-                      ? "border-emerald-500/30"
-                      : "border-slate-100 group-hover:border-[#0000b9]/30"
-                  }`}>
+                  <div
+                    className={`relative shrink-0 w-12 h-12 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.07)] border flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-105 ${
+                      isFirst
+                        ? "border-[#0000b9]/30"
+                        : isLast
+                          ? "border-emerald-500/30"
+                          : "border-slate-100 group-hover:border-[#0000b9]/30"
+                    }`}
+                  >
                     {/* Step badge */}
-                    <div className={`absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center border border-white ${
-                      isLast ? "bg-emerald-600" : "bg-[#0000b9]"
-                    }`}>
+                    <div
+                      className={`absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center border border-white ${
+                        isLast ? "bg-emerald-600" : "bg-[#0000b9]"
+                      }`}
+                    >
                       <span className="text-white text-[8px] font-black">{i + 1}</span>
                     </div>
                     <div className="absolute inset-0.5 rounded-full border border-transparent group-hover:border-[#0000b9]/40 transition-colors duration-300" />
-                    <Icon className={`h-5 w-5 transition-colors duration-300 ${
-                      isFirst
-                        ? "text-[#0000b9]"
-                        : isLast
-                        ? "text-emerald-600"
-                        : "text-neutral-400 group-hover:text-[#0000b9]"
-                    }`} />
+                    <Icon
+                      className={`h-5 w-5 transition-colors duration-300 ${
+                        isFirst
+                          ? "text-[#0000b9]"
+                          : isLast
+                            ? "text-emerald-600"
+                            : "text-neutral-400 group-hover:text-[#0000b9]"
+                      }`}
+                    />
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 min-w-0 pt-0.5">
-                    <h3 className={`font-extrabold text-[15px] sm:text-base leading-tight mt-0 mb-1 transition-colors duration-300 ${
-                      isFirst
-                        ? "text-[#0000b9]"
-                        : isLast
-                        ? "text-neutral-900 group-hover:text-emerald-600"
-                        : "text-neutral-900 group-hover:text-[#0000b9]"
-                    }`}>
+                    <h3
+                      className={`font-extrabold text-[15px] sm:text-base leading-tight mt-0 mb-1 transition-colors duration-300 ${
+                        isFirst
+                          ? "text-[#0000b9]"
+                          : isLast
+                            ? "text-neutral-900 group-hover:text-emerald-600"
+                            : "text-neutral-900 group-hover:text-[#0000b9]"
+                      }`}
+                    >
                       {s.title}
                     </h3>
-                    <p className="text-xs text-neutral-500 leading-relaxed font-medium">
-                      {s.desc}
-                    </p>
+                    <p className="text-xs text-neutral-500 leading-relaxed font-medium">{s.desc}</p>
                   </div>
                 </motion.div>
               );
             })}
           </div>
-
         </div>
       </div>
     </section>

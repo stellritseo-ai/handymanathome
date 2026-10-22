@@ -21,8 +21,7 @@ export const Route = createFileRoute("/projects")({
       },
       {
         property: "og:title",
-        content:
-          "Our Works & Project Gallery | Handyman At Home - Dallas-Fort Worth, TX",
+        content: "Our Works & Project Gallery | Handyman At Home - Dallas-Fort Worth, TX",
       },
       {
         property: "og:description",

@@ -43,7 +43,9 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
         const payload: FormSubmissionPayload = {
           ...body,
           createdAt: body.createdAt || new Date().toISOString(),
-          source: body.source || (pathname === "/api/estimate" ? "Free Estimate Page" : "Website Contact Form"),
+          source:
+            body.source ||
+            (pathname === "/api/estimate" ? "Free Estimate Page" : "Website Contact Form"),
         };
 
         const result = await sendFormNotificationEmail(payload);
@@ -61,7 +63,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
               message: "Failed to dispatch email via Zoho Mail.",
               error: result.error,
             },
-            500
+            500,
           );
         }
       } catch (err: any) {
@@ -72,7 +74,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
             message: "Invalid request payload or server processing error.",
             error: err?.message || String(err),
           },
-          400
+          400,
         );
       }
     }

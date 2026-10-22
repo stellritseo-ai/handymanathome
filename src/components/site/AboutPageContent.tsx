@@ -39,12 +39,10 @@ import commercialImg from "@/assets/svc-commercial.png";
 // Load gallery images dynamically using Vite's glob import
 const galleryModules = import.meta.glob<{ default: string }>(
   "../../assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
-  { eager: true }
+  { eager: true },
 );
 
-const galleryImages: string[] = Object.values(galleryModules).map(
-  (mod) => mod.default
-);
+const galleryImages: string[] = Object.values(galleryModules).map((mod) => mod.default);
 
 // 6 Core services specified by user
 const comprehensiveServices = [
@@ -223,12 +221,12 @@ export function AboutPageContent() {
       if (e.key === "Escape") setSelectedLightboxIndex(null);
       if (e.key === "ArrowLeft") {
         setSelectedLightboxIndex((prev) =>
-          prev !== null ? (prev === 0 ? galleryImages.length - 1 : prev - 1) : null
+          prev !== null ? (prev === 0 ? galleryImages.length - 1 : prev - 1) : null,
         );
       }
       if (e.key === "ArrowRight") {
         setSelectedLightboxIndex((prev) =>
-          prev !== null ? (prev === galleryImages.length - 1 ? 0 : prev + 1) : null
+          prev !== null ? (prev === galleryImages.length - 1 ? 0 : prev + 1) : null,
         );
       }
     };
@@ -285,7 +283,10 @@ export function AboutPageContent() {
               <li className="text-slate-600">
                 <ChevronRight className="h-3.5 w-3.5" />
               </li>
-              <li className="text-white font-semibold flex items-center gap-1.5" aria-current="page">
+              <li
+                className="text-white font-semibold flex items-center gap-1.5"
+                aria-current="page"
+              >
                 <span>About Us</span>
               </li>
             </ol>
@@ -324,10 +325,21 @@ export function AboutPageContent() {
               {/* Body Narrative */}
               <div className="mt-4 space-y-3.5 text-slate-300 text-[15px] sm:text-base leading-relaxed">
                 <p>
-                  <strong className="text-white font-bold">Since 2001</strong>, Handyman At Home has been the premier choice for homeowners, commercial property managers, and businesses across the Dallas-Fort Worth metroplex. What started as a commitment to simple, honest handyman work has grown into a full-service general contracting company capable of handling everything from minor home repairs to large-scale commercial remodeling.
+                  <strong className="text-white font-bold">Since 2001</strong>, Handyman At Home has
+                  been the premier choice for homeowners, commercial property managers, and
+                  businesses across the Dallas-Fort Worth metroplex. What started as a commitment to
+                  simple, honest handyman work has grown into a full-service general contracting
+                  company capable of handling everything from minor home repairs to large-scale
+                  commercial remodeling.
                 </p>
                 <p>
-                  We are proud to be a <strong className="text-white font-bold">locally owned and operated</strong> business that has built its reputation on <span className="text-white font-semibold underline decoration-[#3b5bfd] decoration-2 underline-offset-4">reliability, transparency, and exceptional craftsmanship</span>.
+                  We are proud to be a{" "}
+                  <strong className="text-white font-bold">locally owned and operated</strong>{" "}
+                  business that has built its reputation on{" "}
+                  <span className="text-white font-semibold underline decoration-[#3b5bfd] decoration-2 underline-offset-4">
+                    reliability, transparency, and exceptional craftsmanship
+                  </span>
+                  .
                 </p>
               </div>
 
@@ -353,7 +365,9 @@ export function AboutPageContent() {
               {/* Emergency availability notice */}
               <div className="mt-4 flex items-center gap-2 text-xs text-slate-400 font-medium">
                 <Clock className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                <span>Mon–Fri 7am–9pm • <strong>24/7 Emergency Services Always On Call</strong></span>
+                <span>
+                  Mon–Fri 7am–9pm • <strong>24/7 Emergency Services Always On Call</strong>
+                </span>
               </div>
             </div>
 
@@ -476,8 +490,7 @@ export function AboutPageContent() {
 
               {/* H2 Title */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Our Mission:{" "}
-                <span className="text-[#0000b9]">No Job is Too Big or Too Small</span>
+                Our Mission: <span className="text-[#0000b9]">No Job is Too Big or Too Small</span>
               </h2>
 
               {/* Highlighted Quote Callout */}
@@ -489,7 +502,18 @@ export function AboutPageContent() {
 
               {/* Mission Narrative */}
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-3xl mx-auto text-left sm:text-center">
-                At Handyman At Home, our mission is simple: to provide <strong className="text-slate-900 font-bold">high-quality, reliable, and affordable</strong> handyman and contracting services to our neighbors in DFW. We understand that your home or business is your most valuable investment. That’s why we approach every project—whether it’s fixing a leaky faucet or managing a complete kitchen renovation—with the same level of <strong className="text-[#0000b9] font-bold">dedication, precision, and care</strong>.
+                At Handyman At Home, our mission is simple: to provide{" "}
+                <strong className="text-slate-900 font-bold">
+                  high-quality, reliable, and affordable
+                </strong>{" "}
+                handyman and contracting services to our neighbors in DFW. We understand that your
+                home or business is your most valuable investment. That’s why we approach every
+                project—whether it’s fixing a leaky faucet or managing a complete kitchen
+                renovation—with the same level of{" "}
+                <strong className="text-[#0000b9] font-bold">
+                  dedication, precision, and care
+                </strong>
+                .
               </p>
 
               {/* 3 Value Cards under Mission */}
@@ -500,7 +524,8 @@ export function AboutPageContent() {
                   </div>
                   <h3 className="text-sm font-extrabold text-slate-900">Equal Dedication</h3>
                   <p className="text-xs text-slate-600 mt-1 leading-normal">
-                    From a single drywall patch to an entire estate remodel, every client receives our complete focus and elite standard.
+                    From a single drywall patch to an entire estate remodel, every client receives
+                    our complete focus and elite standard.
                   </p>
                 </div>
 
@@ -508,9 +533,12 @@ export function AboutPageContent() {
                   <div className="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-3">
                     <ShieldCheck className="h-5 w-5" />
                   </div>
-                  <h3 className="text-sm font-extrabold text-slate-900">Protecting Your Investment</h3>
+                  <h3 className="text-sm font-extrabold text-slate-900">
+                    Protecting Your Investment
+                  </h3>
                   <p className="text-xs text-slate-600 mt-1 leading-normal">
-                    We utilize premium, industry-tested materials to ensure repairs resist North Texas weather and everyday wear.
+                    We utilize premium, industry-tested materials to ensure repairs resist North
+                    Texas weather and everyday wear.
                   </p>
                 </div>
 
@@ -518,9 +546,12 @@ export function AboutPageContent() {
                   <div className="h-10 w-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold mb-3">
                     <Clock className="h-5 w-5" />
                   </div>
-                  <h3 className="text-sm font-extrabold text-slate-900">Fast, Dependable Timelines</h3>
+                  <h3 className="text-sm font-extrabold text-slate-900">
+                    Fast, Dependable Timelines
+                  </h3>
                   <p className="text-xs text-slate-600 mt-1 leading-normal">
-                    Clear schedules, on-time arrivals, and swift project completions without cutting structural or cosmetic corners.
+                    Clear schedules, on-time arrivals, and swift project completions without cutting
+                    structural or cosmetic corners.
                   </p>
                 </div>
               </div>
@@ -546,7 +577,9 @@ export function AboutPageContent() {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-              As a full-service general contractor, we eliminate the need to hire multiple specialized trades for your projects. Our diverse team of skilled professionals is equipped to handle:
+              As a full-service general contractor, we eliminate the need to hire multiple
+              specialized trades for your projects. Our diverse team of skilled professionals is
+              equipped to handle:
             </p>
           </div>
 
@@ -597,7 +630,10 @@ export function AboutPageContent() {
                       {/* Bullet Features */}
                       <ul className="mt-4 space-y-2 border-t border-slate-100 pt-3">
                         {service.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-start gap-2 text-xs text-slate-700">
+                          <li
+                            key={bullet}
+                            className="flex items-start gap-2 text-xs text-slate-700"
+                          >
                             <Check className="h-3.5 w-3.5 text-[#0000b9] shrink-0 mt-0.5" />
                             <span>{bullet}</span>
                           </li>
@@ -668,7 +704,9 @@ export function AboutPageContent() {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-              When you invite a contractor into your home or business, trust is paramount. We have earned the loyalty of thousands of clients across North Texas by adhering to strict core values:
+              When you invite a contractor into your home or business, trust is paramount. We have
+              earned the loyalty of thousands of clients across North Texas by adhering to strict
+              core values:
             </p>
           </div>
 
@@ -720,7 +758,8 @@ export function AboutPageContent() {
                   Ready to Experience the Difference?
                 </h3>
                 <p className="mt-3 text-xs sm:text-sm text-blue-100 leading-relaxed">
-                  Join thousands of satisfied Dallas–Fort Worth property owners. Call us today for your upfront, transparent quote.
+                  Join thousands of satisfied Dallas–Fort Worth property owners. Call us today for
+                  your upfront, transparent quote.
                 </p>
               </div>
 
@@ -754,7 +793,8 @@ export function AboutPageContent() {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600">
-              Take a look at real, unedited photos of our completed projects, work vans, and certified crew on site across Dallas–Fort Worth.
+              Take a look at real, unedited photos of our completed projects, work vans, and
+              certified crew on site across Dallas–Fort Worth.
             </p>
           </div>
 
@@ -818,7 +858,11 @@ export function AboutPageContent() {
             </h2>
 
             <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-              Our mobile repair vans and certified crews provide thorough general contracting, remodeling, and handyman services across the DFW area. We are proud to serve homeowners and businesses in Dallas, Fort Worth, Arlington, Plano, Irving, Garland, Frisco, McKinney, Mesquite, Carrollton, Richardson, Lewisville, and the surrounding communities.
+              Our mobile repair vans and certified crews provide thorough general contracting,
+              remodeling, and handyman services across the DFW area. We are proud to serve
+              homeowners and businesses in Dallas, Fort Worth, Arlington, Plano, Irving, Garland,
+              Frisco, McKinney, Mesquite, Carrollton, Richardson, Lewisville, and the surrounding
+              communities.
             </p>
           </div>
 
@@ -843,7 +887,9 @@ export function AboutPageContent() {
               </div>
               <div>
                 <p className="text-sm font-bold text-white">40-Mile Comprehensive Coverage</p>
-                <p className="text-xs text-slate-400">Mobile vans fully stocked with commercial tools &amp; supplies</p>
+                <p className="text-xs text-slate-400">
+                  Mobile vans fully stocked with commercial tools &amp; supplies
+                </p>
               </div>
             </div>
             <a
@@ -873,7 +919,10 @@ export function AboutPageContent() {
             </h2>
 
             <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Contact us today for a <strong className="text-slate-900">FREE, no-obligation estimate</strong>. We’re happy to discuss your project and provide a transparent quote. Experience the Handyman At Home difference for yourself.
+              Contact us today for a{" "}
+              <strong className="text-slate-900">FREE, no-obligation estimate</strong>. We’re happy
+              to discuss your project and provide a transparent quote. Experience the Handyman At
+              Home difference for yourself.
             </p>
           </div>
 
@@ -964,7 +1013,8 @@ export function AboutPageContent() {
                   1730 Newlin Dr, DFW, TX 75125, United States
                 </p>
                 <p className="mt-3 text-xs text-slate-500 leading-normal">
-                  Serving the entire Dallas–Fort Worth metro area and surrounding 40-mile communities.
+                  Serving the entire Dallas–Fort Worth metro area and surrounding 40-mile
+                  communities.
                 </p>
               </div>
 
@@ -991,7 +1041,8 @@ export function AboutPageContent() {
                 Get Your Guaranteed Estimate Now
               </h3>
               <p className="mt-3 text-sm sm:text-base text-blue-100 leading-relaxed">
-                Whether you need a quick repair or a full-scale renovation, our expert team is ready to deliver flawless results with upfront pricing.
+                Whether you need a quick repair or a full-scale renovation, our expert team is ready
+                to deliver flawless results with upfront pricing.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1042,7 +1093,7 @@ export function AboutPageContent() {
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedLightboxIndex((prev) =>
-                  prev !== null ? (prev === 0 ? galleryImages.length - 1 : prev - 1) : null
+                  prev !== null ? (prev === 0 ? galleryImages.length - 1 : prev - 1) : null,
                 );
               }}
               className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-20 cursor-pointer"
@@ -1067,7 +1118,7 @@ export function AboutPageContent() {
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedLightboxIndex((prev) =>
-                  prev !== null ? (prev === galleryImages.length - 1 ? 0 : prev + 1) : null
+                  prev !== null ? (prev === galleryImages.length - 1 ? 0 : prev + 1) : null,
                 );
               }}
               className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-20 cursor-pointer"

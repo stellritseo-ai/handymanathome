@@ -75,7 +75,12 @@
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #0000b9 0%, #1738d8 100%);
-  --gradient-hero: linear-gradient(135deg, rgba(9, 14, 36, 0.95) 0%, rgba(9, 14, 36, 0.75) 50%, rgba(0, 0, 185, 0.4) 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    rgba(9, 14, 36, 0.95) 0%,
+    rgba(9, 14, 36, 0.75) 50%,
+    rgba(0, 0, 185, 0.4) 100%
+  );
   --gradient-accent: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
   --gradient-soft: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
   --gradient-glow: radial-gradient(circle at 50% 0%, rgba(0, 0, 185, 0.3), transparent 60%);
@@ -169,17 +174,33 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 @keyframes shimmer {
-  0% { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
 }
 @keyframes blob {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -40px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
 }
 
 @utility animate-float {
@@ -190,8 +211,12 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @utility animate-marquee {

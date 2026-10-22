@@ -9,68 +9,28 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ReviewsRouteImport } from './routes/reviews'
-import { Route as ProjectsRouteImport } from './routes/projects'
-import { Route as OurWorksRouteImport } from './routes/our-works'
-import { Route as FreeEstimateRouteImport } from './routes/free-estimate'
-import { Route as EstimateRouteImport } from './routes/estimate'
-import { Route as ContactUsRouteImport } from './routes/contact-us'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ClientReviewsRouteImport } from './routes/client-reviews'
-import { Route as AboutUsRouteImport } from './routes/about-us'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AboutUsRouteImport } from './routes/about-us'
+import { Route as ClientReviewsRouteImport } from './routes/client-reviews'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ContactUsRouteImport } from './routes/contact-us'
+import { Route as EstimateRouteImport } from './routes/estimate'
+import { Route as FreeEstimateRouteImport } from './routes/free-estimate'
+import { Route as OurWorksRouteImport } from './routes/our-works'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
-import { Route as ServicesRoofingRouteImport } from './routes/services/roofing'
-import { Route as ServicesPlumbingRouteImport } from './routes/services/plumbing'
-import { Route as ServicesPaintingRouteImport } from './routes/services/painting'
-import { Route as ServicesLandscapingRouteImport } from './routes/services/landscaping'
-import { Route as ServicesKitchenBathroomRemodelRouteImport } from './routes/services/kitchen-bathroom-remodel'
 import { Route as ServicesHandymanCarpentryRouteImport } from './routes/services/handyman-carpentry'
+import { Route as ServicesKitchenBathroomRemodelRouteImport } from './routes/services/kitchen-bathroom-remodel'
+import { Route as ServicesLandscapingRouteImport } from './routes/services/landscaping'
+import { Route as ServicesPaintingRouteImport } from './routes/services/painting'
+import { Route as ServicesPlumbingRouteImport } from './routes/services/plumbing'
+import { Route as ServicesRoofingRouteImport } from './routes/services/roofing'
 
-const ReviewsRoute = ReviewsRouteImport.update({
-  id: '/reviews',
-  path: '/reviews',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OurWorksRoute = OurWorksRouteImport.update({
-  id: '/our-works',
-  path: '/our-works',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FreeEstimateRoute = FreeEstimateRouteImport.update({
-  id: '/free-estimate',
-  path: '/free-estimate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EstimateRoute = EstimateRouteImport.update({
-  id: '/estimate',
-  path: '/estimate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactUsRoute = ContactUsRouteImport.update({
-  id: '/contact-us',
-  path: '/contact-us',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ClientReviewsRoute = ClientReviewsRouteImport.update({
-  id: '/client-reviews',
-  path: '/client-reviews',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutUsRoute = AboutUsRouteImport.update({
-  id: '/about-us',
-  path: '/about-us',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -78,9 +38,49 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientReviewsRoute = ClientReviewsRouteImport.update({
+  id: '/client-reviews',
+  path: '/client-reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstimateRoute = EstimateRouteImport.update({
+  id: '/estimate',
+  path: '/estimate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeEstimateRoute = FreeEstimateRouteImport.update({
+  id: '/free-estimate',
+  path: '/free-estimate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurWorksRoute = OurWorksRouteImport.update({
+  id: '/our-works',
+  path: '/our-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -88,14 +88,21 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesRoofingRoute = ServicesRoofingRouteImport.update({
-  id: '/services/roofing',
-  path: '/services/roofing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesPlumbingRoute = ServicesPlumbingRouteImport.update({
-  id: '/services/plumbing',
-  path: '/services/plumbing',
+const ServicesHandymanCarpentryRoute =
+  ServicesHandymanCarpentryRouteImport.update({
+    id: '/services/handyman-carpentry',
+    path: '/services/handyman-carpentry',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesKitchenBathroomRemodelRoute =
+  ServicesKitchenBathroomRemodelRouteImport.update({
+    id: '/services/kitchen-bathroom-remodel',
+    path: '/services/kitchen-bathroom-remodel',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesLandscapingRoute = ServicesLandscapingRouteImport.update({
+  id: '/services/landscaping',
+  path: '/services/landscaping',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesPaintingRoute = ServicesPaintingRouteImport.update({
@@ -103,23 +110,16 @@ const ServicesPaintingRoute = ServicesPaintingRouteImport.update({
   path: '/services/painting',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesLandscapingRoute = ServicesLandscapingRouteImport.update({
-  id: '/services/landscaping',
-  path: '/services/landscaping',
+const ServicesPlumbingRoute = ServicesPlumbingRouteImport.update({
+  id: '/services/plumbing',
+  path: '/services/plumbing',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesKitchenBathroomRemodelRoute =
-  ServicesKitchenBathroomRemodelRouteImport.update({
-    id: '/services/kitchen-bathroom-remodel',
-    path: '/services/kitchen-bathroom-remodel',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ServicesHandymanCarpentryRoute =
-  ServicesHandymanCarpentryRouteImport.update({
-    id: '/services/handyman-carpentry',
-    path: '/services/handyman-carpentry',
-    getParentRoute: () => rootRouteImport,
-  } as any)
+const ServicesRoofingRoute = ServicesRoofingRouteImport.update({
+  id: '/services/roofing',
+  path: '/services/roofing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -268,67 +268,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/reviews': {
-      id: '/reviews'
-      path: '/reviews'
-      fullPath: '/reviews'
-      preLoaderRoute: typeof ReviewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/our-works': {
-      id: '/our-works'
-      path: '/our-works'
-      fullPath: '/our-works'
-      preLoaderRoute: typeof OurWorksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/free-estimate': {
-      id: '/free-estimate'
-      path: '/free-estimate'
-      fullPath: '/free-estimate'
-      preLoaderRoute: typeof FreeEstimateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/estimate': {
-      id: '/estimate'
-      path: '/estimate'
-      fullPath: '/estimate'
-      preLoaderRoute: typeof EstimateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact-us': {
-      id: '/contact-us'
-      path: '/contact-us'
-      fullPath: '/contact-us'
-      preLoaderRoute: typeof ContactUsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/client-reviews': {
-      id: '/client-reviews'
-      path: '/client-reviews'
-      fullPath: '/client-reviews'
-      preLoaderRoute: typeof ClientReviewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about-us': {
-      id: '/about-us'
-      path: '/about-us'
-      fullPath: '/about-us'
-      preLoaderRoute: typeof AboutUsRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -338,11 +282,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-reviews': {
+      id: '/client-reviews'
+      path: '/client-reviews'
+      fullPath: '/client-reviews'
+      preLoaderRoute: typeof ClientReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us': {
+      id: '/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estimate': {
+      id: '/estimate'
+      path: '/estimate'
+      fullPath: '/estimate'
+      preLoaderRoute: typeof EstimateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free-estimate': {
+      id: '/free-estimate'
+      path: '/free-estimate'
+      fullPath: '/free-estimate'
+      preLoaderRoute: typeof FreeEstimateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-works': {
+      id: '/our-works'
+      path: '/our-works'
+      fullPath: '/our-works'
+      preLoaderRoute: typeof OurWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -352,32 +352,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/roofing': {
-      id: '/services/roofing'
-      path: '/services/roofing'
-      fullPath: '/services/roofing'
-      preLoaderRoute: typeof ServicesRoofingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/plumbing': {
-      id: '/services/plumbing'
-      path: '/services/plumbing'
-      fullPath: '/services/plumbing'
-      preLoaderRoute: typeof ServicesPlumbingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/painting': {
-      id: '/services/painting'
-      path: '/services/painting'
-      fullPath: '/services/painting'
-      preLoaderRoute: typeof ServicesPaintingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/landscaping': {
-      id: '/services/landscaping'
-      path: '/services/landscaping'
-      fullPath: '/services/landscaping'
-      preLoaderRoute: typeof ServicesLandscapingRouteImport
+    '/services/handyman-carpentry': {
+      id: '/services/handyman-carpentry'
+      path: '/services/handyman-carpentry'
+      fullPath: '/services/handyman-carpentry'
+      preLoaderRoute: typeof ServicesHandymanCarpentryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/kitchen-bathroom-remodel': {
@@ -387,11 +366,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesKitchenBathroomRemodelRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/handyman-carpentry': {
-      id: '/services/handyman-carpentry'
-      path: '/services/handyman-carpentry'
-      fullPath: '/services/handyman-carpentry'
-      preLoaderRoute: typeof ServicesHandymanCarpentryRouteImport
+    '/services/landscaping': {
+      id: '/services/landscaping'
+      path: '/services/landscaping'
+      fullPath: '/services/landscaping'
+      preLoaderRoute: typeof ServicesLandscapingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/painting': {
+      id: '/services/painting'
+      path: '/services/painting'
+      fullPath: '/services/painting'
+      preLoaderRoute: typeof ServicesPaintingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/plumbing': {
+      id: '/services/plumbing'
+      path: '/services/plumbing'
+      fullPath: '/services/plumbing'
+      preLoaderRoute: typeof ServicesPlumbingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/roofing': {
+      id: '/services/roofing'
+      path: '/services/roofing'
+      fullPath: '/services/roofing'
+      preLoaderRoute: typeof ServicesRoofingRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

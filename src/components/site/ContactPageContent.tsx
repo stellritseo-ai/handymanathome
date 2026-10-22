@@ -43,7 +43,15 @@ const serviceOptions = [
 const countyData = [
   {
     county: "Dallas County",
-    cities: ["Dallas", "Irving", "Garland", "Mesquite", "Richardson", "Carrollton", "Farmers Branch"],
+    cities: [
+      "Dallas",
+      "Irving",
+      "Garland",
+      "Mesquite",
+      "Richardson",
+      "Carrollton",
+      "Farmers Branch",
+    ],
     color: "from-blue-600 to-indigo-700",
   },
   {
@@ -178,7 +186,10 @@ export function ContactPageContent() {
               <li className="text-slate-600">
                 <ChevronRight className="h-3.5 w-3.5" />
               </li>
-              <li className="text-white font-semibold flex items-center gap-1.5" aria-current="page">
+              <li
+                className="text-white font-semibold flex items-center gap-1.5"
+                aria-current="page"
+              >
                 <span>Contact Us</span>
               </li>
             </ol>
@@ -211,13 +222,22 @@ export function ContactPageContent() {
             {/* Lead Narrative */}
             <div className="mt-4 space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl">
               <p>
-                Whether you have a leaking pipe, need a fresh coat of paint, or are ready for a complete kitchen remodel, the team at <strong className="text-white font-bold">Handyman At Home</strong> is ready to help.
+                Whether you have a leaking pipe, need a fresh coat of paint, or are ready for a
+                complete kitchen remodel, the team at{" "}
+                <strong className="text-white font-bold">Handyman At Home</strong> is ready to help.
               </p>
               <p>
-                For over two decades, we have proudly served homeowners, commercial property managers, and businesses across the DFW metroplex and surrounding areas. We pride ourselves on <strong className="text-white">prompt communication, transparent pricing, and exceptional craftsmanship</strong>.
+                For over two decades, we have proudly served homeowners, commercial property
+                managers, and businesses across the DFW metroplex and surrounding areas. We pride
+                ourselves on{" "}
+                <strong className="text-white">
+                  prompt communication, transparent pricing, and exceptional craftsmanship
+                </strong>
+                .
               </p>
               <p className="text-sky-300 font-semibold">
-                Reach out to us today for a FREE, no-obligation estimate. We’re happy to discuss your project and provide a transparent quote.
+                Reach out to us today for a FREE, no-obligation estimate. We’re happy to discuss
+                your project and provide a transparent quote.
               </p>
             </div>
 
@@ -247,10 +267,12 @@ export function ContactPageContent() {
       {/* ─────────────────────────────────────────────────────────────
           2. TWO-COLUMN LAYOUT: "How to Reach Us" (Left) + "Request Free Estimate" Form (Right)
       ───────────────────────────────────────────────────────────── */}
-      <section id="estimate-form" className="py-12 sm:py-20 bg-slate-50/70 border-b border-slate-200 relative">
+      <section
+        id="estimate-form"
+        className="py-12 sm:py-20 bg-slate-50/70 border-b border-slate-200 relative"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-
             {/* ── Left Column: How to Reach Us (5 Cols) ── */}
             <div className="lg:col-span-5 space-y-6 text-left">
               <div className="rounded-3xl bg-gradient-to-br from-[#090e24] via-[#0b1338] to-[#0000b9] text-white p-6 sm:p-8 shadow-xl relative overflow-hidden">
@@ -266,7 +288,8 @@ export function ContactPageContent() {
                     Direct Contact Channels
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    We are dedicated to fast response times and personal, courteous service for every DFW customer.
+                    We are dedicated to fast response times and personal, courteous service for
+                    every DFW customer.
                   </p>
 
                   <ul className="mt-6 space-y-5 text-left">
@@ -462,7 +485,9 @@ export function ContactPageContent() {
                     Request Your Free Estimate
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Ready to get started? Fill out the form below with the details of your project. One of our project managers will review your request and contact you within 24 hours to schedule a consultation.
+                    Ready to get started? Fill out the form below with the details of your project.
+                    One of our project managers will review your request and contact you within 24
+                    hours to schedule a consultation.
                   </p>
                 </div>
 
@@ -479,7 +504,8 @@ export function ContactPageContent() {
                       Estimate Request Received!
                     </h4>
                     <p className="text-sm text-slate-600 mt-2 max-w-md mx-auto">
-                      Thank you for contacting Handyman At Home. One of our project managers will review your project details and reach out within 24 hours.
+                      Thank you for contacting Handyman At Home. One of our project managers will
+                      review your project details and reach out within 24 hours.
                     </p>
                     <p className="text-xs font-bold text-[#0000b9] mt-4">
                       For immediate emergency dispatch, call (214) 814-1444 directly.
@@ -496,7 +522,10 @@ export function ContactPageContent() {
                   <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                     {/* Full Name */}
                     <div>
-                      <label htmlFor="fullName" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label
+                        htmlFor="fullName"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                      >
                         Full Name <span className="text-rose-500">*</span>
                       </label>
                       <input
@@ -513,7 +542,10 @@ export function ContactPageContent() {
                     {/* Phone & Email Row */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        <label
+                          htmlFor="phone"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
                           Phone Number <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -528,7 +560,10 @@ export function ContactPageContent() {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        <label
+                          htmlFor="email"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
                           Email Address <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -545,8 +580,14 @@ export function ContactPageContent() {
 
                     {/* Project Address / City */}
                     <div>
-                      <label htmlFor="address" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                        Project Address / City <span className="text-slate-400 font-normal">(e.g., Dallas, Fort Worth, Plano)</span>
+                      <label
+                        htmlFor="address"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                      >
+                        Project Address / City{" "}
+                        <span className="text-slate-400 font-normal">
+                          (e.g., Dallas, Fort Worth, Plano)
+                        </span>
                       </label>
                       <input
                         type="text"
@@ -560,7 +601,10 @@ export function ContactPageContent() {
 
                     {/* Service Needed Dropdown */}
                     <div>
-                      <label htmlFor="service" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label
+                        htmlFor="service"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                      >
                         Service Needed <span className="text-rose-500">*</span>
                       </label>
                       <div className="relative">
@@ -583,8 +627,14 @@ export function ContactPageContent() {
 
                     {/* Project Details */}
                     <div>
-                      <label htmlFor="details" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                        Project Details <span className="text-slate-400 font-normal">(Tell us what you'd like done—large or small, we handle it all!)</span>
+                      <label
+                        htmlFor="details"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                      >
+                        Project Details{" "}
+                        <span className="text-slate-400 font-normal">
+                          (Tell us what you'd like done—large or small, we handle it all!)
+                        </span>
                       </label>
                       <textarea
                         id="details"
@@ -661,7 +711,6 @@ export function ContactPageContent() {
                 )}
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -682,7 +731,9 @@ export function ContactPageContent() {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-              Our mobile repair vans and certified crews provide thorough general contracting, remodeling, and handyman services across a 40-mile radius. We are proud to serve the following communities:
+              Our mobile repair vans and certified crews provide thorough general contracting,
+              remodeling, and handyman services across a 40-mile radius. We are proud to serve the
+              following communities:
             </p>
           </div>
 
@@ -733,7 +784,8 @@ export function ContactPageContent() {
                   Don't see your city listed?
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-blue-100 leading-relaxed">
-                  Give us a call! We serve communities across a 40-mile radius of DFW and likely serve your neighborhood.
+                  Give us a call! We serve communities across a 40-mile radius of DFW and likely
+                  serve your neighborhood.
                 </p>
               </div>
 
@@ -827,7 +879,9 @@ export function ContactPageContent() {
               </h3>
 
               <p className="mt-3 text-sm sm:text-base text-blue-100 leading-relaxed">
-                And don't wait any longer to build the home of your dreams. Call us today at <strong className="text-white">(214) 814-1444</strong> or click below to request your free estimate.
+                And don't wait any longer to build the home of your dreams. Call us today at{" "}
+                <strong className="text-white">(214) 814-1444</strong> or click below to request
+                your free estimate.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

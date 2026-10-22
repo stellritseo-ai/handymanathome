@@ -31,10 +31,8 @@ export function CtaBanner() {
 
       <div className="mx-auto max-w-7xl relative z-20">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
           {/* Left Column: Accreditation, Value Proposition & Trust Badges */}
           <div className="lg:col-span-7 text-center lg:text-left">
-            
             {/* BBB A+ Accredited Business Badge */}
             <motion.a
               href={SOCIAL_LINKS.bbb}
@@ -70,9 +68,7 @@ export function CtaBanner() {
             </motion.a>
 
             {/* Headline */}
-            <h2
-              className="text-[26px] xs:text-[29px] sm:text-[33px] -mt-[10px] -mb-[5px] font-black tracking-tight text-white leading-[1.22] drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]"
-            >
+            <h2 className="text-[26px] xs:text-[29px] sm:text-[33px] -mt-[10px] -mb-[5px] font-black tracking-tight text-white leading-[1.22] drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
               Ready to Transform Your{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-blue-100 to-white">
                 Dallas–Fort Worth
@@ -82,7 +78,9 @@ export function CtaBanner() {
 
             {/* Sub-narrative */}
             <p className="mt-3.5 text-base sm:text-lg text-slate-200 max-w-2xl font-normal leading-relaxed opacity-95 drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]">
-              From full turnkey remodels and commercial renovations to reliable everyday handyman repairs—partner with DFW’s trusted A+ accredited contractor. Contact us today for a fast, free estimate.
+              From full turnkey remodels and commercial renovations to reliable everyday handyman
+              repairs—partner with DFW’s trusted A+ accredited contractor. Contact us today for a
+              fast, free estimate.
             </p>
 
             {/* Trust Chips */}
@@ -111,7 +109,6 @@ export function CtaBanner() {
             className="lg:col-span-5"
           >
             <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.35)] flex flex-col gap-4 text-center sm:text-left relative overflow-hidden">
-              
               {/* Card Header Beacon */}
               <div className="flex items-center justify-between pb-1 border-b border-white/10">
                 <div className="flex items-center gap-2">
@@ -123,9 +120,7 @@ export function CtaBanner() {
                     Contractors Available Now
                   </span>
                 </div>
-                <span className="text-[11px] font-semibold text-slate-300">
-                  DFW Metro Dispatch
-                </span>
+                <span className="text-[11px] font-semibold text-slate-300">DFW Metro Dispatch</span>
               </div>
 
               {/* Direct Phone Numbers */}
@@ -143,7 +138,7 @@ export function CtaBanner() {
                     </div>
                     <span>(214) 814-1444</span>
                   </a>
-                  
+
                   <div className="flex items-center justify-center sm:justify-start gap-2 text-xs text-slate-300 pl-1">
                     <span>Or</span>
                     <a
@@ -176,10 +171,8 @@ export function CtaBanner() {
                   <span>handymanathome@gmail.com</span>
                 </button>
               </div>
-
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

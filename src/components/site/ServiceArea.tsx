@@ -43,7 +43,6 @@ export function ServiceArea() {
 
       <div className="mx-auto w-[90%] max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-
           {/* Left Column: Heading, Content & Chips (7 cols) */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* Tag Badge */}
@@ -56,9 +55,7 @@ export function ServiceArea() {
             </div>
 
             {/* Headline */}
-            <h2
-              className="text-neutral-900 leading-tight tracking-tight text-[25px] xs:text-[29px] sm:text-[35px] -mt-[5px] mb-[5px] font-extrabold"
-            >
+            <h2 className="text-neutral-900 leading-tight tracking-tight text-[25px] xs:text-[29px] sm:text-[35px] -mt-[5px] mb-[5px] font-extrabold">
               Proudly Serving{" "}
               <span className="bg-gradient-to-r from-[#0000b9] via-[#0d1fd6] to-[#2563eb] bg-clip-text text-transparent">
                 Dallas, Fort Worth
@@ -71,7 +68,9 @@ export function ServiceArea() {
               style={{ marginBottom: "10px" }}
               className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl mb-[10px]"
             >
-              From historic neighborhoods to modern suburban developments, our mobile repair vans and certified crews provide turnkey general contracting, remodeling, painting, roofing, and 24/7 rapid handyman services across North Texas.
+              From historic neighborhoods to modern suburban developments, our mobile repair vans
+              and certified crews provide turnkey general contracting, remodeling, painting,
+              roofing, and 24/7 rapid handyman services across North Texas.
             </p>
 
             {/* Area Chips Cloud */}
@@ -88,8 +87,8 @@ export function ServiceArea() {
                       isActive
                         ? "bg-[#0000b9] border-[#0000b9] text-white scale-[1.03] -translate-y-0.5 shadow-md shadow-[#0000b9]/25"
                         : a.isPrimary
-                        ? "text-slate-900 bg-blue-50/60 border-blue-200/80 hover:bg-[#0000b9] hover:border-[#0000b9] hover:text-white"
-                        : "text-slate-700 bg-white border-slate-200/80 hover:bg-slate-50 hover:border-[#0000b9]/30 hover:text-[#0000b9] shadow-2xs"
+                          ? "text-slate-900 bg-blue-50/60 border-blue-200/80 hover:bg-[#0000b9] hover:border-[#0000b9] hover:text-white"
+                          : "text-slate-700 bg-white border-slate-200/80 hover:bg-slate-50 hover:border-[#0000b9]/30 hover:text-[#0000b9] shadow-2xs"
                     }`}
                   >
                     <MapPin
@@ -97,8 +96,8 @@ export function ServiceArea() {
                         isActive
                           ? "text-white"
                           : a.isPrimary
-                          ? "text-[#0000b9] group-hover:text-white"
-                          : "text-slate-400 group-hover:text-[#0000b9]"
+                            ? "text-[#0000b9] group-hover:text-white"
+                            : "text-slate-400 group-hover:text-[#0000b9]"
                       }`}
                     />
                     <span>{a.name}</span>
@@ -193,7 +192,6 @@ export function ServiceArea() {
               </div>
             </motion.div>
           </div>
-
         </div>
       </div>
     </section>

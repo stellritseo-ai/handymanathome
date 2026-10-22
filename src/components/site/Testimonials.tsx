@@ -116,10 +116,7 @@ function StarRating({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <Star
-          key={i}
-          className="w-4 h-4 fill-[#FBBF24] text-[#FBBF24]"
-        />
+        <Star key={i} className="w-4 h-4 fill-[#FBBF24] text-[#FBBF24]" />
       ))}
     </div>
   );
@@ -128,7 +125,6 @@ function StarRating({ count }: { count: number }) {
 function TestimonialCard({ review }: { review: Review }) {
   return (
     <div className="relative flex-shrink-0 w-[280px] xs:w-[330px] sm:w-[380px] mx-2 xs:mx-3 bg-white border border-slate-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,185,0.08)] hover:border-[#0000b9]/30 rounded-2xl p-4.5 xs:p-5 sm:p-6 flex flex-col justify-between gap-4 group hover:-translate-y-0.5 transition-all duration-300">
-      
       {/* Top Header: Stars, Google badge, Verified check */}
       <div className="flex items-center justify-between gap-2">
         <StarRating count={review.rating} />
@@ -170,9 +166,7 @@ function TestimonialCard({ review }: { review: Review }) {
           <p className="text-slate-900 font-extrabold text-[13.5px] leading-tight truncate">
             {review.name}
           </p>
-          <p className="text-slate-500 text-xs mt-0.5 font-medium truncate">
-            {review.role}
-          </p>
+          <p className="text-slate-500 text-xs mt-0.5 font-medium truncate">{review.role}</p>
         </div>
       </div>
     </div>
@@ -189,8 +183,7 @@ function MarqueeRow({
   const trackRef = useRef<HTMLDivElement>(null);
   const duplicated = [...items, ...items, ...items];
 
-  const animClass =
-    direction === "left" ? "marquee-track-left" : "marquee-track-right";
+  const animClass = direction === "left" ? "marquee-track-left" : "marquee-track-right";
 
   return (
     <div
@@ -254,7 +247,8 @@ export function Testimonials() {
           style={{ marginBottom: "-25px" }}
           className="mx-auto max-w-2xl text-slate-600 text-[15px] sm:text-base leading-relaxed font-normal -mb-[25px]"
         >
-          Real feedback from homeowners, landlords, and commercial property managers across Dallas, Fort Worth, and neighboring communities.
+          Real feedback from homeowners, landlords, and commercial property managers across Dallas,
+          Fort Worth, and neighboring communities.
         </p>
       </div>
 

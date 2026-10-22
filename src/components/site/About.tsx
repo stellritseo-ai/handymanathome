@@ -1,5 +1,14 @@
 import { useRef, useEffect } from "react";
-import { Phone, CheckCircle2, ShieldCheck, Clock, Award, Star, ArrowRight, Sparkles } from "lucide-react";
+import {
+  Phone,
+  CheckCircle2,
+  ShieldCheck,
+  Clock,
+  Award,
+  Star,
+  ArrowRight,
+  Sparkles,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import welcomeVideo from "@/assets/welcom-handyman.mp4";
 import craftsmanImg from "@/assets/about-craftsman.jpg";
@@ -50,10 +59,8 @@ export function About() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center gap-10">
-
           {/* ── Left Column ── */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
-
             {/* Tag Badge */}
             <div className="inline-flex items-center gap-2 bg-blue-50 border border-[#0000b9]/20 px-4 py-1.5 rounded-full">
               <span className="relative flex h-2 w-2">
@@ -78,11 +85,21 @@ export function About() {
 
             {/* Body */}
             <p className="mt-3 text-[14.5px] sm:text-base leading-relaxed text-slate-700 max-w-2xl">
-              For over two decades, Handyman At Home has been the preferred contractor for homeowners and commercial property managers throughout Dallas, Fort Worth, and the surrounding Metroplex. From luxury kitchen and bathroom remodels, custom carpentry, and roofing restoration to plumbing fixes and quick turnaround repairs—no project is too large or too small.
+              For over two decades, Handyman At Home has been the preferred contractor for
+              homeowners and commercial property managers throughout Dallas, Fort Worth, and the
+              surrounding Metroplex. From luxury kitchen and bathroom remodels, custom carpentry,
+              and roofing restoration to plumbing fixes and quick turnaround repairs—no project is
+              too large or too small.
             </p>
 
             {/* Marquee Pillars */}
-            <div className="mt-7 w-full overflow-hidden relative py-1.5" style={{ maskImage: "linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent)" }}>
+            <div
+              className="mt-7 w-full overflow-hidden relative py-1.5"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent)",
+              }}
+            >
               <div className="pillars-marquee-track">
                 {duplicatedPillars.map((pillar, index) => {
                   const IconComponent = pillar.icon;
@@ -99,8 +116,12 @@ export function About() {
                         <IconComponent className="h-4 w-4" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-[13px] font-bold text-slate-900 leading-tight">{pillar.title}</h4>
-                        <p className="text-[11.5px] text-slate-500 leading-snug mt-1 line-clamp-2">{pillar.desc}</p>
+                        <h4 className="text-[13px] font-bold text-slate-900 leading-tight">
+                          {pillar.title}
+                        </h4>
+                        <p className="text-[11.5px] text-slate-500 leading-snug mt-1 line-clamp-2">
+                          {pillar.desc}
+                        </p>
                       </div>
                     </div>
                   );
@@ -136,12 +157,8 @@ export function About() {
 
           {/* ── Right Column: Visual ── */}
           <div className="lg:col-span-5 flex flex-col items-center gap-5">
-
             {/* Arch wrapper — explicit height set via inline style to guarantee rendering */}
-            <div
-              className="relative flex-shrink-0"
-              style={{ width: "280px", height: "420px" }}
-            >
+            <div className="relative flex-shrink-0" style={{ width: "280px", height: "420px" }}>
               {/* Arch Video Container */}
               <div
                 className="relative w-full h-full overflow-hidden border-[5px] border-white bg-slate-900"
@@ -206,8 +223,12 @@ export function About() {
                   ))}
                 </div>
                 <span className="text-xl font-black leading-none">24+</span>
-                <span className="text-[7px] font-bold uppercase tracking-widest text-blue-100 mt-0.5">Years Of</span>
-                <span className="text-[6.5px] font-bold uppercase tracking-widest text-blue-200 leading-none">Excellence</span>
+                <span className="text-[7px] font-bold uppercase tracking-widest text-blue-100 mt-0.5">
+                  Years Of
+                </span>
+                <span className="text-[6.5px] font-bold uppercase tracking-widest text-blue-200 leading-none">
+                  Excellence
+                </span>
               </motion.div>
             </div>
 
@@ -221,14 +242,21 @@ export function About() {
                   <CheckCircle2 className="h-5 w-5" />
                 </div>
                 <div className="text-left min-w-0">
-                  <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">GENERAL CONTRACTOR</p>
-                  <p className="text-sm font-extrabold text-slate-900 leading-tight">Handyman At Home</p>
-                  <p className="text-[10px] text-emerald-600 font-semibold mt-0.5">100% Satisfaction Guaranteed</p>
+                  <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">
+                    GENERAL CONTRACTOR
+                  </p>
+                  <p className="text-sm font-extrabold text-slate-900 leading-tight">
+                    Handyman At Home
+                  </p>
+                  <p className="text-[10px] text-emerald-600 font-semibold mt-0.5">
+                    100% Satisfaction Guaranteed
+                  </p>
                 </div>
               </div>
-              <span className="shrink-0 text-[8px] font-black text-[#0000b9] bg-[#0000b9]/10 px-2.5 py-1.5 rounded-full uppercase tracking-wider">SINCE 2001</span>
+              <span className="shrink-0 text-[8px] font-black text-[#0000b9] bg-[#0000b9]/10 px-2.5 py-1.5 rounded-full uppercase tracking-wider">
+                SINCE 2001
+              </span>
             </div>
-
           </div>
         </div>
       </div>

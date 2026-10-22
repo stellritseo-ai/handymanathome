@@ -1,27 +1,39 @@
 import { motion } from "framer-motion";
 import logoImg from "@/assets/logo.png";
 import bbbLogo from "@/assets/bbb.svg";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  ArrowRight,
-  ShieldCheck,
-  Award,
-} from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowRight, ShieldCheck, Award } from "lucide-react";
 
 import { SOCIAL_LINKS } from "@/lib/socialLinks";
 
 // Inline SVG Social Icons
 const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+  <svg
+    viewBox="0 0 24 24"
+    width="18"
+    height="18"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
   </svg>
 );
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+  <svg
+    viewBox="0 0 24 24"
+    width="18"
+    height="18"
+    stroke="currentColor"
+    strokeWidth="2"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -44,7 +56,11 @@ const socials = [
   { icon: FacebookIcon, href: SOCIAL_LINKS.facebook, label: "Facebook" },
   { icon: InstagramIcon, href: SOCIAL_LINKS.instagram, label: "Instagram" },
   { icon: YelpIcon, href: SOCIAL_LINKS.yelp, label: "Yelp" },
-  { icon: GoogleIcon, href: "https://maps.google.com/?q=1730+Newlin+Dr,+DFW,+TX+75125", label: "Google Business" },
+  {
+    icon: GoogleIcon,
+    href: "https://maps.google.com/?q=1730+Newlin+Dr,+DFW,+TX+75125",
+    label: "Google Business",
+  },
 ];
 
 const quickLinks = [
@@ -97,16 +113,13 @@ const bottomBarKeywords = [
 
 export function Footer() {
   return (
-    <footer
-      className="relative bg-[#060a18] text-white overflow-hidden border-t border-slate-900 pt-[60px] pb-24 lg:pb-5"
-    >
+    <footer className="relative bg-[#060a18] text-white overflow-hidden border-t border-slate-900 pt-[60px] pb-24 lg:pb-5">
       {/* Background radial glow accents */}
       <div className="absolute -top-40 left-1/4 w-[450px] h-[450px] bg-[#0000b9]/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute -bottom-40 right-10 w-[400px] h-[400px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative mx-auto w-[90%] max-w-7xl z-10 text-left">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
-
           {/* Logo & Description (4 cols) */}
           <div className="lg:col-span-4">
             <div className="inline-flex items-center bg-white px-4 py-2.5 rounded-xl shadow-md">
@@ -118,7 +131,9 @@ export function Footer() {
             </div>
 
             <p className="mt-5 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-              For over two decades, Handyman At Home has been the trusted general contracting &amp; handyman partner for homeowners and commercial property managers across Dallas–Fort Worth. Licensed, insured, and committed to turnkey excellence since 2001.
+              For over two decades, Handyman At Home has been the trusted general contracting &amp;
+              handyman partner for homeowners and commercial property managers across Dallas–Fort
+              Worth. Licensed, insured, and committed to turnkey excellence since 2001.
             </p>
 
             {/* Socials row */}
@@ -238,7 +253,6 @@ export function Footer() {
               </div>
             </div>
           </div>
-
         </div>
 
         {/* ── Bottom Bar Keywords ──────────────────────────── */}
@@ -259,7 +273,12 @@ export function Footer() {
         <div className="mt-8 pt-6 border-t border-slate-900 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400 font-normal">
           <p>
             Copyright © {new Date().getFullYear()} Handyman At Home | All Rights Reserved. Design By{" "}
-            <a href="https://stellrit.com" target="_blank" rel="noopener noreferrer" className="text-white hover:underline font-semibold">
+            <a
+              href="https://stellrit.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:underline font-semibold"
+            >
               StellR IT
             </a>
           </p>
@@ -272,7 +291,6 @@ export function Footer() {
             <ArrowRight className="h-3.5 w-3.5 -rotate-90 text-[#3b5bfd]" />
           </button>
         </div>
-
       </div>
     </footer>
   );

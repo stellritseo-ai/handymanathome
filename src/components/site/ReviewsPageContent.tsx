@@ -134,7 +134,7 @@ const clientReviews: ClientReview[] = [
   },
   {
     id: 7,
-    title: "The \"Jack of All Trades\" We Needed",
+    title: 'The "Jack of All Trades" We Needed',
     quote:
       "I had a long list of things to fix: a broken fence gate, a ceiling fan to install, and some drywall that needed patching. Handyman At Home sent one technician who knocked it all out in a single afternoon. His attention to detail was fantastic. It’s so nice to have one company to call for everything.",
     author: "David L.",
@@ -243,7 +243,8 @@ const clientReviews: ClientReview[] = [
   },
 ];
 
-type FilterKey = "all" | "remodel" | "painting" | "roofing" | "carpentry" | "commercial" | "emergency";
+type FilterKey =
+  "all" | "remodel" | "painting" | "roofing" | "carpentry" | "commercial" | "emergency";
 
 const filterTabs: { key: FilterKey; label: string }[] = [
   { key: "all", label: "All Reviews (15)" },
@@ -300,7 +301,10 @@ export function ReviewsPageContent() {
                 <li className="text-slate-600">
                   <ChevronRight className="h-3.5 w-3.5" />
                 </li>
-                <li className="text-white font-semibold flex items-center gap-1.5" aria-current="page">
+                <li
+                  className="text-white font-semibold flex items-center gap-1.5"
+                  aria-current="page"
+                >
                   <span>Client Reviews</span>
                 </li>
               </ol>
@@ -348,10 +352,18 @@ export function ReviewsPageContent() {
               {/* Lead Text */}
               <div className="mt-4 space-y-3 text-slate-300 text-sm sm:text-base leading-relaxed">
                 <p>
-                  For over two decades, <strong className="text-white font-bold">Handyman At Home</strong> has been the go-to general contractor for the Dallas-Fort Worth metroplex. But don't just take our word for it. Our reputation has been built one satisfied customer at a time.
+                  For over two decades,{" "}
+                  <strong className="text-white font-bold">Handyman At Home</strong> has been the
+                  go-to general contractor for the Dallas-Fort Worth metroplex. But don't just take
+                  our word for it. Our reputation has been built one satisfied customer at a time.
                 </p>
                 <p>
-                  With a <strong className="text-white font-bold">5.0 Google Rating</strong> and <strong className="text-emerald-400 font-bold">99.9% Satisfaction Guarantee</strong>, we are proud to share the experiences of the homeowners, property managers, and business owners who trust us with their most valuable investments.
+                  With a <strong className="text-white font-bold">5.0 Google Rating</strong> and{" "}
+                  <strong className="text-emerald-400 font-bold">
+                    99.9% Satisfaction Guarantee
+                  </strong>
+                  , we are proud to share the experiences of the homeowners, property managers, and
+                  business owners who trust us with their most valuable investments.
                 </p>
               </div>
 
@@ -386,7 +398,9 @@ export function ReviewsPageContent() {
 
                 {/* Star Score Graphic */}
                 <div className="flex items-center justify-center gap-2 my-2">
-                  <span className="text-5xl sm:text-6xl font-black text-white leading-none">5.0</span>
+                  <span className="text-5xl sm:text-6xl font-black text-white leading-none">
+                    5.0
+                  </span>
                   <div className="text-left">
                     <div className="flex gap-1 text-amber-400 mb-1">
                       {[...Array(5)].map((_, i) => (
@@ -528,7 +542,10 @@ export function ReviewsPageContent() {
                       </p>
                       <p className="text-xs text-slate-500 font-medium flex items-center gap-1 mt-0.5">
                         <MapPin className="h-3 w-3 text-amber-500 shrink-0" />
-                        <span>{review.role ? `${review.role}, ` : ""}{review.location}</span>
+                        <span>
+                          {review.role ? `${review.role}, ` : ""}
+                          {review.location}
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -552,7 +569,8 @@ export function ReviewsPageContent() {
                   Are you a past client of Handyman At Home?
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-500">
-                  Your feedback helps neighbors make informed decisions. We invite you to leave a Google review.
+                  Your feedback helps neighbors make informed decisions. We invite you to leave a
+                  Google review.
                 </p>
               </div>
             </div>
@@ -609,10 +627,15 @@ export function ReviewsPageContent() {
 
             {/* Subhead & Paragraph */}
             <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Join the thousands of satisfied homeowners and businesses across <strong className="text-slate-900 font-bold">Dallas, Fort Worth, and the surrounding 40-mile area</strong>.
+              Join the thousands of satisfied homeowners and businesses across{" "}
+              <strong className="text-slate-900 font-bold">
+                Dallas, Fort Worth, and the surrounding 40-mile area
+              </strong>
+              .
             </p>
             <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Whether you need a quick repair, a major remodel, or 24/7 emergency service, our team is ready to deliver quality craftsmanship and exceptional customer service.
+              Whether you need a quick repair, a major remodel, or 24/7 emergency service, our team
+              is ready to deliver quality craftsmanship and exceptional customer service.
             </p>
           </div>
 
@@ -730,7 +753,8 @@ export function ReviewsPageContent() {
                 Get Your Free Estimate Today
               </h3>
               <p className="mt-3 text-sm sm:text-base text-blue-100 leading-relaxed">
-                Join our family of happy DFW clients. Transparent quotes, master craftsmanship, and no hidden fees guaranteed.
+                Join our family of happy DFW clients. Transparent quotes, master craftsmanship, and
+                no hidden fees guaranteed.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

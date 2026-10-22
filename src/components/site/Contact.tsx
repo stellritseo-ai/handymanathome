@@ -54,7 +54,6 @@ export function Contact() {
       <div className="pointer-events-none absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-sky-400/[0.04] rounded-full blur-[130px] -z-10" />
 
       <div className="mx-auto w-[90%] max-w-7xl relative z-10">
-        
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           {/* Eyebrow Badge */}
@@ -67,9 +66,7 @@ export function Contact() {
           </div>
 
           {/* Headline */}
-          <h2
-            className="text-[26px] xs:text-[30px] sm:text-[38px] -mt-[6px] font-extrabold text-neutral-900 leading-tight tracking-tight mb-3"
-          >
+          <h2 className="text-[26px] xs:text-[30px] sm:text-[38px] -mt-[6px] font-extrabold text-neutral-900 leading-tight tracking-tight mb-3">
             Ready to Transform{" "}
             <span className="bg-gradient-to-r from-[#0000b9] via-[#0d1fd6] to-[#2563eb] bg-clip-text text-transparent">
               Your Space?
@@ -77,18 +74,15 @@ export function Contact() {
           </h2>
 
           {/* Subtitle */}
-          <p
-            className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto mb-2 sm:-mb-6"
-          >
+          <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto mb-2 sm:-mb-6">
             Contact us today for a 100% free, no-obligation estimate.
-            <br className="hidden sm:inline" />{" "}
-            We provide upfront fixed pricing, guaranteed craftsmanship, and rapid response across the Dallas–Fort Worth metroplex.
+            <br className="hidden sm:inline" /> We provide upfront fixed pricing, guaranteed
+            craftsmanship, and rapid response across the Dallas–Fort Worth metroplex.
           </p>
         </div>
 
         {/* 2-Column Content Grid */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          
           {/* ── Left Column: Contact Info Card (5 cols) ── */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -112,7 +106,8 @@ export function Contact() {
                 Direct Contact &amp; Dispatch
               </h3>
               <p className="mt-2 text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
-                Reach our local team for fast project scheduling, on-site walkthroughs, or urgent 24/7 emergency dispatch.
+                Reach our local team for fast project scheduling, on-site walkthroughs, or urgent
+                24/7 emergency dispatch.
               </p>
 
               {/* Info Items List */}
@@ -180,7 +175,8 @@ export function Contact() {
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-500 font-normal mt-1">
-                Tell us about your project. We'll review your details and get back to you promptly with honest pricing.
+                Tell us about your project. We'll review your details and get back to you promptly
+                with honest pricing.
               </p>
             </div>
 
@@ -199,7 +195,8 @@ export function Contact() {
                     Thank You! Request Received
                   </h4>
                   <p className="mt-2 text-sm text-slate-600 font-medium max-w-sm">
-                    A Handyman At Home estimator will contact you within 15 minutes to review your project and schedule your consultation.
+                    A Handyman At Home estimator will contact you within 15 minutes to review your
+                    project and schedule your consultation.
                   </p>
                   <button
                     type="button"
@@ -256,14 +253,22 @@ export function Contact() {
                           defaultValue=""
                           className="w-full appearance-none rounded-xl border border-slate-200/90 bg-slate-50/70 px-4 py-3 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-4 focus:ring-[#0000b9]/10 focus:border-[#0000b9] focus:bg-white transition-all cursor-pointer"
                         >
-                          <option value="" disabled>Select a core service...</option>
-                          <option value="Kitchen Remodeling">Kitchen Remodeling &amp; Cabinetry</option>
-                          <option value="Bathroom Remodeling">Bathroom Remodeling &amp; Tile</option>
+                          <option value="" disabled>
+                            Select a core service...
+                          </option>
+                          <option value="Kitchen Remodeling">
+                            Kitchen Remodeling &amp; Cabinetry
+                          </option>
+                          <option value="Bathroom Remodeling">
+                            Bathroom Remodeling &amp; Tile
+                          </option>
                           <option value="Painting">Interior &amp; Exterior Painting</option>
                           <option value="Roofing">Roofing Repair &amp; Replacement</option>
                           <option value="Plumbing">Plumbing Fixtures &amp; Pipe Repairs</option>
                           <option value="Deck & Siding">Deck, Siding &amp; Wood Rot</option>
-                          <option value="General Handyman">General Handyman &amp; Home Repairs</option>
+                          <option value="General Handyman">
+                            General Handyman &amp; Home Repairs
+                          </option>
                           <option value="24/7 Emergency">24/7 Emergency Dispatch</option>
                         </select>
                         <ChevronDown className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
@@ -303,7 +308,6 @@ export function Contact() {
               )}
             </AnimatePresence>
           </motion.div>
-
         </div>
       </div>
     </section>
@@ -348,9 +352,7 @@ function Item({
           {value}
         </span>
         {subValue && (
-          <span className="text-[10.5px] text-slate-400 font-normal block mt-0.5">
-            {subValue}
-          </span>
+          <span className="text-[10.5px] text-slate-400 font-normal block mt-0.5">{subValue}</span>
         )}
       </div>
     </div>
@@ -375,13 +377,7 @@ function Label({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Field({
-  label,
-  name,
-  type = "text",
-  placeholder,
-  required,
-}: any) {
+function Field({ label, name, type = "text", placeholder, required }: any) {
   return (
     <div>
       <Label>{label}</Label>

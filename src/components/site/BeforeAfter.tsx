@@ -1,15 +1,21 @@
 import { useState, useEffect, useCallback } from "react";
-import { X, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
+import {
+  X,
+  ZoomIn,
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+  ChevronUp,
+  ArrowRight,
+} from "lucide-react";
 
 // Dynamically extract all images from assets/gallery
 const galleryModules = import.meta.glob<{ default: string }>(
   "../../assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
-  { eager: true }
+  { eager: true },
 );
 
-const galleryImages: string[] = Object.values(galleryModules).map(
-  (mod) => mod.default
-);
+const galleryImages: string[] = Object.values(galleryModules).map((mod) => mod.default);
 
 export function BeforeAfter() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -27,21 +33,13 @@ export function BeforeAfter() {
 
   const prevImage = useCallback(() => {
     setSelectedIndex((prev) =>
-      prev !== null
-        ? prev === 0
-          ? galleryImages.length - 1
-          : prev - 1
-        : null
+      prev !== null ? (prev === 0 ? galleryImages.length - 1 : prev - 1) : null,
     );
   }, []);
 
   const nextImage = useCallback(() => {
     setSelectedIndex((prev) =>
-      prev !== null
-        ? prev === galleryImages.length - 1
-          ? 0
-          : prev + 1
-        : null
+      prev !== null ? (prev === galleryImages.length - 1 ? 0 : prev + 1) : null,
     );
   }, []);
 
@@ -84,7 +82,6 @@ export function BeforeAfter() {
       className="bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC] py-[60px] overflow-hidden border-b border-slate-200/70"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
         {/* ── Section Header ─────────────────────────────── */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div className="text-left">
@@ -99,7 +96,8 @@ export function BeforeAfter() {
               Featured Remodeling &amp; Repair Work
             </h2>
             <p className="text-sm text-slate-600 font-normal mt-1.5 max-w-xl">
-              Authentic project photos of residential and commercial repairs, remodeling, painting, and construction across Dallas–Fort Worth.
+              Authentic project photos of residential and commercial repairs, remodeling, painting,
+              and construction across Dallas–Fort Worth.
             </p>
           </div>
 
@@ -161,7 +159,6 @@ export function BeforeAfter() {
             <ArrowRight className="h-4 w-4 text-[#0000b9]" />
           </a>
         </div>
-
       </div>
 
       {/* ── High-Performance Lightbox Modal with Slider Controls ──────────────────── */}

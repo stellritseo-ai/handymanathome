@@ -4,11 +4,7 @@ import roof from "@/assets/svc-roof.png";
 import landscaping from "@/assets/svc-landscaping.png";
 import commercial from "@/assets/svc-commercial.png";
 import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { motion } from "framer-motion";
 
@@ -16,7 +12,8 @@ const services = [
   {
     title: "Kitchen & Bathroom Remodel",
     desc: "At Handyman At Home, we transform your most essential rooms into beautiful, functional spaces designed for your lifestyle. From custom cabinetry and tile work to full floor-to-ceiling upgrades, we bring your vision to life.",
-    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
     href: "/services/kitchen-bathroom-remodel",
   },
   {
@@ -34,7 +31,8 @@ const services = [
   {
     title: "Plumbing Services",
     desc: "From minor drips to major pipe installations, we offer comprehensive plumbing services to keep your water flowing smoothly. Faucets, toilets, drains, and pipe replacements handled by seasoned pros.",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
     href: "/services/plumbing",
   },
   {
@@ -61,19 +59,13 @@ export function Services() {
   // First 3 items for the top row grid
   const topItems = services.slice(0, 3);
   // Duplicate for smooth seamless loop in carousel
-  const slideItems = [
-    ...services,
-    ...services,
-    ...services,
-  ];
+  const slideItems = [...services, ...services, ...services];
 
   return (
     <section id="services" className="w-full bg-[#fff] py-[60px] px-4 md:px-8 overflow-hidden">
       <div className="mx-auto max-w-[1400px] w-full">
-
         {/* Top Row Grid: Left Text Column + 3 Right Image Cards */}
         <div className="grid lg:grid-cols-[38%_1fr] gap-10 lg:gap-14 items-center">
-
           {/* Left Text Block */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -92,15 +84,15 @@ export function Services() {
                 <span>Services We Offer</span>
               </div>
 
-              <h2
-                className="text-[26px] xs:text-[30px] sm:text-[35px] -mt-[5px] mb-2 sm:-mb-[15px] leading-tight font-extrabold text-neutral-900 tracking-tight"
-              >
+              <h2 className="text-[26px] xs:text-[30px] sm:text-[35px] -mt-[5px] mb-2 sm:-mb-[15px] leading-tight font-extrabold text-neutral-900 tracking-tight">
                 Comprehensive Services for Your{" "}
                 <span className="text-[#0000b9]">Home or Business</span>
               </h2>
 
               <p className="mt-4 text-neutral-600 text-sm md:text-base leading-relaxed font-normal">
-                We are your one-stop solution for a wide range of repair, maintenance, and improvement needs across Dallas–Fort Worth. As a full-service licensed general contractor, we handle every detail with master craftsmanship.
+                We are your one-stop solution for a wide range of repair, maintenance, and
+                improvement needs across Dallas–Fort Worth. As a full-service licensed general
+                contractor, we handle every detail with master craftsmanship.
               </p>
 
               {/* Trust Value Points */}
@@ -223,7 +215,10 @@ export function Services() {
           >
             <CarouselContent className="-ml-5 transform-gpu" style={{ willChange: "transform" }}>
               {slideItems.map((s, idx) => (
-                <CarouselItem key={`${s.title}-${idx}`} className="pl-5 basis-full xs:basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+                <CarouselItem
+                  key={`${s.title}-${idx}`}
+                  className="pl-5 basis-full xs:basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                >
                   <div className="group relative rounded-[14px] overflow-hidden shadow-md bg-neutral-950 h-[220px] sm:h-[260px] lg:h-[320px] border border-neutral-900/10 cursor-pointer transform-gpu">
                     {/* Background image */}
                     <img

@@ -156,13 +156,19 @@ export function Nav() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${scrolled ? "shadow-[0_10px_30px_-10px_rgba(9,14,36,0.12),0_1px_3px_rgba(9,14,36,0.05)]" : ""
-          }`}
+        className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${
+          scrolled
+            ? "shadow-[0_10px_30px_-10px_rgba(9,14,36,0.12),0_1px_3px_rgba(9,14,36,0.05)]"
+            : ""
+        }`}
       >
         {/* Top Utility Bar (Collapses smoothly on scroll for compact clean view) */}
         <div
-          className={`bg-[#070b1a] text-slate-300 border-b border-white/10 transition-all duration-300 overflow-hidden ${scrolled ? "max-h-0 opacity-0 py-0 border-transparent" : "max-h-28 opacity-100 py-2 sm:py-2.5"
-            }`}
+          className={`bg-[#070b1a] text-slate-300 border-b border-white/10 transition-all duration-300 overflow-hidden ${
+            scrolled
+              ? "max-h-0 opacity-0 py-0 border-transparent"
+              : "max-h-28 opacity-100 py-2 sm:py-2.5"
+          }`}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 text-[11px] sm:text-[11.5px]">
             {/* Left: Email & Service Area */}
@@ -175,12 +181,16 @@ export function Nav() {
                 <div className="h-5 w-5 rounded-full bg-blue-500/20 text-blue-400 group-hover:bg-blue-500/30 flex items-center justify-center transition-colors">
                   <Mail className="h-3 w-3" />
                 </div>
-                <span className="font-medium tracking-normal text-slate-200">handymanathome@gmail.com</span>
+                <span className="font-medium tracking-normal text-slate-200">
+                  handymanathome@gmail.com
+                </span>
               </a>
 
               <div className="hidden md:flex items-center gap-1.5 text-slate-300 border-l border-white/10 pl-4">
                 <MapPin className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                <span className="font-medium">Dallas–Fort Worth Metroplex &amp; Surrounding Areas</span>
+                <span className="font-medium">
+                  Dallas–Fort Worth Metroplex &amp; Surrounding Areas
+                </span>
               </div>
             </div>
 
@@ -195,7 +205,9 @@ export function Nav() {
                 <span className="font-semibold hidden sm:inline">
                   Mon–Fri 7am–9pm <span className="text-white/30 mx-1">•</span>
                 </span>
-                <span className="text-emerald-400 font-bold tracking-tight">24/7 Emergency Dispatch</span>
+                <span className="text-emerald-400 font-bold tracking-tight">
+                  24/7 Emergency Dispatch
+                </span>
               </div>
 
               <span className="text-white/20 hidden lg:inline">|</span>
@@ -231,7 +243,11 @@ export function Nav() {
                   aria-label="Handyman At Home on Yelp"
                   title="Yelp"
                 >
-                  <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    className="h-3.5 w-3.5 fill-current"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <path d="M12.44 1.54c-.6-.08-1.19.26-1.39.81l-1.8 4.93c-.15.42.02.89.4 1.11l4.42 2.55c.44.25 1 .08 1.23-.37l2.15-4.22c.28-.55.08-1.22-.44-1.53l-4.57-3.28zm-2.92 9.17-5.06-1.54c-.58-.17-1.19.12-1.44.68l-1.33 3.03c-.24.55-.07 1.2.4 1.54l4.29 3.06c.4.29.96.22 1.28-.16l3.35-4.04c.36-.43.25-1.07-.19-1.37l-1.3-.87zm3.05 3.32-3.14 4.19c-.33.44-.27 1.05.13 1.43l2.25 2.15c.42.4 1.07.45 1.54.12l4.89-3.41c.45-.31.57-.92.28-1.38l-2.73-4.32c-.28-.45-.88-.6-1.34-.33l-1.88 1.55zm2.74-2.88 5.25.95c.59.11 1.15-.22 1.35-.78l.85-2.4c.2-.56-.05-1.18-.58-1.47l-4.88-2.67c-.45-.25-1.02-.12-1.31.3l-2.6 3.73c-.3.43-.22 1.02.2 1.3l1.72 1.04zm-.55 1.76 4.3 3.23c.48.36 1.14.3 1.56-.15l1.8-1.9c.41-.44.42-1.11.02-1.56l-3.8-4.26c-.34-.38-.93-.45-1.36-.16l-3.9 2.64c-.45.3-.57.9-.27 1.35l1.65 2.85z" />
                   </svg>
                 </a>
@@ -254,8 +270,11 @@ export function Nav() {
                 <button
                   type="button"
                   onClick={() => setLang("EN")}
-                  className={`px-2 py-0.5 rounded-full transition-all cursor-pointer ${lang === "EN" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-300 hover:text-white"
-                    }`}
+                  className={`px-2 py-0.5 rounded-full transition-all cursor-pointer ${
+                    lang === "EN"
+                      ? "bg-[#0000b9] text-white shadow-xs"
+                      : "text-slate-300 hover:text-white"
+                  }`}
                   aria-label="Switch to English"
                 >
                   EN
@@ -263,8 +282,11 @@ export function Nav() {
                 <button
                   type="button"
                   onClick={() => setLang("ES")}
-                  className={`px-2 py-0.5 rounded-full transition-all cursor-pointer ${lang === "ES" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-300 hover:text-white"
-                    }`}
+                  className={`px-2 py-0.5 rounded-full transition-all cursor-pointer ${
+                    lang === "ES"
+                      ? "bg-[#0000b9] text-white shadow-xs"
+                      : "text-slate-300 hover:text-white"
+                  }`}
                   aria-label="Switch to Spanish"
                 >
                   ES
@@ -276,10 +298,9 @@ export function Nav() {
 
         {/* Main Navigation Bar */}
         <div
-          className={`w-full bg-white transition-all duration-300 border-b border-slate-200/90 ${scrolled
-            ? "py-1.5 sm:py-2 shadow-xs"
-            : "py-2 sm:py-2.5"
-            }`}
+          className={`w-full bg-white transition-all duration-300 border-b border-slate-200/90 ${
+            scrolled ? "py-1.5 sm:py-2 shadow-xs" : "py-2 sm:py-2.5"
+          }`}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center justify-between gap-4">
@@ -292,10 +313,9 @@ export function Nav() {
                 <img
                   src={logoImg}
                   alt="HANDYMAN AT HOME - General Contractor & Handyman Services in Dallas Fort Worth"
-                  className={`w-auto object-contain transition-all duration-300 ${scrolled
-                    ? "h-11 sm:h-12 md:h-[52px]"
-                    : "h-14 sm:h-16 md:h-[68px]"
-                    }`}
+                  className={`w-auto object-contain transition-all duration-300 ${
+                    scrolled ? "h-11 sm:h-12 md:h-[52px]" : "h-14 sm:h-16 md:h-[68px]"
+                  }`}
                 />
               </a>
 
@@ -322,8 +342,9 @@ export function Nav() {
                         >
                           <span>{item.label}</span>
                           <ChevronDown
-                            className={`h-4 w-4 text-slate-400 group-hover/link:text-[#0000b9] transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180 text-[#0000b9]" : ""
-                              }`}
+                            className={`h-4 w-4 text-slate-400 group-hover/link:text-[#0000b9] transition-transform duration-200 ${
+                              servicesDropdownOpen ? "rotate-180 text-[#0000b9]" : ""
+                            }`}
                           />
                         </a>
 
@@ -583,8 +604,9 @@ export function Nav() {
                     >
                       <span>Services</span>
                       <ChevronDown
-                        className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180 text-[#0000b9]" : ""
-                          }`}
+                        className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${
+                          mobileServicesOpen ? "rotate-180 text-[#0000b9]" : ""
+                        }`}
                       />
                     </button>
 
@@ -718,7 +740,9 @@ export function Nav() {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0" />
-                    <span className="font-semibold">Serving DFW &amp; Surrounding Areas Since 2001</span>
+                    <span className="font-semibold">
+                      Serving DFW &amp; Surrounding Areas Since 2001
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="h-4 w-4 text-amber-600 shrink-0" />
@@ -772,7 +796,11 @@ export function Nav() {
                       aria-label="Yelp"
                       title="Yelp"
                     >
-                      <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        className="h-4 w-4 fill-current"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path d="M12.44 1.54c-.6-.08-1.19.26-1.39.81l-1.8 4.93c-.15.42.02.89.4 1.11l4.42 2.55c.44.25 1 .08 1.23-.37l2.15-4.22c.28-.55.08-1.22-.44-1.53l-4.57-3.28zm-2.92 9.17-5.06-1.54c-.58-.17-1.19.12-1.44.68l-1.33 3.03c-.24.55-.07 1.2.4 1.54l4.29 3.06c.4.29.96.22 1.28-.16l3.35-4.04c.36-.43.25-1.07-.19-1.37l-1.3-.87zm3.05 3.32-3.14 4.19c-.33.44-.27 1.05.13 1.43l2.25 2.15c.42.4 1.07.45 1.54.12l4.89-3.41c.45-.31.57-.92.28-1.38l-2.73-4.32c-.28-.45-.88-.6-1.34-.33l-1.88 1.55zm2.74-2.88 5.25.95c.59.11 1.15-.22 1.35-.78l.85-2.4c.2-.56-.05-1.18-.58-1.47l-4.88-2.67c-.45-.25-1.02-.12-1.31.3l-2.6 3.73c-.3.43-.22 1.02.2 1.3l1.72 1.04zm-.55 1.76 4.3 3.23c.48.36 1.14.3 1.56-.15l1.8-1.9c.41-.44.42-1.11.02-1.56l-3.8-4.26c-.34-.38-.93-.45-1.36-.16l-3.9 2.64c-.45.3-.57.9-.27 1.35l1.65 2.85z" />
                       </svg>
                     </a>
@@ -792,16 +820,18 @@ export function Nav() {
                     <button
                       type="button"
                       onClick={() => setLang("EN")}
-                      className={`px-2.5 py-1 rounded-full transition-all ${lang === "EN" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-600"
-                        }`}
+                      className={`px-2.5 py-1 rounded-full transition-all ${
+                        lang === "EN" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-600"
+                      }`}
                     >
                       English
                     </button>
                     <button
                       type="button"
                       onClick={() => setLang("ES")}
-                      className={`px-2.5 py-1 rounded-full transition-all ${lang === "ES" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-600"
-                        }`}
+                      className={`px-2.5 py-1 rounded-full transition-all ${
+                        lang === "ES" ? "bg-[#0000b9] text-white shadow-xs" : "text-slate-600"
+                      }`}
                     >
                       Español
                     </button>

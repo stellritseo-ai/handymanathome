@@ -274,7 +274,10 @@ export function FreeEstimatePageContent() {
               <li className="text-slate-600">
                 <ChevronRight className="h-3.5 w-3.5" />
               </li>
-              <li className="text-white font-semibold flex items-center gap-1.5" aria-current="page">
+              <li
+                className="text-white font-semibold flex items-center gap-1.5"
+                aria-current="page"
+              >
                 <span>Free Estimate</span>
               </li>
             </ol>
@@ -306,10 +309,22 @@ export function FreeEstimatePageContent() {
             {/* Lead Narrative */}
             <div className="mt-4 space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl">
               <p>
-                At <strong className="text-white font-bold">Handyman At Home</strong>, we believe that starting a renovation or repair project shouldn't come with guesswork or hidden fees. For over two decades, we've built our reputation on <strong className="text-white">honest communication, upfront pricing, and exceptional craftsmanship</strong>.
+                At <strong className="text-white font-bold">Handyman At Home</strong>, we believe
+                that starting a renovation or repair project shouldn't come with guesswork or hidden
+                fees. For over two decades, we've built our reputation on{" "}
+                <strong className="text-white">
+                  honest communication, upfront pricing, and exceptional craftsmanship
+                </strong>
+                .
               </p>
               <p>
-                That's why we offer <strong className="text-sky-300 font-bold">100% FREE, no-obligation estimates</strong> for every project—big or small. Whether you need a leaky faucet fixed, a room painted, or a complete kitchen remodel, we'll provide you with a detailed, transparent quote so you know exactly what to expect before we ever pick up a tool.
+                That's why we offer{" "}
+                <strong className="text-sky-300 font-bold">
+                  100% FREE, no-obligation estimates
+                </strong>{" "}
+                for every project—big or small. Whether you need a leaky faucet fixed, a room
+                painted, or a complete kitchen remodel, we'll provide you with a detailed,
+                transparent quote so you know exactly what to expect before we ever pick up a tool.
               </p>
             </div>
 
@@ -359,10 +374,12 @@ export function FreeEstimatePageContent() {
       {/* ─────────────────────────────────────────────────────────────
           2. PROMINENT FORM SECTION (TWO-COLUMN WITH TRUST SIDEBAR)
       ───────────────────────────────────────────────────────────── */}
-      <section id="estimate-form" className="py-12 sm:py-20 bg-slate-50/70 border-b border-slate-200 relative">
+      <section
+        id="estimate-form"
+        className="py-12 sm:py-20 bg-slate-50/70 border-b border-slate-200 relative"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            
             {/* ── Left Column: Trust Sidebar & Direct Contacts (5 Cols) ── */}
             <div className="lg:col-span-5 space-y-6 text-left">
               {/* Direct Call / Contact Box */}
@@ -379,7 +396,8 @@ export function FreeEstimatePageContent() {
                     Prefer to Speak with Someone Directly?
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    We understand that sometimes it's easier to just pick up the phone. Our friendly team is standing by to answer your questions and schedule your free estimate.
+                    We understand that sometimes it's easier to just pick up the phone. Our friendly
+                    team is standing by to answer your questions and schedule your free estimate.
                   </p>
 
                   <div className="mt-6 space-y-4 pt-4 border-t border-white/10">
@@ -471,7 +489,9 @@ export function FreeEstimatePageContent() {
                 {/* Short client testimonial to reinforce trust before submitting */}
                 <div className="rounded-2xl bg-slate-50 p-4 border border-slate-100">
                   <p className="text-xs text-slate-600 italic leading-relaxed">
-                    "Handyman At Home gave us a written, transparent estimate with zero pressure. When the work was completed, there was not a single hidden fee. Highly recommend for any DFW homeowner!"
+                    "Handyman At Home gave us a written, transparent estimate with zero pressure.
+                    When the work was completed, there was not a single hidden fee. Highly recommend
+                    for any DFW homeowner!"
                   </p>
                   <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-500 font-semibold">
                     <span>— Robert M., Plano TX</span>
@@ -494,7 +514,8 @@ export function FreeEstimatePageContent() {
                     Request Your Free Estimate Now
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Ready to get started? Fill out the form below with the details of your project, and our team will get back to you within 24 hours to discuss your free estimate.
+                    Ready to get started? Fill out the form below with the details of your project,
+                    and our team will get back to you within 24 hours to discuss your free estimate.
                   </p>
                 </div>
 
@@ -511,7 +532,8 @@ export function FreeEstimatePageContent() {
                       Estimate Request Received!
                     </h4>
                     <p className="text-sm text-slate-600 mt-2 max-w-md mx-auto">
-                      Thank you for choosing Handyman At Home. One of our dedicated project managers will review your project details and reach out within 24 hours.
+                      Thank you for choosing Handyman At Home. One of our dedicated project managers
+                      will review your project details and reach out within 24 hours.
                     </p>
                     <p className="text-xs font-bold text-[#0000b9] mt-4">
                       For urgent repairs or immediate dispatch, call (214) 814-1444 anytime.
@@ -528,7 +550,10 @@ export function FreeEstimatePageContent() {
                   <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                     {/* Full Name */}
                     <div>
-                      <label htmlFor="fullName" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label
+                        htmlFor="fullName"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                      >
                         Full Name <span className="text-rose-500">*</span>
                       </label>
                       <input
@@ -545,7 +570,10 @@ export function FreeEstimatePageContent() {
                     {/* Phone & Email Row */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        <label
+                          htmlFor="phone"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
                           Phone Number <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -560,7 +588,10 @@ export function FreeEstimatePageContent() {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                        <label
+                          htmlFor="email"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
                           Email Address <span className="text-rose-500">*</span>
                         </label>
                         <input
@@ -577,8 +608,14 @@ export function FreeEstimatePageContent() {
 
                     {/* Project Address / City */}
                     <div>
-                      <label htmlFor="address" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                        Project Address / City <span className="text-slate-400 font-normal">(e.g., Dallas, Fort Worth, Plano)</span>
+                      <label
+                        htmlFor="address"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                      >
+                        Project Address / City{" "}
+                        <span className="text-slate-400 font-normal">
+                          (e.g., Dallas, Fort Worth, Plano)
+                        </span>
                       </label>
                       <input
                         type="text"
@@ -592,7 +629,10 @@ export function FreeEstimatePageContent() {
 
                     {/* Service Needed Dropdown */}
                     <div>
-                      <label htmlFor="service" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label
+                        htmlFor="service"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                      >
                         Service Needed <span className="text-rose-500">*</span>
                       </label>
                       <div className="relative">
@@ -615,8 +655,15 @@ export function FreeEstimatePageContent() {
 
                     {/* Project Details */}
                     <div>
-                      <label htmlFor="details" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                        Project Details <span className="text-slate-400 font-normal">(Please describe your project. The more details you provide, the more accurate your estimate will be!)</span>
+                      <label
+                        htmlFor="details"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                      >
+                        Project Details{" "}
+                        <span className="text-slate-400 font-normal">
+                          (Please describe your project. The more details you provide, the more
+                          accurate your estimate will be!)
+                        </span>
                       </label>
                       <textarea
                         id="details"
@@ -698,7 +745,6 @@ export function FreeEstimatePageContent() {
                 )}
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -719,7 +765,8 @@ export function FreeEstimatePageContent() {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-              Getting started is simple. We've streamlined our process to save you time and get your project moving.
+              Getting started is simple. We've streamlined our process to save you time and get your
+              project moving.
             </p>
           </div>
 
@@ -746,9 +793,7 @@ export function FreeEstimatePageContent() {
                       {item.title}
                     </h3>
 
-                    <p className="mt-2.5 text-xs text-slate-600 leading-relaxed">
-                      {item.desc}
-                    </p>
+                    <p className="mt-2.5 text-xs text-slate-600 leading-relaxed">{item.desc}</p>
                   </div>
 
                   <div className="mt-5 pt-3 border-t border-slate-200/80 flex items-center gap-1.5 text-[10.5px] font-bold text-[#0000b9] uppercase tracking-wider">
@@ -777,7 +822,8 @@ export function FreeEstimatePageContent() {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-              When you request a free estimate from us, you're not just getting a price—you're getting peace of mind. Here's why thousands of DFW homeowners and businesses trust us:
+              When you request a free estimate from us, you're not just getting a price—you're
+              getting peace of mind. Here's why thousands of DFW homeowners and businesses trust us:
             </p>
           </div>
 
@@ -796,14 +842,10 @@ export function FreeEstimatePageContent() {
 
                     <div className="flex items-center gap-2 mb-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                      <h3 className="text-lg font-extrabold text-slate-900">
-                        {item.title}
-                      </h3>
+                      <h3 className="text-lg font-extrabold text-slate-900">{item.title}</h3>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {item.desc}
-                    </p>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               );
@@ -853,7 +895,8 @@ export function FreeEstimatePageContent() {
 
           <div className="mt-10 p-6 rounded-2xl bg-blue-50/80 border border-blue-200/80 text-center max-w-2xl mx-auto">
             <p className="text-sm font-bold text-slate-800">
-              No job is too big or too small. If you're not sure if your project qualifies, just ask!
+              No job is too big or too small. If you're not sure if your project qualifies, just
+              ask!
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
               <button
@@ -890,7 +933,8 @@ export function FreeEstimatePageContent() {
             </h2>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-              Our mobile repair vans and certified crews provide free estimates across a 40-mile radius of DFW, including:
+              Our mobile repair vans and certified crews provide free estimates across a 40-mile
+              radius of DFW, including:
             </p>
           </div>
 
@@ -940,7 +984,8 @@ export function FreeEstimatePageContent() {
                   Don't see your city listed?
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-blue-100 leading-relaxed">
-                  Give us a call! We serve communities across a 40-mile radius of DFW and likely serve your neighborhood.
+                  Give us a call! We serve communities across a 40-mile radius of DFW and likely
+                  serve your neighborhood.
                 </p>
               </div>
 
@@ -1034,7 +1079,8 @@ export function FreeEstimatePageContent() {
               </h3>
 
               <p className="mt-3 text-sm sm:text-base text-blue-100 leading-relaxed">
-                Don't wait another day to start your project. Request your free estimate now and let's bring your vision to life.
+                Don't wait another day to start your project. Request your free estimate now and
+                let's bring your vision to life.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

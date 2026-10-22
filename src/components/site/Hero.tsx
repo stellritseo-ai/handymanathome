@@ -5,9 +5,7 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section
-      className="relative w-full overflow-hidden bg-[#070b1a] min-h-[540px] sm:min-h-[580px] md:min-h-[640px] flex items-center justify-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24"
-    >
+    <section className="relative w-full overflow-hidden bg-[#070b1a] min-h-[540px] sm:min-h-[580px] md:min-h-[640px] flex items-center justify-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
       {/* Background Video (with fallback image behind it) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
         {/* Static image fallback */}
@@ -28,19 +26,15 @@ export function Hero() {
       </div>
 
       {/* Lighter Dark gradient overlay so video is much more visible while text remains crisp */}
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-[#070b1a]/80 via-[#070b1a]/55 to-[#070b1a]/30 z-10"
-      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#070b1a]/80 via-[#070b1a]/55 to-[#070b1a]/30 z-10" />
 
       {/* Decorative subtle ambient radial light */}
       <div className="absolute -top-32 left-1/4 w-96 h-96 bg-[#0000b9]/25 rounded-full blur-[120px] pointer-events-none z-10" />
 
       {/* Dynamic content container */}
       <div className="relative z-20 max-w-7xl mx-auto w-full flex flex-col items-start text-white">
-
         {/* Headline, CTAs, Trust Metrics */}
         <div className="max-w-3xl lg:max-w-4xl flex flex-col items-start space-y-4 sm:space-y-5 md:space-y-6">
-
           {/* Badge: Residential & Commercial */}
           <motion.div
             initial={{ opacity: 0, y: -12 }}
@@ -54,7 +48,9 @@ export function Hero() {
             </span>
             <span>Residential &amp; Commercial</span>
             <span className="text-white/30">•</span>
-            <span className="text-sky-300 font-semibold tracking-normal text-[10.5px] sm:text-[11.5px] lowercase">Dallas-Fort Worth, TX</span>
+            <span className="text-sky-300 font-semibold tracking-normal text-[10.5px] sm:text-[11.5px] lowercase">
+              Dallas-Fort Worth, TX
+            </span>
           </motion.div>
 
           {/* Headline */}
@@ -136,29 +132,33 @@ export function Hero() {
               <div className="flex items-center gap-2.5 bg-white/5 sm:bg-transparent p-2.5 sm:p-0 rounded-xl">
                 <CheckCircle2 className="w-5 h-5 text-sky-400 shrink-0" />
                 <div>
-                  <h4 className="text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider">Over 24 Yrs Exp</h4>
+                  <h4 className="text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider">
+                    Over 24 Yrs Exp
+                  </h4>
                   <p className="text-[10px] text-slate-300 font-light">Serving DFW Since 2001</p>
                 </div>
               </div>
               <div className="flex items-center gap-2.5 bg-white/5 sm:bg-transparent p-2.5 sm:p-0 rounded-xl">
                 <CheckCircle2 className="w-5 h-5 text-sky-400 shrink-0" />
                 <div>
-                  <h4 className="text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider">Licensed &amp; Insured</h4>
+                  <h4 className="text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider">
+                    Licensed &amp; Insured
+                  </h4>
                   <p className="text-[10px] text-slate-300 font-light">General Contractor</p>
                 </div>
               </div>
               <div className="flex items-center gap-2.5 bg-white/5 sm:bg-transparent p-2.5 sm:p-0 rounded-xl">
                 <CheckCircle2 className="w-5 h-5 text-sky-400 shrink-0" />
                 <div>
-                  <h4 className="text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider">24/7 Emergency</h4>
+                  <h4 className="text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider">
+                    24/7 Emergency
+                  </h4>
                   <p className="text-[10px] text-slate-300 font-light">Repairs Just a Call Away</p>
                 </div>
               </div>
             </div>
           </motion.div>
-
         </div>
-
       </div>
     </section>
   );

@@ -21,8 +21,7 @@ export const Route = createFileRoute("/about")({
       },
       {
         property: "og:title",
-        content:
-          "About Handyman At Home | Your Trusted DFW Partner for Remodeling & Repairs",
+        content: "About Handyman At Home | Your Trusted DFW Partner for Remodeling & Repairs",
       },
       {
         property: "og:description",

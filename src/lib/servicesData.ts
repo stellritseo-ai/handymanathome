@@ -8,18 +8,16 @@ import commercialImg from "@/assets/svc-commercial.png";
 // Dynamic gallery image imports
 const galleryModules = import.meta.glob<{ default: string }>(
   "@/assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
-  { eager: true }
+  { eager: true },
 );
 
-export const galleryImagesList: string[] = Object.values(galleryModules).map(
-  (mod) => mod.default
-);
+export const galleryImagesList: string[] = Object.values(galleryModules).map((mod) => mod.default);
 
 // Resilient helper to extract authentic project images matching service context
 export function getGalleryAsset(searchPattern: string): string {
   const normalized = searchPattern.toLowerCase();
   const entry = Object.entries(galleryModules).find(([filePath]) =>
-    filePath.toLowerCase().includes(normalized)
+    filePath.toLowerCase().includes(normalized),
   );
   return entry ? entry[1].default : "";
 }
@@ -77,7 +75,8 @@ export const servicesData: Record<string, ServiceDetailConfig> = {
     h1Title: "Luxury Kitchen & Bathroom Remodeling in Dallas-Fort Worth",
     h2Subtitle: "Turnkey Transformations Designed for Everyday Living and Lasting Value",
     metaTitle: "Kitchen & Bathroom Remodeling Dallas TX | Handyman At Home",
-    metaDescription: "Premier kitchen and bath remodeling across Dallas-Fort Worth. Custom cabinetry, quartz countertops, frameless glass showers, and full renovations. Call (214) 814-1444.",
+    metaDescription:
+      "Premier kitchen and bath remodeling across Dallas-Fort Worth. Custom cabinetry, quartz countertops, frameless glass showers, and full renovations. Call (214) 814-1444.",
     heroBadge: "Turnkey Interior Remodeling",
     leadParagraph:
       "At Handyman At Home, we understand that kitchens and bathrooms are the heart and sanctuary of your home. For over two decades, our master remodeling specialists have transformed outdated, cramped spaces into stunning, highly functional living environments tailored to each homeowner's unique taste and lifestyle.",
@@ -196,7 +195,7 @@ export const servicesData: Record<string, ServiceDetailConfig> = {
     },
   },
 
-  "painting": {
+  painting: {
     id: "painting",
     slug: "/services/painting",
     serviceName: "Interior & Exterior Painting",
@@ -204,7 +203,8 @@ export const servicesData: Record<string, ServiceDetailConfig> = {
     h1Title: "Professional Interior & Exterior Painting in Dallas-Fort Worth",
     h2Subtitle: "Flawless Finishes, Meticulous Surface Preparation, and Enduring Protection",
     metaTitle: "Interior & Exterior Painting Dallas TX | Handyman At Home",
-    metaDescription: "Top-rated residential and commercial painting across Dallas-Fort Worth. Drywall repair, cabinet spraying, exterior weatherproofing, and trim work. Call (214) 814-1444.",
+    metaDescription:
+      "Top-rated residential and commercial painting across Dallas-Fort Worth. Drywall repair, cabinet spraying, exterior weatherproofing, and trim work. Call (214) 814-1444.",
     heroBadge: "Precision Surface Coating",
     leadParagraph:
       "A fresh coat of premium paint is the most transformative, cost-effective way to revitalize your residential property or commercial storefront. At Handyman At Home, we deliver showroom-grade wall finishes that withstand Texas heat, intense UV rays, and daily family life.",
@@ -319,7 +319,7 @@ export const servicesData: Record<string, ServiceDetailConfig> = {
     },
   },
 
-  "roofing": {
+  roofing: {
     id: "roofing",
     slug: "/services/roofing",
     serviceName: "Roofing Repairs & Installation",
@@ -327,7 +327,8 @@ export const servicesData: Record<string, ServiceDetailConfig> = {
     h1Title: "Expert Roofing Repairs & Roof Installation in Dallas-Fort Worth",
     h2Subtitle: "Protecting Your Home and Business from North Texas Storms with Certified Quality",
     metaTitle: "Roofing Repairs & Installation Dallas TX | Handyman At Home",
-    metaDescription: "Trusted DFW roofing contractors. Emergency leak repair, storm damage restoration, shingle replacement, and full re-roofing. Call (214) 814-1444 for a free inspection.",
+    metaDescription:
+      "Trusted DFW roofing contractors. Emergency leak repair, storm damage restoration, shingle replacement, and full re-roofing. Call (214) 814-1444 for a free inspection.",
     heroBadge: "Storm-Tested Roofing Protection",
     leadParagraph:
       "Your roof is your property's first and most critical line of defense against severe North Texas weather—from punishing hail and high-speed windstorms to torrential rain. At Handyman At Home, we provide prompt, certified roofing services that safeguard your family and structural investment.",
@@ -438,7 +439,7 @@ export const servicesData: Record<string, ServiceDetailConfig> = {
     },
   },
 
-  "plumbing": {
+  plumbing: {
     id: "plumbing",
     slug: "/services/plumbing",
     serviceName: "Plumbing Services",
@@ -446,7 +447,8 @@ export const servicesData: Record<string, ServiceDetailConfig> = {
     h1Title: "Licensed Plumbing Repairs & Installations in Dallas-Fort Worth",
     h2Subtitle: "Fast, Dependable Solutions for Residential and Commercial Plumbing Systems",
     metaTitle: "Plumbing Services Dallas TX | Handyman At Home",
-    metaDescription: "Professional plumbing services across Dallas-Fort Worth. Leak detection, water heater repair, toilet & faucet replacement, pipe repairs, and 24/7 emergency service. Call (214) 814-1444.",
+    metaDescription:
+      "Professional plumbing services across Dallas-Fort Worth. Leak detection, water heater repair, toilet & faucet replacement, pipe repairs, and 24/7 emergency service. Call (214) 814-1444.",
     heroBadge: "24/7 Emergency Plumbing Ready",
     leadParagraph:
       "Plumbing failures demand immediate, competent attention before minor drips trigger costly structural rot and mold growth. Handyman At Home provides dependable, licensed plumbing services across the Dallas-Fort Worth metroplex.",
@@ -557,15 +559,17 @@ export const servicesData: Record<string, ServiceDetailConfig> = {
     },
   },
 
-  "landscaping": {
+  landscaping: {
     id: "landscaping",
     slug: "/services/landscaping",
     serviceName: "Landscaping & Outdoor Living",
     shortDesc: "Fencing, custom decks, patio covers & grounds care",
     h1Title: "Custom Landscaping & Outdoor Living Spaces in Dallas-Fort Worth",
-    h2Subtitle: "Extend Your Home's Living Space with Custom Decks, Cedar Fencing, and Outdoor Hardscapes",
+    h2Subtitle:
+      "Extend Your Home's Living Space with Custom Decks, Cedar Fencing, and Outdoor Hardscapes",
     metaTitle: "Landscaping & Outdoor Living Dallas TX | Handyman At Home",
-    metaDescription: "Premier outdoor living and landscaping in Dallas-Fort Worth. Custom cedar decks, privacy fencing, stone patios, pergolas, and outdoor kitchens. Call (214) 814-1444 for a free estimate.",
+    metaDescription:
+      "Premier outdoor living and landscaping in Dallas-Fort Worth. Custom cedar decks, privacy fencing, stone patios, pergolas, and outdoor kitchens. Call (214) 814-1444 for a free estimate.",
     heroBadge: "Outdoor Living & Hardscapes",
     leadParagraph:
       "A thoughtfully designed outdoor living space expands your home's usable footprint, enhances your lifestyle, and dramatically increases curb appeal. Handyman At Home designs and constructs premier outdoor living environments across North Texas.",
@@ -684,7 +688,8 @@ export const servicesData: Record<string, ServiceDetailConfig> = {
     h1Title: "General Handyman & Precision Carpentry in Dallas-Fort Worth",
     h2Subtitle: "No Job Is Too Big or Too Small: Expert Maintenance, Carpentry, and Home Repairs",
     metaTitle: "Handyman & Carpentry Services Dallas TX | Handyman At Home",
-    metaDescription: "Master general contracting, carpentry, drywall repair, door & window installations, and home maintenance across Dallas-Fort Worth. Over 24 years of experience. Call (214) 814-1444.",
+    metaDescription:
+      "Master general contracting, carpentry, drywall repair, door & window installations, and home maintenance across Dallas-Fort Worth. Over 24 years of experience. Call (214) 814-1444.",
     heroBadge: "Full-Service General Contracting",
     leadParagraph:
       "From annoying sticky doors and damaged drywall to custom architectural trim, crown molding, and commercial building repairs, Handyman At Home is your single, reliable partner for comprehensive property care.",

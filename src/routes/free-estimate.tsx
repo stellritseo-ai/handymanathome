@@ -21,8 +21,7 @@ export const Route = createFileRoute("/free-estimate")({
       },
       {
         property: "og:title",
-        content:
-          "Get Your Free Estimate Today: No Obligation, No Surprises | Handyman At Home DFW",
+        content: "Get Your Free Estimate Today: No Obligation, No Surprises | Handyman At Home DFW",
       },
       {
         property: "og:description",

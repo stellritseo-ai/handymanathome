@@ -44,7 +44,6 @@ export function FAQ() {
 
       <div className="mx-auto w-[90%] max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-
           {/* ── Left Column: Headline & Direct Dispatch Card (5 cols) ── */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">
             {/* Tag Badge */}
@@ -66,7 +65,8 @@ export function FAQ() {
 
             {/* Subtitle */}
             <p className="text-[14.5px] sm:text-[15px] text-slate-600 leading-relaxed font-normal mb-6">
-              Have questions about an upcoming home remodel, roof repair, or emergency plumbing issue? Here are direct answers to what DFW property owners ask us most.
+              Have questions about an upcoming home remodel, roof repair, or emergency plumbing
+              issue? Here are direct answers to what DFW property owners ask us most.
             </p>
 
             {/* Direct Support & Dispatch Card */}
@@ -84,7 +84,8 @@ export function FAQ() {
                     Still Have Questions?
                   </h3>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    Speak directly with a licensed master craftsman. We provide fast answers, honest recommendations, and free on-site consultations.
+                    Speak directly with a licensed master craftsman. We provide fast answers, honest
+                    recommendations, and free on-site consultations.
                   </p>
                 </div>
 
@@ -185,7 +186,6 @@ export function FAQ() {
               );
             })}
           </div>
-
         </div>
       </div>
     </section>

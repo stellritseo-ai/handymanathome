@@ -46,13 +46,14 @@ export interface FormSubmissionPayload {
 
 export async function sendFormNotificationEmail(
   payload: FormSubmissionPayload,
-  recipientEmail: string = DEFAULT_NOTIFICATION_EMAIL
+  recipientEmail: string = DEFAULT_NOTIFICATION_EMAIL,
 ): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
     const transport = getTransporter();
 
     const clientName = payload.fullName || payload.name || "Website Visitor";
-    const serviceName = payload.service || payload.projectType || payload["Service Requested"] || "General Inquiry";
+    const serviceName =
+      payload.service || payload.projectType || payload["Service Requested"] || "General Inquiry";
     const source = payload.source || "Website Form";
     const subject = `🔨 New Handyman At Home Inquiry: ${clientName} (${serviceName})`;
 
@@ -66,7 +67,11 @@ export async function sendFormNotificationEmail(
     const budget = payload.budget || payload["Estimated Budget"] || "";
     const timeline = payload.timeline || payload["Ideal Timeline"] || "";
     const preferredContact = payload.preferredContact || payload["Preferred Contact Method"] || "";
-    const details = payload.details || payload.message || payload["Project Details"] || "No additional project notes provided.";
+    const details =
+      payload.details ||
+      payload.message ||
+      payload["Project Details"] ||
+      "No additional project notes provided.";
 
     const html = `
       <!DOCTYPE html>
@@ -125,38 +130,54 @@ export async function sendFormNotificationEmail(
               </div>
             </div>
 
-            ${address ? `
+            ${
+              address
+                ? `
             <div class="field-row">
               <div class="field-label">Project Address / Location</div>
               <div class="field-value">${address}</div>
             </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <div class="field-row">
               <div class="field-label">Service Requested</div>
               <div class="field-value">${serviceName}</div>
             </div>
 
-            ${budget ? `
+            ${
+              budget
+                ? `
             <div class="field-row">
               <div class="field-label">Estimated Budget</div>
               <div class="field-value">${budget}</div>
             </div>
-            ` : ""}
+            `
+                : ""
+            }
 
-            ${timeline ? `
+            ${
+              timeline
+                ? `
             <div class="field-row">
               <div class="field-label">Target Timeline</div>
               <div class="field-value">${timeline}</div>
             </div>
-            ` : ""}
+            `
+                : ""
+            }
 
-            ${preferredContact ? `
+            ${
+              preferredContact
+                ? `
             <div class="field-row">
               <div class="field-label">Preferred Contact Method</div>
               <div class="field-value">${preferredContact}</div>
             </div>
-            ` : ""}
+            `
+                : ""
+            }
 
             <div class="field-row">
               <div class="field-label">Project Details & Notes</div>
@@ -203,7 +224,10 @@ ${details}
       html,
     });
 
-    console.log(`[Zoho SMTP] Successfully dispatched form inquiry to ${recipientEmail}. Message ID:`, info.messageId);
+    console.log(
+      `[Zoho SMTP] Successfully dispatched form inquiry to ${recipientEmail}. Message ID:`,
+      info.messageId,
+    );
     return { success: true, messageId: info.messageId };
   } catch (err: any) {
     console.error("[Zoho SMTP Error] Failed to send form notification email:", err);

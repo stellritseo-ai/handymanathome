@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -78,20 +79,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Handyman At Home | Quality General Contractor & Handyman Services in Dallas, Fort Worth, TX" },
+      {
+        title:
+          "Handyman At Home | Quality General Contractor & Handyman Services in Dallas, Fort Worth, TX",
+      },
       {
         name: "description",
         content:
           "Quality General Contractor & Handyman Services in Dallas, Fort Worth, TX. Reliable Repairs, Expert Remodeling, and 24/7 Emergency Service. Call (214) 814-1444.",
       },
-      { name: "keywords", content: "General Contractor DFW, Handyman Dallas TX, Handyman Fort Worth, Bathroom Remodel Near Me, Roofing Company DFW, Kitchen Remodelers DFW, Painting Services DFW, Emergency Handyman DFW, Handyman At Home" },
+      {
+        name: "keywords",
+        content:
+          "General Contractor DFW, Handyman Dallas TX, Handyman Fort Worth, Bathroom Remodel Near Me, Roofing Company DFW, Kitchen Remodelers DFW, Painting Services DFW, Emergency Handyman DFW, Handyman At Home",
+      },
       { name: "author", content: "Handyman At Home" },
       { name: "geo.region", content: "US-TX" },
       { name: "geo.placename", content: "Dallas-Fort Worth" },
       { name: "geo.position", content: "32.7767;-96.7970" },
       { name: "ICBM", content: "32.7767, -96.7970" },
       { property: "og:site_name", content: "Handyman At Home" },
-      { property: "og:title", content: "Handyman At Home | General Contractor & Handyman Services Dallas-Fort Worth TX" },
+      {
+        property: "og:title",
+        content: "Handyman At Home | General Contractor & Handyman Services Dallas-Fort Worth TX",
+      },
       {
         property: "og:description",
         content:
@@ -99,8 +110,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Handyman At Home | DFW General Contractor & Handyman Services" },
-      { name: "twitter:description", content: "Reliable repairs, expert remodeling, and 24/7 emergency service in Dallas, Fort Worth, TX." },
+      {
+        name: "twitter:title",
+        content: "Handyman At Home | DFW General Contractor & Handyman Services",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Reliable repairs, expert remodeling, and 24/7 emergency service in Dallas, Fort Worth, TX.",
+      },
     ],
     links: [
       { rel: "icon", type: "image/png", href: "/favicon.png" },
@@ -126,53 +144,53 @@ const jsonLdSchema = {
     {
       "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
       "@id": "https://handymanathometx.com/#business",
-      "name": "Handyman At Home",
-      "legalName": "Handyman At Home LLC",
-      "url": "https://handymanathometx.com",
-      "telephone": "+1-214-814-1444",
-      "email": "handymanathome@gmail.com",
-      "priceRange": "$$",
-      "address": {
+      name: "Handyman At Home",
+      legalName: "Handyman At Home LLC",
+      url: "https://handymanathometx.com",
+      telephone: "+1-214-814-1444",
+      email: "handymanathome@gmail.com",
+      priceRange: "$$",
+      address: {
         "@type": "PostalAddress",
-        "streetAddress": "1730 Newlin Dr",
-        "addressLocality": "DFW",
-        "addressRegion": "TX",
-        "postalCode": "75125",
-        "addressCountry": "US"
+        streetAddress: "1730 Newlin Dr",
+        addressLocality: "DFW",
+        addressRegion: "TX",
+        postalCode: "75125",
+        addressCountry: "US",
       },
-      "openingHoursSpecification": [
+      openingHoursSpecification: [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "07:00",
-          "closes": "21:00"
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "07:00",
+          closes: "21:00",
         },
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Saturday", "Sunday"],
-          "description": "24/7 Emergency Dispatch Available"
-        }
+          dayOfWeek: ["Saturday", "Sunday"],
+          description: "24/7 Emergency Dispatch Available",
+        },
       ],
-      "areaServed": [
-        { "@type": "City", "name": "Dallas" },
-        { "@type": "City", "name": "Fort Worth" },
-        { "@type": "City", "name": "Watauga" },
-        { "@type": "City", "name": "Ennis" },
-        { "@type": "City", "name": "Lancaster" },
-        { "@type": "City", "name": "DeSoto" },
-        { "@type": "City", "name": "Cedar Hill" },
-        { "@type": "City", "name": "Duncanville" },
-        { "@type": "City", "name": "Red Oak" }
+      areaServed: [
+        { "@type": "City", name: "Dallas" },
+        { "@type": "City", name: "Fort Worth" },
+        { "@type": "City", name: "Watauga" },
+        { "@type": "City", name: "Ennis" },
+        { "@type": "City", name: "Lancaster" },
+        { "@type": "City", name: "DeSoto" },
+        { "@type": "City", name: "Cedar Hill" },
+        { "@type": "City", name: "Duncanville" },
+        { "@type": "City", name: "Red Oak" },
       ],
-      "aggregateRating": {
+      aggregateRating: {
         "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "9",
-        "bestRating": "5",
-        "worstRating": "1"
-      }
-    }
-  ]
+        ratingValue: "5.0",
+        reviewCount: "9",
+        bestRating: "5",
+        worstRating: "1",
+      },
+    },
+  ],
 };
 
 function RootShell({ children }: { children: ReactNode }) {
@@ -188,6 +206,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );
@@ -204,4 +223,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-
